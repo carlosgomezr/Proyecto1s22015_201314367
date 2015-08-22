@@ -10,14 +10,14 @@ package arbolavl;
  * @author Carlos Gomez
  */
 public class Bus {
-    int id;
+    String id;
     String nombre;
     int ClaveChofer;
     String horarioIni;
     String horarioFin;
     String fecha;
 
-    public Bus(int id,String nombre, int ClaveChofer, String horarioIni, String horarioFin,String fecha)
+    public Bus(String id,String nombre, int ClaveChofer, String horarioIni, String horarioFin,String fecha)
     {
         this.id = id;
         this.nombre = nombre;

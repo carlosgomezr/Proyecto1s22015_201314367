@@ -9,6 +9,8 @@ package arbolavl;
  *
  * @author Carlos Gomez
  */
+import com.csvreader.CsvReader;
+
 public class ArbolAVL {
 
     /**

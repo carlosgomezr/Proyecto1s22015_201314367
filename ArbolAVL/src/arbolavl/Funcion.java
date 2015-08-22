@@ -13,6 +13,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.swing.JFileChooser;
+import com.csvreader.CsvReader;
+import java.io.FileNotFoundException;
 
 /**
  *
@@ -190,5 +192,40 @@ public void generarImagen(String nombre,String ruta) {
         } finally {
         }
     }
+
+public void leerCSV(){
+  
+        try {
+        listasdobles l = new listasdobles();
+	JFileChooser buscador = new JFileChooser();
+	buscador.showOpenDialog(buscador);
+        String direc = buscador.getSelectedFile().getAbsolutePath();
+         
+        CsvReader usuarios_import = new CsvReader(direc);
+        usuarios_import.readHeaders();
+         
+        while (usuarios_import.readRecord())
+        {
+            String id = usuarios_import.get(0);
+            String ruta = usuarios_import.get(1);
+            String ClaveChofer = usuarios_import.get(2);
+            String HorarioIni = usuarios_import.get(3);
+            String HorarioFin = usuarios_import.get(4);
+            String fecha = usuarios_import.get(5);
+            int aux = Integer.parseInt(ClaveChofer);
+            Bus nuevo = new Bus(id,ruta,aux,HorarioIni,HorarioFin,fecha);
+            l.alta(nuevo);
+        }
+         
+        usuarios_import.close();
+      
+         
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

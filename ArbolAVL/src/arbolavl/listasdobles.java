@@ -42,7 +42,7 @@ public class listasdobles {
         return this;
     }
     
-     public boolean delete(int num)
+     public boolean delete(String num)
     {
         nodo anterior=null;
         nodo actual=primero;
@@ -50,7 +50,7 @@ public class listasdobles {
        
         while(actual!=ultimo)
         {
-            if(actual.b.id==num)
+            if(actual.b.id.compareTo(num)==0)
             {
                 if(anterior==null)
                 {
@@ -69,7 +69,7 @@ public class listasdobles {
             actual=actual.next;
         }
        
-        if(num==ultimo.b.id)
+        if(num.compareTo(ultimo.b.id)==0)
         {
              if(primero==ultimo){
                 primero = ultimo = null;
