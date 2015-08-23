@@ -42,6 +42,30 @@ public class listasdobles {
         return this;
     }
     
+    public listasdobles baja(Bus dat)
+    {
+        if((ultimo==null))
+        {
+            nodo nuevo=new nodo(dat);
+            primero=nuevo;
+            ultimo=nuevo;
+        }
+        else
+        {
+            //nodo nuevo=new nodo(dat);
+            //ultimo.next=nuevo;
+            //nuevo.ant=ultimo;
+            //ultimo=nuevo;
+            
+            nodo nuevo=new nodo(dat);
+            primero.ant=nuevo;
+            nuevo.next = primero;
+            primero = nuevo;
+        }
+        return this;
+    }
+    
+    
      public boolean delete(String num)
     {
         nodo anterior=null;
@@ -82,5 +106,72 @@ public class listasdobles {
         return false;
     }
 
+    public int tamaño(){
+        int t=0;
+        if( estavacio() )
+	{
+		t=0;
+	}
+	nodo actual = ultimo;
+	while( actual != null)
+	{
+                t = t+1;
+		actual = actual.ant;
+	}
+        return t;
+    }
+        
+    public nodo posicion(int tam){
+        nodo aux=null;
+        if( estavacio() )
+	{
+		aux = null;
+	}
+	nodo actual = primero;
+        for(int i=1;i<=tam;i++){
+            if(actual!=null){
+                aux = actual;
+                actual = actual.next;
+                //System.out.println("entre al if posicion "+i);
+            }
+        }
+        return aux;
+    }
+    
+     public void Modificar(listasdobles lista,Bus aj,Bus ajm){
+        int numeroid=0;
+        nodo actual;
+        actual = ultimo;
+        while( actual != null)
+	{
+            System.out.println("j :"+aj.ClaveChofer+" j+1 "+ajm.ClaveChofer);
+            if(actual.b.ClaveChofer==aj.ClaveChofer){
+                aj = ajm;
+                actual.b = aj;
+            }
+            actual = actual.ant;
+	}
+    }
+   
+     public void ordenamiento(listasdobles lista){
+     int tam = 0;
+     Bus temp = null;
+     Bus aux = null;
+     Bus aux2 = null;
+     tam = lista.tamaño()+1;
+     System.out.println("Tamaño ");
+         for(int i=1;i<=tam;i++){
+             for(int j=1;j<=tam;j++){
+                if(lista.posicion(j).b.ClaveChofer>lista.posicion(j+1).b.ClaveChofer){ 
+                //if(lista.posicion(j).b.id.compareTo(lista.posicion(i).b.id)>0){
+                     System.out.println("entro a >");
+                     temp = lista.posicion(j).b;
+                     
+                     lista.Modificar(lista, lista.posicion(j).b,lista.posicion(j+1).b);
+                     lista.Modificar(lista, lista.posicion(j+1).b, temp);
+                }
+             }
+         }
+     }
 
 }

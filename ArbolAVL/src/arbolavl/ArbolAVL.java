@@ -40,8 +40,28 @@ public class ArbolAVL {
         Funcion f = new Funcion();
         f.GraphAVL(arbolAVL.root, "ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");
         f.generarImagen("ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");  
-        String aux = f.leer();
-        System.out.println(aux);
+       
+        listasdobles doble = new listasdobles();
+        Bus b1 = new Bus("adulto","",6,"","","");
+        Bus b2 = new Bus("agil","",3,"","","");
+        Bus b3 = new Bus("aereo","",4,"","","");
+        Bus b4 = new Bus("ahi","",1,"","","");
+        Bus b5 = new Bus("acordion","",5,"","","");
+        Bus b6 = new Bus("abeja","",2,"","","");
+        doble.alta(b1);
+        doble.alta(b2);
+        doble.alta(b3);
+        doble.alta(b4);
+        doble.alta(b5);
+        doble.alta(b6);
+        System.out.println("Tamaño de la lista: "+doble.tamaño()+" elemento b2: "+doble.posicion(2).b.id);
+        doble.ordenamiento(doble);
+        f.generarListaDoble(doble,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
+        f.generarImagen("ListaDoble","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
+        
+       // String aux = f.leer();
+       // System.out.println(aux);
+       
     }
     
 }

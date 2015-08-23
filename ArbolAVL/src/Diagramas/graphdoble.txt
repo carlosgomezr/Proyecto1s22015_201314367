@@ -1,0 +1,25 @@
+digraph grafica { 
+label= "LISTA DOBLE  PERSONAJES"node [shape=record];
+subgraph g { 
+ nodeahi[label=" id: ahi ruta:  chofer: 1 horaIni  horaFin  fecha  "];
+nodeabeja[label=" id: abeja ruta:  chofer: 2 horaIni  horaFin  fecha  "];
+nodeahi->nodeabeja;
+nodeabeja->nodeahi;
+nodeabeja[label=" id: abeja ruta:  chofer: 2 horaIni  horaFin  fecha  "];
+nodeagil[label=" id: agil ruta:  chofer: 3 horaIni  horaFin  fecha  "];
+nodeabeja->nodeagil;
+nodeagil->nodeabeja;
+nodeagil[label=" id: agil ruta:  chofer: 3 horaIni  horaFin  fecha  "];
+nodeaereo[label=" id: aereo ruta:  chofer: 4 horaIni  horaFin  fecha  "];
+nodeagil->nodeaereo;
+nodeaereo->nodeagil;
+nodeaereo[label=" id: aereo ruta:  chofer: 4 horaIni  horaFin  fecha  "];
+nodeacordion[label=" id: acordion ruta:  chofer: 5 horaIni  horaFin  fecha  "];
+nodeaereo->nodeacordion;
+nodeacordion->nodeaereo;
+nodeacordion[label=" id: acordion ruta:  chofer: 5 horaIni  horaFin  fecha  "];
+nodeadulto[label=" id: adulto ruta:  chofer: 6 horaIni  horaFin  fecha  "];
+nodeacordion->nodeadulto;
+nodeadulto->nodeacordion;
+}
+}
