@@ -18,27 +18,23 @@ public class ArbolAVL {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        AVLTree arbolAVL = new AVLTree();
-        EstacionClave e1 = new EstacionClave(1,"nombre","apellido");
-        EstacionClave e2 = new EstacionClave(2,"nombre","apellido");
-        EstacionClave e3 = new EstacionClave(3,"nombre","apellido");
-        EstacionClave e4 = new EstacionClave(4,"nombre","apellido");
-        EstacionClave e5 = new EstacionClave(5,"nombre","apellido");
-        EstacionClave e6 = new EstacionClave(6,"nombre","apellido");
-        EstacionClave e7 = new EstacionClave(7,"nombre","apellido");
-        EstacionClave e8 = new EstacionClave(8,"nombre","apellido");
-        arbolAVL.insert(e1);
-        arbolAVL.insert(e2);
-        arbolAVL.insert(e3);
-        arbolAVL.insert(e4);
-        arbolAVL.insert(e5);
-        arbolAVL.insert(e6);
-        arbolAVL.insert(e7);
-        arbolAVL.insert(e8);
+     /*   AVLTree arbolAVL = new AVLTree();
+        
+        arbolAVL.insert(1," 1 "," 1");
+        arbolAVL.insert(2," 2 "," 2");
+        arbolAVL.insert(3," 3 "," 3");
+        arbolAVL.insert(4," 4 "," 4");
+        arbolAVL.insert(5," 5 "," 5");
+        arbolAVL.insert(6," 6 "," 6");
+        arbolAVL.insert(7," 7 "," 7");
+        arbolAVL.insert(8," 8 "," 8");
+        System.out.println("\n");
+        arbolAVL.eliminar(arbolAVL.root,5);
+        //arbolAVL.modificar(arbolAVL.root,8," 8 xd"," 8 :3");
         arbolAVL.imprimir(arbolAVL.root);
         System.out.println("\n");
         Funcion f = new Funcion();
-        f.GraphAVL(arbolAVL.root, "ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");
+        arbolAVL.GraphAVL(arbolAVL.root,"ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");
         f.generarImagen("ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");  
        
         listasdobles doble = new listasdobles();
@@ -55,13 +51,18 @@ public class ArbolAVL {
         doble.alta(b5);
         doble.alta(b6);
         System.out.println("Tamaño de la lista: "+doble.tamaño()+" elemento b2: "+doble.posicion(2).b.id);
-        doble.ordenamiento(doble);
+        //doble.ordenamiento(doble);
         f.generarListaDoble(doble,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
         f.generarImagen("ListaDoble","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
-        
+       */ 
        // String aux = f.leer();
        // System.out.println(aux);
-       
+       listasdobles auxcsv = new listasdobles();
+       Funcion gh = new Funcion();
+       gh.leerCSV(auxcsv);
+       auxcsv.ordenamiento(auxcsv);
+       gh.generarListaDoble(auxcsv,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
+       gh.generarImagen("LISTA CSV", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
     }
     
 }

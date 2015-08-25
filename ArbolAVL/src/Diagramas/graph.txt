@@ -3,120 +3,120 @@ label= " ArbolAVLEstacionesClave"node [shape=record];
 subgraph g {
 nodea4[label=" clave: 4
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea2[label=" clave: 2
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea4->nodea2[label="izq"];
 nodea2[label=" clave: 2
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea1[label=" clave: 1
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea2->nodea1[label="izq"];
 nodea1[label=" clave: 1
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea2[label=" clave: 2
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea3[label=" clave: 3
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
-nodea2->nodea3[label="izq"];
+ PASSWORD: null"];
+nodea2->nodea3[label="der"];
 nodea3[label=" clave: 3
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea2[label=" clave: 2
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea4[label=" clave: 4
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea6[label=" clave: 6
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
-nodea4->nodea6[label="izq"];
+ PASSWORD: null"];
+nodea4->nodea6[label="der"];
 nodea6[label=" clave: 6
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea5[label=" clave: 5
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea6->nodea5[label="izq"];
 nodea5[label=" clave: 5
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea6[label=" clave: 6
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea7[label=" clave: 7
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
-nodea6->nodea7[label="izq"];
+ PASSWORD: null"];
+nodea6->nodea7[label="der"];
 nodea7[label=" clave: 7
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea8[label=" clave: 8
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
-nodea7->nodea8[label="izq"];
+ PASSWORD: null"];
+nodea7->nodea8[label="der"];
 nodea8[label=" clave: 8
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea7[label=" clave: 7
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea6[label=" clave: 6
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 nodea4[label=" clave: 4
  
- NOMBRE: nombre 
+ NOMBRE: null 
  
- PASSWORD: apellido"];
+ PASSWORD: null"];
 }
 }

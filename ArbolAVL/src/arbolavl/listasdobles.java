@@ -162,8 +162,8 @@ public class listasdobles {
      System.out.println("Tamaño ");
          for(int i=1;i<=tam;i++){
              for(int j=1;j<=tam;j++){
-                if(lista.posicion(j).b.ClaveChofer>lista.posicion(j+1).b.ClaveChofer){ 
-                //if(lista.posicion(j).b.id.compareTo(lista.posicion(i).b.id)>0){
+                //if(lista.posicion(j).b.ClaveChofer>lista.posicion(j+1).b.ClaveChofer){ 
+                if(lista.posicion(j).b.id.compareTo(lista.posicion(i).b.id)>0){
                      System.out.println("entro a >");
                      temp = lista.posicion(j).b;
                      

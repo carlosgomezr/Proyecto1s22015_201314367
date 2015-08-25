@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,70 +22,7 @@ import java.io.FileNotFoundException;
  * @author Carlos Gomez
  **/
 public class Funcion {
-
-public String ToDot(AVLNode node)
-{
-    String stream="";
-    
-    if(node.izquierdo !=null)
-        {
-            stream=stream+"nodea"+node.dato.id+"[label=\" clave: "+node.dato.id+"\n \n NOMBRE: "+node.dato.nombre+" \n \n PASSWORD: "+node.dato.password+"\"];\n";
-            stream=stream+"nodea"+node.izquierdo.dato.id+"[label=\" clave: "+node.izquierdo.dato.id+"\n \n NOMBRE: "+node.izquierdo.dato.nombre+" \n \n PASSWORD: "+node.izquierdo.dato.password+"\"];\n";
-            stream=stream+"nodea"+node.dato.id+"->nodea"+node.izquierdo.dato.id+"[label=\"izq\"];\n";
-            stream=stream+ToDot(node.izquierdo);
-            //if(node->lista!=NULL){
-            //conca+=graficarjuego(node->lista);
-            //}              
-        }
-    if(node.derecho !=null)
-        {
-            stream=stream+"nodea"+node.dato.id+"[label=\" clave: "+node.dato.id+"\n \n NOMBRE: "+node.dato.nombre+" \n \n PASSWORD: "+node.dato.password+"\"];\n";
-            stream=stream+"nodea"+node.derecho.dato.id+"[label=\" clave: "+node.derecho.dato.id+"\n \n NOMBRE: "+node.derecho.dato.nombre+" \n \n PASSWORD: "+node.derecho.dato.password+"\"];\n";
-            stream=stream+"nodea"+node.dato.id+"->nodea"+node.derecho.dato.id+"[label=\"izq\"];\n";
-            stream=stream+ToDot(node.derecho);
-        }
-    if(node!=null){
-            stream=stream+"nodea"+node.dato.id+"[label=\" clave: "+node.dato.id+"\n \n NOMBRE: "+node.dato.nombre+" \n \n PASSWORD: "+node.dato.password+"\"];\n";
-            //if(node->lista!=NULL){
-                 //   conca+=graficarjuego(node->lista);
-               // }
-                //cod += graficarjuego(node->lista);
-            }
-            return stream;
-        }
-
-public void GraphAVL(AVLNode node,String nombre,String ruta){
-	    File f;
-	    FileWriter escribir;
-	    String cod="";
-            try{
-	    System.out.println(ruta);
-	    f = new File(ruta);
-	    escribir = new FileWriter(f);
-	    BufferedWriter bw = new BufferedWriter(escribir);
-	    PrintWriter pw = new PrintWriter(bw);
-            pw.write("digraph grafica { \n");
-            pw.write("label= \" "+nombre+ "\"");
-            pw.write("node [shape=record];\n");
-            pw.write("subgraph g {\n");
-
-                cod=cod+(ToDot(node));
-            pw.write(cod);    
-            pw.write("}\n");
-            pw.write("}\n");
-            
-	    pw.close();
-	    bw.close();
-            }
-	    catch(IOException e){System.out.println("Error: "+e.getMessage());
-            
-            }
-            
-       
-}
-
-
-     public void generarListaDoble(listasdobles lista,String ruta){
+public void generarListaDoble(listasdobles lista,String ruta){
             listasdobles aux = lista;
 	    File f;
 	    FileWriter escribir;
@@ -126,7 +64,6 @@ public void GraphAVL(AVLNode node,String nombre,String ruta){
             
             }       
 }
-
 
 public String leer(){
     String cadena="";
@@ -193,16 +130,15 @@ public void generarImagen(String nombre,String ruta) {
         }
     }
 
-public void leerCSV(){
+public void leerCSV(listasdobles l){
   
         try {
-        listasdobles l = new listasdobles();
-	JFileChooser buscador = new JFileChooser();
+        JFileChooser buscador = new JFileChooser();
 	buscador.showOpenDialog(buscador);
         String direc = buscador.getSelectedFile().getAbsolutePath();
          
         CsvReader usuarios_import = new CsvReader(direc);
-        usuarios_import.readHeaders();
+       // usuarios_import.readHeaders();
          
         while (usuarios_import.readRecord())
         {
