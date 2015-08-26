@@ -17,23 +17,30 @@ import java.io.PrintWriter;
  */
 public class AVLTree {
 public AVLNode root;
+public AVLNode padre;
 
     public void insert( int x,String nombre, String password ){
         root = insert( x, nombre,password,root );
     }
     public void eliminar(int x){
-        root =eliminar(root,x);
+        eliminar(root,x);
     }
     public void buscar(int x){
         buscar(root,x);
+    }
+    public void padre(AVLNode hijo){
+        padre(root,hijo);
+    }
+    public void balancear(){
+        balancear(root);
     }
     /*
      * x es una instancia de una clase que implementa Comparable
     */
     private AVLNode insert( int x,String nombre, String password, AVLNode t ){
-        System.out.println("    t.insertar  "+t);
+        System.out.println("    t.insertar  "+t+" ");
         if( t == null )
-            t = new AVLNode( x, null, null );
+            t = new AVLNode( x, nombre, password );
         else if( x<( t.id )) {
             t.izquierdo = insert( x,nombre,password, t.izquierdo );
             if( height( t.izquierdo ) - height( t.derecho ) == 2 )
@@ -77,7 +84,6 @@ public AVLNode root;
               return null;
         }        
         if( x==nuevo.id){
-              nuevo = null;
               return nuevo;
         }
         else{
@@ -100,43 +106,48 @@ public AVLNode root;
                 
         }
         else{
-                System.out.println("    clave no existe");
+                System.out.println("    CLAVE NO EXISTE xD");
             }
         
         }
         catch(Exception ex){
         }
     }
-    public void balancear(AVLNode t){
+    public static AVLNode balancear(AVLNode t){
         if((t!=null)){
-                //int id = height( t.izquierdo ) - height( t.derecho ) ;
-                //int di = height( t.derecho ) - height( t.izquierdo ) ;
-                //System.out.println("t "+t.id+"     altura "+t.height+"     i "+height(t.izquierdo)+"       d "+height(t.derecho)+"     i-d "+id+"      d-i "+di);
+                int id = height( t.izquierdo ) - height( t.derecho ) ;
+                int di = height( t.derecho ) - height( t.izquierdo ) ;
+                System.out.println("BALANCEAR t "+t.id+"     altura "+t.height+"     i "+height(t.izquierdo)+"       d "+height(t.derecho)+"     i-d "+id+"      d-i "+di);
                 if( height( t.izquierdo ) - height( t.derecho ) == 2 ){
-        		if(height(t.izquierdo.izquierdo) >= height(t.izquierdo.derecho))
+        		if(height(t.izquierdo) >= height(t.derecho))
 			{
-                                 int r = height(t.izquierdo.izquierdo);
-        			 t = rotateWithLeftChild( t ); /* Caso 1 */
+                                System.out.println("   ENTRE AL CASO 1");
+                                t = rotateWithLeftChild( t ); /* Caso 1 */
 			}
 			else
 			{
-                                int r = height(t.izquierdo.izquierdo);
-        			 t = doubleWithLeftChild( t ); /* Caso 2 */
+                                System.out.println("   ENTRE AL CASO 2");
+                                t = doubleWithLeftChild( t ); /* Caso 2 */
 			}
 		}
                 if(height( t.derecho ) - height( t.izquierdo ) ==2 ){
-        		if(height(t.derecho.derecho)>=height(t.derecho.izquierdo))
+        		if(height(t.derecho) >= height(t.izquierdo))
 			{
-        			 t = rotateWithRightChild( t ); /* Caso 4 */
-			}
+                                System.out.println("   ENTRE AL CASO 4");
+        			t = rotateWithRightChild(t); /* Caso 4 */
+ 
+                        }
 			else
 			{
-        			 t = doubleWithRightChild( t ); /* Caso 3 */	
+                                System.out.println("   ENTRE AL CASO 3");
+        			t = doubleWithRightChild(t); /* Caso 3 */	
 			}
 		}
-                        balancear(t.izquierdo);
-                        balancear(t.derecho);
+        //                balancear(t.izquierdo);
+        //                balancear(t.derecho);
      }
+        System.out.println(" TT"+t+" t.der "+t.derecho+" t.izq "+t.izquierdo);
+        return t;
 }
 public static void actualizar_altura(AVLNode t){
     if(t!=null){
@@ -166,8 +177,61 @@ static int actualizar_h(AVLNode t)
             
     }
 }
-
+public void hijo(AVLNode padre, AVLNode hijo){
+    if(padre.derecho!=null){
+        if(padre.derecho.id == hijo.id){
+            System.out.println("    el hijo es derecho");
+            padre.derecho = null;
+            hijo = null;
+        }
+    }
     
+    if(padre.izquierdo!=null){
+        if(padre.izquierdo.id == hijo.id){
+            System.out.println("    el hijo es izquierdo");
+            padre.izquierdo = null;
+            hijo = null;
+        }
+    }
+    
+}
+public AVLNode padre(AVLNode t,AVLNode hijo){
+AVLNode aux = t;
+System.out.println("    aux padre "+aux);
+if(aux.derecho!=null){
+    if(hijo.id > aux.derecho.id){
+        System.out.println("No encontre tata :c  root " +aux+"  hijo "+hijo);
+        padre(aux.derecho,hijo);
+    }
+    if(hijo.id < aux.derecho.id ){
+        System.out.println("No encontre tata :c  root " +aux+"  hijo "+hijo);
+        padre(aux.izquierdo,hijo);
+    }
+    if(hijo.id==aux.derecho.id){
+        System.out.println("encontre al tata :D " +aux);
+       // hijo(aux,hijo);
+        padre = aux;
+        return aux;
+    }
+}
+if(aux.izquierdo!=null){
+    if(hijo.id > aux.izquierdo.id){
+        System.out.println("No encontre tata :c  root " +aux+"  hijo "+hijo);
+        padre(aux.derecho,hijo);
+    }
+    if(hijo.id < aux.izquierdo.id){
+        System.out.println("No encontre tata :c  root " +aux+"  hijo "+hijo);
+        padre(aux.izquierdo,hijo);
+    }
+    if(hijo.id==aux.izquierdo.id){
+        System.out.println("encontre al tata :D " +aux);
+       // hijo(aux,hijo);
+        padre = aux;
+        return aux;
+    }
+}
+return  aux;
+}    
 public AVLNode eliminar(AVLNode t,int x){
 	AVLNode aux;
         AVLNode aux2 = buscar(t,x);
@@ -183,10 +247,13 @@ public AVLNode eliminar(AVLNode t,int x){
                 eliminar(t.derecho,x);
 	}
 	else{
-		if((t.izquierdo ==null) && (t.derecho==null)){
+                if((t.izquierdo ==null) && (t.derecho==null)){
                       System.out.println("encontre esta mierda");
-                      aux2=null;
-                      System.out.println("nodo q segun borre "+buscar(t,x));
+                      System.out.println("nodo t (hijo) "+t);
+                      padre(t);
+                      System.out.println("  VARIABLE PADRE STATIC "+padre);
+                      hijo(padre,t);
+                      
         	}
 		else if(t.izquierdo==null){
                         System.out.println("Eliminar_izq");
@@ -212,7 +279,9 @@ public AVLNode eliminar(AVLNode t,int x){
                         System.out.println("Eliminar_min");
 		}	
 	}
-                //balancear(t);
+                balancear(t);
+                t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                padre = null;
                 return t;
 }
 
@@ -242,6 +311,7 @@ public int eliminar_min(AVLNode t){
 
 
     private static AVLNode rotateWithLeftChild( AVLNode k2 ){
+        System.out.println("ROTATE WITH LEFT CHILD");
         AVLNode k1 = k2.izquierdo;
         k2.izquierdo = k1.derecho;
         k1.derecho = k2;
@@ -252,22 +322,37 @@ public int eliminar_min(AVLNode t){
 
 
     private static AVLNode rotateWithRightChild( AVLNode k1 ){
+        System.out.println("ROTATE WITH RIGHT CHILD "+k1);
         AVLNode k2 = k1.derecho;
+        System.out.println("        k2 = k1.der "+k2+" = "+k1.derecho+" k2.der "+k2.derecho);
         k1.derecho = k2.izquierdo;
+        System.out.println("        k1.der = k2.izq "+k1.derecho+" = "+k2.izquierdo);
         k2.izquierdo = k1;
+        System.out.println("        k2.izq = k1 "+k2.izquierdo+" = "+k1);
         k1.height = max( height(k1.izquierdo), height(k1.derecho) ) + 1;
         k2.height = max( height( k2.derecho ), k1.height ) + 1;
+        System.out.println("    ESTO ES LO Q RETORNO k2 "+k2+" k2.derecha "+k2.derecho+" k2.izquierda "+k2.izquierdo);
         return k2;
     }
-
-
+    private static AVLNode DD(AVLNode n){
+        AVLNode n1 = n.derecho;
+        n1.derecho = n.derecho.derecho;
+        n.derecho = n1.izquierdo;
+        n1.izquierdo = n;
+        n.height = max( height(n.izquierdo), height(n.derecho) ) + 1;
+        n1.height = max( height( n1.derecho ), n.height ) + 1;
+        n = n1;
+        return n;
+    }
     private static AVLNode doubleWithLeftChild( AVLNode k3 ){
+        System.out.println("DOUBLE WITH LEFT CHILD");
         k3.izquierdo = rotateWithRightChild( k3.izquierdo );
         return rotateWithLeftChild( k3 );
     }
 
 
     private static AVLNode doubleWithRightChild( AVLNode k1 ){
+        System.out.println("DOUBLE WITH RIGHT CHILD");
         k1.derecho = rotateWithLeftChild( k1.derecho );
         return rotateWithRightChild( k1 );
     }

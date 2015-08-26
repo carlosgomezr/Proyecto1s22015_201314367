@@ -18,20 +18,22 @@ public class ArbolAVL {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-     /*   AVLTree arbolAVL = new AVLTree();
+        AVLTree arbolAVL = new AVLTree();
         
         arbolAVL.insert(1," 1 "," 1");
-        arbolAVL.insert(2," 2 "," 2");
-        arbolAVL.insert(3," 3 "," 3");
-        arbolAVL.insert(4," 4 "," 4");
-        arbolAVL.insert(5," 5 "," 5");
-        arbolAVL.insert(6," 6 "," 6");
-        arbolAVL.insert(7," 7 "," 7");
-        arbolAVL.insert(8," 8 "," 8");
+     //   arbolAVL.insert(2," 2 "," 2");
+     //   arbolAVL.insert(3," 3 "," 3");
+     //   arbolAVL.insert(4," 4 "," 4");
+     //   arbolAVL.insert(5," 5 "," 5");
+     //   arbolAVL.insert(6," 6 "," 6");
+     //   arbolAVL.insert(7," 7 "," 7");
+     //   arbolAVL.insert(8," 8 "," 8");
+        arbolAVL.imprimir();
         System.out.println("\n");
-        arbolAVL.eliminar(arbolAVL.root,5);
-        //arbolAVL.modificar(arbolAVL.root,8," 8 xd"," 8 :3");
+   //     arbolAVL.eliminar(arbolAVL.root,5);
+        arbolAVL.modificar(arbolAVL.root,1," 7 xd"," 7 :3");
         arbolAVL.imprimir(arbolAVL.root);
+        arbolAVL.insert(8," 8 xxx"," 8zzz");
         System.out.println("\n");
         Funcion f = new Funcion();
         arbolAVL.GraphAVL(arbolAVL.root,"ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");
@@ -54,15 +56,15 @@ public class ArbolAVL {
         //doble.ordenamiento(doble);
         f.generarListaDoble(doble,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
         f.generarImagen("ListaDoble","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
-       */ 
+        
        // String aux = f.leer();
        // System.out.println(aux);
-       listasdobles auxcsv = new listasdobles();
-       Funcion gh = new Funcion();
-       gh.leerCSV(auxcsv);
-       auxcsv.ordenamiento(auxcsv);
-       gh.generarListaDoble(auxcsv,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
-       gh.generarImagen("LISTA CSV", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
+      // listasdobles auxcsv = new listasdobles();
+      // Funcion gh = new Funcion();
+      // gh.leerCSV(auxcsv);
+      // auxcsv.ordenamiento(auxcsv);
+      // gh.generarListaDoble(auxcsv,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
+      // gh.generarImagen("LISTA CSV", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
     }
     
 }

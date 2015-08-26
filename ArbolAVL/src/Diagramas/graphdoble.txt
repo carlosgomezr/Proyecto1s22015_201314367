@@ -1,17 +1,25 @@
 digraph grafica { 
 label= "LISTA DOBLE  PERSONAJES"node [shape=record];
 subgraph g { 
- nodeABC123[label=" id: ABC123 ruta: TREBOL chofer: 1 horaIni 12:00 horaFin 18:00 fecha 25 AGOSTO 2015 "];
-nodeDEF456[label=" id: DEF456 ruta: DON BOSCO chofer: 2 horaIni 13:00 horaFin 19:00 fecha 26 AGOSTO 2015 "];
-nodeABC123->nodeDEF456;
-nodeDEF456->nodeABC123;
-nodeDEF456[label=" id: DEF456 ruta: DON BOSCO chofer: 2 horaIni 13:00 horaFin 19:00 fecha 26 AGOSTO 2015 "];
-nodeGHI789[label=" id: GHI789 ruta: CHACARAS chofer: 3 horaIni 14:00 horaFin 20:00 fecha 27 AGOSTO 2015 "];
-nodeDEF456->nodeGHI789;
-nodeGHI789->nodeDEF456;
-nodeGHI789[label=" id: GHI789 ruta: CHACARAS chofer: 3 horaIni 14:00 horaFin 20:00 fecha 27 AGOSTO 2015 "];
-nodeJKL123[label=" id: JKL123 ruta: ZONA 1 chofer: 4 horaIni 15:00 horaFin 16:00 fecha 28 AGOSTO 2015 "];
-nodeGHI789->nodeJKL123;
-nodeJKL123->nodeGHI789;
+ nodeadulto[label=" id: adulto ruta:  chofer: 6 horaIni  horaFin  fecha  "];
+nodeagil[label=" id: agil ruta:  chofer: 3 horaIni  horaFin  fecha  "];
+nodeadulto->nodeagil;
+nodeagil->nodeadulto;
+nodeagil[label=" id: agil ruta:  chofer: 3 horaIni  horaFin  fecha  "];
+nodeaereo[label=" id: aereo ruta:  chofer: 4 horaIni  horaFin  fecha  "];
+nodeagil->nodeaereo;
+nodeaereo->nodeagil;
+nodeaereo[label=" id: aereo ruta:  chofer: 4 horaIni  horaFin  fecha  "];
+nodeahi[label=" id: ahi ruta:  chofer: 1 horaIni  horaFin  fecha  "];
+nodeaereo->nodeahi;
+nodeahi->nodeaereo;
+nodeahi[label=" id: ahi ruta:  chofer: 1 horaIni  horaFin  fecha  "];
+nodeacordion[label=" id: acordion ruta:  chofer: 5 horaIni  horaFin  fecha  "];
+nodeahi->nodeacordion;
+nodeacordion->nodeahi;
+nodeacordion[label=" id: acordion ruta:  chofer: 5 horaIni  horaFin  fecha  "];
+nodeabeja[label=" id: abeja ruta:  chofer: 2 horaIni  horaFin  fecha  "];
+nodeacordion->nodeabeja;
+nodeabeja->nodeacordion;
 }
 }
