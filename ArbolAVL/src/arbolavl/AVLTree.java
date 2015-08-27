@@ -70,7 +70,7 @@ public AVLNode padre;
     }
     
     public AVLNode buscar(AVLNode nuevo,int x){
-        
+    try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
                 buscar(nuevo.izquierdo,x);
@@ -89,6 +89,9 @@ public AVLNode padre;
         else{
                 System.out.println("clave no existe");
             }
+    }catch(Exception ex){
+    
+    }
         return nuevo;
     }
     public void modificar(AVLNode nodo,int x, String nombre, String password){
@@ -113,7 +116,7 @@ public AVLNode padre;
         catch(Exception ex){
         }
     }
-    public static AVLNode balancear(AVLNode t){
+    public  AVLNode balancear(AVLNode t){
         if((t!=null)){
                 int id = height( t.izquierdo ) - height( t.derecho ) ;
                 int di = height( t.derecho ) - height( t.izquierdo ) ;
@@ -253,7 +256,7 @@ public AVLNode eliminar(AVLNode t,int x){
                       padre(t);
                       System.out.println("  VARIABLE PADRE STATIC "+padre);
                       hijo(padre,t);
-                      
+                      balancear(t);
         	}
 		else if(t.izquierdo==null){
                         System.out.println("Eliminar_izq");
@@ -279,9 +282,9 @@ public AVLNode eliminar(AVLNode t,int x){
                         System.out.println("Eliminar_min");
 		}	
 	}
-                balancear(t);
-                t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                padre = null;
+               // balancear(t);
+               // t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+               // padre = null;
                 return t;
 }
 

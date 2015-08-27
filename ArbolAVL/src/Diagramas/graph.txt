@@ -1,26 +1,106 @@
 digraph grafica { 
 label= " ArbolAVLEstacionesClave"node [shape=record];
 subgraph g {
+nodea4[label=" clave: 4
+ 
+ NOMBRE:  4  
+ 
+ PASSWORD:  4"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE:  2  
+ 
+ PASSWORD:  2"];
+nodea4->nodea2[label="izq"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE:  2  
+ 
+ PASSWORD:  2"];
 nodea1[label=" clave: 1
  
  NOMBRE:  7 xd 
  
  PASSWORD:  7 :3"];
-nodea8[label=" clave: 8
- 
- NOMBRE:  8 xxx 
- 
- PASSWORD:  8zzz"];
-nodea1->nodea8[label="der"];
-nodea8[label=" clave: 8
- 
- NOMBRE:  8 xxx 
- 
- PASSWORD:  8zzz"];
+nodea2->nodea1[label="izq"];
 nodea1[label=" clave: 1
  
  NOMBRE:  7 xd 
  
  PASSWORD:  7 :3"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE:  2  
+ 
+ PASSWORD:  2"];
+nodea3[label=" clave: 3
+ 
+ NOMBRE:  3  
+ 
+ PASSWORD:  3"];
+nodea2->nodea3[label="der"];
+nodea3[label=" clave: 3
+ 
+ NOMBRE:  3  
+ 
+ PASSWORD:  3"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE:  2  
+ 
+ PASSWORD:  2"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE:  4  
+ 
+ PASSWORD:  4"];
+nodea7[label=" clave: 7
+ 
+ NOMBRE:  7  
+ 
+ PASSWORD:  7"];
+nodea4->nodea7[label="der"];
+nodea7[label=" clave: 7
+ 
+ NOMBRE:  7  
+ 
+ PASSWORD:  7"];
+nodea6[label=" clave: 6
+ 
+ NOMBRE:  6  
+ 
+ PASSWORD:  6"];
+nodea7->nodea6[label="izq"];
+nodea6[label=" clave: 6
+ 
+ NOMBRE:  6  
+ 
+ PASSWORD:  6"];
+nodea7[label=" clave: 7
+ 
+ NOMBRE:  7  
+ 
+ PASSWORD:  7"];
+nodea8[label=" clave: 8
+ 
+ NOMBRE:  8  
+ 
+ PASSWORD:  8"];
+nodea7->nodea8[label="der"];
+nodea8[label=" clave: 8
+ 
+ NOMBRE:  8  
+ 
+ PASSWORD:  8"];
+nodea7[label=" clave: 7
+ 
+ NOMBRE:  7  
+ 
+ PASSWORD:  7"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE:  4  
+ 
+ PASSWORD:  4"];
 }
 }

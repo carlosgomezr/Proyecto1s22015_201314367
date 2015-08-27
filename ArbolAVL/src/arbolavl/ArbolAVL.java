@@ -21,16 +21,16 @@ public class ArbolAVL {
         AVLTree arbolAVL = new AVLTree();
         
         arbolAVL.insert(1," 1 "," 1");
-     //   arbolAVL.insert(2," 2 "," 2");
-     //   arbolAVL.insert(3," 3 "," 3");
-     //   arbolAVL.insert(4," 4 "," 4");
-     //   arbolAVL.insert(5," 5 "," 5");
-     //   arbolAVL.insert(6," 6 "," 6");
-     //   arbolAVL.insert(7," 7 "," 7");
-     //   arbolAVL.insert(8," 8 "," 8");
+        arbolAVL.insert(2," 2 "," 2");
+        arbolAVL.insert(3," 3 "," 3");
+        arbolAVL.insert(4," 4 "," 4");
+        arbolAVL.insert(5," 5 "," 5");
+        arbolAVL.insert(6," 6 "," 6");
+        arbolAVL.insert(7," 7 "," 7");
+        arbolAVL.insert(8," 8 "," 8");
         arbolAVL.imprimir();
         System.out.println("\n");
-   //     arbolAVL.eliminar(arbolAVL.root,5);
+        arbolAVL.eliminar(arbolAVL.root,5);
         arbolAVL.modificar(arbolAVL.root,1," 7 xd"," 7 :3");
         arbolAVL.imprimir(arbolAVL.root);
         arbolAVL.insert(8," 8 xxx"," 8zzz");
