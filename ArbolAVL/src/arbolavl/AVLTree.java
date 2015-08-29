@@ -149,7 +149,7 @@ public AVLNode padre;
         //                balancear(t.izquierdo);
         //                balancear(t.derecho);
      }
-        System.out.println(" TT"+t+" t.der "+t.derecho+" t.izq "+t.izquierdo);
+//        System.out.println(" TT"+t+" t.der "+t.derecho+" t.izq "+t.izquierdo);
         return t;
 }
 public static void actualizar_altura(AVLNode t){
@@ -200,6 +200,7 @@ public void hijo(AVLNode padre, AVLNode hijo){
 }
 public AVLNode padre(AVLNode t,AVLNode hijo){
 AVLNode aux = t;
+if(aux!=null){
 System.out.println("    aux padre "+aux);
 if(aux.derecho!=null){
     if(hijo.id > aux.derecho.id){
@@ -233,6 +234,7 @@ if(aux.izquierdo!=null){
         return aux;
     }
 }
+}
 return  aux;
 }    
 public AVLNode eliminar(AVLNode t,int x){
@@ -260,26 +262,37 @@ public AVLNode eliminar(AVLNode t,int x){
         	}
 		else if(t.izquierdo==null){
                         System.out.println("Eliminar_izq");
-			aux = t;
-			t = t.derecho;
+			padre(t);
+                        aux = padre.derecho;
+                        padre.derecho = padre.derecho.derecho;
                         aux = null;
+                        //padre(t);
+                        //hijo(padre,t);
+			//t = t.derecho;
+                        //aux = null;
                         //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
 
-                        //balancear(root);
+                        balancear(t);
 		}
 		else if(t.derecho==null){
                         System.out.println("Eliminar_der");
-			aux = t;
-			t = t.izquierdo;
+			padre(t);
+                        aux = padre.izquierdo;
+                        padre.izquierdo = padre.izquierdo.izquierdo;
                         aux = null;
+                        //aux = t;
+                        //padre(t);
+                        //hijo(padre,t);
+			//t = t.izquierdo;
+                        //aux = null;
                         //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
 
-                        //balancear(root);
+                        balancear(t);
 		}
 		else
 		{
-			t.id = eliminar_min(t.derecho);
-                        System.out.println("Eliminar_min");
+                        System.out.println("Eliminar_min "+t.derecho+" "+t.derecho.id);
+                        t = eliminar_min(t.derecho);
 		}	
 	}
                // balancear(t);
@@ -288,28 +301,34 @@ public AVLNode eliminar(AVLNode t,int x){
                 return t;
 }
 
-public int eliminar_min(AVLNode t){
-	int x=0;
-	if(t.izquierdo==null){
-		x = eliminar_min(t.izquierdo);
-		balancear(t);
-       		if(t!=null){
-                    t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                }	
-                return x;
-	}
-	else{
-		AVLNode aux = t;
-		x = aux.id;
-		t = t.derecho;
-               
-		aux = null;
-                balancear(t);
-		if(t!=null){
+public AVLNode eliminar_min(AVLNode t){
+	
+        AVLNode auxp;
+        if(t==null){
+        
+        }else{
+            if (t.izquierdo==null)
+            {
+                t = eliminar_min (t.derecho);
+                balancear (t);
+                if(t!=null){
                     t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
                 }
-		return x;
-	}	
+                return t;
+            }
+            else
+                {
+                AVLNode aux = t;
+                padre(t);
+                t = padre;
+                t = t.derecho;
+                aux = null;
+                balancear (t);
+                t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                return t;
+	}
+        }
+	return t;
 }
 
 
