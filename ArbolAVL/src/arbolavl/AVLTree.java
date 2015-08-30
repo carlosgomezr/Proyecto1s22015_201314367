@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 public class AVLTree {
 public AVLNode root;
 public AVLNode padre;
+public AVLNode r;
 
     public void insert( int x,String nombre, String password ){
         root = insert( x, nombre,password,root );
@@ -181,22 +182,21 @@ static int actualizar_h(AVLNode t)
     }
 }
 public void hijo(AVLNode padre, AVLNode hijo){
-    if(padre.derecho!=null){
-        if(padre.derecho.id == hijo.id){
-            System.out.println("    el hijo es derecho");
-            padre.derecho = null;
-            hijo = null;
-        }
-    }
-    
-    if(padre.izquierdo!=null){
+     try{
         if(padre.izquierdo.id == hijo.id){
             System.out.println("    el hijo es izquierdo");
             padre.izquierdo = null;
             hijo = null;
         }
-    }
+        else{
+            System.out.println("    el hijo es derecho");
+            padre.derecho = null;
+            hijo = null;
+        }
+    }catch(Exception ex){
     
+    }
+   
 }
 public AVLNode padre(AVLNode t,AVLNode hijo){
 AVLNode aux = t;
@@ -240,8 +240,8 @@ return  aux;
 public AVLNode eliminar(AVLNode t,int x){
 	AVLNode aux;
         AVLNode aux2 = buscar(t,x);
-        System.out.println("    t   "+t);
-        System.out.println("    aux 2 "+aux2);
+        System.out.println("   eliminar  t   "+t);
+        System.out.println("   eliminar aux 2 "+aux2);
         
         if(x < t.id){
                 System.out.println("t->izquierda "+t.id);             
@@ -292,8 +292,10 @@ public AVLNode eliminar(AVLNode t,int x){
 		else
 		{
                         System.out.println("Eliminar_min "+t.derecho+" "+t.derecho.id);
+                        r = t;
                         t = eliminar_min(t.derecho);
-		}	
+                        balancear(t);
+                }	
 	}
                // balancear(t);
                // t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
@@ -309,25 +311,52 @@ public AVLNode eliminar_min(AVLNode t){
         }else{
             if (t.izquierdo==null)
             {
-                t = eliminar_min (t.derecho);
-                balancear (t);
-                if(t!=null){
-                    t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                }
-                return t;
-            }
-            else
-                {
-                AVLNode aux = t;
                 padre(t);
-                t = padre;
-                t = t.derecho;
-                aux = null;
-                balancear (t);
+                AVLNode auxpadre = padre;
+                int auxid=padre.id;
+                String auxnombre=padre.nombre;
+                String auxpass=padre.password;
+                System.out.println("padre :v "+padre);
+                padre.id = t.id;
+                padre.nombre = t.nombre;
+                padre.password = t.password;
+                t.id = auxid;
+                t.nombre = auxnombre;
+                t.password = auxpass;
+                eliminar(t,auxid);
+                //auxt.id = auxpadre.id;
+                //auxt.nombre = auxpadre.nombre;
+                //auxt.password = auxpadre.password;
+                //AVLNode auxi = padre.izquierdo;
+                //t.izquierdo = auxi;
+                //auxpadre.izquierdo=null;
+                //padre=null;
+                balancear(t);
                 t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
                 return t;
-	}
+                    
+            }
+            else
+                {   
+                    t = t.izquierdo;
+                    AVLNode auxr = r;
+                    int auxid = r.id;
+                    String auxnombre=r.nombre;
+                    String auxpass=r.password;
+                    System.out.println("R :v"+r);
+                    r.id = t.id;
+                    r.nombre = t.nombre;
+                    r.password = t.password;
+                    t.id = auxid;
+                    t.nombre = auxnombre;
+                    t.password = auxpass;
+                    eliminar(t,auxid);
+                    balancear (t);
+                    t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                return t;                
+                    }
         }
+        System.out.println(" este es el t del min "+t);
 	return t;
 }
 
@@ -394,7 +423,7 @@ public AVLNode eliminar_min(AVLNode t){
 
     public void imprimir(AVLNode nodo){
         if ( nodo != null ){
-                imprimir(nodo.derecho);
+            imprimir(nodo.derecho);
                 int id = height( nodo.izquierdo ) - height( nodo.derecho ) ;
                 int di = height( nodo.derecho ) - height( nodo.izquierdo ) ;
                 System.out.println(nodo+"  t "+nodo.id+"     altura "+nodo.height+"     i "+height(nodo.izquierdo)+"       d "+height(nodo.derecho)+"     i-d "+id+"      d-i "+di);

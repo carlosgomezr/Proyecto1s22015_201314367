@@ -20,27 +20,28 @@ public class ArbolAVL {
         // TODO code application logic here
         AVLTree arbolAVL = new AVLTree();
         
-       /* arbolAVL.insert(1," 1 "," 1");
+        arbolAVL.insert(1," 1 "," 1");
         arbolAVL.insert(2," 2 "," 2");
         arbolAVL.insert(3," 3 "," 3");
         arbolAVL.insert(4," 4 "," 4");
         arbolAVL.insert(5," 5 "," 5");
         arbolAVL.insert(6," 6 "," 6");
         arbolAVL.insert(7," 7 "," 7");
-        arbolAVL.insert(8," 8 "," 8"); */
-        arbolAVL.insert(5,"5","5");
-        arbolAVL.insert(3,"3","3");
-        arbolAVL.insert(7,"7","7");
-        arbolAVL.insert(2,"2","2");
-        arbolAVL.insert(8,"8","8");
+        arbolAVL.insert(8," 8 "," 8"); 
+        arbolAVL.insert(9,"9","9");
+        arbolAVL.insert(10,"10","10");
+        arbolAVL.insert(11,"11","11");
+        arbolAVL.insert(12,"12","12");
+        arbolAVL.insert(13,"13","13");
+        arbolAVL.insert(14,"14","14");
        
         arbolAVL.imprimir();
         System.out.println("\n");
-        arbolAVL.eliminar(arbolAVL.root,7);
-        arbolAVL.eliminar(arbolAVL.root,2);
-        arbolAVL.modificar(arbolAVL.root,1," 7 xd"," 7 :3");
+        arbolAVL.eliminar(arbolAVL.root,8);
+       // arbolAVL.eliminar(arbolAVL.root,9);
+      //  arbolAVL.modificar(arbolAVL.root,1," 7 xd"," 7 :3");
         arbolAVL.imprimir(arbolAVL.root);
-        arbolAVL.insert(8," 8 xxx"," 8zzz");
+       // arbolAVL.insert(8," 8 xxx"," 8zzz");
         System.out.println("\n");
         Funcion f = new Funcion();
         arbolAVL.GraphAVL(arbolAVL.root,"ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");

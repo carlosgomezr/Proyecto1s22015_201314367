@@ -1,42 +1,202 @@
 digraph grafica { 
 label= " ArbolAVLEstacionesClave"node [shape=record];
 subgraph g {
-nodea5[label=" clave: 5
+nodea10[label=" clave: 10
  
- NOMBRE: 5 
+ NOMBRE: 10 
  
- PASSWORD: 5"];
+ PASSWORD: 10"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE:  4  
+ 
+ PASSWORD:  4"];
+nodea10->nodea4[label="izq"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE:  4  
+ 
+ PASSWORD:  4"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE:  2  
+ 
+ PASSWORD:  2"];
+nodea4->nodea2[label="izq"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE:  2  
+ 
+ PASSWORD:  2"];
+nodea1[label=" clave: 1
+ 
+ NOMBRE:  1  
+ 
+ PASSWORD:  1"];
+nodea2->nodea1[label="izq"];
+nodea1[label=" clave: 1
+ 
+ NOMBRE:  1  
+ 
+ PASSWORD:  1"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE:  2  
+ 
+ PASSWORD:  2"];
 nodea3[label=" clave: 3
  
- NOMBRE: 3 
+ NOMBRE:  3  
  
- PASSWORD: 3"];
-nodea5->nodea3[label="izq"];
+ PASSWORD:  3"];
+nodea2->nodea3[label="der"];
 nodea3[label=" clave: 3
  
- NOMBRE: 3 
+ NOMBRE:  3  
  
- PASSWORD: 3"];
+ PASSWORD:  3"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE:  2  
+ 
+ PASSWORD:  2"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE:  4  
+ 
+ PASSWORD:  4"];
+nodea6[label=" clave: 6
+ 
+ NOMBRE:  6  
+ 
+ PASSWORD:  6"];
+nodea4->nodea6[label="der"];
+nodea6[label=" clave: 6
+ 
+ NOMBRE:  6  
+ 
+ PASSWORD:  6"];
 nodea5[label=" clave: 5
  
- NOMBRE: 5 
+ NOMBRE:  5  
  
- PASSWORD: 5"];
-nodea8[label=" clave: 8
- 
- NOMBRE: 8 
- 
- PASSWORD: 8"];
-nodea5->nodea8[label="der"];
-nodea8[label=" clave: 8
- 
- NOMBRE: 8 
- 
- PASSWORD: 8"];
+ PASSWORD:  5"];
+nodea6->nodea5[label="izq"];
 nodea5[label=" clave: 5
  
- NOMBRE: 5 
+ NOMBRE:  5  
  
- PASSWORD: 5"];
+ PASSWORD:  5"];
+nodea6[label=" clave: 6
+ 
+ NOMBRE:  6  
+ 
+ PASSWORD:  6"];
+nodea7[label=" clave: 7
+ 
+ NOMBRE:  7  
+ 
+ PASSWORD:  7"];
+nodea6->nodea7[label="der"];
+nodea7[label=" clave: 7
+ 
+ NOMBRE:  7  
+ 
+ PASSWORD:  7"];
+nodea6[label=" clave: 6
+ 
+ NOMBRE:  6  
+ 
+ PASSWORD:  6"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE:  4  
+ 
+ PASSWORD:  4"];
+nodea10[label=" clave: 10
+ 
+ NOMBRE: 10 
+ 
+ PASSWORD: 10"];
+nodea12[label=" clave: 12
+ 
+ NOMBRE: 12 
+ 
+ PASSWORD: 12"];
+nodea10->nodea12[label="der"];
+nodea12[label=" clave: 12
+ 
+ NOMBRE: 12 
+ 
+ PASSWORD: 12"];
+nodea11[label=" clave: 11
+ 
+ NOMBRE: 11 
+ 
+ PASSWORD: 11"];
+nodea12->nodea11[label="izq"];
+nodea11[label=" clave: 11
+ 
+ NOMBRE: 11 
+ 
+ PASSWORD: 11"];
+nodea9[label=" clave: 9
+ 
+ NOMBRE: 9 
+ 
+ PASSWORD: 9"];
+nodea11->nodea9[label="izq"];
+nodea9[label=" clave: 9
+ 
+ NOMBRE: 9 
+ 
+ PASSWORD: 9"];
+nodea11[label=" clave: 11
+ 
+ NOMBRE: 11 
+ 
+ PASSWORD: 11"];
+nodea12[label=" clave: 12
+ 
+ NOMBRE: 12 
+ 
+ PASSWORD: 12"];
+nodea13[label=" clave: 13
+ 
+ NOMBRE: 13 
+ 
+ PASSWORD: 13"];
+nodea12->nodea13[label="der"];
+nodea13[label=" clave: 13
+ 
+ NOMBRE: 13 
+ 
+ PASSWORD: 13"];
+nodea14[label=" clave: 14
+ 
+ NOMBRE: 14 
+ 
+ PASSWORD: 14"];
+nodea13->nodea14[label="der"];
+nodea14[label=" clave: 14
+ 
+ NOMBRE: 14 
+ 
+ PASSWORD: 14"];
+nodea13[label=" clave: 13
+ 
+ NOMBRE: 13 
+ 
+ PASSWORD: 13"];
+nodea12[label=" clave: 12
+ 
+ NOMBRE: 12 
+ 
+ PASSWORD: 12"];
+nodea10[label=" clave: 10
+ 
+ NOMBRE: 10 
+ 
+ PASSWORD: 10"];
 }
 }
