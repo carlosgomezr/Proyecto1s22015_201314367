@@ -10,5 +10,16 @@ package arbolavl;
  * @author Carlos Gomez
  */
 public class nodod {
+    String dia;
+    listah hora;
+    nodod next;
+    nodod ant;
+    nodod(String dia)
+    {
+        this.hora=new listah();
+        this.dia = dia;
+        this.next=null;
+        this.ant=null;
+    }
     
 }

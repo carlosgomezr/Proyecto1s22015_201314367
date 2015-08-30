@@ -138,6 +138,19 @@ public class listasdobles {
         return aux;
     }
     
+    public void reemplazar(String id,String nombre){
+        nodo actual;
+        actual = primero;
+        
+        while(actual!=null){
+                if(actual.b.id.compareTo(id)==0){
+                    actual.b.nombre = nombre;
+                }
+                actual = actual.next;
+        }
+    }
+    
+    
      public void Modificar(listasdobles lista,Bus aj,Bus ajm){
         int numeroid=0;
         nodo actual;

@@ -19,7 +19,7 @@ public class ArbolAVL {
     public static void main(String[] args) {
         // TODO code application logic here
         AVLTree arbolAVL = new AVLTree();
-        
+      /*  
         arbolAVL.insert(1," 1 "," 1");
         arbolAVL.insert(2," 2 "," 2");
         arbolAVL.insert(3," 3 "," 3");
@@ -37,12 +37,23 @@ public class ArbolAVL {
        
         arbolAVL.imprimir();
         System.out.println("\n");
-        arbolAVL.eliminar(arbolAVL.root,8);
+        arbolAVL.eliminar(arbolAVL.root,8); */
        // arbolAVL.eliminar(arbolAVL.root,9);
       //  arbolAVL.modificar(arbolAVL.root,1," 7 xd"," 7 :3");
-        arbolAVL.imprimir(arbolAVL.root);
+      //  arbolAVL.imprimir(arbolAVL.root);
        // arbolAVL.insert(8," 8 xxx"," 8zzz");
         System.out.println("\n");
+        listad dias = new listad();
+        dias.alta("lunes");
+        dias.alta("martes");
+        dias.alta("miercoles");
+       
+        dias.reemplazarInsertar("lunes", "18:00");
+        dias.reemplazarInsertar("lunes", "19:00");
+        dias.reemplazarInsertar("lunes", "20:00");
+        dias.reemplazarInsertar("martes", "21:00");
+        dias.reemplazarInsertar("martes", "22:00");
+        dias.imprimir();
         Funcion f = new Funcion();
         arbolAVL.GraphAVL(arbolAVL.root,"ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");
         f.generarImagen("ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");  

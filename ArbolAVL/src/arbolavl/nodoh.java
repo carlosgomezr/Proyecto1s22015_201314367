@@ -10,5 +10,13 @@ package arbolavl;
  * @author Carlos Gomez
  */
 public class nodoh {
-    
+    String hora;
+    nodoh next;
+    nodoh ant;
+    nodoh(String hora)
+    {
+        this.hora = hora;
+        this.next=null;
+        this.ant=null;
+    }
 }
