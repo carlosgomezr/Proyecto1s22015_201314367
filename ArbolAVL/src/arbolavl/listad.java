@@ -108,6 +108,17 @@ public class listad {
                 actual = actual.next;
         }
     }
+     public void reemplazarEliminar(String dia,String hora){
+        nodod actual;
+        actual = primero;
+        
+        while(actual!=null){
+                if(actual.dia.compareTo(dia)==0){
+                    actual.hora.delete(hora);
+                }
+                actual = actual.next;
+        }
+    }
       
      public nodod Dia(String dia){
         nodod actual;

@@ -12,7 +12,7 @@ package arbolavl;
 import com.csvreader.CsvReader;
 
 public class ArbolAVL {
-
+public static int contador = 0;
     /**
      * @param args the command line arguments
      */
@@ -54,8 +54,20 @@ public class ArbolAVL {
         dias.reemplazarInsertar("martes", "21:00");
         dias.reemplazarInsertar("martes", "22:00");
         dias.imprimir();
-        Funcion f = new Funcion();
         
+        AVLTreeAdmin admin = new AVLTreeAdmin();
+        System.out.println("CONTADORRRRRR"+contador);
+        admin.insert("cosa@gmail.com", "cosa",contador);
+        contador = contador+1;
+        System.out.println("CONTADORRRRRR"+contador);
+        admin.insert("arbol@gmail.com", "arbol",contador);
+        contador = contador+1;
+        System.out.println("CONTADORRRRRR"+contador);
+        admin.insert("abeja@gmail.com","abeja",contador);
+        admin.GraphAVL(admin.root,"ARBOL ADMIN","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphAdmin.txt");
+        
+        Funcion f = new Funcion();
+        f.generarImagen("ArbolAdmin","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphAdmin.txt");
         f.generarListaDia(dias.Dia("martes").hora,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphDia.txt","DIA "+dias.Dia("martes").dia);
         f.generarImagen("LISTA DIA "+dias.Dia("martes").dia,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphDia.txt");
         arbolAVL.GraphAVL(arbolAVL.root,"ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");

@@ -1,0 +1,28 @@
+digraph grafica { 
+label= " ARBOL ADMIN"node [shape=record];
+subgraph g {
+nodea1[label=" correo: arbol@gmail.com
+ 
+ password: arbol"];
+nodea2[label=" correo: abeja@gmail.com
+ 
+ password: abeja"];
+nodea1->nodea2[label="izq"];
+nodea2[label=" correo: abeja@gmail.com
+ 
+ pasword: abeja"];
+nodea1[label=" correo: arbol@gmail.com
+ 
+ password: arbol"];
+nodea0[label=" correo: cosa@gmail.com
+ 
+ password: cosa"];
+nodea1->nodea0[label="der"];
+nodea0[label=" correo: cosa@gmail.com
+ 
+ pasword: cosa"];
+nodea1[label=" correo: arbol@gmail.com
+ 
+ pasword: arbol"];
+}
+}

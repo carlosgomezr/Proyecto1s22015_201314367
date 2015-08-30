@@ -20,8 +20,8 @@ public AVLNodeAdmin root;
 public AVLNodeAdmin padre;
 public AVLNodeAdmin r;    
 
-    public void insert( String correo, String password ){
-        root = insert(correo,password,root );
+    public void insert( String correo, String password,int contador ){
+        root = insert(correo,password,contador,root );
     }
     //public void eliminar(int x){
     //    eliminar(root,x);
@@ -36,12 +36,12 @@ public AVLNodeAdmin r;
         balancear(root);
     }
 
-     private AVLNodeAdmin insert(String nombre, String password, AVLNodeAdmin t ){
+     private AVLNodeAdmin insert(String nombre, String password, int contador,AVLNodeAdmin t ){
         System.out.println("    t.insertar  "+t+" ");
         if( t == null )
-            t = new AVLNodeAdmin(nombre, password );
+            t = new AVLNodeAdmin(nombre, password,contador );
         else if( nombre.compareTo(t.correo)<0 ) {
-            t.izquierdo = insert(nombre,password, t.izquierdo );
+            t.izquierdo = insert(nombre,password,contador, t.izquierdo );
             if( height( t.izquierdo ) - height( t.derecho ) == 2 )
                 if( nombre.compareTo(t.izquierdo.correo)<0 )
                     t = rotateWithLeftChild( t ); /* Caso 1 */
@@ -49,7 +49,7 @@ public AVLNodeAdmin r;
                     t = doubleWithLeftChild( t ); /* Caso 2 */
         }
         else if(nombre.compareTo(t.correo)>0) {
-            t.derecho = insert(nombre,password, t.derecho );
+            t.derecho = insert(nombre,password, contador, t.derecho );
             if( height( t.derecho ) - height( t.izquierdo ) == 2 )
                 if( nombre.compareTo(t.derecho.correo)>0)
                     t = rotateWithRightChild( t ); /* Caso 4 */
@@ -215,6 +215,124 @@ return  aux;
 }    
 
 
+public AVLNodeAdmin eliminar(AVLNodeAdmin t,String x){
+	AVLNodeAdmin aux;
+        AVLNodeAdmin aux2 = buscar(t,x);
+        System.out.println("   eliminar  t   "+t);
+        System.out.println("   eliminar aux 2 "+aux2);
+        
+        if(x.compareTo(t.correo)<0){
+                System.out.println("t->izquierda "+t.correo);             
+		eliminar(t.izquierdo,x);          
+	}
+	else if(x.compareTo(t.correo)>0){
+		System.out.println("t->derecha "+t.correo);             
+                eliminar(t.derecho,x);
+	}
+	else{
+                if((t.izquierdo ==null) && (t.derecho==null)){
+                      System.out.println("encontre esta mierda");
+                      System.out.println("nodo t (hijo) "+t);
+                      padre(t);
+                      System.out.println("  VARIABLE PADRE STATIC "+padre);
+                      hijo(padre,t);
+                      balancear(t);
+        	}
+		else if(t.izquierdo==null){
+                        System.out.println("Eliminar_izq");
+			padre(t);
+                        aux = padre.derecho;
+                        padre.derecho = padre.derecho.derecho;
+                        aux = null;
+                        //padre(t);
+                        //hijo(padre,t);
+			//t = t.derecho;
+                        //aux = null;
+                        //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+
+                        balancear(t);
+		}
+		else if(t.derecho==null){
+                        System.out.println("Eliminar_der");
+			padre(t);
+                        aux = padre.izquierdo;
+                        padre.izquierdo = padre.izquierdo.izquierdo;
+                        aux = null;
+                        //aux = t;
+                        //padre(t);
+                        //hijo(padre,t);
+			//t = t.izquierdo;
+                        //aux = null;
+                        //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+
+                        balancear(t);
+		}
+		else
+		{
+                        System.out.println("Eliminar_min "+t.derecho+" "+t.derecho.correo);
+                        r = t;
+                        t = eliminar_min(t.derecho);
+                        balancear(t);
+                }	
+	}
+               // balancear(t);
+               // t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+               // padre = null;
+                return t;
+}
+
+public AVLNodeAdmin eliminar_min(AVLNodeAdmin t){
+	
+        AVLNodeAdmin auxp;
+        if(t==null){
+        
+        }else{
+            if (t.izquierdo==null)
+            {
+                padre(t);
+                AVLNodeAdmin auxpadre = padre;
+                String auxid=padre.correo;
+                String auxpass=padre.password;
+                System.out.println("padre :v "+padre);
+                padre.correo = t.correo;
+                padre.password = t.password;
+                t.correo = auxid;
+                t.password = auxpass;
+                eliminar(t,auxid);
+                //auxt.id = auxpadre.id;
+                //auxt.nombre = auxpadre.nombre;
+                //auxt.password = auxpadre.password;
+                //AVLNode auxi = padre.izquierdo;
+                //t.izquierdo = auxi;
+                //auxpadre.izquierdo=null;
+                //padre=null;
+                balancear(t);
+                t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                return t;
+                    
+            }
+            else
+                {   
+                    t = t.izquierdo;
+                    AVLNodeAdmin auxr = r;
+                    String auxid = r.correo;
+                    String auxpass=r.password;
+                    System.out.println("R :v"+r);
+                    r.correo = t.correo;
+                    r.password = t.password;
+                    t.correo = auxid;
+                    t.password = auxpass;
+                    eliminar(t,auxid);
+                    balancear (t);
+                    t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                return t;                
+                    }
+        }
+        System.out.println(" este es el t del min "+t);
+	return t;
+}
+
+
     private static AVLNodeAdmin rotateWithLeftChild( AVLNodeAdmin k2 ){
         System.out.println("ROTATE WITH LEFT CHILD");
         AVLNodeAdmin k1 = k2.izquierdo;
@@ -255,5 +373,81 @@ return  aux;
 
 
     
+    
+public String ToDot(AVLNodeAdmin node)
+{
+    String stream="";
+    try{
+   
+ 
+    if(node.izquierdo !=null)
+        {   
+            stream=stream+"nodea"+node.contador+"[label=\" correo: "+node.correo+"\n \n password: "+node.password+"\"];\n";
+            stream=stream+"nodea"+node.izquierdo.contador+"[label=\" correo: "+node.izquierdo.correo+"\n \n password: "+node.izquierdo.password+"\"];\n";
+            stream=stream+"nodea"+node.contador+"->nodea"+node.izquierdo.contador+"[label=\"izq\"];\n";
+            stream=stream+ToDot(node.izquierdo);
+            //if(node->lista!=NULL){
+            //conca+=graficarjuego(node->lista);
+            //} 
+                    
+        }
+    if(node.derecho !=null)
+        {
+           
+            stream=stream+"nodea"+node.contador+"[label=\" correo: "+node.correo+"\n \n password: "+node.password+"\"];\n";
+            stream=stream+"nodea"+node.derecho.contador+"[label=\" correo: "+node.derecho.correo+"\n \n password: "+node.derecho.password+"\"];\n";
+            stream=stream+"nodea"+node.contador+"->nodea"+node.derecho.contador+"[label=\"der\"];\n";
+            stream=stream+ToDot(node.derecho);
+            
+        }
+    if(node!=null){
+            stream=stream+"nodea"+node.contador+"[label=\" correo: "+node.correo+"\n \n pasword: "+node.password+"\"];\n";
+            //if(node->lista!=NULL){
+                 //   conca+=graficarjuego(node->lista);
+               // }
+                //cod += graficarjuego(node->lista);
+            }
+    if(node==null){
+    
+    }
+           
+    }catch(Exception ex){}
+     return stream;
+}
+    
+
+
+public void GraphAVL(AVLNodeAdmin node,String nombre,String ruta){
+	    File f;
+	    FileWriter escribir;
+	    String cod="";
+           
+            try{
+	    System.out.println(ruta);
+	    f = new File(ruta);
+	    escribir = new FileWriter(f);
+	    BufferedWriter bw = new BufferedWriter(escribir);
+	    PrintWriter pw = new PrintWriter(bw);
+            pw.write("digraph grafica { \n");
+            pw.write("label= \" "+nombre+ "\"");
+            pw.write("node [shape=record];\n");
+            pw.write("subgraph g {\n");
+
+                cod=cod+(ToDot(node));
+            pw.write(cod);    
+            pw.write("}\n");
+            pw.write("}\n");
+            
+	    pw.close();
+	    bw.close();
+            }
+	    catch(IOException e){System.out.println("Error: "+e.getMessage());
+            
+            }
+            
+       
+}
+
+
 }
     
