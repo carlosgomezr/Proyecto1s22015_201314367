@@ -1,0 +1,9 @@
+digraph grafica { 
+label= " DIA martes"node [shape=record];
+subgraph g { 
+ node0[label=" id: 21:00 "];
+node1[label=" id: 22:00 "];
+node0->node1;
+node1->node0;
+}
+}

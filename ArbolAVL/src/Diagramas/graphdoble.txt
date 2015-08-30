@@ -1,5 +1,5 @@
 digraph grafica { 
-label= "LISTA DOBLE  PERSONAJES"node [shape=record];
+label= "LISTA DOBLE  BUSES"node [shape=record];
 subgraph g { 
  nodeadulto[label=" id: adulto ruta:  chofer: 6 horaIni  horaFin  fecha  "];
 nodeagil[label=" id: agil ruta:  chofer: 3 horaIni  horaFin  fecha  "];

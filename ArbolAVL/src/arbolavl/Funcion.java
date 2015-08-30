@@ -32,7 +32,7 @@ public void generarListaDoble(listasdobles lista,String ruta){
 	    BufferedWriter bw = new BufferedWriter(escribir);
 	    PrintWriter pw = new PrintWriter(bw);
             pw.write("digraph grafica { \n");
-            pw.write("label= \"LISTA DOBLE  PERSONAJES\"");
+            pw.write("label= \"LISTA DOBLE  BUSES\"");
             pw.write("node [shape=record];\n");
 	    pw.write("subgraph g { \n "); 
             if(lista.primero!=null){
@@ -49,6 +49,53 @@ public void generarListaDoble(listasdobles lista,String ruta){
                     }
                     else{
                             pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" ruta: "+aux.primero.b.nombre +" chofer: "+aux.primero.b.ClaveChofer+" horaIni "+aux.primero.b.horarioIni+" horaFin "+aux.primero.b.horarioFin+" fecha "+aux.primero.b.fecha+" \"];\n");
+                    }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            pw.write("}\n");
+	    pw.write("}\n");
+	    pw.close();
+	    bw.close();
+	    }
+	    catch(IOException e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+}
+
+public void generarListaDia(listah lista,String ruta,String nombre){
+            listah aux = lista;
+	    File f;
+            int contador=0;
+            int contador1=1;
+	    FileWriter escribir;
+	    try{
+	    f = new File(ruta);
+	    escribir = new FileWriter(f);
+	    BufferedWriter bw = new BufferedWriter(escribir);
+	    PrintWriter pw = new PrintWriter(bw);
+            pw.write("digraph grafica { \n");
+            pw.write("label= \" " +nombre+"\"");
+            pw.write("node [shape=record];\n");
+	    pw.write("subgraph g { \n "); 
+            if(lista.primero!=null){
+                
+         
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){
+                            pw.write("node"+contador+"[label=\" id: "+aux.primero.hora+" \"];\n");
+                            pw.write("node"+contador1+"[label=\" id: "+aux.primero.next.hora+" \"];\n");
+                            pw.write("node"+contador+"->node"+contador1+";\n");
+                            pw.write("node"+contador1+"->node"+contador+";\n");
+                            aux.primero = aux.primero.next;
+                            contador=contador+1;
+                            contador1=contador1+1;
+                        }
+                    }
+                    else{
+                            pw.write("node"+contador+"[label=\" id: "+aux.primero.hora+" \"];\n");
                     }
                 
             }

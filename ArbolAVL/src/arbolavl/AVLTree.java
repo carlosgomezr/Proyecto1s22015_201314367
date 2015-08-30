@@ -385,16 +385,6 @@ public AVLNode eliminar_min(AVLNode t){
         System.out.println("    ESTO ES LO Q RETORNO k2 "+k2+" k2.derecha "+k2.derecho+" k2.izquierda "+k2.izquierdo);
         return k2;
     }
-    private static AVLNode DD(AVLNode n){
-        AVLNode n1 = n.derecho;
-        n1.derecho = n.derecho.derecho;
-        n.derecho = n1.izquierdo;
-        n1.izquierdo = n;
-        n.height = max( height(n.izquierdo), height(n.derecho) ) + 1;
-        n1.height = max( height( n1.derecho ), n.height ) + 1;
-        n = n1;
-        return n;
-    }
     private static AVLNode doubleWithLeftChild( AVLNode k3 ){
         System.out.println("DOUBLE WITH LEFT CHILD");
         k3.izquierdo = rotateWithRightChild( k3.izquierdo );

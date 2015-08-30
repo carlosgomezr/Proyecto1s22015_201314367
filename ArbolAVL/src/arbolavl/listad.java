@@ -109,6 +109,19 @@ public class listad {
         }
     }
       
+     public nodod Dia(String dia){
+        nodod actual;
+        nodod retornar=new nodod("");
+        actual = primero;
+        
+        while(actual!=null){
+                if(actual.dia.compareTo(dia)==0){
+                    retornar = actual;
+                }
+                actual = actual.next;
+        }
+        return retornar;
+    }
      
         
     public void imprimir()
@@ -127,5 +140,7 @@ public class listad {
            
        
    }
+    
+    
      
 }
