@@ -112,6 +112,54 @@ public void generarListaDia(listah lista,String ruta,String nombre){
             }       
 }
 
+
+public void generarListaRuta(listae lista,String ruta,String nombre){
+            listae aux = lista;
+	    File f;
+            int contador=0;
+            int contador1=1;
+	    FileWriter escribir;
+	    try{
+	    f = new File(ruta);
+	    escribir = new FileWriter(f);
+	    BufferedWriter bw = new BufferedWriter(escribir);
+	    PrintWriter pw = new PrintWriter(bw);
+            pw.write("digraph grafica { \n");
+            pw.write("label= \" " +nombre+"\"");
+            pw.write("node [shape=record];\n");
+	    pw.write("subgraph g { \n "); 
+            if(lista.primero!=null){
+                
+         
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){
+                            pw.write("node"+contador+"[label=\" id: "+aux.primero.estacion+" \"];\n");
+                            pw.write("node"+contador1+"[label=\" id: "+aux.primero.next.estacion+" \"];\n");
+                            pw.write("node"+contador+"->node"+contador1+";\n");
+                            pw.write("node"+contador1+"->node"+contador+";\n");
+                            aux.primero = aux.primero.next;
+                            contador=contador+1;
+                            contador1=contador1+1;
+                        }
+                    }
+                    else{
+                            pw.write("node"+contador+"[label=\" id: "+aux.primero.estacion+" \"];\n");
+                    }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            pw.write("}\n");
+	    pw.write("}\n");
+	    pw.close();
+	    bw.close();
+	    }
+	    catch(IOException e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+}
+
 public String leer(){
     String cadena="";
 	       try {
