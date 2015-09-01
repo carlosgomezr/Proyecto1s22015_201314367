@@ -56,6 +56,18 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <br> </br>\n");
       out.write("    <center>\n");
       out.write("        <h1>Menú Administrador</h1>\n");
+      out.write("        <br> </br>\n");
+      out.write("        <input type=\"submit\" value=\"  Administrador  \" name=\"boton1\"/>\n");
+      out.write("        <br> </br>\n");
+      out.write("        <input type=\"submit\" value=\"Estacion General\" name=\"boton2\"/>    \n");
+      out.write("        <br> </br>\n");
+      out.write("        <input type=\"submit\" value=\"  Estacion Clave  \" name=\"boton3\"/>\n");
+      out.write("        <br> </br>\n");
+      out.write("        <input type=\"submit\" value=\"        Chofer      \" name=\"boton4\"/>\n");
+      out.write("        <br> </br>\n");
+      out.write("        <input type=\"submit\" value=\"    Asignar bus   \" name=\"boton5\"/>\n");
+      out.write("        <br> </br>\n");
+      out.write("        <input type=\"submit\" value=\"          Bus         \" name=\"boton6\"/>\n");
       out.write("    </center>\n");
       out.write("    </body>\n");
       out.write("</html>\n");

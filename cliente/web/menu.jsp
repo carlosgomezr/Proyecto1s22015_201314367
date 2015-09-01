@@ -17,6 +17,18 @@
         <br> </br>
     <center>
         <h1>Menú Administrador</h1>
+        <br> </br>
+        <input type="submit" value="  Administrador  " name="boton1"/>
+        <br> </br>
+        <input type="submit" value="Estacion General" name="boton2"/>    
+        <br> </br>
+        <input type="submit" value="  Estacion Clave  " name="boton3"/>
+        <br> </br>
+        <input type="submit" value="        Chofer      " name="boton4"/>
+        <br> </br>
+        <input type="submit" value="    Asignar bus   " name="boton5"/>
+        <br> </br>
+        <input type="submit" value="          Bus         " name="boton6"/>
     </center>
     </body>
 </html>
