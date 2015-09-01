@@ -17,10 +17,15 @@
             </br>
            
               USER: 
-            <input type="text" name="usuario" value="" size="20" />  
+            <input type="text" name="usuario" value="" size="15" />  
               PASSWORD:
-            <input type="password" name="password" value="" size="20" />
-            
+            <input type="password" name="password" value="" size="15" />
+            <select name="tipo">
+                <option>Administrador</option>
+                <option>Estacion Clave</option>
+                <option>Estacion General</option>
+                <option>Chofer</option>
+            </select>
             <input type="submit" value="LOGIN" name="boton1" /> 
         </DIV>
         
