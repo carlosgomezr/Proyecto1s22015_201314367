@@ -69,7 +69,7 @@ public AVLNodeChofer r;
     }
 
     
-       public AVLNodeChofer buscarInsertarHora(AVLNodeChofer nuevo,int x,String dia,String hora){
+       public AVLNodeChofer buscarInsertarHora(AVLNodeChofer nuevo,int x,String dia,String bus,String ruta,String hora,String horaf){
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
@@ -84,7 +84,7 @@ public AVLNodeChofer r;
               return null;
         }        
         if( x==nuevo.id){
-              nuevo.lista.reemplazarInsertar(dia, hora);
+              nuevo.lista.reemplazarInsertar(dia, bus,ruta,hora,horaf);
               return nuevo;
         }
         else{

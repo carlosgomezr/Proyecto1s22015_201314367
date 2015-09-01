@@ -48,11 +48,12 @@ public static int contador = 0;
         dias.alta("martes");
         dias.alta("miercoles");
        
-        dias.reemplazarInsertar("lunes", "18:00");
-        dias.reemplazarInsertar("lunes", "19:00");
-        dias.reemplazarInsertar("lunes", "20:00");
-        dias.reemplazarInsertar("martes", "21:00");
-        dias.reemplazarInsertar("martes", "22:00");
+        dias.reemplazarInsertar("lunes","ABC123","Trebol","17:00", "18:00");
+        dias.reemplazarInsertar("lunes","DEF456","SEGMA","19:00", "20:00");
+        dias.reemplazarInsertar("lunes","FGH789","Kaya","21:00", "22:00"); 
+        dias.reemplazarInsertar("martes","ABC123","Trebol","21:00", "22:00");
+        dias.reemplazarInsertar("martes","DEF456","SEGMA","23:00", "00:00");
+        
         dias.imprimir();
         
         AVLTreeAdmin admin = new AVLTreeAdmin();
@@ -68,8 +69,8 @@ public static int contador = 0;
         
         Funcion f = new Funcion();
         f.generarImagen("ArbolAdmin","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphAdmin.txt");
-        f.generarListaDia(dias.Dia("martes").hora,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphDia.txt","DIA "+dias.Dia("martes").dia);
-        f.generarImagen("LISTA DIA "+dias.Dia("martes").dia,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphDia.txt");
+        f.generarFecha(dias,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphDia.txt","DIA "+"chofer");
+        f.generarImagen("LISTA DIA ","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphDia.txt");
         arbolAVL.GraphAVL(arbolAVL.root,"ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");
         f.generarImagen("ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");  
        

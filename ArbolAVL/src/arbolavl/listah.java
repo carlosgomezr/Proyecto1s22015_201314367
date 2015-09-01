@@ -24,17 +24,17 @@ public class listah {
         else return false;
     }
       
-      public listah alta(String dat)
+      public listah alta(String dat,String ruta,String hora, String horaf)
     {
         if((primero==null))
         {
-            nodoh nuevo=new nodoh(dat);
+            nodoh nuevo=new nodoh(dat,ruta,hora,horaf);
             primero=nuevo;
             ultimo=nuevo;
         }
         else
         {
-            nodoh nuevo=new nodoh(dat);
+            nodoh nuevo=new nodoh(dat,ruta,hora,horaf);
             ultimo.next=nuevo;
             nuevo.ant=ultimo;
             ultimo=nuevo;
@@ -102,7 +102,7 @@ public class listah {
         actual=primero;
         while(actual!=null)
         {
-            System.out.println(" hora : "+actual.hora);
+            System.out.println("bus: "+actual.bus+" ruta: "+actual.ruta+" hora ini: "+actual.hora+" hora fin: "+actual.horaf);
             
             actual=actual.next;
         }

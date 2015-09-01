@@ -1,27 +1,27 @@
 digraph grafica { 
 label= " ARBOL ADMIN"node [shape=record];
 subgraph g {
-nodeaarbolavl.AVLNodeAdmin@33909752[label=" correo: arbogmailcom
+nodea1[label=" correo: arbol@gmail.com
  
  password: arbol"];
-nodeaarbolavl.AVLNodeAdmin@33909752[label=" correo: abejagmailcom
+nodea2[label=" correo: abeja@gmail.com
  
  password: abeja"];
-nodeaarbolavl.AVLNodeAdmin@33909752->nodeaabejagmailcom[label="izq"];
-nodeaarbolavl.AVLNodeAdmin@55f96302[label=" correo: abejagmailcom
+nodea1->nodea2[label="izq"];
+nodea2[label=" correo: abeja@gmail.com
  
  pasword: abeja"];
-nodeaarbolavl.AVLNodeAdmin@33909752[label=" correo: arbogmailcom
+nodea1[label=" correo: arbol@gmail.com
  
  password: arbol"];
-nodeaarbolavl.AVLNodeAdmin@5c647e05[label=" correo: cosagmailcom
+nodea0[label=" correo: cosa@gmail.com
  
  password: cosa"];
-nodeaarbolavl.AVLNodeAdmin@33909752->nodeaarbolavl.AVLNodeAdmin@5c647e05[label="der"];
-nodeaarbolavl.AVLNodeAdmin@5c647e05[label=" correo: cosagmailcom
+nodea1->nodea0[label="der"];
+nodea0[label=" correo: cosa@gmail.com
  
  pasword: cosa"];
-nodeaarbolavl.AVLNodeAdmin@33909752[label=" correo: arbogmailcom
+nodea1[label=" correo: arbol@gmail.com
  
  pasword: arbol"];
 }

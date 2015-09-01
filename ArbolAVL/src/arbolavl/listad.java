@@ -97,13 +97,13 @@ public class listad {
         return t;
     }
     
-     public void reemplazarInsertar(String dia,String hora){
+     public void reemplazarInsertar(String dia,String bus,String ruta,String hora,String horaf){
         nodod actual;
         actual = primero;
         
         while(actual!=null){
                 if(actual.dia.compareTo(dia)==0){
-                    actual.hora.alta(hora);
+                    actual.hora.alta(bus,ruta,hora,horaf);
                 }
                 actual = actual.next;
         }

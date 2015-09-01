@@ -65,8 +65,9 @@ public void generarListaDoble(listasdobles lista,String ruta){
             }       
 }
 
-public void generarListaDia(listah lista,String ruta,String nombre){
-            listah aux = lista;
+
+public void generarFecha(listad lista,String ruta,String nombre){
+            listad aux = lista;
 	    File f;
             int contador=0;
             int contador1=1;
@@ -85,17 +86,20 @@ public void generarListaDia(listah lista,String ruta,String nombre){
          
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){
-                            pw.write("node"+contador+"[label=\" id: "+aux.primero.hora+" \"];\n");
-                            pw.write("node"+contador1+"[label=\" id: "+aux.primero.next.hora+" \"];\n");
+                            pw.write("node"+contador+"[label=\" id: "+aux.primero.dia+" \"];\n");
+                            pw.write("node"+contador1+"[label=\" id: "+aux.primero.next.dia+" \"];\n");
                             pw.write("node"+contador+"->node"+contador1+";\n");
                             pw.write("node"+contador1+"->node"+contador+";\n");
+                            pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador),aux.primero.dia));
+                            
                             aux.primero = aux.primero.next;
                             contador=contador+1;
                             contador1=contador1+1;
                         }
                     }
                     else{
-                            pw.write("node"+contador+"[label=\" id: "+aux.primero.hora+" \"];\n");
+                            pw.write("node"+contador+"[label=\" id: "+aux.primero.dia+" \"];\n");
+                            //pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador),aux.primero.dia));
                     }
                 
             }
@@ -110,6 +114,47 @@ public void generarListaDia(listah lista,String ruta,String nombre){
 	    catch(IOException e){System.out.println("Error: "+e.getMessage());
             
             }       
+}
+
+public String generarListaDia(listah lista,String cluster,String nombre){
+            String auxiliar="";
+            listah aux = lista;
+	    File f;
+            int contador=0;
+            int contador1=1;
+	    try{
+	    auxiliar = auxiliar+"	subgraph cluster"+cluster+" { \n";
+            auxiliar = auxiliar+"label= \" " +nombre+"\"";
+            if(lista.primero!=null){
+                
+         
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){
+                            auxiliar=auxiliar+"nodeh"+contador+nombre+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
+                            auxiliar=auxiliar+"nodeh"+contador1+nombre+"[label=\" bus: "+aux.primero.next.bus+" ruta: "+aux.primero.next.ruta+" hora i: "+aux.primero.next.hora+" hora f: "+aux.primero.next.horaf+" \"];\n";
+                            auxiliar=auxiliar+"nodeh"+contador+nombre+"->nodeh"+contador1+nombre+";\n";
+                            auxiliar=auxiliar+"nodeh"+contador1+nombre+"->nodeh"+contador+nombre+";\n";
+                            aux.primero = aux.primero.next;
+                            contador=contador+1;
+                            contador1=contador1+1;
+                        }
+                    }
+                    else{
+                          auxiliar=auxiliar+"nodeh"+contador+nombre+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
+                            
+                    }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            auxiliar=auxiliar+"}\n";
+	    
+	    }
+	    catch(Exception e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+            return auxiliar;
 }
 
 

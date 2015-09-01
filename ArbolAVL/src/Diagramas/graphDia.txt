@@ -1,9 +1,29 @@
 digraph grafica { 
-label= " DIA martes"node [shape=record];
+label= " DIA chofer"node [shape=record];
 subgraph g { 
- node0[label=" id: 21:00 "];
-node1[label=" id: 22:00 "];
+ node0[label=" id: lunes "];
+node1[label=" id: martes "];
 node0->node1;
 node1->node0;
+	subgraph cluster0 { 
+label= " lunes"nodeh0lunes[label=" bus: ABC123 ruta: Trebol hora i:17:00 hora f: 18:00 "];
+nodeh1lunes[label=" bus: DEF456 ruta: SEGMA hora i: 19:00 hora f: 20:00 "];
+nodeh0lunes->nodeh1lunes;
+nodeh1lunes->nodeh0lunes;
+nodeh1lunes[label=" bus: DEF456 ruta: SEGMA hora i:19:00 hora f: 20:00 "];
+nodeh2lunes[label=" bus: FGH789 ruta: Kaya hora i: 21:00 hora f: 22:00 "];
+nodeh1lunes->nodeh2lunes;
+nodeh2lunes->nodeh1lunes;
+}
+node1[label=" id: martes "];
+node2[label=" id: miercoles "];
+node1->node2;
+node2->node1;
+	subgraph cluster1 { 
+label= " martes"nodeh0martes[label=" bus: ABC123 ruta: Trebol hora i:21:00 hora f: 22:00 "];
+nodeh1martes[label=" bus: DEF456 ruta: SEGMA hora i: 23:00 hora f: 00:00 "];
+nodeh0martes->nodeh1martes;
+nodeh1martes->nodeh0martes;
+}
 }
 }

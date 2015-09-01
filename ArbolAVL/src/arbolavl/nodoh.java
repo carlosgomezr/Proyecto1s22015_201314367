@@ -10,11 +10,17 @@ package arbolavl;
  * @author Carlos Gomez
  */
 public class nodoh {
+    String bus;
+    String ruta;
+    String horaf;
     String hora;
     nodoh next;
     nodoh ant;
-    nodoh(String hora)
+    nodoh(String bus,String ruta,String hora,String horaf)
     {
+        this.bus = bus;
+        this.ruta = ruta;
+        this.horaf = horaf;
         this.hora = hora;
         this.next=null;
         this.ant=null;
