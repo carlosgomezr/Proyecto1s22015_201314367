@@ -4,9 +4,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class cargar_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+ String ruta=""; 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
@@ -48,32 +49,20 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Menú Administrador</title>\n");
-      out.write("    </head>\n");
-      out.write("    <body background=\"BACK2.jpg\">\n");
-      out.write("       <br> </br>\n");
-      out.write("        <br> </br>\n");
-      out.write("        <br> </br>\n");
+      out.write("        <title>Cargar CSV</title>\n");
+      out.write("    </head>");
+      out.write("\n");
+      out.write("    <body background=\"LOGIN.jpg\">\n");
       out.write("    <center>\n");
-      out.write("        <h1>Menú Administrador</h1>\n");
-      out.write("        <br> </br>\n");
-      out.write("        <form name=\"pasaradmin\" action=\"admin.jsp\" method=\"POST\">\n");
-      out.write("        <input type=\"submit\" value=\"  Administrador  \" name=\"boton1\"/>\n");
-      out.write("        </form>\n");
-      out.write("        <br> </br>\n");
-      out.write("        <form name=\"pasarestaciong\" action=\"estaciong.jsp\" method=\"POST\">\n");
-      out.write("        <input type=\"submit\" value=\"Estacion General\" name=\"boton2\"/>    \n");
-      out.write("        </form>\n");
-      out.write("        <br> </br>\n");
-      out.write("        <input type=\"submit\" value=\"  Estacion Clave  \" name=\"boton3\"/>\n");
-      out.write("        <br> </br>\n");
-      out.write("        <input type=\"submit\" value=\"        Chofer      \" name=\"boton4\"/>\n");
-      out.write("        <br> </br>\n");
-      out.write("        <input type=\"submit\" value=\"    Asignar bus   \" name=\"boton5\"/>\n");
-      out.write("        <br> </br>\n");
-      out.write("        <input type=\"submit\" value=\"          Bus         \" name=\"boton6\"/>\n");
-      out.write("        <br> </br>\n");
-      out.write("        <input type=\"submit\" value=\"         Resumen       \" name=\"boton7\" />\n");
+      out.write("        <br></br>\n");
+      out.write("        <br></br>\n");
+      out.write("        <br></br>\n");
+      out.write("        <h1>Cargar CSV</h1>\n");
+      out.write("        <br></br>\n");
+      out.write("        <br></br>\n");
+      out.write("        <input type=\"file\" name=\"buscador\" value=\"\" width=\"45\" />");
+ruta=request.getParameter("buscador"); 
+      out.write("\n");
       out.write("    </center>\n");
       out.write("    </body>\n");
       out.write("</html>\n");

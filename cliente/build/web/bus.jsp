@@ -10,8 +10,33 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bus</title>
-    </head>
+    </head>><%! String id=""; %>
     <body background="BACK2.jpg">
-        
+        <center>
+        <br></br>
+        <br></br>
+        <br></br>
+        <h1>Bus</h1>
+        <br></br>
+        <br></br>
+        <font color="white">
+        <table border="0" style="text-align:center;">
+           
+            <tbody>
+                <tr>
+                    <td> ID: </td>
+                    <td> <input type="text" name="texto1" value="" size="20" /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="ADD" name="boton1" /></td>
+                    <td><input type="submit" value="REMOVE" name="boton2" /></td>
+                    <td><input type="submit" value="EDIT" name="boton3" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        </font>
+    </center>
     </body>
 </html>

@@ -16,7 +16,7 @@
             String vtipo="";
         %>
     </head>
-    <body background="LOGIN.jpg">
+    <body background="LOGIN1.jpg">
         <% 
             vusuario = request.getParameter("usuario");
             vpassword = request.getParameter("password");

@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Administrador</title>
-    </head>
+    </head><%! String correo=""; String password="";%>
     <body  background="BACK2.jpg">
     <center>
         <br></br>
@@ -35,7 +35,7 @@
                 <tr>
                     <td><input type="submit" value="ADD" name="boton1" /></td>
                     <td><input type="submit" value="REMOVE" name="boton2" /></td>
-                    <td><input type="submit" value="BUSCAR" name="boton3" /></td>
+                    <td><input type="submit" value="EDIT" name="boton3" /></td>
                 </tr>
             </tbody>
         </table>
