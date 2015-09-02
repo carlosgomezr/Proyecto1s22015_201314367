@@ -1,6 +1,6 @@
 <%-- 
-    Document   : menuegeneral
-    Created on : 31/08/2015, 08:21:10 PM
+    Document   : chofer
+    Created on : 1/09/2015, 06:25:22 PM
     Author     : Carlos Gomez
 --%>
 
@@ -9,14 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menú Estacion General</title>
+        <title>Chofer</title>
     </head>
     <body background="BACK2.jpg">
-        <br> </br>
-        <br> </br>
-        <br> </br>
-    <center>
-        <h1>Menú Estacion General</h1>
-    </center>
+       
     </body>
 </html>

@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Menú Administrador</title>
     </head>
     <body background="BACK2.jpg">
        <br> </br>
@@ -29,6 +29,8 @@
         <input type="submit" value="    Asignar bus   " name="boton5"/>
         <br> </br>
         <input type="submit" value="          Bus         " name="boton6"/>
+        <br> </br>
+        <input type="submit" value="         Resumen       " name="boton7" />
     </center>
     </body>
 </html>

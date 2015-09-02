@@ -10,8 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <%! 
+            String vusuario="";
+            String vpassword="";
+            String vtipo="";
+        %>
     </head>
     <body background="LOGIN.jpg">
+        <% 
+            vusuario = request.getParameter("usuario");
+            vpassword = request.getParameter("password");
+            vtipo = request.getParameter("tipo");
+        %>
         <DIV ALIGN=right> 
             <br>
             </br>
