@@ -9,10 +9,10 @@ package arbolavl;
  *
  * @author Carlos Gomez
  */
-public class listah {
-    nodoh primero;
-    nodoh ultimo;
-    listah()
+public class listaasignar {
+ nodoasignar primero;
+ nodoasignar ultimo;
+    listaasignar()
     {
         primero=null;
         ultimo=null;
@@ -24,33 +24,33 @@ public class listah {
         else return false;
     }
       
-      public listah alta(String dat,String ruta,String hora, String horaf)
+      public listaasignar alta(String dat,String ruta,int clavechofer,String hora, String horaf,String fecha)
     {
         if((primero==null))
         {
-            nodoh nuevo=new nodoh(dat,ruta,hora,horaf);
+            nodoasignar nuevo=new nodoasignar(dat,ruta,clavechofer,hora,horaf,fecha);
             primero=nuevo;
             ultimo=nuevo;
         }
         else
         {
-            nodoh nuevo=new nodoh(dat,ruta,hora,horaf);
+            nodoasignar nuevo=new nodoasignar(dat,ruta,clavechofer,hora,horaf,fecha);
             ultimo.next=nuevo;
             nuevo.ant=ultimo;
             ultimo=nuevo;
         }
         return this;
     }
-
-          public boolean delete(String num)
+      
+        public boolean delete(String num)
     {
-        nodoh anterior=null;
-        nodoh actual=primero;
+        nodoasignar anterior=null;
+        nodoasignar actual=primero;
         
        
         while(actual!=ultimo)
         {
-            if(actual.hora.compareTo(num)==0)
+            if(actual.idbus.compareTo(num)==0)
             {
                 if(anterior==null)
                 {
@@ -59,7 +59,7 @@ public class listah {
                 }
                 else{
                     anterior.next=actual.next;
-                    nodoh temporal;
+                    nodoasignar temporal;
                     temporal=actual.next;
                     temporal.ant=anterior;
                 }
@@ -69,7 +69,7 @@ public class listah {
             actual=actual.next;
         }
        
-        if(num.compareTo(ultimo.hora)==0)
+        if(num.compareTo(ultimo.idbus)==0)
         {
              if(primero==ultimo){
                 primero = ultimo = null;
@@ -81,47 +81,23 @@ public class listah {
         }
         return false;
     }
-
-        public int tamaño(){
-            int t=0;
-            if( estavacio() )
-            {
-		t=0;
-            }
-            nodoh actual = ultimo;
-            while( actual != null)
-        	{
-                t = t+1;
-		actual = actual.ant;
-            }
-            return t;
-        }
         
-    public void reemplazarInsertar(String bus,String hora){
-        nodoh actual;
-        actual = primero;
-        
-        while(actual!=null){
-                if(actual.bus.compareTo(bus)==0){
-                    actual.lista.alta(hora);
-                }
-                actual = actual.next;
-        }
-    }    
-        
-    public void imprimir()
+         public String imprimir(String idbus)
     {
-        nodoh actual;
+        nodoasignar actual;
+        String concatenar="";
         actual=primero;
         while(actual!=null)
         {
-            System.out.println("bus: "+actual.bus+" ruta: "+actual.ruta+" hora ini: "+actual.hora+" hora fin: "+actual.horaf);
-            
+            if(actual.idbus.compareTo(idbus)==0){
+            System.out.println("bus: "+actual.idbus+" ruta: "+actual.ruta+" hora ini: "+actual.horaini+" hora fin: "+actual.horafin+" fecha: "+actual.fecha);
+            concatenar=concatenar+"bus: "+actual.idbus+" ruta: "+actual.ruta+" hora ini: "+actual.horaini+" hora fin: "+actual.horafin+" fecha: "+actual.fecha;
             actual=actual.next;
+            }
         }
        
-           
+         return concatenar;  
                  
     }
-    
+
 }

@@ -108,6 +108,19 @@ public class listad {
                 actual = actual.next;
         }
     }
+     
+     public void InsertarHora(String dia,String bus,String hora){
+        nodod actual;
+        actual = primero;
+        
+        while(actual!=null){
+                if(actual.dia.compareTo(dia)==0){
+                    actual.hora.reemplazarInsertar(bus, hora);
+                }
+                actual = actual.next;
+        }
+    }
+     
      public void reemplazarEliminar(String dia,String hora){
         nodod actual;
         actual = primero;

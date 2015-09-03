@@ -9,22 +9,15 @@ package arbolavl;
  *
  * @author Carlos Gomez
  */
-public class nodoh {
-    String bus;
-    String ruta;
-    String horaf;
+public class nodohora {
     String hora;
-    listahora lista;
-    nodoh next;
-    nodoh ant;
-    nodoh(String bus,String ruta,String hora,String horaf)
+    nodohora next;
+    nodohora ant;
+    nodohora(String hora)
     {
-        this.lista = new listahora();
-        this.bus = bus;
-        this.ruta = ruta;
-        this.horaf = horaf;
         this.hora = hora;
         this.next=null;
         this.ant=null;
     }
+    
 }
