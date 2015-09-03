@@ -58,11 +58,21 @@ public final class reporte_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <br></br>\n");
       out.write("        <br></br>\n");
       out.write("    <center>\n");
+      out.write("        <br></br>\n");
       out.write("        <input type=\"submit\" value=\"        GRAFICAR ADMIN           \" name=\"boton1\" />\n");
+      out.write("        <br></br>\n");
       out.write("        <input type=\"submit\" value=\"     GRAFICAR ESTACION CLAVE     \" name=\"boton2\" />\n");
+      out.write("        <br></br>\n");
       out.write("        <input type=\"submit\" value=\"    GRAFICAR ESTACION GENERAL    \" name=\"boton3\" />\n");
+      out.write("        <br></br>\n");
       out.write("        <input type=\"submit\" value=\"     GRAFICAR BUS POR CHOFER     \" name=\"boton4\" />\n");
+      out.write("        <br></br>\n");
       out.write("        <input type=\"submit\" value=\"GRAFICAR HORARIO POR CHOFER Y BUS\" />\n");
+      out.write("        <br></br>\n");
+      out.write("        <img scr=\"diagrama.png\">\n");
+      out.write("        <img src=\"web/diagrama.png\">\n");
+      out.write("        <img scr=\"LOGIN1.png\">\n");
+      out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

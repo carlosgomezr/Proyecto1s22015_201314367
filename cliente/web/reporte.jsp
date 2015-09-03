@@ -19,10 +19,20 @@
         <br></br>
         <br></br>
     <center>
+        <br></br>
         <input type="submit" value="        GRAFICAR ADMIN           " name="boton1" />
+        <br></br>
         <input type="submit" value="     GRAFICAR ESTACION CLAVE     " name="boton2" />
+        <br></br>
         <input type="submit" value="    GRAFICAR ESTACION GENERAL    " name="boton3" />
+        <br></br>
         <input type="submit" value="     GRAFICAR BUS POR CHOFER     " name="boton4" />
+        <br></br>
         <input type="submit" value="GRAFICAR HORARIO POR CHOFER Y BUS" />
+        <br></br>
+        <img scr="diagrama.png">
+        <img src="web/diagrama.png">
+        <img scr="LOGIN1.png">
+
     </body>
 </html>
