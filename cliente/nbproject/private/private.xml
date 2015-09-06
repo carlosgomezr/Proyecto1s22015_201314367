@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/index.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/verestaciongeneral.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/verestacionclave.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/bus.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/menu.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/asignarbus.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/cargar.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/chofer.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/estacionc.jsp</file>
-            <file>file:/C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/estaciong.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

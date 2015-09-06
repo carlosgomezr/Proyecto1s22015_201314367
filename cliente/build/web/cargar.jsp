@@ -19,7 +19,15 @@
         <h1>Cargar CSV</h1>
         <br></br>
         <br></br>
-        <input type="file" name="buscador" value="" width="45" /><%ruta=request.getParameter("buscador"); %>
+        <form name="pasarcargar" action="cargar.jsp" method="POST">
+        
+        <input type="file" name="buscador" value="" width="45" />
+        <br></br>
+        <br></br>
+        <input type="submit" value="CARGAR! xD" name="boton1" />
+        <% ruta = request.getParameter("buscador"); %>
+        <% out.println("ruta: "+ruta +" xD"); %>
+        </form>
     </center>
     </body>
 </html>

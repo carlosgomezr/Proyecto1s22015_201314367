@@ -52,7 +52,7 @@ public final class cargar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <title>Cargar CSV</title>\n");
       out.write("    </head>");
       out.write("\n");
-      out.write("    <body background=\"LOGIN.jpg\">\n");
+      out.write("    <body background=\"BACK2.jpg\">\n");
       out.write("    <center>\n");
       out.write("        <br></br>\n");
       out.write("        <br></br>\n");
@@ -60,9 +60,16 @@ public final class cargar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <h1>Cargar CSV</h1>\n");
       out.write("        <br></br>\n");
       out.write("        <br></br>\n");
-      out.write("        <input type=\"file\" name=\"buscador\" value=\"\" width=\"45\" />");
+      out.write("        <form name=\"pasarcargar\" action=\"cargar.jsp\" method=\"POST\">\n");
+      out.write("        \n");
+      out.write("        <input type=\"file\" name=\"buscador\" value=\"\" width=\"45\" />\n");
+      out.write("        ");
 ruta=request.getParameter("buscador"); 
       out.write("\n");
+      out.write("        ");
+ out.println(ruta); 
+      out.write("\n");
+      out.write("        </form>\n");
       out.write("    </center>\n");
       out.write("    </body>\n");
       out.write("</html>\n");

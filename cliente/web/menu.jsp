@@ -43,11 +43,11 @@
         </form>
         <br> </br>
         <form name="pasarruta" action="ruta.jsp" method="POST">
-        <input type="submit" value="Ruta" name="boton7" />
+        <input type="submit" value="        Ruta         " name="boton7" />
         </form>
         <br> </br>
         <form name="pasarresumen" action="resumen.jsp" method="POST">
-        <input type="submit" value="         Resumen       " name="boton8" />
+        <input type="submit" value="       Resumen      " name="boton8" />
         </form>
     </center>
     </body>
