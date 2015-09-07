@@ -26,6 +26,7 @@ public class Funcion {
 
     public int conta=0;
 
+    public int contar=0;
 public void generarListaDoble(listasdobles lista,String ruta){
             listasdobles aux = lista;
 	    File f;
@@ -75,9 +76,7 @@ public void generarListaDoble(listasdobles lista,String ruta){
 public void generarListaDoble2(listasdobles lista,String ruta){
             listasdobles aux = lista;
 	    File f;
-            int c=0;
-            int c1=1;
-	   
+            int contar2= contar+1;
             FileWriter escribir;
 	    try{
 	    f = new File(ruta);
@@ -90,18 +89,18 @@ public void generarListaDoble2(listasdobles lista,String ruta){
 	    pw.write("subgraph g { \n "); 
             if(lista.primero!=null){
                 
-         
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){
-                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" horario ini: "+aux.primero.b.horarioIni+" horario fin: "+aux.primero.b.horarioFin+" fecha: "+aux.primero.b.fecha+"\"];\n");
-                            pw.write("node"+aux.primero.next.b.id+"[label=\" id: "+aux.primero.next.b.id+" horario ini: "+aux.primero.next.b.horarioIni+" horario fin: "+aux.primero.next.b.horarioFin+" fecha: "+aux.primero.next.b.fecha+" \"];\n");
-                            pw.write("node"+aux.primero.b.id+"->node"+aux.primero.next.b.id+";\n");
-                            pw.write("node"+aux.primero.next.b.id+"->node"+aux.primero.b.id+";\n");
+                            pw.write("node"+contar+"[label=\" id: "+aux.primero.b.id+" horario ini: "+aux.primero.b.horarioIni+" horario fin: "+aux.primero.b.horarioFin+" fecha: "+aux.primero.b.fecha+"\"];\n");
+                            pw.write("node"+contar2+"[label=\" id: "+aux.primero.next.b.id+" horario ini: "+aux.primero.next.b.horarioIni+" horario fin: "+aux.primero.next.b.horarioFin+" fecha: "+aux.primero.next.b.fecha+" \"];\n");
+                            pw.write("node"+contar+"->node"+contar2+";\n");
+                            pw.write("node"+contar2+"->node"+contar+";\n");
                             aux.primero = aux.primero.next;
+                            contar = contar+2;
                         }
                     }
                     else{
-                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" horario ini: "+aux.primero.b.horarioIni+" horario fin: "+aux.primero.b.horarioFin+" fecha: "+aux.primero.b.fecha+"\"];\n");
+                            pw.write("node"+contar+"[label=\" id: "+aux.primero.b.id+" horario ini: "+aux.primero.b.horarioIni+" horario fin: "+aux.primero.b.horarioFin+" fecha: "+aux.primero.b.fecha+"\"];\n");
                         }
                 
             }

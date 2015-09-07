@@ -188,6 +188,16 @@ public String con="";
     }
     
     
+    
+    public void modificarEliminar(AVLNodeChofer nodo,int x, String nombre,String apellido, String password,int nuevaclave){
+        try{
+            eliminar(nodo,x);
+            insert(nuevaclave,nombre,apellido,password);
+        }
+        catch(Exception ex){
+        }
+    }
+    
     public void modificar(AVLNodeChofer nodo,int x, String nombre,String apellido, String password){
         try{
         if ( x<nodo.id){

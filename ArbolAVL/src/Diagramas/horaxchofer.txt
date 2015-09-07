@@ -1,13 +1,13 @@
 digraph grafica { 
 label= "LISTA DOBLE  BUSES"node [shape=record];
 subgraph g { 
- nodeJKL123[label=" id: JKL123 horario ini: 15:00 horario fin: 16:00 fecha: 28 AGOSTO 2015"];
-nodeJKL123[label=" id: JKL123 horario ini: 16:00 horario fin: 17:00 fecha: 29 AGOSTO 2015 "];
-nodeJKL123->nodeJKL123;
-nodeJKL123->nodeJKL123;
-nodeJKL123[label=" id: JKL123 horario ini: 16:00 horario fin: 17:00 fecha: 29 AGOSTO 2015"];
-nodeJKL123[label=" id: JKL123 horario ini: 23:00 horario fin: 00:00 fecha: 1 DE SEPTIEMBRE 2015 "];
-nodeJKL123->nodeJKL123;
-nodeJKL123->nodeJKL123;
+ node0[label=" id: JKL123 horario ini: 15:00 horario fin: 16:00 fecha: 28 AGOSTO 2015"];
+node1[label=" id: JKL123 horario ini: 16:00 horario fin: 17:00 fecha: 29 AGOSTO 2015 "];
+node0->node1;
+node1->node0;
+node2[label=" id: JKL123 horario ini: 16:00 horario fin: 17:00 fecha: 29 AGOSTO 2015"];
+node1[label=" id: JKL123 horario ini: 23:00 horario fin: 00:00 fecha: 1 DE SEPTIEMBRE 2015 "];
+node2->node1;
+node1->node2;
 }
 }

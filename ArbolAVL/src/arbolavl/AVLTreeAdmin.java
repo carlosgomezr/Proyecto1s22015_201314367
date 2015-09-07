@@ -86,6 +86,17 @@ public AVLNodeAdmin r;
     }
         return nuevo;
     }
+    
+    public void modificarEliminar(AVLNodeAdmin nodo,String x, String password,int contador,String nuevaclave){
+        try{
+            eliminar(nodo,x);
+            insert(nuevaclave,password,contador);
+        }
+        catch(Exception ex){
+        }
+    }
+    
+    
     public void modificar(AVLNodeAdmin nodo,String x, String nombre, String password){
         try{
         if (x.compareTo(nodo.correo)<0){

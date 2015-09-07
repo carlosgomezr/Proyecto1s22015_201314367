@@ -110,6 +110,16 @@ public AVLNode r;
         catch(Exception ex){
         }
     }
+    
+     public void modificarEliminar(AVLNode nodo,int x, String nombre, String password,int nuevaclave){
+        try{
+        eliminar(nodo,x);
+        insert(nuevaclave,nombre,password);
+        }
+        catch(Exception ex){
+        }
+    }
+    
     public  AVLNode balancear(AVLNode t){
         if((t!=null)){
                 int id = height( t.izquierdo ) - height( t.derecho ) ;
