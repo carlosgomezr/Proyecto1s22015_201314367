@@ -81,9 +81,6 @@ public AVLNodeAdmin r;
         if( x.compareTo(nuevo.correo)==0){
               return nuevo;
         }
-        else{
-                System.out.println("clave no existe");
-            }
     }catch(Exception ex){
     
     }
@@ -98,12 +95,10 @@ public AVLNodeAdmin r;
                 modificar(nodo.derecho,x,nombre,password);
         }        
         if( x.compareTo(nodo.correo)==0){
+                nodo.correo = x;
                 nodo.password = password; 
+                balancear(nodo);
         }
-        else{
-                System.out.println("    CLAVE NO EXISTE xD");
-            }
-        
         }
         catch(Exception ex){
         }
@@ -372,7 +367,24 @@ public AVLNodeAdmin eliminar_min(AVLNodeAdmin t){
     }
 
 
-    
+    public void imprimir(){
+        imprimir(root);
+    }
+
+    public String imprimir(AVLNodeAdmin nodo){
+        String c="";
+        if ( nodo != null ){
+            imprimir(nodo.derecho);
+                int id = height( nodo.izquierdo ) - height( nodo.derecho ) ;
+                int di = height( nodo.derecho ) - height( nodo.izquierdo ) ;
+                System.out.println(nodo+"  t "+nodo.correo+"     altura "+nodo.height+"     i "+height(nodo.izquierdo)+"       d "+height(nodo.derecho)+"     i-d "+id+"      d-i "+di);
+                c = c + nodo.correo;
+//       System.out.println("["+ nodo.id + "] "+nodo.height);
+                imprimir(nodo.izquierdo);
+          
+        }
+        return c;
+    }
     
 public String ToDot(AVLNodeAdmin node)
 {

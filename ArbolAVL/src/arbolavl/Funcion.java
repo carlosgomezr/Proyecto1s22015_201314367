@@ -22,10 +22,17 @@ import java.io.FileNotFoundException;
  * @author Carlos Gomez
  **/
 public class Funcion {
+    public int contador=0;
+
+    public int conta=0;
+
 public void generarListaDoble(listasdobles lista,String ruta){
             listasdobles aux = lista;
 	    File f;
-	    FileWriter escribir;
+            int c=0;
+            int c1=1;
+	   
+            FileWriter escribir;
 	    try{
 	    f = new File(ruta);
 	    escribir = new FileWriter(f);
@@ -40,15 +47,15 @@ public void generarListaDoble(listasdobles lista,String ruta){
          
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){
-                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" ruta: "+aux.primero.b.nombre +" chofer: "+aux.primero.b.ClaveChofer+" horaIni "+aux.primero.b.horarioIni+" horaFin "+aux.primero.b.horarioFin+" fecha "+aux.primero.b.fecha+" \"];\n");
-                            pw.write("node"+aux.primero.next.b.id+"[label=\" id: "+aux.primero.next.b.id+" ruta: "+aux.primero.next.b.nombre+" chofer: "+aux.primero.next.b.ClaveChofer+" horaIni "+aux.primero.next.b.horarioIni+" horaFin "+aux.primero.next.b.horarioFin+" fecha "+aux.primero.next.b.fecha+" \"];\n");
+                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+"\"];\n");
+                            pw.write("node"+aux.primero.next.b.id+"[label=\" id: "+aux.primero.next.b.id+" \"];\n");
                             pw.write("node"+aux.primero.b.id+"->node"+aux.primero.next.b.id+";\n");
                             pw.write("node"+aux.primero.next.b.id+"->node"+aux.primero.b.id+";\n");
                             aux.primero = aux.primero.next;
                         }
                     }
                     else{
-                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" ruta: "+aux.primero.b.nombre +" chofer: "+aux.primero.b.ClaveChofer+" horaIni "+aux.primero.b.horarioIni+" horaFin "+aux.primero.b.horarioFin+" fecha "+aux.primero.b.fecha+" \"];\n");
+                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" \"];\n");
                     }
                 
             }
@@ -65,12 +72,85 @@ public void generarListaDoble(listasdobles lista,String ruta){
             }       
 }
 
+public void generarListaDoble2(listasdobles lista,String ruta){
+            listasdobles aux = lista;
+	    File f;
+            int c=0;
+            int c1=1;
+	   
+            FileWriter escribir;
+	    try{
+	    f = new File(ruta);
+	    escribir = new FileWriter(f);
+	    BufferedWriter bw = new BufferedWriter(escribir);
+	    PrintWriter pw = new PrintWriter(bw);
+            pw.write("digraph grafica { \n");
+            pw.write("label= \"LISTA DOBLE  BUSES\"");
+            pw.write("node [shape=record];\n");
+	    pw.write("subgraph g { \n "); 
+            if(lista.primero!=null){
+                
+         
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){
+                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" horario ini: "+aux.primero.b.horarioIni+" horario fin: "+aux.primero.b.horarioFin+" fecha: "+aux.primero.b.fecha+"\"];\n");
+                            pw.write("node"+aux.primero.next.b.id+"[label=\" id: "+aux.primero.next.b.id+" horario ini: "+aux.primero.next.b.horarioIni+" horario fin: "+aux.primero.next.b.horarioFin+" fecha: "+aux.primero.next.b.fecha+" \"];\n");
+                            pw.write("node"+aux.primero.b.id+"->node"+aux.primero.next.b.id+";\n");
+                            pw.write("node"+aux.primero.next.b.id+"->node"+aux.primero.b.id+";\n");
+                            aux.primero = aux.primero.next;
+                        }
+                    }
+                    else{
+                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" horario ini: "+aux.primero.b.horarioIni+" horario fin: "+aux.primero.b.horarioFin+" fecha: "+aux.primero.b.fecha+"\"];\n");
+                        }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            pw.write("}\n");
+	    pw.write("}\n");
+	    pw.close();
+	    bw.close();
+	    }
+	    catch(IOException e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+}
+
+
+public void ChoferxDia(AVLNodeChofer nuevo,int x,String ruta, String nombre){
+   
+    try{    
+        if ( x<nuevo.id){
+            if(nuevo.izquierdo!=null){
+                ChoferxDia(nuevo.izquierdo,x,ruta,nombre);
+            }
+        }
+        if ( x>nuevo.id){
+            if(nuevo.derecho!=null){
+                ChoferxDia(nuevo.derecho,x,ruta,nombre);
+            }
+        }        
+        if( x==nuevo.id){
+              System.out.print("si existe clave "+nuevo);
+              generarFecha(nuevo.lista,ruta,nombre);
+        }
+        else{
+                System.out.println("clave no existe");
+            }
+    }catch(Exception ex){
+    
+    }
+   
+    }
+    
 
 public void generarFecha(listad lista,String ruta,String nombre){
+            int contador1= contador+1;
             listad aux = lista;
 	    File f;
-            int contador=0;
-            int contador1=1;
+            
 	    FileWriter escribir;
 	    try{
 	    f = new File(ruta);
@@ -91,15 +171,17 @@ public void generarFecha(listad lista,String ruta,String nombre){
                             pw.write("node"+contador+"->node"+contador1+";\n");
                             pw.write("node"+contador1+"->node"+contador+";\n");
                             pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador),aux.primero.dia));
+                            pw.write(generarListaDia(aux.primero.next.hora,Integer.toString(contador1),aux.primero.next.dia));
                             
                             aux.primero = aux.primero.next;
-                            contador=contador+1;
-                            contador1=contador1+1;
+                            contador=contador+2;
+                            
                         }
                     }
                     else{
-                            pw.write("node"+contador+"[label=\" id: "+aux.primero.dia+" \"];\n");
-                            //pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador),aux.primero.dia));
+                            pw.write("node"+contador1+"[label=\" id: "+aux.primero.dia+" \"];\n");
+                            pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador),aux.primero.dia));
+                        
                     }
                 
             }
@@ -118,11 +200,10 @@ public void generarFecha(listad lista,String ruta,String nombre){
 
 public String generarListaDia(listah lista,String cluster,String nombre){
             String auxiliar="";
+            int conta1 = conta +1;
             listah aux = lista;
 	    File f;
-            int contador=0;
-            int contador1=1;
-	    try{
+            try{
 	    auxiliar = auxiliar+"	subgraph cluster"+cluster+" { \n";
             auxiliar = auxiliar+"label= \" " +nombre+"\"";
             if(lista.primero!=null){
@@ -130,18 +211,16 @@ public String generarListaDia(listah lista,String cluster,String nombre){
          
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){
-                            auxiliar=auxiliar+"nodeh"+contador+nombre+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
-                            auxiliar=auxiliar+"nodeh"+contador1+nombre+"[label=\" bus: "+aux.primero.next.bus+" ruta: "+aux.primero.next.ruta+" hora i: "+aux.primero.next.hora+" hora f: "+aux.primero.next.horaf+" \"];\n";
-                            auxiliar=auxiliar+"nodeh"+contador+nombre+"->nodeh"+contador1+nombre+";\n";
-                            auxiliar=auxiliar+"nodeh"+contador1+nombre+"->nodeh"+contador+nombre+";\n";
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"[label=\" bus: "+aux.primero.next.bus+" ruta: "+aux.primero.next.ruta+" hora i: "+aux.primero.next.hora+" hora f: "+aux.primero.next.horaf+" \"];\n";
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"->nodehora"+cluster+"c"+conta1+";\n";
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"->nodehora"+cluster+"c"+conta+";\n";
                             aux.primero = aux.primero.next;
-                            contador=contador+1;
-                            contador1=contador1+1;
+                            conta=conta+2;
                         }
                     }
                     else{
-                          auxiliar=auxiliar+"nodeh"+contador+nombre+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
-                            
+                          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
                     }
                 
             }
@@ -204,6 +283,7 @@ public void generarListaRuta(listae lista,String ruta,String nombre){
             
             }       
 }
+
 
 public String leer(){
     String cadena="";
@@ -270,7 +350,7 @@ public void generarImagen(String nombre,String ruta) {
         }
     }
 
-public void leerCSV(listasdobles l){
+public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol){
   
         try {
         JFileChooser buscador = new JFileChooser();
@@ -289,8 +369,26 @@ public void leerCSV(listasdobles l){
             String HorarioFin = usuarios_import.get(4);
             String fecha = usuarios_import.get(5);
             int aux = Integer.parseInt(ClaveChofer);
-            Bus nuevo = new Bus(id,ruta,aux,HorarioIni,HorarioFin,fecha);
-            l.alta(nuevo);
+            Bus ob = new Bus(id,ruta,aux,HorarioIni,HorarioFin,fecha);
+            asignar.alta(ob);
+            if(lista.existe(id)==true){
+                System.out.println("Existe "+id); 
+                //lista.ordenamiento(lista);
+            }else{
+                System.out.println("No existe "+id);
+                Bus dat = new Bus(id,ruta,aux,HorarioIni,HorarioFin,fecha);
+                lista.alta(dat);
+                //lista.ordenamiento(lista);
+            }
+            if(arbol.existe(arbol.root, aux)==true){
+                System.out.println("AVL Existe "+aux);
+                arbol.buscarInsertarHora(arbol.root, aux, fecha, id, ruta, HorarioIni, HorarioFin);
+            }else{
+                System.out.println("AVL No Existe "+aux);
+                arbol.insert(aux, "Chofer","chofer", "chofer");
+                arbol.buscarInsertarHora(arbol.root, aux, fecha, id, ruta, HorarioIni, HorarioFin);
+            }
+            
         }
          
         usuarios_import.close();

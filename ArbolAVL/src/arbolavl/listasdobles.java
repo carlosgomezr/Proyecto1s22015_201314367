@@ -150,6 +150,21 @@ public class listasdobles {
         }
     }
     
+    public boolean existe(String id){
+        boolean flag=false;
+        nodo actual;
+        actual = primero;
+        
+        while(actual!=null){
+                if(actual.b.id.compareTo(id)==0){
+                    flag=true;
+                }
+                actual = actual.next;
+        }
+        return flag;
+    }
+
+    
     
      public void Modificar(listasdobles lista,Bus aj,Bus ajm){
         int numeroid=0;
@@ -157,8 +172,9 @@ public class listasdobles {
         actual = ultimo;
         while( actual != null)
 	{
-            System.out.println("j :"+aj.ClaveChofer+" j+1 "+ajm.ClaveChofer);
-            if(actual.b.ClaveChofer==aj.ClaveChofer){
+            //System.out.println("j :"+aj.ClaveChofer+" j+1 "+ajm.ClaveChofer);
+            //if(actual.b.ClaveChofer==aj.ClaveChofer){
+            if(actual.b.id.compareTo(aj.id)==0){
                 aj = ajm;
                 actual.b = aj;
             }
@@ -187,4 +203,121 @@ public class listasdobles {
          }
      }
 
+      public void imprimir()
+    {
+        nodo actual;
+        actual=primero;
+        while(actual!=null)
+        {
+            System.out.println("BUS: "+actual.b.id);
+            
+            actual=actual.next;
+        }
+       
+           
+                 
+    }
+      
+        public void imprimir2()
+    {
+        nodo actual;
+        actual=primero;
+        while(actual!=null)
+        {
+            System.out.println("Horario ini: "+actual.b.horarioIni+" Horario fin: "+actual.b.horarioFin+"\n");
+            
+            actual=actual.next;
+        }
+       
+           
+                 
+    }
+      
+       public String Busespecifico(String bus)
+    {
+        String conca="";
+        nodo actual;
+        actual=primero;
+        while(actual!=null)
+        {
+            if(actual.b.id.compareTo(bus)==0){
+                conca = conca + " ruta: "+actual.b.nombre+" Horario Inicio: "+actual.b.horarioIni+" Horario Fin: "+actual.b.horarioFin+" Fecha: "+actual.b.fecha+" \n";
+            }
+            
+            actual=actual.next;
+        }
+       
+           return conca;
+                 
+    }
+     
+       
+    public void busxChofer(int clave,listasdobles Chofer)
+    {
+        nodo actual;
+        actual=primero;
+        while(actual!=null)
+        {
+            if(actual.b.ClaveChofer==clave){
+                if(verificar(actual.b.id,Chofer)==true){
+                   System.out.println("si existe "+actual.b.id);
+                }
+                else{
+                Chofer.alta(actual.b);
+                }
+            }
+            actual=actual.next;
+        }          
+    }
+    
+    public void horarioxChoferxbus(int clavechofer, String id,listasdobles horario){
+        nodo actual;
+        actual=primero;
+         while(actual!=null)
+            {
+            if((actual.b.ClaveChofer==clavechofer) && (actual.b.id.compareTo(id)==0)){
+                horario.alta(actual.b);
+                }
+            actual=actual.next;
+            }
+            
+        }          
+   
+    public boolean verificar(String id,listasdobles lista){
+        boolean flag=false;
+        nodo actual;
+        actual = lista.primero;
+        
+        while(actual!=null){
+                if(actual.b.id.compareTo(id)==0){
+                    flag=true;
+                }
+                actual = actual.next;
+        }
+        return flag;
+    }
+     
+     
+    
+    
+    public void reporteChoferxBus(int chofer){
+        listasdobles aux = new listasdobles();
+        busxChofer(chofer, aux);
+        System.out.println("BUSXCHOFER----------"+chofer);
+        aux.imprimir();
+        Funcion f = new Funcion();
+        f.generarListaDoble(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\busxchofer.txt");
+        f.generarImagen("busXChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\busxchofer.txt");
+    }
+    
+    public void reporteHoraxChofer(int chofer,String id){
+        listasdobles aux = new listasdobles();
+        horarioxChoferxbus(chofer,id,aux);
+        System.out.println("HORARIO-------- chofer "+chofer+" bus "+id);
+        aux.imprimir2();
+        Funcion f = new Funcion();
+        f.generarListaDoble2(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\horaxchofer.txt");
+        f.generarImagen("horaxChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\horaxchofer.txt");
+    }
+    
 }

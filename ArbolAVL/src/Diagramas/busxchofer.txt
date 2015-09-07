@@ -1,0 +1,6 @@
+digraph grafica { 
+label= "LISTA DOBLE  BUSES"node [shape=record];
+subgraph g { 
+ nodeDEF456[label=" id: DEF456 "];
+}
+}

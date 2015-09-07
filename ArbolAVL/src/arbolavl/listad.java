@@ -97,25 +97,37 @@ public class listad {
         return t;
     }
     
-     public void reemplazarInsertar(String dia,String bus,String ruta,String hora,String horaf){
-        nodod actual;
-        actual = primero;
+    public boolean existe(String dia){
+    boolean flag=false;
+    nodod actual;
+    actual = primero;
         
         while(actual!=null){
                 if(actual.dia.compareTo(dia)==0){
-                    actual.hora.alta(bus,ruta,hora,horaf);
+                    flag = true;
                 }
                 actual = actual.next;
         }
+        return flag;
     }
+    
+     public void reemplazarInsertar(String dia,String bus,String ruta,String hora,String horaf){
+         if(existe(dia)==true){
+            InsertarHora(dia,bus,ruta,hora,horaf);
+         }
+         else{
+            alta(dia);
+            InsertarHora(dia,bus,ruta,hora,horaf);
+         }
+     }
      
-     public void InsertarHora(String dia,String bus,String hora){
+     public void InsertarHora(String dia,String bus,String ruta,String hora,String horaf){
         nodod actual;
         actual = primero;
         
         while(actual!=null){
                 if(actual.dia.compareTo(dia)==0){
-                    actual.hora.reemplazarInsertar(bus, hora);
+                    actual.hora.alta(bus,ruta, hora, horaf);
                 }
                 actual = actual.next;
         }
@@ -148,23 +160,23 @@ public class listad {
     }
      
         
-    public void imprimir()
+    public String imprimir()
     {
         nodod actual;
+        String c="";
         actual=primero;
-        System.out.println("IMPRIMIR LISTA DOBLE");
+        //System.out.println("IMPRIMIR LISTA DOBLE");
         while(actual!=null)
         {
-            System.out.println(" id : "+actual.dia);
-            System.out.println("valor de actual.hora "+actual.hora);
-            actual.hora.imprimir();
+           // System.out.println(" id : "+actual.dia);
+           // System.out.println("valor de actual.hora "+actual.hora);
             
+            actual.hora.imprimir();
+            c = c + " fecha: "+actual.dia+"\n       - "+actual.hora.imprimir();
             actual=actual.next;
         }
            
-       
+     return c;  
    }
-    
-    
      
 }

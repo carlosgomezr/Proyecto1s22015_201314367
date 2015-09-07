@@ -6,24 +6,29 @@ node1[label=" id: martes "];
 node0->node1;
 node1->node0;
 	subgraph cluster0 { 
-label= " lunes"nodeh0lunes[label=" bus: ABC123 ruta: Trebol hora i:17:00 hora f: 18:00 "];
-nodeh1lunes[label=" bus: DEF456 ruta: SEGMA hora i: 19:00 hora f: 20:00 "];
-nodeh0lunes->nodeh1lunes;
-nodeh1lunes->nodeh0lunes;
-nodeh1lunes[label=" bus: DEF456 ruta: SEGMA hora i:19:00 hora f: 20:00 "];
-nodeh2lunes[label=" bus: FGH789 ruta: Kaya hora i: 21:00 hora f: 22:00 "];
-nodeh1lunes->nodeh2lunes;
-nodeh2lunes->nodeh1lunes;
+label= " lunes"nodehora0c0[label=" bus: ABC123 ruta: Trebol hora i: 17:00 hora f: 18:00 "];
+nodehora0c1[label=" bus: DEF456 ruta: SEGMA hora i: 19:00 hora f: 20:00 "];
+nodehora0c0->nodehora0c1;
+nodehora0c1->nodehora0c0;
+nodehora0c2[label=" bus: DEF456 ruta: SEGMA hora i: 19:00 hora f: 20:00 "];
+nodehora0c1[label=" bus: FGH789 ruta: Kaya hora i: 21:00 hora f: 22:00 "];
+nodehora0c2->nodehora0c1;
+nodehora0c1->nodehora0c2;
 }
-node1[label=" id: martes "];
-node2[label=" id: miercoles "];
-node1->node2;
-node2->node1;
 	subgraph cluster1 { 
-label= " martes"nodeh0martes[label=" bus: ABC123 ruta: Trebol hora i:21:00 hora f: 22:00 "];
-nodeh1martes[label=" bus: DEF456 ruta: SEGMA hora i: 23:00 hora f: 00:00 "];
-nodeh0martes->nodeh1martes;
-nodeh1martes->nodeh0martes;
+label= " martes"nodehora1c4[label=" bus: ABC123 ruta: Trebol hora i: 21:00 hora f: 22:00 "];
+nodehora1c5[label=" bus: DEF456 ruta: SEGMA hora i: 23:00 hora f: 00:00 "];
+nodehora1c4->nodehora1c5;
+nodehora1c5->nodehora1c4;
 }
+node2[label=" id: martes "];
+node1[label=" id: miercoles "];
+node2->node1;
+node1->node2;
+	subgraph cluster2 { 
+label= " martes"nodehora2c6[label=" bus: DEF456 ruta: SEGMA hora i: 23:00 hora f: 00:00 "];
+}
+	subgraph cluster1 { 
+label= " miercoles"}
 }
 }

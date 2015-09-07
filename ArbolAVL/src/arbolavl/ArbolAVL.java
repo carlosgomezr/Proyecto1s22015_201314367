@@ -75,19 +75,19 @@ public static int contador = 0;
         f.generarImagen("ArbolAVLEstacionesClave", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graph.txt");  
        
         listasdobles doble = new listasdobles();
-        Bus b1 = new Bus("adulto","",6,"","","");
-        Bus b2 = new Bus("agil","",3,"","","");
-        Bus b3 = new Bus("aereo","",4,"","","");
-        Bus b4 = new Bus("ahi","",1,"","","");
-        Bus b5 = new Bus("acordion","",5,"","","");
-        Bus b6 = new Bus("abeja","",2,"","","");
-        doble.alta(b1);
-        doble.alta(b2);
-        doble.alta(b3);
-        doble.alta(b4);
-        doble.alta(b5);
-        doble.alta(b6);
-        System.out.println("Tamaño de la lista: "+doble.tamaño()+" elemento b2: "+doble.posicion(2).b.id);
+        AVLTreeChofer archo = new AVLTreeChofer();
+        listasdobles asignar = new listasdobles();
+        listasdobles choferxbus = new listasdobles();
+        f.leerCSV(doble, asignar,archo);
+        doble.ordenamiento(doble);
+        System.out.println("IMPRIMO ARCHO");
+        archo.imprimir();
+        f.ChoferxDia(archo.root,4,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\fecha.txt","Graph xd");
+        f.generarImagen("xD B", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\fecha.txt");
+        doble.imprimir();
+        archo.GraphAVL(archo.root,"ARCHO","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\archo.txt");
+        f.generarImagen("ARCHO","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\archo.txt");
+//        System.out.println("Tamaño de la lista: "+doble.tamaño()+" elemento b2: "+doble.posicion(2).b.id);
         //doble.ordenamiento(doble);
         f.generarListaDoble(doble,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
         f.generarImagen("ListaDoble","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
@@ -100,6 +100,15 @@ public static int contador = 0;
       // auxcsv.ordenamiento(auxcsv);
       // gh.generarListaDoble(auxcsv,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
       // gh.generarImagen("LISTA CSV", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphdoble.txt");
+        System.out.println("BUSCAR BUS XD");
+        System.out.println(asignar.Busespecifico("JKL123"));
+        System.out.println("BUSCAR  Chofer :B");
+        System.out.println("conca "+archo.ResumenxChofer(archo.root, 4));
+        asignar.reporteChoferxBus(4);
+        asignar.reporteChoferxBus(2);
+        asignar.reporteHoraxChofer(4, "JKL123");
+        
+        
     }
     
 }

@@ -109,19 +109,20 @@ public class listah {
         }
     }    
         
-    public void imprimir()
+    public String imprimir()
     {
+        String c="";
         nodoh actual;
         actual=primero;
         while(actual!=null)
         {
             System.out.println("bus: "+actual.bus+" ruta: "+actual.ruta+" hora ini: "+actual.hora+" hora fin: "+actual.horaf);
-            
+            c = c+" bus: "+actual.bus+" ruta: "+actual.ruta+" hora ini: "+actual.hora+" hora fin: "+actual.horaf+"\n";
             actual=actual.next;
         }
        
            
-                 
+        return c;
     }
     
 }

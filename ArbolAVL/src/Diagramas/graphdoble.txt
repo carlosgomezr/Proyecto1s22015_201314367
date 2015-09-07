@@ -1,25 +1,21 @@
 digraph grafica { 
 label= "LISTA DOBLE  BUSES"node [shape=record];
 subgraph g { 
- nodeadulto[label=" id: adulto ruta:  chofer: 6 horaIni  horaFin  fecha  "];
-nodeagil[label=" id: agil ruta:  chofer: 3 horaIni  horaFin  fecha  "];
-nodeadulto->nodeagil;
-nodeagil->nodeadulto;
-nodeagil[label=" id: agil ruta:  chofer: 3 horaIni  horaFin  fecha  "];
-nodeaereo[label=" id: aereo ruta:  chofer: 4 horaIni  horaFin  fecha  "];
-nodeagil->nodeaereo;
-nodeaereo->nodeagil;
-nodeaereo[label=" id: aereo ruta:  chofer: 4 horaIni  horaFin  fecha  "];
-nodeahi[label=" id: ahi ruta:  chofer: 1 horaIni  horaFin  fecha  "];
-nodeaereo->nodeahi;
-nodeahi->nodeaereo;
-nodeahi[label=" id: ahi ruta:  chofer: 1 horaIni  horaFin  fecha  "];
-nodeacordion[label=" id: acordion ruta:  chofer: 5 horaIni  horaFin  fecha  "];
-nodeahi->nodeacordion;
-nodeacordion->nodeahi;
-nodeacordion[label=" id: acordion ruta:  chofer: 5 horaIni  horaFin  fecha  "];
-nodeabeja[label=" id: abeja ruta:  chofer: 2 horaIni  horaFin  fecha  "];
-nodeacordion->nodeabeja;
-nodeabeja->nodeacordion;
+ nodeABC123[label=" id: ABC123"];
+nodeDEF456[label=" id: DEF456 "];
+nodeABC123->nodeDEF456;
+nodeDEF456->nodeABC123;
+nodeDEF456[label=" id: DEF456"];
+nodeGHI789[label=" id: GHI789 "];
+nodeDEF456->nodeGHI789;
+nodeGHI789->nodeDEF456;
+nodeGHI789[label=" id: GHI789"];
+nodeJKL123[label=" id: JKL123 "];
+nodeGHI789->nodeJKL123;
+nodeJKL123->nodeGHI789;
+nodeJKL123[label=" id: JKL123"];
+nodeMNO123[label=" id: MNO123 "];
+nodeJKL123->nodeMNO123;
+nodeMNO123->nodeJKL123;
 }
 }

@@ -87,9 +87,6 @@ public AVLNode r;
         if( x==nuevo.id){
               return nuevo;
         }
-        else{
-                System.out.println("clave no existe");
-            }
     }catch(Exception ex){
     
     }
@@ -107,12 +104,8 @@ public AVLNode r;
                 nodo.id = x;
                 nodo.nombre = nombre;
                 nodo.password = password;
-                
+                balancear(nodo);
         }
-        else{
-                System.out.println("    CLAVE NO EXISTE xD");
-            }
-        
         }
         catch(Exception ex){
         }
@@ -411,16 +404,19 @@ public AVLNode eliminar_min(AVLNode t){
         imprimir(root);
     }
 
-    public void imprimir(AVLNode nodo){
+    public String imprimir(AVLNode nodo){
+        String c="";
         if ( nodo != null ){
             imprimir(nodo.derecho);
                 int id = height( nodo.izquierdo ) - height( nodo.derecho ) ;
                 int di = height( nodo.derecho ) - height( nodo.izquierdo ) ;
                 System.out.println(nodo+"  t "+nodo.id+"     altura "+nodo.height+"     i "+height(nodo.izquierdo)+"       d "+height(nodo.derecho)+"     i-d "+id+"      d-i "+di);
-       //         System.out.println("["+ nodo.id + "] "+nodo.height);
+                c = c + nodo.id;
+//       System.out.println("["+ nodo.id + "] "+nodo.height);
                 imprimir(nodo.izquierdo);
           
         }
+        return c;
     }
 
     

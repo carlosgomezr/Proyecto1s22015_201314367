@@ -19,7 +19,7 @@ public class AVLTreeChofer {
 public AVLNodeChofer root;
 public AVLNodeChofer padre;
 public AVLNodeChofer r;
-
+public String con="";
     public void insert( int x,String nombre,String apellido, String password ){
         root = insert( x, nombre,apellido,password,root );
     }
@@ -73,13 +73,13 @@ public AVLNodeChofer r;
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
-                buscar(nuevo.izquierdo,x);
+                buscarInsertarHora(nuevo.izquierdo,x,dia,bus,ruta,hora,horaf);
             }
             return null;
         }
         if ( x>nuevo.id){
             if(nuevo.derecho!=null){
-                buscar(nuevo.derecho,x);
+                buscarInsertarHora(nuevo.derecho,x,dia,bus,ruta,hora,horaf);
             }
               return null;
         }        
@@ -87,9 +87,6 @@ public AVLNodeChofer r;
               nuevo.lista.reemplazarInsertar(dia, bus,ruta,hora,horaf);
               return nuevo;
         }
-        else{
-                System.out.println("clave no existe");
-            }
     }catch(Exception ex){
     
     }
@@ -100,13 +97,13 @@ public AVLNodeChofer r;
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
-                buscar(nuevo.izquierdo,x);
+                buscarInsertarDia(nuevo.izquierdo,x,dia);
             }
             return null;
         }
         if ( x>nuevo.id){
             if(nuevo.derecho!=null){
-                buscar(nuevo.derecho,x);
+                buscarInsertarDia(nuevo.derecho,x,dia);
             }
               return null;
         }        
@@ -114,15 +111,13 @@ public AVLNodeChofer r;
               nuevo.lista.alta(dia);
               return nuevo;
         }
-        else{
-                System.out.println("clave no existe");
-            }
     }catch(Exception ex){
     
     }
         return nuevo;
     }
         public AVLNodeChofer buscar(AVLNodeChofer nuevo,int x){
+            boolean flag=false;
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
@@ -140,14 +135,59 @@ public AVLNodeChofer r;
               System.out.print("si existe clave");
               return nuevo;
         }
-        else{
-                System.out.println("clave no existe");
-            }
     }catch(Exception ex){
     
     }
         return nuevo;
     }
+        
+    public boolean existe(AVLNodeChofer nuevo,int x){
+    boolean flag=false;
+    try{    
+        if ( x<nuevo.id){
+            if(nuevo.izquierdo!=null){
+                existe(nuevo.izquierdo,x);
+            }
+        }
+        if ( x>nuevo.id){
+            if(nuevo.derecho!=null){
+                existe(nuevo.derecho,x);
+            }
+        }        
+        if( x==nuevo.id){
+              System.out.print("si existe clave");
+              flag = true;
+        }
+    }catch(Exception ex){
+    
+    }
+        return flag;
+    }
+    
+    public String ResumenxChofer(AVLNodeChofer nuevo,int x){
+    
+    try{    
+        if ( x<nuevo.id){
+            if(nuevo.izquierdo!=null){
+                ResumenxChofer(nuevo.izquierdo,x);
+            }
+        }
+        if ( x>nuevo.id){
+            if(nuevo.derecho!=null){
+                ResumenxChofer(nuevo.derecho,x);
+            }
+        }        
+        if( x==nuevo.id){
+              System.out.print("si existe clave");
+              con = nuevo.lista.imprimir();
+        }
+    }catch(Exception ex){
+    
+    }
+        return con;
+    }
+    
+    
     public void modificar(AVLNodeChofer nodo,int x, String nombre,String apellido, String password){
         try{
         if ( x<nodo.id){
@@ -161,7 +201,7 @@ public AVLNodeChofer r;
                 nodo.nombre = nombre;
                 nodo.apellido = apellido;
                 nodo.password = password;
-                
+                balancear(nodo);
         }
         else{
                 System.out.println("    CLAVE NO EXISTE xD");
@@ -446,17 +486,20 @@ public AVLNodeChofer eliminar_min(AVLNodeChofer t){
         imprimir(root);
     }
 
-    public void imprimir(AVLNodeChofer nodo){
+    public String imprimir(AVLNodeChofer nodo){
+        String c="";
         if ( nodo != null ){
             imprimir(nodo.derecho);
                 int id = height( nodo.izquierdo ) - height( nodo.derecho ) ;
                 int di = height( nodo.derecho ) - height( nodo.izquierdo ) ;
                 System.out.println(nodo+"  t "+nodo.id+"     altura "+nodo.height+"     i "+height(nodo.izquierdo)+"       d "+height(nodo.derecho)+"     i-d "+id+"      d-i "+di);
-       //         System.out.println("["+ nodo.id + "] "+nodo.height);
+                c = c + nodo.id;
+                //         System.out.println("["+ nodo.id + "] "+nodo.height);
                 nodo.lista.imprimir();
                 imprimir(nodo.izquierdo);
           
         }
+     return c;
     }
 
     
