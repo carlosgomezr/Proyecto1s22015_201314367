@@ -65,6 +65,11 @@ public static int contador = 0;
         contador = contador+1;
         System.out.println("CONTADORRRRRR"+contador);
         admin.insert("abeja@gmail.com","abeja",contador);
+        contador = contador+1;
+        admin.insert("aba@gmail.com","oso",contador);
+        admin.imprimir();
+        admin.eliminar(admin.root,"cosa@gmail.com");
+        admin.imprimir();
         admin.GraphAVL(admin.root,"ARBOL ADMIN","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\graphAdmin.txt");
         
         Funcion f = new Funcion();
@@ -107,8 +112,15 @@ public static int contador = 0;
         asignar.reporteChoferxBus(4);
         asignar.reporteChoferxBus(2);
         asignar.reporteHoraxChofer(4, "JKL123");
-        
-        
+        listar listaruta = new listar();
+        listaruta.InsertarRuta("Ruta 1", "Trebol");
+        listaruta.InsertarRuta("Ruta 2", "Chacara");
+        listaruta.InsertarRuta("Ruta 3", "Palacio");
+        listaruta.InsertarRuta("Ruta 1", "Segma");
+        listaruta.InsertarRuta("Ruta 2", "Parque");
+        listaruta.InsertarRuta("Ruta 1", "Mariscal");
+        System.out.println("RUTAS-------------");
+        System.out.println(listaruta.imprimir());
     }
     
 }

@@ -306,8 +306,8 @@ public class listasdobles {
         System.out.println("BUSXCHOFER----------"+chofer);
         aux.imprimir();
         Funcion f = new Funcion();
-        f.generarListaDoble(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\busxchofer.txt");
-        f.generarImagen("busXChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\busxchofer.txt");
+        f.generarListaDoble(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
+        f.generarImagen("graph","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
     }
     
     public void reporteHoraxChofer(int chofer,String id){
@@ -316,8 +316,8 @@ public class listasdobles {
         System.out.println("HORARIO-------- chofer "+chofer+" bus "+id);
         aux.imprimir2();
         Funcion f = new Funcion();
-        f.generarListaDoble2(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\horaxchofer.txt");
-        f.generarImagen("horaxChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\ArbolAVL\\src\\Diagramas\\horaxchofer.txt");
+        f.generarListaDoble2(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
+        f.generarImagen("graph","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
     }
     
 }

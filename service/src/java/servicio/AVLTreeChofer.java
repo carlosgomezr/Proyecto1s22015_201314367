@@ -33,7 +33,7 @@ public String con="";
         padre(root,hijo);
     }
     public void balancear(){
-        balancear(root);
+        root=balancear(root);
     }
     
     private AVLNodeChofer insert( int x,String nombre,String apellido, String password, AVLNodeChofer t ){
@@ -344,7 +344,7 @@ public AVLNodeChofer eliminar(AVLNodeChofer t,int x){
                       padre(t);
                       System.out.println("  VARIABLE PADRE STATIC "+padre);
                       hijo(padre,t);
-                      balancear(t);
+                      balancear();
         	}
 		else if(t.izquierdo==null){
                         System.out.println("Eliminar_izq");
@@ -358,7 +358,7 @@ public AVLNodeChofer eliminar(AVLNodeChofer t,int x){
                         //aux = null;
                         //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
 
-                        balancear(t);
+                        balancear();
 		}
 		else if(t.derecho==null){
                         System.out.println("Eliminar_der");
@@ -373,7 +373,7 @@ public AVLNodeChofer eliminar(AVLNodeChofer t,int x){
                         //aux = null;
                         //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
 
-                        balancear(t);
+                        balancear();
 		}
 		else
 		{

@@ -64,7 +64,7 @@
      
      
         <br></br>
-        <img src="diagrama.png">
+        <img src="graph.txtgraph.png">
         </font>
         </center>
     </body>

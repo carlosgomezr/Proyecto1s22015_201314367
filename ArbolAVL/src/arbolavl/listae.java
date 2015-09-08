@@ -99,19 +99,20 @@ public class listae {
         
         
         
-    public void imprimir()
+  public String imprimir()
     {
+        String aux="";
         nodoe actual;
         actual=primero;
         while(actual!=null)
         {
-            System.out.println(" hora : "+actual.estacion);
-            
+       //   System.out.println(" estacion : "+actual.estacion);
+            aux= aux+"      estacion:"+actual.estacion+"\n";
             actual=actual.next;
         }
        
            
-                 
+        return aux;  
     }
 
 }

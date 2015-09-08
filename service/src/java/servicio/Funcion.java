@@ -25,16 +25,11 @@ import java.io.FileNotFoundException;
  * @author Carlos Gomez
  **/
 public class Funcion {
-    public int contador=0;
-
-    public int conta=0;
-
-    public int contar=0;
 public void generarListaDoble(listasdobles lista,String ruta){
             listasdobles aux = lista;
 	    File f;
-            int c=0;
-            int c1=1;
+            int c = 0;
+            int c2 = 1;
 	   
             FileWriter escribir;
 	    try{
@@ -51,15 +46,17 @@ public void generarListaDoble(listasdobles lista,String ruta){
          
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){
-                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+"\"];\n");
-                            pw.write("node"+aux.primero.next.b.id+"[label=\" id: "+aux.primero.next.b.id+" \"];\n");
-                            pw.write("node"+aux.primero.b.id+"->node"+aux.primero.next.b.id+";\n");
-                            pw.write("node"+aux.primero.next.b.id+"->node"+aux.primero.b.id+";\n");
+                            pw.write("node"+c+"[label=\" id: "+aux.primero.b.id+"\"];\n");
+                            pw.write("node"+c2+"[label=\" id: "+aux.primero.next.b.id+" \"];\n");
+                            pw.write("node"+c+"->node"+c2+";\n");
+                            pw.write("node"+c2+"->node"+c+";\n");
                             aux.primero = aux.primero.next;
+                            c=c+1;
+                            c2=c2+1;
                         }
                     }
                     else{
-                            pw.write("node"+aux.primero.b.id+"[label=\" id: "+aux.primero.b.id+" \"];\n");
+                            pw.write("node"+c+"[label=\" id: "+aux.primero.b.id+" \"];\n");
                     }
                 
             }
@@ -79,7 +76,8 @@ public void generarListaDoble(listasdobles lista,String ruta){
 public void generarListaDoble2(listasdobles lista,String ruta){
             listasdobles aux = lista;
 	    File f;
-            int contar2= contar+1;
+            int contar = 0;
+            int contar2= 1;
             FileWriter escribir;
 	    try{
 	    f = new File(ruta);
@@ -99,7 +97,8 @@ public void generarListaDoble2(listasdobles lista,String ruta){
                             pw.write("node"+contar+"->node"+contar2+";\n");
                             pw.write("node"+contar2+"->node"+contar+";\n");
                             aux.primero = aux.primero.next;
-                            contar = contar+2;
+                            contar = contar+1;
+                            contar2 = contar2+1;
                         }
                     }
                     else{
@@ -122,7 +121,7 @@ public void generarListaDoble2(listasdobles lista,String ruta){
 
 
 public void ChoferxDia(AVLNodeChofer nuevo,int x,String ruta, String nombre){
-   
+  
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
@@ -149,7 +148,8 @@ public void ChoferxDia(AVLNodeChofer nuevo,int x,String ruta, String nombre){
     
 
 public void generarFecha(listad lista,String ruta,String nombre){
-            int contador1= contador+1;
+    int contador=0;        
+    int contador1=1;
             listad aux = lista;
 	    File f;
             
@@ -168,20 +168,20 @@ public void generarFecha(listad lista,String ruta,String nombre){
          
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){
-                            pw.write("node"+contador+"[label=\" id: "+aux.primero.dia+" \"];\n");
-                            pw.write("node"+contador1+"[label=\" id: "+aux.primero.next.dia+" \"];\n");
-                            pw.write("node"+contador+"->node"+contador1+";\n");
-                            pw.write("node"+contador1+"->node"+contador+";\n");
+                            pw.write("nodefecha"+contador+"[label=\" id: "+aux.primero.dia+" \"];\n");
+                            pw.write("nodefecha"+contador1+"[label=\" id: "+aux.primero.next.dia+" \"];\n");
+                            pw.write("nodefecha"+contador+"->nodefecha"+contador1+";\n");
+                            pw.write("nodefecha"+contador1+"->nodefecha"+contador+";\n");
                             pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador),aux.primero.dia));
                             pw.write(generarListaDia(aux.primero.next.hora,Integer.toString(contador1),aux.primero.next.dia));
                             
                             aux.primero = aux.primero.next;
-                            contador=contador+2;
-                            
+                            contador=contador+1;
+                            contador1=contador1+1;
                         }
                     }
                     else{
-                            pw.write("node"+contador1+"[label=\" id: "+aux.primero.dia+" \"];\n");
+                            pw.write("nodefecha"+contador+"[label=\" id: "+aux.primero.dia+" \"];\n");
                             pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador),aux.primero.dia));
                         
                     }
@@ -202,7 +202,8 @@ public void generarFecha(listad lista,String ruta,String nombre){
 
 public String generarListaDia(listah lista,String cluster,String nombre){
             String auxiliar="";
-            int conta1 = conta +1;
+            int conta= 0;
+            int conta1 = 1;
             listah aux = lista;
 	    File f;
             try{
@@ -218,7 +219,8 @@ public String generarListaDia(listah lista,String cluster,String nombre){
                             auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"->nodehora"+cluster+"c"+conta1+";\n";
                             auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"->nodehora"+cluster+"c"+conta+";\n";
                             aux.primero = aux.primero.next;
-                            conta=conta+2;
+                            conta=conta+1;
+                            conta1=conta+1;
                         }
                     }
                     else{

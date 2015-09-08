@@ -32,7 +32,7 @@ public AVLNode r;
         padre(root,hijo);
     }
     public void balancear(){
-        balancear(root);
+        root=balancear(root);
     }
     /*
      * x es una instancia de una clase que implementa Comparable
@@ -260,7 +260,7 @@ public AVLNode eliminar(AVLNode t,int x){
                       padre(t);
                       System.out.println("  VARIABLE PADRE STATIC "+padre);
                       hijo(padre,t);
-                      balancear(t);
+                      balancear();
         	}
 		else if(t.izquierdo==null){
                         System.out.println("Eliminar_izq");
@@ -274,7 +274,7 @@ public AVLNode eliminar(AVLNode t,int x){
                         //aux = null;
                         //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
 
-                        balancear(t);
+                        balancear();
 		}
 		else if(t.derecho==null){
                         System.out.println("Eliminar_der");
@@ -289,7 +289,7 @@ public AVLNode eliminar(AVLNode t,int x){
                         //aux = null;
                         //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
 
-                        balancear(t);
+                        balancear();
 		}
 		else
 		{
@@ -409,25 +409,25 @@ public AVLNode eliminar_min(AVLNode t){
 /*
      * Imprime el arbol con el recorrido InOrden
      */
-    public void imprimir(){
-        imprimir(root);
+    public String imprimir(){
+        String c = imprimir(root);
+        return c;
     }
 
     public String imprimir(AVLNode nodo){
         String c="";
         if ( nodo != null ){
-            imprimir(nodo.derecho);
+                imprimir(nodo.derecho);
+                imprimir(nodo.izquierdo);
                 int id = height( nodo.izquierdo ) - height( nodo.derecho ) ;
                 int di = height( nodo.derecho ) - height( nodo.izquierdo ) ;
                 System.out.println(nodo+"  t "+nodo.id+"     altura "+nodo.height+"     i "+height(nodo.izquierdo)+"       d "+height(nodo.derecho)+"     i-d "+id+"      d-i "+di);
                 c = c + nodo.id;
 //       System.out.println("["+ nodo.id + "] "+nodo.height);
-                imprimir(nodo.izquierdo);
-          
+                          
         }
         return c;
     }
-
     
 public String ToDot(AVLNode node)
 {

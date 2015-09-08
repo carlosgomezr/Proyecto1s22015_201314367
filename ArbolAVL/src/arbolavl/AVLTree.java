@@ -417,14 +417,14 @@ public AVLNode eliminar_min(AVLNode t){
     public String imprimir(AVLNode nodo){
         String c="";
         if ( nodo != null ){
-            imprimir(nodo.derecho);
+                imprimir(nodo.derecho);
+                imprimir(nodo.izquierdo);
                 int id = height( nodo.izquierdo ) - height( nodo.derecho ) ;
                 int di = height( nodo.derecho ) - height( nodo.izquierdo ) ;
                 System.out.println(nodo+"  t "+nodo.id+"     altura "+nodo.height+"     i "+height(nodo.izquierdo)+"       d "+height(nodo.derecho)+"     i-d "+id+"      d-i "+di);
                 c = c + nodo.id;
 //       System.out.println("["+ nodo.id + "] "+nodo.height);
-                imprimir(nodo.izquierdo);
-          
+                          
         }
         return c;
     }

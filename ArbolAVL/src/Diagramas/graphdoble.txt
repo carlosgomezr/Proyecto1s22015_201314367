@@ -1,21 +1,21 @@
 digraph grafica { 
 label= "LISTA DOBLE  BUSES"node [shape=record];
 subgraph g { 
- nodeABC123[label=" id: ABC123"];
-nodeDEF456[label=" id: DEF456 "];
-nodeABC123->nodeDEF456;
-nodeDEF456->nodeABC123;
-nodeDEF456[label=" id: DEF456"];
-nodeGHI789[label=" id: GHI789 "];
-nodeDEF456->nodeGHI789;
-nodeGHI789->nodeDEF456;
-nodeGHI789[label=" id: GHI789"];
-nodeJKL123[label=" id: JKL123 "];
-nodeGHI789->nodeJKL123;
-nodeJKL123->nodeGHI789;
-nodeJKL123[label=" id: JKL123"];
-nodeMNO123[label=" id: MNO123 "];
-nodeJKL123->nodeMNO123;
-nodeMNO123->nodeJKL123;
+ node0[label=" id: ABC123"];
+node1[label=" id: DEF456 "];
+node0->node1;
+node1->node0;
+node1[label=" id: DEF456"];
+node2[label=" id: GHI789 "];
+node1->node2;
+node2->node1;
+node2[label=" id: GHI789"];
+node3[label=" id: JKL123 "];
+node2->node3;
+node3->node2;
+node3[label=" id: JKL123"];
+node4[label=" id: MNO123 "];
+node3->node4;
+node4->node3;
 }
 }

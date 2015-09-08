@@ -70,7 +70,7 @@ public final class reporte_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        \n");
       out.write("        </form>\n");
       out.write("        <br></br>\n");
-      out.write("        <form name=\"pasar2\" action=\"reporte.jsp\" method=\"POST\">   \n");
+      out.write("        <form name=\"pasar1\" action=\"reporte.jsp\" method=\"POST\">   \n");
       out.write("        ");
  titulo="GRAFICAR AVL ESTACION CLAVE"; 
       out.write("\n");
@@ -78,7 +78,7 @@ public final class reporte_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("       \n");
       out.write("        </form>\n");
       out.write("        <br></br>\n");
-      out.write("        <form name=\"pasar3\" action=\"reporte.jsp\" method=\"POST\">      \n");
+      out.write("        <form name=\"pasar1\" action=\"reporte.jsp\" method=\"POST\">      \n");
       out.write("        ");
  titulo="GRAFICAR AVL ESTACION GENERAL"; 
       out.write("\n");
@@ -86,7 +86,7 @@ public final class reporte_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("       \n");
       out.write("        </form>\n");
       out.write("        <br></br>\n");
-      out.write("        <form name=\"pasar4\" action=\"reporte.jsp\" method=\"POST\">      \n");
+      out.write("        <form name=\"pasar1\" action=\"reporte.jsp\" method=\"POST\">      \n");
       out.write("        CHOFER: <input type=\"text\" name=\"texto0\" value=\"\" size=\"10\" />\n");
       out.write("        ");
  titulo="GRAFICAR BUS POR CHOFER"; bus=request.getParameter("texto0"); 
@@ -95,7 +95,7 @@ public final class reporte_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        \n");
       out.write("        </form>\n");
       out.write("        <br></br>\n");
-      out.write("        <form name=\"pasar5\" action=\"reporte.jsp\" method=\"POST\">      \n");
+      out.write("        <form name=\"pasar1\" action=\"reporte.jsp\" method=\"POST\">      \n");
       out.write("        BUS: <input type=\"text\" name=\"texto1\" value=\"\" size=\"10\" />\n");
       out.write("        CHOFER: <input type=\"text\" name=\"texto2\" value=\"\" size=\"10\" />\n");
       out.write("        ");
@@ -106,7 +106,7 @@ public final class reporte_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        \n");
       out.write("        </form>\n");
       out.write("        <br></br>\n");
-      out.write("        <form name=\"pasar6\" action=\"reporte.jsp\" method=\"POST\">      \n");
+      out.write("        <form name=\"pasar1\" action=\"reporte.jsp\" method=\"POST\">      \n");
       out.write("        ");
  titulo="GRAFICAR AVL CHOFER"; 
       out.write("\n");
@@ -115,9 +115,7 @@ public final class reporte_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </form>\n");
       out.write("        <br></br>\n");
       out.write("     \n");
-      out.write("        ");
- out.println(titulo); 
-      out.write("\n");
+      out.write("     \n");
       out.write("        <br></br>\n");
       out.write("        <img src=\"diagrama.png\">\n");
       out.write("        </font>\n");

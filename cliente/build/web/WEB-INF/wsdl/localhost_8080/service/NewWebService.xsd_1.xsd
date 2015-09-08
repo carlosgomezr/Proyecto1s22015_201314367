@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicio/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicio/">
+
+<xs:element name="agregarAdmin" type="tns:agregarAdmin"/>
+
+<xs:element name="agregarAdminResponse" type="tns:agregarAdminResponse"/>
+
+<xs:element name="eliminarAdmin" type="tns:eliminarAdmin"/>
+
+<xs:element name="eliminarAdminResponse" type="tns:eliminarAdminResponse"/>
+
+<xs:element name="graphAdmin" type="tns:graphAdmin"/>
+
+<xs:element name="graphAdminResponse" type="tns:graphAdminResponse"/>
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:element name="imprimirAdmin" type="tns:imprimirAdmin"/>
+
+<xs:element name="imprimirAdminResponse" type="tns:imprimirAdminResponse"/>
+
+<xs:element name="insertarAdmin" type="tns:insertarAdmin"/>
+
+<xs:element name="insertarAdminResponse" type="tns:insertarAdminResponse"/>
+
+<xs:element name="modificarAdmin" type="tns:modificarAdmin"/>
+
+<xs:element name="modificarAdminResponse" type="tns:modificarAdminResponse"/>
+
+<xs:element name="mostrarAdmin" type="tns:mostrarAdmin"/>
+
+<xs:element name="mostrarAdminResponse" type="tns:mostrarAdminResponse"/>
+
+<xs:complexType name="graphAdmin">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="graphAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarAdmin">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminarAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarAdmin">
+<xs:sequence>
+<xs:element name="parameter" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="agregarAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarAdmin">
+<xs:sequence>
+<xs:element name="parametro" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarAdmin">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="modificarAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarAdmin">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="insertarAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="imprimirAdmin">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="imprimirAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

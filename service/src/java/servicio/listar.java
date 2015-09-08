@@ -109,7 +109,29 @@ public class listar {
                 actual = actual.next;
         }
     }
-    
+    public void InsertarRuta(String ruta,String estacion){
+     if(verificar(ruta)==true){
+         reemplazarInsertar(ruta,estacion);
+     }
+     else{
+         alta(ruta);
+         reemplazarInsertar(ruta,estacion);
+     }
+     
+    } 
+    public boolean verificar(String ruta){
+    boolean flag=false;
+    nodor actual;
+    actual = primero;
+        
+        while(actual!=null){
+                if(actual.ruta.compareTo(ruta)==0){
+                   flag = true;
+                }
+                actual = actual.next;
+        }
+    return flag;
+    }
     public void reemplazarEliminar(String ruta,String estacion){
         nodor actual;
         actual = primero;
@@ -136,21 +158,22 @@ public class listar {
         return retornar;
     }
     
-    public void imprimir()
+     public String imprimir()
     {
+        String aux="";
         nodor actual;
         actual=primero;
-        System.out.println("IMPRIMIR LISTA DOBLE");
+       // System.out.println("IMPRIMIR LISTA DOBLE");
         while(actual!=null)
         {
-            System.out.println(" id : "+actual.ruta);
-            System.out.println("valor de actual.hora "+actual.estacion);
+         //   System.out.println(" id : "+actual.ruta);
+         //   System.out.println("valor de actual.hora "+actual.estacion);
             actual.estacion.imprimir();
-            
+            aux = aux + " id: "+actual.ruta+"\n";
+            aux = aux +actual.estacion.imprimir();
             actual=actual.next;
         }
            
-       
+        return aux;      
    }
-    
 }
