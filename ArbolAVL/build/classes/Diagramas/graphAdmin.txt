@@ -1,28 +1,148 @@
 digraph grafica { 
 label= " ARBOL ADMIN"node [shape=record];
 subgraph g {
-nodea2[label=" correo: abeja@gmail.com
+nodea7[label=" correo: hilo@gmail.com
  
- password: abeja"];
-nodea3[label=" correo: aba@gmail.com
+ password: dado"];
+nodea3[label=" correo: dado@gmail.com
  
- password: oso"];
-nodea2->nodea3[label="izq"];
-nodea3[label=" correo: aba@gmail.com
+ password: dado"];
+nodea7->nodea3[label="izq"];
+nodea3[label=" correo: dado@gmail.com
  
- pasword: oso"];
-nodea2[label=" correo: abeja@gmail.com
+ password: dado"];
+nodea1[label=" correo: barco@gmail.com
  
- password: abeja"];
-nodea1[label=" correo: arbol@gmail.com
+ password: barco"];
+nodea3->nodea1[label="izq"];
+nodea1[label=" correo: barco@gmail.com
+ 
+ password: barco"];
+nodea0[label=" correo: arbol@gmail.com
  
  password: arbol"];
-nodea2->nodea1[label="der"];
-nodea1[label=" correo: arbol@gmail.com
+nodea1->nodea0[label="izq"];
+nodea0[label=" correo: arbol@gmail.com
  
  pasword: arbol"];
-nodea2[label=" correo: abeja@gmail.com
+nodea1[label=" correo: barco@gmail.com
  
- pasword: abeja"];
+ password: barco"];
+nodea2[label=" correo: casa@gmail.com
+ 
+ password: casa"];
+nodea1->nodea2[label="der"];
+nodea2[label=" correo: casa@gmail.com
+ 
+ pasword: casa"];
+nodea1[label=" correo: barco@gmail.com
+ 
+ pasword: barco"];
+nodea3[label=" correo: dado@gmail.com
+ 
+ password: dado"];
+nodea5[label=" correo: foco@gmail.com
+ 
+ password: dado"];
+nodea3->nodea5[label="der"];
+nodea5[label=" correo: foco@gmail.com
+ 
+ password: dado"];
+nodea4[label=" correo: elefante@gmail.com
+ 
+ password: dado"];
+nodea5->nodea4[label="izq"];
+nodea4[label=" correo: elefante@gmail.com
+ 
+ pasword: dado"];
+nodea5[label=" correo: foco@gmail.com
+ 
+ password: dado"];
+nodea6[label=" correo: gato@gmail.com
+ 
+ password: dado"];
+nodea5->nodea6[label="der"];
+nodea6[label=" correo: gato@gmail.com
+ 
+ pasword: dado"];
+nodea5[label=" correo: foco@gmail.com
+ 
+ pasword: dado"];
+nodea3[label=" correo: dado@gmail.com
+ 
+ pasword: dado"];
+nodea7[label=" correo: hilo@gmail.com
+ 
+ password: dado"];
+nodea11[label=" correo: loco@gmail.com
+ 
+ password: dado"];
+nodea7->nodea11[label="der"];
+nodea11[label=" correo: loco@gmail.com
+ 
+ password: dado"];
+nodea9[label=" correo: julio@gmail.com
+ 
+ password: dado"];
+nodea11->nodea9[label="izq"];
+nodea9[label=" correo: julio@gmail.com
+ 
+ password: dado"];
+nodea8[label=" correo: isla@gmail.com
+ 
+ password: dado"];
+nodea9->nodea8[label="izq"];
+nodea8[label=" correo: isla@gmail.com
+ 
+ pasword: dado"];
+nodea9[label=" correo: julio@gmail.com
+ 
+ password: dado"];
+nodea10[label=" correo: ka@gmail.com
+ 
+ password: dado"];
+nodea9->nodea10[label="der"];
+nodea10[label=" correo: ka@gmail.com
+ 
+ pasword: dado"];
+nodea9[label=" correo: julio@gmail.com
+ 
+ pasword: dado"];
+nodea11[label=" correo: loco@gmail.com
+ 
+ password: dado"];
+nodea13[label=" correo: nene@gmail.com
+ 
+ password: dado"];
+nodea11->nodea13[label="der"];
+nodea13[label=" correo: nene@gmail.com
+ 
+ password: dado"];
+nodea12[label=" correo: mano@gmail.com
+ 
+ password: dado"];
+nodea13->nodea12[label="izq"];
+nodea12[label=" correo: mano@gmail.com
+ 
+ pasword: dado"];
+nodea13[label=" correo: nene@gmail.com
+ 
+ password: dado"];
+nodea14[label=" correo: opera@gmail.com
+ 
+ password: dado"];
+nodea13->nodea14[label="der"];
+nodea14[label=" correo: opera@gmail.com
+ 
+ pasword: dado"];
+nodea13[label=" correo: nene@gmail.com
+ 
+ pasword: dado"];
+nodea11[label=" correo: loco@gmail.com
+ 
+ pasword: dado"];
+nodea7[label=" correo: hilo@gmail.com
+ 
+ pasword: dado"];
 }
 }

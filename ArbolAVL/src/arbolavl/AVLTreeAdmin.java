@@ -36,6 +36,9 @@ public AVLNodeAdmin r;
         root=balancear(root);
     }
 
+    public void log(String x,String password){
+        log(root,x,password);
+    }
      private AVLNodeAdmin insert(String nombre, String password, int contador,AVLNodeAdmin t ){
         System.out.println("    t.insertar  "+t+" ");
         if( t == null )
@@ -70,13 +73,13 @@ public AVLNodeAdmin r;
             if(nuevo.izquierdo!=null){
                 buscar(nuevo.izquierdo,x);
             }
-            return null;
+          //  return null;
         }
         if ( x.compareTo(nuevo.correo)>0){
             if(nuevo.derecho!=null){
                 buscar(nuevo.derecho,x);
             }
-              return null;
+            //  return null;
         }        
         if( x.compareTo(nuevo.correo)==0){
               return nuevo;
@@ -123,6 +126,7 @@ public AVLNodeAdmin r;
         if((t!=null)){
                 int id = height( t.izquierdo ) - height( t.derecho ) ;
                 int di = height( t.derecho ) - height( t.izquierdo ) ;
+                System.out.println("        ENTRO A BALANCEAR T "+t+" "+t.height);
                 if( height( t.izquierdo ) - height( t.derecho ) == 2 ){
         		if(height(t.izquierdo) >= height(t.derecho))
 			{
@@ -148,8 +152,8 @@ public AVLNodeAdmin r;
         			t = doubleWithRightChild(t); /* Caso 3 */	
 			}
 		}
-                        //balancear(t.izquierdo);
-                        //balancear(t.derecho);
+                        t.izquierdo=balancear(t.izquierdo);
+                        t.derecho=balancear(t.derecho);
      }
 //        System.out.println(" TT"+t+" t.der "+t.derecho+" t.izq "+t.izquierdo);
         return t;
@@ -162,17 +166,21 @@ public static void actualizar_altura(AVLNodeAdmin t){
     
 
 public void hijo(AVLNodeAdmin padre, AVLNodeAdmin hijo){
-     try{
-        if(padre.izquierdo.correo.compareTo(hijo.correo)==0){
-            System.out.println("    el hijo es izquierdo");
-            padre.izquierdo = null;
-            
+    System.out.println("HIJO HIJO XD "+hijo+hijo.correo+" PADRE PADRE "+padre+padre.correo);
+    try{
+        if(padre.izquierdo!=null){
+            if(padre.izquierdo.correo.compareTo(hijo.correo)==0){
+                System.out.println("    el hijo es izquierdo");
+                padre.izquierdo = null;
+            }
         }
-        else{
-            System.out.println("    el hijo es derecho");
-            padre.derecho = null;
-            
+        if(padre.derecho!=null){
+            if(padre.derecho.correo.compareTo(hijo.correo)==0){
+                System.out.println("    el hijo es derecho");
+                padre.derecho = null;
+            }
         }
+        
     }catch(Exception ex){
     
     }
@@ -199,6 +207,7 @@ if(aux.derecho!=null){
         padre = aux;
         return aux;
     }
+    
 }
 if(aux.izquierdo!=null){
     if(hijo.correo.compareTo(aux.izquierdo.correo)>0){
@@ -243,50 +252,48 @@ public AVLNodeAdmin eliminar(AVLNodeAdmin t,String x){
                       System.out.println("  VARIABLE PADRE STATIC "+padre);
                       hijo(padre,t);
                       System.out.println("BALANCEO PADRE "+padre+" p.izq "+padre.izquierdo+" p.der "+padre.derecho);
+                      if(t==root){
+                          root = null;
+                      }
                       balancear();
-                        //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                      
+                      t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;              
         	}
 		else if(t.izquierdo==null){
                         System.out.println("Eliminar_izq");
 			padre(t);
                         aux = padre.derecho;
-                        padre.derecho = padre.derecho.derecho;
-                        aux = null;
-                        //padre(t);
+                        padre.izquierdo=t.derecho;
+                        padre.derecho=aux;
                         //hijo(padre,t);
-			//t = t.derecho;
-                        //aux = null;
-                        //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                        balancear();
+                        t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
                         
-                        balancear(t);
 		}
 		else if(t.derecho==null){
                         System.out.println("Eliminar_der");
 			padre(t);
                         aux = padre.izquierdo;
-                        padre.izquierdo = padre.izquierdo.izquierdo;
-                        aux = null;
-                        //aux = t;
-                        //padre(t);
+                        padre.derecho =t.izquierdo;
+                        padre.izquierdo=aux;
                         //hijo(padre,t);
-			//t = t.izquierdo;
-                        //aux = null;
-                        //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-
-                        balancear(t);
+                        balancear();
+                        t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                        
 		}
 		else
 		{
+                   
                         System.out.println("Eliminar_min "+t.derecho+" "+t.derecho.correo);
                         r = t;
                         t = eliminar_min(t.derecho);
-                        balancear(t);
+                        balancear();
+                    
                 }	
 	}
                // balancear(t);
                // t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
                // padre = null;
+        balancear();
                 return t;
 }
 
@@ -298,31 +305,6 @@ public AVLNodeAdmin eliminar_min(AVLNodeAdmin t){
         }else{
             if (t.izquierdo==null)
             {
-                padre(t);
-                AVLNodeAdmin auxpadre = padre;
-                String auxid=padre.correo;
-                String auxpass=padre.password;
-                System.out.println("padre :v "+padre);
-                padre.correo = t.correo;
-                padre.password = t.password;
-                t.correo = auxid;
-                t.password = auxpass;
-                eliminar(t,auxid);
-                //auxt.id = auxpadre.id;
-                //auxt.nombre = auxpadre.nombre;
-                //auxt.password = auxpadre.password;
-                //AVLNode auxi = padre.izquierdo;
-                //t.izquierdo = auxi;
-                //auxpadre.izquierdo=null;
-                //padre=null;
-                balancear(t);
-                t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                return t;
-                    
-            }
-            else
-                {   
-                    t = t.izquierdo;
                     AVLNodeAdmin auxr = r;
                     String auxid = r.correo;
                     String auxpass=r.password;
@@ -334,13 +316,40 @@ public AVLNodeAdmin eliminar_min(AVLNodeAdmin t){
                     eliminar(t,auxid);
                     balancear (t);
                     t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                return t;                
-                    }
+
+                return t;
+                    
+            }
+            else
+                {
+                    eliminar_min(t.izquierdo);
+                }
         }
         System.out.println(" este es el t del min "+t);
 	return t;
 }
 
+    public boolean log(AVLNodeAdmin nodo,String x,String password){
+        boolean flag=false;
+    try{   
+        if (x.compareTo(nodo.correo)<0){
+                log(nodo.izquierdo,x,password);
+              //  flag=false;
+        }
+        if (x.compareTo(nodo.correo)>0){
+                log(nodo.derecho,x,password);
+              //  flag=false;
+        }        
+        if( (x.compareTo(nodo.correo)==0)&(password.compareTo(nodo.password)==0)){
+                flag=true; 
+                System.out.println("LOG IN "+x+" "+password+" "+flag);
+        }
+    }catch (Exception ex){
+    
+    }
+        return flag;
+    }
+    
 
     private static AVLNodeAdmin rotateWithLeftChild( AVLNodeAdmin k2 ){
         System.out.println("ROTATE WITH LEFT CHILD");
