@@ -36,8 +36,8 @@ public AVLNodeAdmin r;
         root=balancear(root);
     }
 
-    public void log(String x,String password){
-        log(root,x,password);
+    public boolean log(String x,String password){
+        return log(root,x,password);
     }
      private AVLNodeAdmin insert(String nombre, String password, int contador,AVLNodeAdmin t ){
         System.out.println("    t.insertar  "+t+" ");

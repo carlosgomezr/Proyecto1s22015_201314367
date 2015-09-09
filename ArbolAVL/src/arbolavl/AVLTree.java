@@ -5,6 +5,7 @@
  */
 package arbolavl;
 
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -34,8 +35,8 @@ public AVLNode r;
         root=balancear(root);
     }
 
-    public void log(int x,String password){
-        log(root,x,password);
+    public boolean log(int x,String password){
+        return log(root,x,password);
     }
    
     /*
@@ -207,7 +208,8 @@ public void hijo(AVLNode padre, AVLNode hijo){
     
     }
    
-}public AVLNode padre(AVLNode t,AVLNode hijo){
+}
+public AVLNode padre(AVLNode t,AVLNode hijo){
 AVLNode aux = t;
 if(aux!=null){
 System.out.println("    aux padre "+aux);
