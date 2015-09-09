@@ -105,6 +105,12 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td> NUEVA CLAVE: </td>
+                    <td><input type="text" name="texto10" value="" size="20" /></td>
+                    <td></td>
+                </tr>
+                
+                <tr>
                     <td></td>
                     <td></td>
                     <td><input type="submit" value="EDIT" name="boton3" /></td>
