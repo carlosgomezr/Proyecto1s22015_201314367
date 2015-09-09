@@ -163,8 +163,12 @@
                     <td>  <input type="password" name="texto5" value="" size="20" /> </td>
                     <td></td>
                 </tr>
+                 <tr>
+                    <td> NUEVO CORREO: </td>
+                    <td>  <input type="text" name="texto6" value="" size="20" /> </td>
+                    <td></td>
+                </tr>
                 <tr>
-               
                     <td> </td>
                     <td> </td>
                     <td> <input type="submit" value="EDIT" name="boton3" /> </td>

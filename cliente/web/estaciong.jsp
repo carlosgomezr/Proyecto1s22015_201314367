@@ -97,6 +97,13 @@
                     <td></td>
                 </tr>
                 <tr>
+                    <td> NUEVO ID: </td>
+                    <td><input type="text" name="texto8" value="" size="20" /></td>
+                   
+                    <td></td>
+                </tr>
+               
+                <tr>
                     <td></td>
                     <td></td>
                     <td><input type="submit" value="EDIT" name="boton3" /></td>
