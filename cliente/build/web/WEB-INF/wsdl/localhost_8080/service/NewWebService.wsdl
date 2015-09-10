@@ -10,23 +10,77 @@
 <message name="helloResponse">
 <part name="parameters" element="tns:helloResponse"/>
 </message>
-<message name="insertarAdmin">
-<part name="parameters" element="tns:insertarAdmin"/>
+<message name="modificarEstacionClave">
+<part name="parameters" element="tns:modificarEstacionClave"/>
 </message>
-<message name="insertarAdminResponse">
-<part name="parameters" element="tns:insertarAdminResponse"/>
+<message name="modificarEstacionClaveResponse">
+<part name="parameters" element="tns:modificarEstacionClaveResponse"/>
 </message>
-<message name="eliminarAdmin">
-<part name="parameters" element="tns:eliminarAdmin"/>
+<message name="insertarEstacionClave">
+<part name="parameters" element="tns:insertarEstacionClave"/>
 </message>
-<message name="eliminarAdminResponse">
-<part name="parameters" element="tns:eliminarAdminResponse"/>
+<message name="insertarEstacionClaveResponse">
+<part name="parameters" element="tns:insertarEstacionClaveResponse"/>
 </message>
-<message name="imprimirAdmin">
-<part name="parameters" element="tns:imprimirAdmin"/>
+<message name="eliminarEstacionClave">
+<part name="parameters" element="tns:eliminarEstacionClave"/>
 </message>
-<message name="imprimirAdminResponse">
-<part name="parameters" element="tns:imprimirAdminResponse"/>
+<message name="eliminarEstacionClaveResponse">
+<part name="parameters" element="tns:eliminarEstacionClaveResponse"/>
+</message>
+<message name="graphEstacionClave">
+<part name="parameters" element="tns:graphEstacionClave"/>
+</message>
+<message name="graphEstacionClaveResponse">
+<part name="parameters" element="tns:graphEstacionClaveResponse"/>
+</message>
+<message name="eliminarEstacionGeneral">
+<part name="parameters" element="tns:eliminarEstacionGeneral"/>
+</message>
+<message name="eliminarEstacionGeneralResponse">
+<part name="parameters" element="tns:eliminarEstacionGeneralResponse"/>
+</message>
+<message name="modificarEstacionGeneral">
+<part name="parameters" element="tns:modificarEstacionGeneral"/>
+</message>
+<message name="modificarEstacionGeneralResponse">
+<part name="parameters" element="tns:modificarEstacionGeneralResponse"/>
+</message>
+<message name="graphHorarioxBusxChofer">
+<part name="parameters" element="tns:graphHorarioxBusxChofer"/>
+</message>
+<message name="graphHorarioxBusxChoferResponse">
+<part name="parameters" element="tns:graphHorarioxBusxChoferResponse"/>
+</message>
+<message name="resumenBusEspecifico">
+<part name="parameters" element="tns:resumenBusEspecifico"/>
+</message>
+<message name="resumenBusEspecificoResponse">
+<part name="parameters" element="tns:resumenBusEspecificoResponse"/>
+</message>
+<message name="insertarEstacionGeneral">
+<part name="parameters" element="tns:insertarEstacionGeneral"/>
+</message>
+<message name="insertarEstacionGeneralResponse">
+<part name="parameters" element="tns:insertarEstacionGeneralResponse"/>
+</message>
+<message name="insertarAsignacion">
+<part name="parameters" element="tns:insertarAsignacion"/>
+</message>
+<message name="insertarAsignacionResponse">
+<part name="parameters" element="tns:insertarAsignacionResponse"/>
+</message>
+<message name="graphEstacionGeneral">
+<part name="parameters" element="tns:graphEstacionGeneral"/>
+</message>
+<message name="graphEstacionGeneralResponse">
+<part name="parameters" element="tns:graphEstacionGeneralResponse"/>
+</message>
+<message name="resumenChoferEspecifico">
+<part name="parameters" element="tns:resumenChoferEspecifico"/>
+</message>
+<message name="resumenChoferEspecificoResponse">
+<part name="parameters" element="tns:resumenChoferEspecificoResponse"/>
 </message>
 <message name="graphAdmin">
 <part name="parameters" element="tns:graphAdmin"/>
@@ -34,17 +88,35 @@
 <message name="graphAdminResponse">
 <part name="parameters" element="tns:graphAdminResponse"/>
 </message>
+<message name="agregarAdmin">
+<part name="parameters" element="tns:agregarAdmin"/>
+</message>
+<message name="agregarAdminResponse">
+<part name="parameters" element="tns:agregarAdminResponse"/>
+</message>
+<message name="eliminarRuta">
+<part name="parameters" element="tns:eliminarRuta"/>
+</message>
+<message name="eliminarRutaResponse">
+<part name="parameters" element="tns:eliminarRutaResponse"/>
+</message>
 <message name="mostrarAdmin">
 <part name="parameters" element="tns:mostrarAdmin"/>
 </message>
 <message name="mostrarAdminResponse">
 <part name="parameters" element="tns:mostrarAdminResponse"/>
 </message>
-<message name="agregarAdmin">
-<part name="parameters" element="tns:agregarAdmin"/>
+<message name="insertarChofer">
+<part name="parameters" element="tns:insertarChofer"/>
 </message>
-<message name="agregarAdminResponse">
-<part name="parameters" element="tns:agregarAdminResponse"/>
+<message name="insertarChoferResponse">
+<part name="parameters" element="tns:insertarChoferResponse"/>
+</message>
+<message name="eliminarAdmin">
+<part name="parameters" element="tns:eliminarAdmin"/>
+</message>
+<message name="eliminarAdminResponse">
+<part name="parameters" element="tns:eliminarAdminResponse"/>
 </message>
 <message name="modificarAdmin">
 <part name="parameters" element="tns:modificarAdmin"/>
@@ -52,38 +124,216 @@
 <message name="modificarAdminResponse">
 <part name="parameters" element="tns:modificarAdminResponse"/>
 </message>
+<message name="eliminarBus">
+<part name="parameters" element="tns:eliminarBus"/>
+</message>
+<message name="eliminarBusResponse">
+<part name="parameters" element="tns:eliminarBusResponse"/>
+</message>
+<message name="modificarBus">
+<part name="parameters" element="tns:modificarBus"/>
+</message>
+<message name="modificarBusResponse">
+<part name="parameters" element="tns:modificarBusResponse"/>
+</message>
+<message name="insertarBus">
+<part name="parameters" element="tns:insertarBus"/>
+</message>
+<message name="insertarBusResponse">
+<part name="parameters" element="tns:insertarBusResponse"/>
+</message>
+<message name="eliminarChofer">
+<part name="parameters" element="tns:eliminarChofer"/>
+</message>
+<message name="eliminarChoferResponse">
+<part name="parameters" element="tns:eliminarChoferResponse"/>
+</message>
+<message name="graphChofer">
+<part name="parameters" element="tns:graphChofer"/>
+</message>
+<message name="graphChoferResponse">
+<part name="parameters" element="tns:graphChoferResponse"/>
+</message>
+<message name="graphBus">
+<part name="parameters" element="tns:graphBus"/>
+</message>
+<message name="graphBusResponse">
+<part name="parameters" element="tns:graphBusResponse"/>
+</message>
+<message name="modificarChofer">
+<part name="parameters" element="tns:modificarChofer"/>
+</message>
+<message name="modificarChoferResponse">
+<part name="parameters" element="tns:modificarChoferResponse"/>
+</message>
+<message name="imprimirAdmin">
+<part name="parameters" element="tns:imprimirAdmin"/>
+</message>
+<message name="imprimirAdminResponse">
+<part name="parameters" element="tns:imprimirAdminResponse"/>
+</message>
+<message name="cargarCSV">
+<part name="parameters" element="tns:cargarCSV"/>
+</message>
+<message name="cargarCSVResponse">
+<part name="parameters" element="tns:cargarCSVResponse"/>
+</message>
+<message name="grahpBusxChofer">
+<part name="parameters" element="tns:grahpBusxChofer"/>
+</message>
+<message name="grahpBusxChoferResponse">
+<part name="parameters" element="tns:grahpBusxChoferResponse"/>
+</message>
+<message name="insertarRuta">
+<part name="parameters" element="tns:insertarRuta"/>
+</message>
+<message name="insertarRutaResponse">
+<part name="parameters" element="tns:insertarRutaResponse"/>
+</message>
+<message name="Login">
+<part name="parameters" element="tns:Login"/>
+</message>
+<message name="LoginResponse">
+<part name="parameters" element="tns:LoginResponse"/>
+</message>
+<message name="insertarAdmin">
+<part name="parameters" element="tns:insertarAdmin"/>
+</message>
+<message name="insertarAdminResponse">
+<part name="parameters" element="tns:insertarAdminResponse"/>
+</message>
 <portType name="NewWebService">
 <operation name="hello">
 <input wsam:Action="http://servicio/NewWebService/helloRequest" message="tns:hello"/>
 <output wsam:Action="http://servicio/NewWebService/helloResponse" message="tns:helloResponse"/>
 </operation>
-<operation name="insertarAdmin">
-<input wsam:Action="http://servicio/NewWebService/insertarAdminRequest" message="tns:insertarAdmin"/>
-<output wsam:Action="http://servicio/NewWebService/insertarAdminResponse" message="tns:insertarAdminResponse"/>
+<operation name="modificarEstacionClave">
+<input wsam:Action="http://servicio/NewWebService/modificarEstacionClaveRequest" message="tns:modificarEstacionClave"/>
+<output wsam:Action="http://servicio/NewWebService/modificarEstacionClaveResponse" message="tns:modificarEstacionClaveResponse"/>
 </operation>
-<operation name="eliminarAdmin">
-<input wsam:Action="http://servicio/NewWebService/eliminarAdminRequest" message="tns:eliminarAdmin"/>
-<output wsam:Action="http://servicio/NewWebService/eliminarAdminResponse" message="tns:eliminarAdminResponse"/>
+<operation name="insertarEstacionClave">
+<input wsam:Action="http://servicio/NewWebService/insertarEstacionClaveRequest" message="tns:insertarEstacionClave"/>
+<output wsam:Action="http://servicio/NewWebService/insertarEstacionClaveResponse" message="tns:insertarEstacionClaveResponse"/>
 </operation>
-<operation name="imprimirAdmin">
-<input wsam:Action="http://servicio/NewWebService/imprimirAdminRequest" message="tns:imprimirAdmin"/>
-<output wsam:Action="http://servicio/NewWebService/imprimirAdminResponse" message="tns:imprimirAdminResponse"/>
+<operation name="eliminarEstacionClave">
+<input wsam:Action="http://servicio/NewWebService/eliminarEstacionClaveRequest" message="tns:eliminarEstacionClave"/>
+<output wsam:Action="http://servicio/NewWebService/eliminarEstacionClaveResponse" message="tns:eliminarEstacionClaveResponse"/>
+</operation>
+<operation name="graphEstacionClave">
+<input wsam:Action="http://servicio/NewWebService/graphEstacionClaveRequest" message="tns:graphEstacionClave"/>
+<output wsam:Action="http://servicio/NewWebService/graphEstacionClaveResponse" message="tns:graphEstacionClaveResponse"/>
+</operation>
+<operation name="eliminarEstacionGeneral">
+<input wsam:Action="http://servicio/NewWebService/eliminarEstacionGeneralRequest" message="tns:eliminarEstacionGeneral"/>
+<output wsam:Action="http://servicio/NewWebService/eliminarEstacionGeneralResponse" message="tns:eliminarEstacionGeneralResponse"/>
+</operation>
+<operation name="modificarEstacionGeneral">
+<input wsam:Action="http://servicio/NewWebService/modificarEstacionGeneralRequest" message="tns:modificarEstacionGeneral"/>
+<output wsam:Action="http://servicio/NewWebService/modificarEstacionGeneralResponse" message="tns:modificarEstacionGeneralResponse"/>
+</operation>
+<operation name="graphHorarioxBusxChofer">
+<input wsam:Action="http://servicio/NewWebService/graphHorarioxBusxChoferRequest" message="tns:graphHorarioxBusxChofer"/>
+<output wsam:Action="http://servicio/NewWebService/graphHorarioxBusxChoferResponse" message="tns:graphHorarioxBusxChoferResponse"/>
+</operation>
+<operation name="resumenBusEspecifico">
+<input wsam:Action="http://servicio/NewWebService/resumenBusEspecificoRequest" message="tns:resumenBusEspecifico"/>
+<output wsam:Action="http://servicio/NewWebService/resumenBusEspecificoResponse" message="tns:resumenBusEspecificoResponse"/>
+</operation>
+<operation name="insertarEstacionGeneral">
+<input wsam:Action="http://servicio/NewWebService/insertarEstacionGeneralRequest" message="tns:insertarEstacionGeneral"/>
+<output wsam:Action="http://servicio/NewWebService/insertarEstacionGeneralResponse" message="tns:insertarEstacionGeneralResponse"/>
+</operation>
+<operation name="insertarAsignacion">
+<input wsam:Action="http://servicio/NewWebService/insertarAsignacionRequest" message="tns:insertarAsignacion"/>
+<output wsam:Action="http://servicio/NewWebService/insertarAsignacionResponse" message="tns:insertarAsignacionResponse"/>
+</operation>
+<operation name="graphEstacionGeneral">
+<input wsam:Action="http://servicio/NewWebService/graphEstacionGeneralRequest" message="tns:graphEstacionGeneral"/>
+<output wsam:Action="http://servicio/NewWebService/graphEstacionGeneralResponse" message="tns:graphEstacionGeneralResponse"/>
+</operation>
+<operation name="resumenChoferEspecifico">
+<input wsam:Action="http://servicio/NewWebService/resumenChoferEspecificoRequest" message="tns:resumenChoferEspecifico"/>
+<output wsam:Action="http://servicio/NewWebService/resumenChoferEspecificoResponse" message="tns:resumenChoferEspecificoResponse"/>
 </operation>
 <operation name="graphAdmin">
 <input wsam:Action="http://servicio/NewWebService/graphAdminRequest" message="tns:graphAdmin"/>
 <output wsam:Action="http://servicio/NewWebService/graphAdminResponse" message="tns:graphAdminResponse"/>
 </operation>
-<operation name="mostrarAdmin">
-<input wsam:Action="http://servicio/NewWebService/mostrarAdminRequest" message="tns:mostrarAdmin"/>
-<output wsam:Action="http://servicio/NewWebService/mostrarAdminResponse" message="tns:mostrarAdminResponse"/>
-</operation>
 <operation name="agregarAdmin">
 <input wsam:Action="http://servicio/NewWebService/agregarAdminRequest" message="tns:agregarAdmin"/>
 <output wsam:Action="http://servicio/NewWebService/agregarAdminResponse" message="tns:agregarAdminResponse"/>
 </operation>
+<operation name="eliminarRuta">
+<input wsam:Action="http://servicio/NewWebService/eliminarRutaRequest" message="tns:eliminarRuta"/>
+<output wsam:Action="http://servicio/NewWebService/eliminarRutaResponse" message="tns:eliminarRutaResponse"/>
+</operation>
+<operation name="mostrarAdmin">
+<input wsam:Action="http://servicio/NewWebService/mostrarAdminRequest" message="tns:mostrarAdmin"/>
+<output wsam:Action="http://servicio/NewWebService/mostrarAdminResponse" message="tns:mostrarAdminResponse"/>
+</operation>
+<operation name="insertarChofer">
+<input wsam:Action="http://servicio/NewWebService/insertarChoferRequest" message="tns:insertarChofer"/>
+<output wsam:Action="http://servicio/NewWebService/insertarChoferResponse" message="tns:insertarChoferResponse"/>
+</operation>
+<operation name="eliminarAdmin">
+<input wsam:Action="http://servicio/NewWebService/eliminarAdminRequest" message="tns:eliminarAdmin"/>
+<output wsam:Action="http://servicio/NewWebService/eliminarAdminResponse" message="tns:eliminarAdminResponse"/>
+</operation>
 <operation name="modificarAdmin">
 <input wsam:Action="http://servicio/NewWebService/modificarAdminRequest" message="tns:modificarAdmin"/>
 <output wsam:Action="http://servicio/NewWebService/modificarAdminResponse" message="tns:modificarAdminResponse"/>
+</operation>
+<operation name="eliminarBus">
+<input wsam:Action="http://servicio/NewWebService/eliminarBusRequest" message="tns:eliminarBus"/>
+<output wsam:Action="http://servicio/NewWebService/eliminarBusResponse" message="tns:eliminarBusResponse"/>
+</operation>
+<operation name="modificarBus">
+<input wsam:Action="http://servicio/NewWebService/modificarBusRequest" message="tns:modificarBus"/>
+<output wsam:Action="http://servicio/NewWebService/modificarBusResponse" message="tns:modificarBusResponse"/>
+</operation>
+<operation name="insertarBus">
+<input wsam:Action="http://servicio/NewWebService/insertarBusRequest" message="tns:insertarBus"/>
+<output wsam:Action="http://servicio/NewWebService/insertarBusResponse" message="tns:insertarBusResponse"/>
+</operation>
+<operation name="eliminarChofer">
+<input wsam:Action="http://servicio/NewWebService/eliminarChoferRequest" message="tns:eliminarChofer"/>
+<output wsam:Action="http://servicio/NewWebService/eliminarChoferResponse" message="tns:eliminarChoferResponse"/>
+</operation>
+<operation name="graphChofer">
+<input wsam:Action="http://servicio/NewWebService/graphChoferRequest" message="tns:graphChofer"/>
+<output wsam:Action="http://servicio/NewWebService/graphChoferResponse" message="tns:graphChoferResponse"/>
+</operation>
+<operation name="graphBus">
+<input wsam:Action="http://servicio/NewWebService/graphBusRequest" message="tns:graphBus"/>
+<output wsam:Action="http://servicio/NewWebService/graphBusResponse" message="tns:graphBusResponse"/>
+</operation>
+<operation name="modificarChofer">
+<input wsam:Action="http://servicio/NewWebService/modificarChoferRequest" message="tns:modificarChofer"/>
+<output wsam:Action="http://servicio/NewWebService/modificarChoferResponse" message="tns:modificarChoferResponse"/>
+</operation>
+<operation name="imprimirAdmin">
+<input wsam:Action="http://servicio/NewWebService/imprimirAdminRequest" message="tns:imprimirAdmin"/>
+<output wsam:Action="http://servicio/NewWebService/imprimirAdminResponse" message="tns:imprimirAdminResponse"/>
+</operation>
+<operation name="cargarCSV">
+<input wsam:Action="http://servicio/NewWebService/cargarCSVRequest" message="tns:cargarCSV"/>
+<output wsam:Action="http://servicio/NewWebService/cargarCSVResponse" message="tns:cargarCSVResponse"/>
+</operation>
+<operation name="grahpBusxChofer">
+<input wsam:Action="http://servicio/NewWebService/grahpBusxChoferRequest" message="tns:grahpBusxChofer"/>
+<output wsam:Action="http://servicio/NewWebService/grahpBusxChoferResponse" message="tns:grahpBusxChoferResponse"/>
+</operation>
+<operation name="insertarRuta">
+<input wsam:Action="http://servicio/NewWebService/insertarRutaRequest" message="tns:insertarRuta"/>
+<output wsam:Action="http://servicio/NewWebService/insertarRutaResponse" message="tns:insertarRutaResponse"/>
+</operation>
+<operation name="Login">
+<input wsam:Action="http://servicio/NewWebService/LoginRequest" message="tns:Login"/>
+<output wsam:Action="http://servicio/NewWebService/LoginResponse" message="tns:LoginResponse"/>
+</operation>
+<operation name="insertarAdmin">
+<input wsam:Action="http://servicio/NewWebService/insertarAdminRequest" message="tns:insertarAdmin"/>
+<output wsam:Action="http://servicio/NewWebService/insertarAdminResponse" message="tns:insertarAdminResponse"/>
 </operation>
 </portType>
 <binding name="NewWebServicePortBinding" type="tns:NewWebService">
@@ -97,7 +347,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="insertarAdmin">
+<operation name="modificarEstacionClave">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -106,7 +356,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="eliminarAdmin">
+<operation name="insertarEstacionClave">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -115,7 +365,88 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="imprimirAdmin">
+<operation name="eliminarEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graphEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="modificarEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graphHorarioxBusxChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="resumenBusEspecifico">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarAsignacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graphEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="resumenChoferEspecifico">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -133,15 +464,6 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="mostrarAdmin">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="agregarAdmin">
 <soap:operation soapAction=""/>
 <input>
@@ -151,7 +473,160 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="eliminarRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="mostrarAdmin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarAdmin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="modificarAdmin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="modificarBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="eliminarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graphChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graphBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="modificarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="imprimirAdmin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="cargarCSV">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="grahpBusxChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="Login">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="insertarAdmin">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
