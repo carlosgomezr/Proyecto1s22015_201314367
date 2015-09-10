@@ -13,6 +13,7 @@ public class AVLNode {
     int id;
     String nombre;
     String password;      	 // el dato del nodo
+    int personas;
     public AVLNode izquierdo;            // hijo izquierdo
     public AVLNode derecho;              // hijo derecho
     public int height;                   // altura
@@ -28,6 +29,7 @@ public class AVLNode {
         this.password = password;
         this.izquierdo = izq;
         this.derecho = der;
+        this.personas =0;
         height   = 0;               // altura predeterminada
     }
 }

@@ -120,8 +120,33 @@ public void generarListaDoble2(listasdobles lista,String ruta){
 }
 
 
+public String ResumenChoferxDia(AVLNodeChofer nuevo,int x,String ruta, String nombre){
+    String cadena="";
+    try{    
+        if ( x<nuevo.id){
+            if(nuevo.izquierdo!=null){
+                ChoferxDia(nuevo.izquierdo,x,ruta,nombre);
+            }
+        }
+        if ( x>nuevo.id){
+            if(nuevo.derecho!=null){
+                ChoferxDia(nuevo.derecho,x,ruta,nombre);
+            }
+        }        
+        if( x==nuevo.id){
+              System.out.print("si existe clave "+nuevo);
+              cadena=nuevo.lista.imprimir();
+        }
+        else{
+                System.out.println("clave no existe");
+            }
+    }catch(Exception ex){
+    
+    }
+        return cadena;
+    }
+
 public void ChoferxDia(AVLNodeChofer nuevo,int x,String ruta, String nombre){
-  
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){

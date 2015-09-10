@@ -60,8 +60,10 @@ int contadoradmin=0;
      */
     @WebMethod(operationName = "modificarAdmin")
     public String modificarAdmin(@WebParam(name = "correo") String correo, @WebParam(name = "password") String password, @WebParam(name = "nuevocorreo") String nuevocorreo) {
+    if(admin.existe(correo)==true){
         admin.modificarEliminar(admin.root, correo, password, contadoradmin, nuevocorreo);
         contadoradmin=contadoradmin+1;
+    }
     return null;
     }
     
@@ -133,7 +135,9 @@ int contadoradmin=0;
     public String modificarEstacionClave(@WebParam(name = "id") String id, @WebParam(name = "nombre") String nombre, @WebParam(name = "password") String password, @WebParam(name = "nuevaclave") String nuevaclave) {
         int auxid=Integer.parseInt(id);
         int auxclave=Integer.parseInt(nuevaclave);
-        eclave.modificarEliminar(eclave.root, auxid, nombre, password, auxclave);
+        if(eclave.existe(auxid)==true){
+            eclave.modificarEliminar(eclave.root, auxid, nombre, password, auxclave);
+        }
     return null;
     }
 
@@ -179,7 +183,9 @@ int contadoradmin=0;
     public String modificarEstacionGeneral(@WebParam(name = "id") String id, @WebParam(name = "nombre") String nombre, @WebParam(name = "password") String password, @WebParam(name = "nuevaclave") String nuevaclave) {
     int auxid=Integer.parseInt(id);
     int auxclave=Integer.parseInt(nuevaclave);
-    egeneral.modificarEliminar(egeneral.root, auxid, nombre, password, auxclave);
+    if(egeneral.existe(auxid)==true){
+        egeneral.modificarEliminar(egeneral.root, auxid, nombre, password, auxclave);
+    }
         return null;
     }
 
@@ -223,7 +229,9 @@ int contadoradmin=0;
     public String modificarChofer(@WebParam(name = "id") String id, @WebParam(name = "nombre") String nombre, @WebParam(name = "apellido") String apellido, @WebParam(name = "password") String password, @WebParam(name = "nuevaclave") String nuevaclave) {
     int auxid=Integer.parseInt(id);
     int auxclave=Integer.parseInt(nuevaclave);
-        chofer.modificarEliminar(chofer.root, auxid, nombre, apellido, password, auxclave);
+        if(chofer.existe(auxid)==true){
+            chofer.modificarEliminar(chofer.root, auxid, nombre, apellido, password, auxclave);
+        }
         return null;
     }
 
@@ -382,6 +390,44 @@ int contadoradmin=0;
     f.ChoferxDia(chofer.root,auxid,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt","Chofer "+idchofer);
     f.generarImagen("graph", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
         return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "Login")
+    public String Login(@WebParam(name = "usuario") String usuario, @WebParam(name = "password") String password, @WebParam(name = "tipo") String tipo) {
+    String pagina=" ";
+    if((usuario.compareTo(usuario)==0)&(password.compareTo(password)==0)){
+            pagina="menu.jsp";
+    }
+    if(tipo.compareTo("Administrador")==0){
+        if(admin.log(usuario, password)==true){
+            pagina="menu.jsp";
+        }
+    }
+    else if(tipo.compareTo("Estacion Clave")==0){
+        int auxuser=Integer.parseInt(usuario);
+        if(eclave.log(auxuser, password)==true){
+            pagina="menueclave.jsp";
+        }
+    }
+    else if(tipo.compareTo("Estacion General")==0){
+        int auxuser=Integer.parseInt(usuario);
+        if(egeneral.log(auxuser, password)==true){
+            pagina="menuegeneral.jsp";
+        }
+    }
+    else if(tipo.compareTo("Chofer")==0){
+        int auxuser=Integer.parseInt(usuario);
+        if(chofer.log(auxuser, password)==true){
+            pagina="menuchofer.jsp";
+        }
+    }
+    else{
+            pagina="index.jsp";
+    }
+        return pagina;
     }
 
 

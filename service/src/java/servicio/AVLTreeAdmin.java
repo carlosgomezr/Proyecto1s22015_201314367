@@ -34,6 +34,9 @@ public AVLNodeAdmin r;
     public void buscar(String x){
         buscar(root,x);
     }
+    public boolean existe(String x){
+        return existe(root,x);
+    }
     public void padre(AVLNodeAdmin hijo){
         padre(root,hijo);
     }
@@ -41,6 +44,33 @@ public AVLNodeAdmin r;
         root=balancear(root);
     }
 
+    public boolean log(String x,String password){
+        return log(root,x,password);
+    }
+    
+    public boolean existe(AVLNodeAdmin nuevo,String x){
+    boolean flag=false;
+    try{    
+        if ( x.compareTo(nuevo.correo)<0){
+            if(nuevo.izquierdo!=null){
+                existe(nuevo.izquierdo,x);
+            }
+        }
+        if ( x.compareTo(nuevo.correo)>0){
+            if(nuevo.derecho!=null){
+                existe(nuevo.derecho,x);
+            }
+        }        
+        if( x.compareTo(nuevo.correo)==0){
+              System.out.print("si existe clave");
+              flag = true;
+        }
+    }catch(Exception ex){
+    
+    }
+        return flag;
+  }
+    
      private AVLNodeAdmin insert(String nombre, String password, int contador,AVLNodeAdmin t ){
         System.out.println("    t.insertar  "+t+" ");
         if( t == null )
@@ -75,13 +105,13 @@ public AVLNodeAdmin r;
             if(nuevo.izquierdo!=null){
                 buscar(nuevo.izquierdo,x);
             }
-            return null;
+          //  return null;
         }
         if ( x.compareTo(nuevo.correo)>0){
             if(nuevo.derecho!=null){
                 buscar(nuevo.derecho,x);
             }
-              return null;
+            //  return null;
         }        
         if( x.compareTo(nuevo.correo)==0){
               return nuevo;
@@ -124,12 +154,13 @@ public AVLNodeAdmin r;
         return lhs > rhs ? lhs : rhs;
     }
     
-     public  AVLNodeAdmin balancear(AVLNodeAdmin t){
+public  AVLNodeAdmin balancear(AVLNodeAdmin t){
         if((t!=null)){
                 int id = height( t.izquierdo ) - height( t.derecho ) ;
                 int di = height( t.derecho ) - height( t.izquierdo ) ;
+                System.out.println("        ENTRO A BALANCEAR T "+t+" "+t.height);
                 if( height( t.izquierdo ) - height( t.derecho ) == 2 ){
-        		if(height(t.izquierdo) >= height(t.derecho))
+        		if(height(t.izquierdo.izquierdo) >= height(t.izquierdo.derecho))
 			{
                                 System.out.println("   ENTRE AL CASO 1");
                                 t = rotateWithLeftChild( t ); /* Caso 1 */
@@ -141,7 +172,7 @@ public AVLNodeAdmin r;
 			}
 		}
                 if(height( t.derecho ) - height( t.izquierdo ) ==2 ){
-        		if(height(t.derecho) >= height(t.izquierdo))
+        		if(height(t.derecho.derecho) >= height(t.derecho.izquierdo))
 			{
                                 System.out.println("   ENTRE AL CASO 4");
         			t = rotateWithRightChild(t); /* Caso 4 */
@@ -153,8 +184,8 @@ public AVLNodeAdmin r;
         			t = doubleWithRightChild(t); /* Caso 3 */	
 			}
 		}
-                        //balancear(t.izquierdo);
-                        //balancear(t.derecho);
+                        t.izquierdo=balancear(t.izquierdo);
+                        t.derecho=balancear(t.derecho);
      }
 //        System.out.println(" TT"+t+" t.der "+t.derecho+" t.izq "+t.izquierdo);
         return t;
@@ -167,21 +198,50 @@ public static void actualizar_altura(AVLNodeAdmin t){
     
 
 public void hijo(AVLNodeAdmin padre, AVLNodeAdmin hijo){
-     try{
-        if(padre.izquierdo.correo.compareTo(hijo.correo)==0){
-            System.out.println("    el hijo es izquierdo");
-            padre.izquierdo = null;
-            
+    System.out.println("HIJO HIJO XD "+hijo+hijo.correo+" PADRE PADRE "+padre+padre.correo);
+    try{
+        if(padre.izquierdo!=null){
+            if(padre.izquierdo.correo.compareTo(hijo.correo)==0){
+                System.out.println("    el hijo es izquierdo");
+                padre.izquierdo = null;
+            }
         }
-        else{
-            System.out.println("    el hijo es derecho");
-            padre.derecho = null;
-            
+        if(padre.derecho!=null){
+            if(padre.derecho.correo.compareTo(hijo.correo)==0){
+                System.out.println("    el hijo es derecho");
+                padre.derecho = null;
+            }
         }
+        
     }catch(Exception ex){
     
     }
    
+}
+
+public boolean soyhijo(AVLNodeAdmin padre, AVLNodeAdmin hijo){
+    boolean flag = false;
+    System.out.println("HIJO HIJO XD "+hijo+hijo.correo+" PADRE PADRE "+padre+padre.correo);
+    try{
+        if(padre.izquierdo!=null){
+            if(padre.izquierdo.correo.compareTo(hijo.correo)==0){
+                System.out.println("    el hijo es izquierdo");
+                flag=false;
+                //padre.izquierdo = null;
+            }
+        }
+        if(padre.derecho!=null){
+            if(padre.derecho.correo.compareTo(hijo.correo)==0){
+                System.out.println("    el hijo es derecho");
+                flag=true;
+                //padre.derecho = null;
+            }
+        }
+        
+    }catch(Exception ex){
+    
+    }
+   return flag;
 }
 
 public AVLNodeAdmin padre(AVLNodeAdmin t,AVLNodeAdmin hijo){
@@ -204,6 +264,7 @@ if(aux.derecho!=null){
         padre = aux;
         return aux;
     }
+    
 }
 if(aux.izquierdo!=null){
     if(hijo.correo.compareTo(aux.izquierdo.correo)>0){
@@ -248,50 +309,72 @@ public AVLNodeAdmin eliminar(AVLNodeAdmin t,String x){
                       System.out.println("  VARIABLE PADRE STATIC "+padre);
                       hijo(padre,t);
                       System.out.println("BALANCEO PADRE "+padre+" p.izq "+padre.izquierdo+" p.der "+padre.derecho);
+                      if(t==root){
+                          root = null;
+                      }
                       balancear();
-                        //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                      
+                      //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;              
         	}
 		else if(t.izquierdo==null){
                         System.out.println("Eliminar_izq");
 			padre(t);
-                        aux = padre.derecho;
-                        padre.derecho = padre.derecho.derecho;
-                        aux = null;
-                        //padre(t);
-                        //hijo(padre,t);
-			//t = t.derecho;
-                        //aux = null;
-                        //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                        if(root==t){
+                            root = t.derecho;
+                            System.out.println("ENTRE T.IZQUIERDO = NULL xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                        }else if(soyhijo(padre,t)==false){
+                            aux = padre.derecho;
+                            padre.izquierdo = t.derecho;
+                            padre.derecho=aux;
+                            balancear();
+                            
+                            //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                        }else if(soyhijo(padre,t)==true){
+                            aux = padre.izquierdo;
+                            padre.derecho=t.derecho;
+                            padre.izquierdo=aux;
+                            //hijo(padre,t);
+                            balancear();
+                            //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                        }
                         
-                        balancear();
 		}
 		else if(t.derecho==null){
                         System.out.println("Eliminar_der");
 			padre(t);
-                        aux = padre.izquierdo;
-                        padre.izquierdo = padre.izquierdo.izquierdo;
-                        aux = null;
-                        //aux = t;
-                        //padre(t);
-                        //hijo(padre,t);
-			//t = t.izquierdo;
-                        //aux = null;
-                        //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-
-                        balancear();
+                        if(root==t){
+                            root = t.izquierdo;
+                            System.out.println("ENTRE T.DERECHO = NULL xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+                        }
+                        else if(soyhijo(padre,t)==false){
+                            aux = padre.derecho;
+                            padre.izquierdo = t.izquierdo;
+                            padre.derecho=aux;
+                            balancear();
+                          //  t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                        }else if(soyhijo(padre,t)==true){
+                            aux = padre.izquierdo;
+                            padre.derecho =t.izquierdo;
+                            padre.izquierdo=aux;
+                            //hijo(padre,t);
+                            balancear();
+                        //    t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                        }
 		}
 		else
 		{
+                   
                         System.out.println("Eliminar_min "+t.derecho+" "+t.derecho.correo);
                         r = t;
                         t = eliminar_min(t.derecho);
-                        balancear(t);
+                      //  t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
+                        balancear();
+                    
                 }	
 	}
                // balancear(t);
                // t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
                // padre = null;
+        balancear();
                 return t;
 }
 
@@ -303,31 +386,6 @@ public AVLNodeAdmin eliminar_min(AVLNodeAdmin t){
         }else{
             if (t.izquierdo==null)
             {
-                padre(t);
-                AVLNodeAdmin auxpadre = padre;
-                String auxid=padre.correo;
-                String auxpass=padre.password;
-                System.out.println("padre :v "+padre);
-                padre.correo = t.correo;
-                padre.password = t.password;
-                t.correo = auxid;
-                t.password = auxpass;
-                eliminar(t,auxid);
-                //auxt.id = auxpadre.id;
-                //auxt.nombre = auxpadre.nombre;
-                //auxt.password = auxpadre.password;
-                //AVLNode auxi = padre.izquierdo;
-                //t.izquierdo = auxi;
-                //auxpadre.izquierdo=null;
-                //padre=null;
-                balancear(t);
-                t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                return t;
-                    
-            }
-            else
-                {   
-                    t = t.izquierdo;
                     AVLNodeAdmin auxr = r;
                     String auxid = r.correo;
                     String auxpass=r.password;
@@ -336,16 +394,44 @@ public AVLNodeAdmin eliminar_min(AVLNodeAdmin t){
                     r.password = t.password;
                     t.correo = auxid;
                     t.password = auxpass;
+                    //t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
                     eliminar(t,auxid);
-                    balancear (t);
-                    t.height = max( height( t.izquierdo ), height( t.derecho ) ) + 1;
-                return t;                
-                    }
+                    balancear();
+                    
+                return t;
+                    
+            }
+            else
+                {
+                    eliminar_min(t.izquierdo);
+                }
         }
+        balancear();
         System.out.println(" este es el t del min "+t);
 	return t;
 }
 
+    public boolean log(AVLNodeAdmin nodo,String x,String password){
+        boolean flag=false;
+    try{   
+        if (x.compareTo(nodo.correo)<0){
+                log(nodo.izquierdo,x,password);
+              //  flag=false;
+        }
+        if (x.compareTo(nodo.correo)>0){
+                log(nodo.derecho,x,password);
+              //  flag=false;
+        }        
+        if( (x.compareTo(nodo.correo)==0)&(password.compareTo(nodo.password)==0)){
+                flag=true; 
+                System.out.println("LOG IN "+x+" "+password+" "+flag);
+        }
+    }catch (Exception ex){
+    
+    }
+        return flag;
+    }
+    
 
     private static AVLNodeAdmin rotateWithLeftChild( AVLNodeAdmin k2 ){
         System.out.println("ROTATE WITH LEFT CHILD");
@@ -388,8 +474,8 @@ public AVLNodeAdmin eliminar_min(AVLNodeAdmin t){
 
 
     public String imprimir(){
-        String c=imprimir(root);
-        return c;
+        String conca=imprimir(root);
+        return conca;
     }
 
     public String imprimir(AVLNodeAdmin nodo){
@@ -483,4 +569,4 @@ public void GraphAVL(AVLNodeAdmin node,String nombre,String ruta){
 
 
 }
-    
+     
