@@ -151,6 +151,7 @@ public String con="";
     public boolean existe(AVLNodeChofer nuevo,int x){
     boolean flag=false;
     try{    
+        if(root==null){ flag=false;}
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
                 existe(nuevo.izquierdo,x);

@@ -50,7 +50,8 @@ public AVLNodeAdmin r;
     
     public boolean existe(AVLNodeAdmin nuevo,String x){
     boolean flag=false;
-    try{    
+    try{
+        if(root==null){ flag=false;}
         if ( x.compareTo(nuevo.correo)<0){
             if(nuevo.izquierdo!=null){
                 existe(nuevo.izquierdo,x);

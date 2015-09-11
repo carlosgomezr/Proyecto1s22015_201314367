@@ -46,7 +46,9 @@ public AVLNode r;
     
     public boolean existe(AVLNode nuevo,int x){
     boolean flag=false;
-    try{    
+    
+    try{
+        if(root==null){ flag=false;}
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
                 existe(nuevo.izquierdo,x);

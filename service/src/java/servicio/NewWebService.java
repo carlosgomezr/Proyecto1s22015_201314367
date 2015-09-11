@@ -397,42 +397,47 @@ int contadoradmin=0;
      */
     @WebMethod(operationName = "Login")
     public String Login(@WebParam(name = "usuario") String usuario, @WebParam(name = "password") String password, @WebParam(name = "tipo") String tipo) {
-    String pagina=" ";
-    if((usuario.compareTo(usuario)==0)&(password.compareTo(password)==0)){
-            pagina="menu.jsp";
+    String pagina="index.jsp";
+    if((usuario.compareTo("admin")==0)&(password.compareTo("admin")==0)&(tipo.compareTo("Administrador")==0)){
+        pagina="menu.jsp";
     }
     if(tipo.compareTo("Administrador")==0){
         if(admin.log(usuario, password)==true){
             pagina="menu.jsp";
         }
+        if(admin.log(usuario, password)==false){
+            pagina="index.jsp";
+        }
+        
     }
-    else if(tipo.compareTo("Estacion Clave")==0){
-        int auxuser=Integer.parseInt(usuario);
-        if(eclave.log(auxuser, password)==true){
+    if(tipo.compareTo("EstacionClave")==0){
+        int auxiliar=Integer.parseInt(usuario);
+        if(eclave.log(auxiliar, password)==true){ 
             pagina="menueclave.jsp";
         }
+        if(eclave.log(auxiliar, password)==false){
+            pagina="index.jsp";
+        }
     }
-    else if(tipo.compareTo("Estacion General")==0){
-        int auxuser=Integer.parseInt(usuario);
-        if(egeneral.log(auxuser, password)==true){
+    if(tipo.compareTo("EstacionGeneral")==0){
+        int auxiliar=Integer.parseInt(usuario);
+        if(egeneral.log(auxiliar, password)==true){
             pagina="menuegeneral.jsp";
         }
-    }
-    else if(tipo.compareTo("Chofer")==0){
-        int auxuser=Integer.parseInt(usuario);
-        if(chofer.log(auxuser, password)==true){
-            pagina="menuchofer.jsp";
+        if(egeneral.log(auxiliar, password)==false){
+            pagina="index.jsp";
         }
     }
-    else{
+    if(tipo.compareTo("Chofer")==0){
+        int auxiliar=Integer.parseInt(usuario);
+        if(chofer.log(auxiliar, password)==true){
+            pagina="menuchofer.jsp";
+        }
+        if(chofer.log(auxiliar, password)==false){
             pagina="index.jsp";
+        }
     }
-        return pagina;
+    return pagina;
     }
-
-
-
-
-
     
 }
