@@ -14,7 +14,11 @@
     <body background="BACK2.jpg">
     <center>
         <br></br>
-        <br></br>
+        <DIV ALIGN=right>
+           <form name="pasarmenu" action="menueclave.jsp" method="POST">
+                <input type="submit" value="Menu Estacion Clave" name="Menu Estacion Clave" />
+           </form>
+        </DIV>
         <br></br>
         <h1>ESTACION CLAVE VIEW</h1>
         <br></br>

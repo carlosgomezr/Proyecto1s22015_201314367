@@ -52,7 +52,11 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\n");
       out.write("    <body background=\"BACK2.jpg\">\n");
       out.write("       <br> </br>\n");
-      out.write("        <br> </br>\n");
+      out.write("       <DIV ALIGN=right>\n");
+      out.write("           <form name=\"pasarindex\" action=\"index.jsp\" method=\"POST\">\n");
+      out.write("                <input type=\"submit\" value=\"LOG OUT\" name=\"logout\" />\n");
+      out.write("           </form>\n");
+      out.write("       </DIV>\n");
       out.write("        <br> </br>\n");
       out.write("    <center>\n");
       out.write("        <h1>Menú Administrador</h1>\n");
@@ -82,11 +86,11 @@ public final class menu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </form>\n");
       out.write("        <br> </br>\n");
       out.write("        <form name=\"pasarruta\" action=\"ruta.jsp\" method=\"POST\">\n");
-      out.write("        <input type=\"submit\" value=\"Ruta\" name=\"boton7\" />\n");
+      out.write("        <input type=\"submit\" value=\"        Ruta         \" name=\"boton7\" />\n");
       out.write("        </form>\n");
       out.write("        <br> </br>\n");
       out.write("        <form name=\"pasarresumen\" action=\"resumen.jsp\" method=\"POST\">\n");
-      out.write("        <input type=\"submit\" value=\"         Resumen       \" name=\"boton8\" />\n");
+      out.write("        <input type=\"submit\" value=\"       Resumen      \" name=\"boton8\" />\n");
       out.write("        </form>\n");
       out.write("    </center>\n");
       out.write("    </body>\n");

@@ -13,7 +13,11 @@
     </head>
     <body background="BACK2.jpg">
         <br></br>
-        <br></br>
+        <DIV ALIGN=right>
+           <form name="pasarmenu" action="menuegeneral.jsp" method="POST">
+                <input type="submit" value="Menu Estacion General" name="Menu Estacion General" />
+           </form>
+        </DIV>
         <br></br>
         <h1>ESTACION GENERAL VIEW</h1>
         <br></br>

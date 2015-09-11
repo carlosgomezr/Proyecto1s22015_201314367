@@ -9,57 +9,35 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-        <%!
-            String page="index.jsp";
-            String vusuario="";
-            String vpassword="";
-            String vtipo="";
-        %>
+        <title>LOGIN</title>
+       
     </head>
     <body background="LOGIN1.jpg">
-        <% 
-            vusuario = request.getParameter("usuario");
-            vpassword = request.getParameter("password");
-            vtipo = request.getParameter("tipo");
-        %>
         <DIV ALIGN=right> 
             <br>
             </br>
-            <form name="pasar" action="index.jsp" method="POST">
+            <form name="pasar" action="verificar.jsp" method="POST">
                  USER: 
-                 <input type="text" name="usuario" value="" size="15" />  
+                 <input type="text" name="user" value="" size="15" />  
                  PASSWORD:
                  <input type="password" name="password" value="" size="15" />
                  <select name="tipo">
                      <option>Administrador</option>
-                     <option>Estacion Clave</option>
-                     <option>Estacion General</option>
+                     <option>EstacionClave</option>
+                     <option>EstacionGeneral</option>
                      <option>Chofer</option>
                  </select>
-                     <%-- start web service invocation --%><hr/>
-    <%
-    try {
-	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
-	servicio.NewWebService port = service.getNewWebServicePort();
-	 // TODO initialize WS operation arguments here
-	java.lang.String usuario = request.getParameter("usuario");
-	java.lang.String password = request.getParameter("password");
-	java.lang.String tipo = request.getParameter("tipo");
-	// TODO process result here
-	java.lang.String result = port.login(usuario, password, tipo);
-	out.println("Result = "+result);
-        page = result;
-    } catch (Exception ex) {
-	// TODO handle custom exceptions here
-    }
-    %>
-    <%-- end web service invocation --%><hr/>
-
+                      
+   
                  <input type="submit" value="LOGIN" name="boton1" /> 
-
             </form>
-                    </DIV>
-        
+        </DIV>
+        <% String user;
+           String password;
+           String tipo;
+            user = request.getParameter("user");
+            password = request.getParameter("password");
+            tipo = request.getParameter("tipo");
+        %>
     </body>
 </html>

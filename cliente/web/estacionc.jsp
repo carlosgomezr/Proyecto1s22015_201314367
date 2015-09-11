@@ -14,7 +14,11 @@
     <body  background="BACK2.jpg">
         <center>
         <br></br>
-        <br></br>
+        <DIV ALIGN=right>
+           <form name="pasarmenu" action="menu.jsp" method="POST">
+                <input type="submit" value="Menu Admin" name="Menu Admin" />
+           </form>
+        </DIV>
         <br></br>
         <h1>Estacion Clave</h1>
         <br></br>

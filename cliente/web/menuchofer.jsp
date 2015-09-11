@@ -13,8 +13,12 @@
     </head>
     <body background="BACK2.jpg">
         <br> </br>
-        <br> </br>
-        <br> </br>
+        <DIV ALIGN=right>
+           <form name="pasarindex" action="index.jsp" method="POST">
+                <input type="submit" value="LOG OUT" name="logout" />
+           </form>
+       </DIV>
+       <br> </br>
     <center>
         <h1>Menú Chofer</h1>
     </center>
