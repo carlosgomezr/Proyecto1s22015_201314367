@@ -43,6 +43,24 @@
                 <tr>
                     <td></td>
                     <td></td>
+        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String nombre = request.getParameter("texto1");
+	java.lang.String estacion = request.getParameter("texto2");
+	// TODO process result here
+	java.lang.String result = port.insertarRuta(nombre, estacion);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+                
+                    
                     <td> <input type="submit" value="ADD" name="boton1" /> </td>
                 </tr>
             </tbody>
@@ -63,6 +81,23 @@
                 <tr>
                     <td></td>
                     <td></td>
+                    
+        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String nombre = request.getParameter("texto3");
+	// TODO process result here
+	java.lang.String result = port.eliminarRuta(nombre);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+                
                     <td> <input type="submit" value="REMOVE" name="boton2" /> </td>
                 </tr>
             </tbody>
@@ -88,6 +123,8 @@
                 <tr>
                     <td></td>
                     <td></td>
+                    
+                    
                     <td> <input type="submit" value="EDIT" name="boton3" /> </td>
                 </tr>
             </tbody>

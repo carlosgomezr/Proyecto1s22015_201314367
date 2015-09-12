@@ -1,18 +1,5 @@
 digraph grafica { 
-label= " AVL ADMIN"node [shape=record];
-subgraph g {
-nodea1[label=" correo: correo1
- 
- password: correo1pass"];
-nodea3[label=" correo: correo0
- 
- password: correo0"];
-nodea1->nodea3[label="izq"];
-nodea3[label=" correo: correo0
- 
- pasword: correo0"];
-nodea1[label=" correo: correo1
- 
- pasword: correo1pass"];
-}
+label= "LISTA DOBLE  ASIGNACION"node [shape=record];
+subgraph g { 
+ }
 }

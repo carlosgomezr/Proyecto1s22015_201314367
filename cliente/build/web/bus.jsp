@@ -20,10 +20,11 @@
            </form>
         </DIV>
         <br></br>
+        <font color="white">
         <h1>Bus</h1>
         <br></br>
         <br></br>
-        <font color="white">
+        
         <h1>Agregar Bus</h1>
         <form name="pasarbus" action="bus.jsp" method="POST">
         <table border="0" style="text-align:center;">      
@@ -31,12 +32,42 @@
                 <tr>
                     <td> ID: </td>
                     <td><input type="text" name="texto1" value="" size="20" /></td>
-                    <% id = request.getParameter("texto1"); %>
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
+                        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String id = request.getParameter("texto1");
+	// TODO process result here
+	java.lang.String result = port.insertarBus(id);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+    <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	java.lang.String result = port.graphBus();
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+    
                     <td> <input type="submit" value="ADD" name="boton1" /> </td>
                 </tr>
             </tbody>
@@ -50,12 +81,43 @@
                 <tr>
                     <td> ID: </td>
                     <td> <input type="text" name="texto2" value="" size="20" /></td>
-                    <% id = request.getParameter("texto2"); %>
+                    
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
+                    <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String id = request.getParameter("texto2");
+	// TODO process result here
+	java.lang.String result = port.eliminarBus(id);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+    <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	java.lang.String result = port.graphBus();
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+    
                     <td> <input type="submit" value="REMOVE" name="boton2" /></td>
                 </tr>
             </tbody>
@@ -69,7 +131,6 @@
                 <tr>
                     <td> ID: </td>
                     <td> <input type="text" name="texto3" value="" size="20" /></td>
-                    <% id = request.getParameter("texto3"); %>
                     <td></td>
                 </tr>
                 <tr>
@@ -82,6 +143,37 @@
                 <tr>
                     <td></td>
                     <td></td>
+        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String id = request.getParameter("texto3");
+	java.lang.String nuevoid = request.getParameter("texto4");
+	// TODO process result here
+	java.lang.String result = port.modificarBus(id, nuevoid);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	java.lang.String result = port.graphBus();
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
                     <td><input type="submit" value="EDIT" name="boton3" /></td>
                 </tr>
             </tbody>

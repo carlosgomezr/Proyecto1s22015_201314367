@@ -31,42 +31,74 @@
                 <tr>
                     <td> ID BUS: </td>
                     <td><input type="text" name="texto1" value="" size="20" /></td>
-                    <% idbus = request.getParameter("texto1"); %>
                     <td></td>
                 </tr>
                 <tr>
                     <td> RUTA: </td>
                     <td><input type="text" name="texto2" value="" size="20" /></td>
-                    <% ruta = request.getParameter("texto2"); %>
                     <td></td>
                 </tr>
                 <tr>
                     <td> CLAVE CHOFER:</td>
                     <td><input type="text" name="texto3" value="" size="20" /></td>
-                    <% clavechofer = request.getParameter("texto3"); %>
                     <td></td>
                 </tr>
                 <tr>
                     <td> HORARIO INICIO: </td>
                     <td><input type="text" name="texto4" value="" size="20" /></td>
-                    <% horarioini = request.getParameter("texto4"); %>
                     <td></td>
                 </tr>
                 <tr>
                     <td> HORARIO FIN: </td>
                     <td><input type="text" name="texto5" value="" size="20" /></td>
-                    <% horariofin = request.getParameter("texto5"); %>
                     <td></td>
                 </tr>
                 <tr>
                     <td> FECHA: </td>
                     <td><input type="text" name="texto6" value="" size="20" /></td>
-                    <% fecha = request.getParameter("texto6"); %>
                     <td></td>
                 </tr>
                 <tr>
                     <td></td>
                     <td></td>
+                        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String id = request.getParameter("texto1");
+	java.lang.String ruta = request.getParameter("texto2");
+	java.lang.String claveChofer = request.getParameter("texto3");
+	java.lang.String horaini = request.getParameter("texto4");
+	java.lang.String horafin = request.getParameter("texto5");
+	java.lang.String fecha = request.getParameter("texto6");
+	// TODO process result here
+	java.lang.String result = port.insertarAsignacion(id, ruta, claveChofer, horaini, horafin, fecha);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+        
+    <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String parameter = "";
+	// TODO process result here
+	java.lang.String result = port.graphAsignacion(parameter);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+                    
                     <td><input type="submit" value="ADD" name="boton1" /></td>
                 </tr>
             </tbody>
@@ -86,6 +118,7 @@
                 <tr>
                     <td></td>
                     <td></td>
+              
                     <td><input type="submit" value="REMOVE" name="boton2" /></td>
                 </tr>
             </tbody>

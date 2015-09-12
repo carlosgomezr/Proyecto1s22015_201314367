@@ -22,6 +22,8 @@
                  PASSWORD:
                  <input type="password" name="password" value="" size="15" />
                  <select name="tipo">
+                     <font color="white">
+                     <option>------------</option>
                      <option>Administrador</option>
                      <option>EstacionClave</option>
                      <option>EstacionGeneral</option>

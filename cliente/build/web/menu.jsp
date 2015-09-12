@@ -53,6 +53,10 @@
         <form name="pasarresumen" action="resumen.jsp" method="POST">
         <input type="submit" value="       Resumen      " name="boton8" />
         </form>
+        <br> </br>
+        <form name="pasarcargaCSV" action="cargar.jsp" method="POST">
+        <input type="submit" value="      CargarCSV       " name="boton9" />
+        </form>
     </center>
     </body>
 </html>

@@ -50,6 +50,38 @@
                 <tr>
                     <td></td>
                     <td></td>
+               <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String id = request.getParameter("texto1");
+	java.lang.String nombre = request.getParameter("texto2");
+	java.lang.String password = request.getParameter("texto3");
+	// TODO process result here
+	java.lang.String result = port.insertarEstacionClave(id, nombre, password);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+    <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	java.lang.String result = port.graphEstacionClave();
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+                    
                     <td><input type="submit" value="ADD" name="boton1" /></td>
                 </tr>
             </tbody>
@@ -70,6 +102,36 @@
                 <tr>
                     <td></td>
                     <td></td>
+                        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String id = request.getParameter("texto4");
+	// TODO process result here
+	java.lang.String result = port.eliminarEstacionClave(id);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	java.lang.String result = port.graphEstacionClave();
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+                
                     <td><input type="submit" value="REMOVE" name="boton2" /></td>
                 </tr>
             </tbody>
@@ -108,6 +170,39 @@
                 <tr>
                     <td></td>
                     <td></td>
+    <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String id = request.getParameter("texto5");
+	java.lang.String nombre = request.getParameter("texto6");
+	java.lang.String password = request.getParameter("texto7");
+	java.lang.String nuevaclave = request.getParameter("texto8");
+	// TODO process result here
+	java.lang.String result = port.modificarEstacionClave(id, nombre, password, nuevaclave);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+    <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	java.lang.String result = port.graphEstacionClave();
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+
                     <td><input type="submit" value="EDIT" name="boton3" /></td>
                 </tr>
             </tbody>

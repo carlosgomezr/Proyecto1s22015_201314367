@@ -54,22 +54,69 @@ public final class cargar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("    <body background=\"BACK2.jpg\">\n");
       out.write("    <center>\n");
+      out.write("    <font color=\"white\">\n");
       out.write("        <br></br>\n");
-      out.write("        <br></br>\n");
+      out.write("        <DIV ALIGN=right>\n");
+      out.write("           <form name=\"pasarmenu\" action=\"menu.jsp\" method=\"POST\">\n");
+      out.write("                <input type=\"submit\" value=\"Menu Admin\" name=\"Menu Admin\" />\n");
+      out.write("           </form>\n");
+      out.write("        </DIV>\n");
       out.write("        <br></br>\n");
       out.write("        <h1>Cargar CSV</h1>\n");
       out.write("        <br></br>\n");
       out.write("        <br></br>\n");
       out.write("        <form name=\"pasarcargar\" action=\"cargar.jsp\" method=\"POST\">\n");
+      out.write("        <br></br>\n");
+      out.write("        <br></br>\n");
+      out.write("        <center>\n");
+      out.write("        <input type=\"text\" name=\"Buscador\" value=\"\" size=\"20\" />\n");
+      out.write("        ");
+      out.write("<hr/>\n");
+      out.write("    ");
+
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String path = request.getParameter("Buscador");
+	// TODO process result here
+	java.lang.String result = port.cargarCSV(path);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
+      out.write("\n");
+      out.write("    ");
+      out.write("<hr/>\n");
       out.write("        \n");
-      out.write("        <input type=\"file\" name=\"buscador\" value=\"\" width=\"45\" />\n");
-      out.write("        ");
-ruta=request.getParameter("buscador"); 
+      out.write("                ");
+      out.write("<hr/>\n");
+      out.write("    \n");
+      out.write("    ");
+      out.write("<hr/>\n");
+      out.write("    ");
+
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String parameter = "";
+	// TODO process result here
+	java.lang.String result = port.graphAsignacion(parameter);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
       out.write("\n");
-      out.write("        ");
- out.println(ruta); 
+      out.write("    ");
+      out.write("<hr/>\n");
       out.write("\n");
+      out.write("            <input type=\"submit\" value=\"CARGAR! xD\" name=\"boton1\" />   \n");
+      out.write("        </center>\n");
       out.write("        </form>\n");
+      out.write("    </font>\n");
       out.write("    </center>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
