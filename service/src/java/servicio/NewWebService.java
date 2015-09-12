@@ -308,15 +308,6 @@ int contadoradmin=0;
         return null;
     }
 
-    /**
-     * Web service operation
-     */
-    @WebMethod(operationName = "cargarCSV")
-    public String cargarCSV() {
-    Funcion f = new Funcion();
-    f.leerCSV(buses, asignacion, chofer);
-        return null;
-    }
 
     /**
      * Web service operation
@@ -401,7 +392,7 @@ int contadoradmin=0;
     if((usuario.compareTo("admin")==0)&(password.compareTo("admin")==0)&(tipo.compareTo("Administrador")==0)){
         pagina="menu.jsp";
     }
-    if(tipo.compareTo("Administrador")==0){
+    else if(tipo.compareTo("Administrador")==0){
         if(admin.log(usuario, password)==true){
             pagina="menu.jsp";
         }
@@ -438,6 +429,38 @@ int contadoradmin=0;
         }
     }
     return pagina;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "graphAsignacion")
+    public String graphAsignacion(@WebParam(name = "parameter") String parameter) {
+        Funcion f = new Funcion();
+        f.generarAsignacion(asignacion,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
+        f.generarImagen("graph","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "cargarCSV")
+    public String cargarCSV(@WebParam(name = "path") String path) {
+    Funcion f = new Funcion();
+    f.leerCSV(buses, asignacion, chofer,path);
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "graphRuta")
+    public String graphRuta(@WebParam(name = "parameter") String parameter) {
+        rutas.graphRuta(rutas,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt", "RUTAS");
+        Funcion f = new Funcion();
+        f.generarImagen("graph","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
+        return null;
     }
     
 }

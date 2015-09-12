@@ -5,6 +5,12 @@
  */
 package servicio;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  *
  * @author Carlos Gomez
@@ -158,6 +164,7 @@ public class listar {
         return retornar;
     }
     
+     
      public String imprimir()
     {
         String aux="";
@@ -176,4 +183,100 @@ public class listar {
            
         return aux;      
    }
+     
+     public void graphRuta(listar lista,String ruta,String nombre){
+    int contador=0;        
+    int contador1=1;
+            listar aux = lista;
+	    File f;
+            
+	    FileWriter escribir;
+	    try{
+	    f = new File(ruta);
+	    escribir = new FileWriter(f);
+	    BufferedWriter bw = new BufferedWriter(escribir);
+	    PrintWriter pw = new PrintWriter(bw);
+            pw.write("digraph grafica { \n");
+            pw.write("label= \" " +nombre+"\"");
+            pw.write("node [shape=record];\n");
+	    pw.write("subgraph g { \n "); 
+            if(lista.primero!=null){
+                
+         
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){
+                            pw.write("nodefecha"+contador+"[label=\" id: "+aux.primero.ruta+" \"];\n");
+                            pw.write("nodefecha"+contador1+"[label=\" id: "+aux.primero.next.ruta+" \"];\n");
+                            pw.write("nodefecha"+contador+"->nodefecha"+contador1+";\n");
+                            pw.write("nodefecha"+contador1+"->nodefecha"+contador+";\n");
+                            pw.write(graphRutaEstacion(aux.primero.estacion,Integer.toString(contador),aux.primero.ruta));
+                            pw.write(graphRutaEstacion(aux.primero.next.estacion,Integer.toString(contador1),aux.primero.next.ruta));
+                            
+                            aux.primero = aux.primero.next;
+                            contador=contador+1;
+                            contador1=contador1+1;
+                        }
+                    }
+                    else{
+                            pw.write("nodefecha"+contador+"[label=\" id: "+aux.primero.ruta+" \"];\n");
+                            pw.write(graphRutaEstacion(aux.primero.estacion,Integer.toString(contador),aux.primero.ruta));
+                        
+                    }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            pw.write("}\n");
+	    pw.write("}\n");
+	    pw.close();
+	    bw.close();
+	    }
+	    catch(IOException e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+}
+
+     
+     public String graphRutaEstacion(listae lista,String cluster,String nombre){
+            String auxiliar="";
+            int conta= 0;
+            int conta1 = 1;
+            listae aux = lista;
+	    File f;
+            try{
+	    auxiliar = auxiliar+"	subgraph cluster"+cluster+" { \n";
+            auxiliar = auxiliar+"label= \" " +nombre+"\"";
+            if(lista.primero!=null){
+                
+         
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"[label=\" estacion: "+aux.primero.estacion+" \"];\n";
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"[label=\" estacion: "+aux.primero.next.estacion+" \"];\n";
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"->nodehora"+cluster+"c"+conta1+";\n";
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"->nodehora"+cluster+"c"+conta+";\n";
+                            aux.primero = aux.primero.next;
+                            conta=conta+1;
+                            conta1=conta+1;
+                        }
+                    }
+                    else{
+                          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"[label=\" estacion: "+aux.primero.estacion+" \"];\n";
+                    }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            auxiliar=auxiliar+"}\n";
+	    
+	    }
+	    catch(Exception e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+            return auxiliar;
+}
+
+     
 }

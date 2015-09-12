@@ -73,6 +73,53 @@ public void generarListaDoble(listasdobles lista,String ruta){
             }       
 }
 
+public void generarAsignacion(listasdobles lista,String ruta){
+            listasdobles aux = lista;
+	    File f;
+            int c = 0;
+            int c2 = 1;
+	   
+            FileWriter escribir;
+	    try{
+	    f = new File(ruta);
+	    escribir = new FileWriter(f);
+	    BufferedWriter bw = new BufferedWriter(escribir);
+	    PrintWriter pw = new PrintWriter(bw);
+            pw.write("digraph grafica { \n");
+            pw.write("label= \"LISTA DOBLE  ASIGNACION\"");
+            pw.write("node [shape=record];\n");
+	    pw.write("subgraph g { \n "); 
+            if(lista.primero!=null){
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){ 
+                            pw.write("node"+c+"[label=\" id: "+aux.primero.b.id+" ruta: "+aux.primero.b.nombre+" ChoferClave: "+aux.primero.b.ClaveChofer+" HoraIni: "+aux.primero.b.horarioFin+" HoraFin: "+aux.primero.b.horarioFin+" Fecha: "+aux.primero.b.fecha+"\"];\n");
+                            pw.write("node"+c2+"[label=\" id: "+aux.primero.next.b.id+" ruta: "+aux.primero.next.b.nombre+" ChoferClave: "+aux.primero.next.b.ClaveChofer+" HoraIni: "+aux.primero.next.b.horarioFin+" HoraFin: "+aux.primero.next.b.horarioFin+" Fecha: "+aux.primero.next.b.fecha+" \"];\n");
+                            pw.write("node"+c+"->node"+c2+";\n");
+                            pw.write("node"+c2+"->node"+c+";\n");
+                            aux.primero = aux.primero.next;
+                            c=c+1;
+                            c2=c2+1;
+                        }
+                    }
+                    else{
+                            pw.write("node"+c+"[label=\" id: "+aux.primero.b.id+" ruta: "+aux.primero.b.nombre+" ChoferClave: "+aux.primero.b.ClaveChofer+" HoraIni: "+aux.primero.b.horarioFin+" HoraFin: "+aux.primero.b.horarioFin+" Fecha: "+aux.primero.b.fecha+" \"];\n");
+                    }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            pw.write("}\n");
+	    pw.write("}\n");
+	    pw.close();
+	    bw.close();
+	    }
+	    catch(IOException e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+}
+
+
 public void generarListaDoble2(listasdobles lista,String ruta){
             listasdobles aux = lista;
 	    File f;
@@ -379,13 +426,13 @@ public void generarImagen(String nombre,String ruta) {
         }
     }
 
-public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol){
+public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol,String path){
   
         try {
-        JFileChooser buscador = new JFileChooser();
-	buscador.showOpenDialog(buscador);
-        String direc = buscador.getSelectedFile().getAbsolutePath();
-         
+        //JFileChooser buscador = new JFileChooser();
+	//buscador.showOpenDialog(buscador);
+        //String direc = buscador.getSelectedFile().getAbsolutePath();
+        String direc = path;
         CsvReader usuarios_import = new CsvReader(direc);
        // usuarios_import.readHeaders();
          
