@@ -46,7 +46,7 @@ public class listad {
     {
         nodod anterior=null;
         nodod actual=primero;
-        
+        nodod aux=primero;
        
         while(actual!=ultimo)
         {
@@ -79,11 +79,13 @@ public class listad {
              }
             return true;
         }
+        primero = aux;
         return false;
     }
 
     public int tamaño(){
         int t=0;
+        nodod aux = ultimo;
         if( estavacio() )
 	{
 		t=0;
@@ -94,12 +96,14 @@ public class listad {
                 t = t+1;
 		actual = actual.ant;
 	}
+        ultimo = aux;
         return t;
     }
     
     public boolean existe(String dia){
     boolean flag=false;
     nodod actual;
+    nodod aux = primero;
     actual = primero;
         
         while(actual!=null){
@@ -108,6 +112,7 @@ public class listad {
                 }
                 actual = actual.next;
         }
+        primero = aux;
         return flag;
     }
     
@@ -124,38 +129,41 @@ public class listad {
      public void InsertarHora(String dia,String bus,String ruta,String hora,String horaf){
         nodod actual;
         actual = primero;
-        
+        nodod aux = primero;
         while(actual!=null){
                 if(actual.dia.compareTo(dia)==0){
                     actual.hora.alta(bus,ruta, hora, horaf);
                 }
                 actual = actual.next;
         }
+        primero=aux;
     }
      
      public void reemplazarEliminar(String dia,String hora){
         nodod actual;
         actual = primero;
-        
+        nodod aux = primero;
         while(actual!=null){
                 if(actual.dia.compareTo(dia)==0){
                     actual.hora.delete(hora);
                 }
                 actual = actual.next;
         }
+        primero = aux;
     }
       
      public nodod Dia(String dia){
         nodod actual;
         nodod retornar=new nodod("");
         actual = primero;
-        
+        nodod aux = primero;
         while(actual!=null){
                 if(actual.dia.compareTo(dia)==0){
                     retornar = actual;
                 }
                 actual = actual.next;
         }
+        primero = aux;
         return retornar;
     }
      
@@ -163,6 +171,7 @@ public class listad {
     public String imprimir()
     {
         nodod actual;
+        nodod aux= primero;
         String c="";
         actual=primero;
         //System.out.println("IMPRIMIR LISTA DOBLE");
@@ -173,9 +182,9 @@ public class listad {
             
             actual.hora.imprimir();
             c = c + " fecha: "+actual.dia+"\n       - "+actual.hora.imprimir();
-            actual=actual.next;
+            actual=actual.next; 
         }
-           
+        primero=aux;
      return c;  
    }
      

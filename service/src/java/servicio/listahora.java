@@ -44,6 +44,7 @@ public class listahora {
 
         public int tamaño(){
             int t=0;
+            nodohora aux = ultimo;
             if( estavacio() )
             {
 		t=0;
@@ -54,19 +55,21 @@ public class listahora {
                 t = t+1;
 		actual = actual.ant;
             }
+            ultimo = aux;
             return t;
         }
     public void imprimir()
     {
         nodohora actual;
         actual=primero;
+        nodohora aux = primero;
         while(actual!=null)
         {
             System.out.println("hora: "+actual.hora);
             
             actual=actual.next;
         }
-       
+        primero = aux;
            
                  
     }

@@ -53,7 +53,7 @@ public class listar {
     {
         nodor anterior=null;
         nodor actual=primero;
-        
+        nodor aux = primero;
        
         while(actual!=ultimo)
         {
@@ -86,6 +86,7 @@ public class listar {
              }
             return true;
         }
+        primero = aux;
         return false;
     }
 
@@ -96,24 +97,27 @@ public class listar {
 		t=0;
 	}
 	nodor actual = ultimo;
+        nodor aux = ultimo;
 	while( actual != null)
 	{
                 t = t+1;
 		actual = actual.ant;
 	}
+        ultimo = aux;
         return t;
     }
     
      public void reemplazarInsertar(String ruta,String estacion){
         nodor actual;
         actual = primero;
-        
+        nodor aux = primero;
         while(actual!=null){
                 if(actual.ruta.compareTo(ruta)==0){
                     actual.estacion.alta(estacion);
                 }
                 actual = actual.next;
         }
+        primero = aux;
     }
     public void InsertarRuta(String ruta,String estacion){
      if(verificar(ruta)==true){
@@ -129,29 +133,32 @@ public class listar {
     boolean flag=false;
     nodor actual;
     actual = primero;
-        
+    nodor aux = primero;    
         while(actual!=null){
                 if(actual.ruta.compareTo(ruta)==0){
                    flag = true;
                 }
                 actual = actual.next;
         }
+    primero = aux;
     return flag;
     }
     public void reemplazarEliminar(String ruta,String estacion){
         nodor actual;
         actual = primero;
-        
+        nodor aux = primero;
         while(actual!=null){
                 if(actual.ruta.compareTo(ruta)==0){
                     actual.estacion.delete(estacion);
                 }
                 actual = actual.next;
         }
+        primero = aux;
     }
       
      public nodor Ruta(String ruta){
         nodor actual;
+        nodor aux = primero;
         nodor retornar=new nodor("");
         actual = primero;
         
@@ -161,6 +168,7 @@ public class listar {
                 }
                 actual = actual.next;
         }
+        primero = aux;
         return retornar;
     }
     
@@ -169,6 +177,7 @@ public class listar {
     {
         String aux="";
         nodor actual;
+        nodor auxiliar = primero;
         actual=primero;
        // System.out.println("IMPRIMIR LISTA DOBLE");
         while(actual!=null)
@@ -180,7 +189,7 @@ public class listar {
             aux = aux +actual.estacion.imprimir();
             actual=actual.next;
         }
-           
+        primero = auxiliar;
         return aux;      
    }
      
@@ -189,7 +198,7 @@ public class listar {
     int contador1=1;
             listar aux = lista;
 	    File f;
-            
+            nodor auxiliar = aux.primero;
 	    FileWriter escribir;
 	    try{
 	    f = new File(ruta);
@@ -200,7 +209,7 @@ public class listar {
             pw.write("label= \" " +nombre+"\"");
             pw.write("node [shape=record];\n");
 	    pw.write("subgraph g { \n "); 
-            if(lista.primero!=null){
+            if(aux.primero!=null){
                 
          
                     if(aux.primero.next!=null){
@@ -231,6 +240,7 @@ public class listar {
 	    pw.write("}\n");
 	    pw.close();
 	    bw.close();
+            aux.primero = auxiliar;
 	    }
 	    catch(IOException e){System.out.println("Error: "+e.getMessage());
             
@@ -243,11 +253,12 @@ public class listar {
             int conta= 0;
             int conta1 = 1;
             listae aux = lista;
+            nodoe auxi = aux.primero;
 	    File f;
             try{
 	    auxiliar = auxiliar+"	subgraph cluster"+cluster+" { \n";
             auxiliar = auxiliar+"label= \" " +nombre+"\"";
-            if(lista.primero!=null){
+            if(aux.primero!=null){
                 
          
                     if(aux.primero.next!=null){
@@ -270,7 +281,7 @@ public class listar {
                     System.out.println("    lista vacia xd ");
             }
             auxiliar=auxiliar+"}\n";
-	    
+	    aux.primero = auxi;
 	    }
 	    catch(Exception e){System.out.println("Error: "+e.getMessage());
             

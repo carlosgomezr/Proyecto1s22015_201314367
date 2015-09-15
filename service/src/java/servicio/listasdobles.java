@@ -71,7 +71,7 @@ public class listasdobles {
     {
         nodo anterior=null;
         nodo actual=primero;
-        
+        nodo aux=primero;
        
         while(actual!=ultimo)
         {
@@ -93,7 +93,7 @@ public class listasdobles {
             anterior=actual;
             actual=actual.next;
         }
-       
+        
         if(num.compareTo(ultimo.id)==0)
         {
              if(primero==ultimo){
@@ -104,6 +104,7 @@ public class listasdobles {
              }
             return true;
         }
+        primero = aux;
         return false;
     }
 
@@ -114,11 +115,13 @@ public class listasdobles {
 		t=0;
 	}
 	nodo actual = ultimo;
+        nodo aux=ultimo;
 	while( actual != null)
 	{
                 t = t+1;
 		actual = actual.ant;
 	}
+        ultimo = aux;
         return t;
     }
         
@@ -129,6 +132,7 @@ public class listasdobles {
 		aux = null;
 	}
 	nodo actual = primero;
+        nodo auxiliar = primero;
         for(int i=1;i<=tam;i++){
             if(actual!=null){
                 aux = actual;
@@ -136,24 +140,27 @@ public class listasdobles {
                 //System.out.println("entre al if posicion "+i);
             }
         }
+        primero=auxiliar;
         return aux;
     }
     
     public void reemplazar(String id,String nombre){
         nodo actual;
         actual = primero;
-        
+        nodo aux=primero;
         while(actual!=null){
                 if(actual.id.compareTo(id)==0){
                     actual.nombre = nombre;
                 }
                 actual = actual.next;
         }
+        primero = aux;
     }
     
     public boolean existe(String id){
         boolean flag=false;
         nodo actual;
+        nodo aux=primero;
         actual = primero;
         
         while(actual!=null){
@@ -162,6 +169,7 @@ public class listasdobles {
                 }
                 actual = actual.next;
         }
+        primero=aux;
         return flag;
     }
 
@@ -171,6 +179,7 @@ public class listasdobles {
         
         nodo actual;
         actual = ultimo;
+        nodo aux = ultimo;
         while( actual != null)
 	{
             //System.out.println("j :"+aj.ClaveChofer+" j+1 "+ajm.ClaveChofer);
@@ -191,6 +200,7 @@ public class listasdobles {
             }
             actual = actual.ant;
 	}
+        ultimo = aux;
     }
    
      public void ordenamiento(listasdobles lista){
@@ -218,6 +228,7 @@ public class listasdobles {
     {
         String con="";
         nodo actual;
+        nodo aux=primero;
         actual=primero;
         while(actual!=null)
         {
@@ -225,7 +236,7 @@ public class listasdobles {
             con=con+" Bus: "+actual.id;
             actual=actual.next;
         }
-       
+       primero=aux;
            
         return con;
     }
@@ -233,6 +244,7 @@ public class listasdobles {
         public void imprimir2()
     {
         nodo actual;
+        nodo aux=primero;
         actual=primero;
         while(actual!=null)
         {
@@ -240,7 +252,7 @@ public class listasdobles {
             
             actual=actual.next;
         }
-       
+       primero = aux;
            
                  
     }
@@ -249,6 +261,7 @@ public class listasdobles {
     {
         String conca="";
         nodo actual;
+        nodo aux=primero;
         actual=primero;
         while(actual!=null)
         {
@@ -258,9 +271,9 @@ public class listasdobles {
             
             actual=actual.next;
         }
-       
+        primero=aux;
            return conca;
-                 
+        
     }
      
        
@@ -268,6 +281,7 @@ public class listasdobles {
     {
         nodo actual;
         actual=primero;
+        nodo aux=primero;
         while(actual!=null)
         {
             if(actual.ClaveChofer==clave){
@@ -280,11 +294,13 @@ public class listasdobles {
             }
             actual=actual.next;
         }          
+        primero=aux;
     }
     
     public void horarioxChoferxbus(int clavechofer, String id,listasdobles horario){
         nodo actual;
         actual=primero;
+        nodo aux=primero;
          while(actual!=null)
             {
             if((actual.ClaveChofer==clavechofer) && (actual.id.compareTo(id)==0)){
@@ -292,20 +308,21 @@ public class listasdobles {
                 }
             actual=actual.next;
             }
-            
+        primero=aux;    
         }          
    
     public boolean verificar(String id,listasdobles lista){
         boolean flag=false;
         nodo actual;
         actual = lista.primero;
-        
+        nodo aux= primero;
         while(actual!=null){
                 if(actual.id.compareTo(id)==0){
                     flag=true;
                 }
                 actual = actual.next;
         }
+        primero = aux;
         return flag;
     }
      
@@ -318,8 +335,8 @@ public class listasdobles {
         System.out.println("BUSXCHOFER----------"+chofer);
         aux.imprimir();
         Funcion f = new Funcion();
-        f.generarListaDoble(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
-        f.generarImagen("graphBusxChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
+        f.generarListaDoble(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferxBus.txt");
+        f.generarImagen("graphBusxChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferxBus.txt");
     }
     
     public void reporteHoraxChofer(int chofer,String id){
@@ -328,8 +345,8 @@ public class listasdobles {
         System.out.println("HORARIO-------- chofer "+chofer+" bus "+id);
         aux.imprimir2();
         Funcion f = new Funcion();
-        f.generarListaDoble2(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
-        f.generarImagen("graphHoraxChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graph.txt");
+        f.generarListaDoble2(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHoraxChofer.txt");
+        f.generarImagen("graphHoraxChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHoraxChofer.txt");
     }
     
     public void generarListaDoble(listasdobles lista,String ruta){

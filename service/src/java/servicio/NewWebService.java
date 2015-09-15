@@ -25,6 +25,7 @@ public static listasdobles buses = new listasdobles();
 public listasdobles asignacion = new listasdobles();
 int contadoradmin=0;
 int contadoregeneral=5;
+int user=0;
 
     /**
      * This is a sample web service operation
@@ -417,7 +418,8 @@ if((id!=null)){
     }
     if(tipo.compareTo("EstacionClave")==0){
         int auxiliar=Integer.parseInt(usuario);
-        if(eclave.log(auxiliar, password)==true){ 
+        if(eclave.log(auxiliar, password)==true){
+            user=auxiliar;
             pagina="menueclave.jsp";
         }
         if(eclave.log(auxiliar, password)==false){
@@ -427,6 +429,7 @@ if((id!=null)){
     if(tipo.compareTo("EstacionGeneral")==0){
         int auxiliar=Integer.parseInt(usuario);
         if(egeneral.log(auxiliar, password)==true){
+            user=auxiliar;
             pagina="menuegeneral.jsp";
         }
         if(egeneral.log(auxiliar, password)==false){
@@ -436,6 +439,7 @@ if((id!=null)){
     if(tipo.compareTo("Chofer")==0){
         int auxiliar=Integer.parseInt(usuario);
         if(chofer.log(auxiliar, password)==true){
+            user=auxiliar;
             pagina="menuchofer.jsp";
         }
         if(chofer.log(auxiliar, password)==false){
@@ -483,6 +487,38 @@ if((id!=null)){
     @WebMethod(operationName = "operation")
     public int operation() {
          return contadoregeneral;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "DarUser")
+    public int DarUser() {
+        return user;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "graphHorarioChofer")
+    public String graphHorarioChofer(@WebParam(name = "idchofer") String idchofer) {
+        Funcion f=new Funcion();
+        int aux = Integer.parseInt(idchofer);
+        f.ChoferxDia(chofer.root,aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHorario.txt","Horario chofer");
+        f.generarImagen("graphHorario", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHorario.txt");
+        
+        return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "mostrarHorarioChofer")
+    public String mostrarHorarioChofer(@WebParam(name = "idchofer") String idchofer) {
+        Funcion f=new Funcion();
+        int aux = Integer.parseInt(idchofer);
+        f.ResumenChoferxDia(chofer.root,aux);
+        return null;
     }
     
 }

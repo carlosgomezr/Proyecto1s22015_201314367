@@ -46,7 +46,7 @@ public class listae {
     {
         nodoe anterior=null;
         nodoe actual=primero;
-        
+        nodoe aux = primero;
        
         while(actual!=ultimo)
         {
@@ -79,6 +79,7 @@ public class listae {
              }
             return true;
         }
+        primero = aux;
         return false;
     }
 
@@ -89,11 +90,13 @@ public class listae {
 		t=0;
             }
             nodoe actual = ultimo;
+            nodoe aux = ultimo;
             while( actual != null)
         	{
                 t = t+1;
 		actual = actual.ant;
             }
+            ultimo = aux;
             return t;
         }
         
@@ -102,6 +105,7 @@ public class listae {
     {
         String aux="";
         nodoe actual;
+        nodoe auxiliar=primero;
         actual=primero;
         while(actual!=null)
         {
@@ -109,7 +113,7 @@ public class listae {
             aux= aux+"      estacion:"+actual.estacion+"\n";
             actual=actual.next;
         }
-       
+        primero = auxiliar;
            
         return aux;  
     }

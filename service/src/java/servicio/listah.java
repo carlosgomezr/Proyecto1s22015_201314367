@@ -46,7 +46,7 @@ public class listah {
     {
         nodoh anterior=null;
         nodoh actual=primero;
-        
+        nodoh aux = primero;
        
         while(actual!=ultimo)
         {
@@ -79,6 +79,7 @@ public class listah {
              }
             return true;
         }
+        primero = aux;
         return false;
     }
 
@@ -89,30 +90,34 @@ public class listah {
 		t=0;
             }
             nodoh actual = ultimo;
+            nodoh aux = ultimo;
             while( actual != null)
         	{
                 t = t+1;
 		actual = actual.ant;
             }
+            ultimo = aux;
             return t;
         }
         
     public void reemplazarInsertar(String bus,String hora){
         nodoh actual;
         actual = primero;
-        
+        nodoh aux = primero;
         while(actual!=null){
                 if(actual.bus.compareTo(bus)==0){
                     actual.lista.alta(hora);
                 }
                 actual = actual.next;
         }
+        primero = aux;
     }    
         
     public String imprimir()
     {
         String c="";
         nodoh actual;
+        nodoh aux = primero;
         actual=primero;
         while(actual!=null)
         {
@@ -120,7 +125,7 @@ public class listah {
             c = c+" bus: "+actual.bus+" ruta: "+actual.ruta+" hora ini: "+actual.hora+" hora fin: "+actual.horaf+"\n";
             actual=actual.next;
         }
-       
+        primero=aux;
            
         return c;
     }

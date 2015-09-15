@@ -178,17 +178,17 @@ public void generarListaDoble2(listasdobles lista,String ruta){
 }
 
 
-public String ResumenChoferxDia(AVLNodeChofer nuevo,int x,String ruta, String nombre){
+public String ResumenChoferxDia(AVLNodeChofer nuevo,int x){
     String cadena="";
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
-                ChoferxDia(nuevo.izquierdo,x,ruta,nombre);
+                ResumenChoferxDia(nuevo.izquierdo,x);
             }
         }
         if ( x>nuevo.id){
             if(nuevo.derecho!=null){
-                ChoferxDia(nuevo.derecho,x,ruta,nombre);
+                ResumenChoferxDia(nuevo.derecho,x);
             }
         }        
         if( x==nuevo.id){
