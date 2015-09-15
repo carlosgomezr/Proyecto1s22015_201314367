@@ -27,6 +27,8 @@ import java.io.FileNotFoundException;
 public class Funcion {
 public void generarListaDoble(listasdobles lista,String ruta){
             listasdobles aux = lista;
+            nodo auxprimero = lista.primero;
+            nodo auxultimo = lista.ultimo;
 	    File f;
             int c = 0;
             int c2 = 1;
@@ -38,16 +40,14 @@ public void generarListaDoble(listasdobles lista,String ruta){
 	    BufferedWriter bw = new BufferedWriter(escribir);
 	    PrintWriter pw = new PrintWriter(bw);
             pw.write("digraph grafica { \n");
-            pw.write("label= \"LISTA DOBLE  BUSES\"");
+            pw.write("label= \"LISTA DOBLE  BUSES ;B\"");
             pw.write("node [shape=record];\n");
 	    pw.write("subgraph g { \n "); 
-            if(lista.primero!=null){
-                
-         
+            if(aux.primero!=null){
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){
-                            pw.write("node"+c+"[label=\" id: "+aux.primero.b.id+"\"];\n");
-                            pw.write("node"+c2+"[label=\" id: "+aux.primero.next.b.id+" \"];\n");
+                            pw.write("node"+c+"[label=\" id: "+aux.primero.id+"\"];\n");
+                            pw.write("node"+c2+"[label=\" id: "+aux.primero.next.id+" \"];\n");
                             pw.write("node"+c+"->node"+c2+";\n");
                             pw.write("node"+c2+"->node"+c+";\n");
                             aux.primero = aux.primero.next;
@@ -56,7 +56,7 @@ public void generarListaDoble(listasdobles lista,String ruta){
                         }
                     }
                     else{
-                            pw.write("node"+c+"[label=\" id: "+aux.primero.b.id+" \"];\n");
+                            pw.write("node"+c+"[label=\" id: "+aux.primero.id+" \"];\n");
                     }
                 
             }
@@ -67,6 +67,8 @@ public void generarListaDoble(listasdobles lista,String ruta){
 	    pw.write("}\n");
 	    pw.close();
 	    bw.close();
+            aux.primero = auxprimero;
+            aux.ultimo = auxultimo;
 	    }
 	    catch(IOException e){System.out.println("Error: "+e.getMessage());
             
@@ -78,7 +80,8 @@ public void generarAsignacion(listasdobles lista,String ruta){
 	    File f;
             int c = 0;
             int c2 = 1;
-	   
+	    nodo auxprimero = lista.primero;
+            nodo auxultimo = lista.ultimo;
             FileWriter escribir;
 	    try{
 	    f = new File(ruta);
@@ -89,11 +92,11 @@ public void generarAsignacion(listasdobles lista,String ruta){
             pw.write("label= \"LISTA DOBLE  ASIGNACION\"");
             pw.write("node [shape=record];\n");
 	    pw.write("subgraph g { \n "); 
-            if(lista.primero!=null){
+            if(aux.primero!=null){
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){ 
-                            pw.write("node"+c+"[label=\" id: "+aux.primero.b.id+" ruta: "+aux.primero.b.nombre+" ChoferClave: "+aux.primero.b.ClaveChofer+" HoraIni: "+aux.primero.b.horarioFin+" HoraFin: "+aux.primero.b.horarioFin+" Fecha: "+aux.primero.b.fecha+"\"];\n");
-                            pw.write("node"+c2+"[label=\" id: "+aux.primero.next.b.id+" ruta: "+aux.primero.next.b.nombre+" ChoferClave: "+aux.primero.next.b.ClaveChofer+" HoraIni: "+aux.primero.next.b.horarioFin+" HoraFin: "+aux.primero.next.b.horarioFin+" Fecha: "+aux.primero.next.b.fecha+" \"];\n");
+                            pw.write("node"+c+"[label=\" id: "+aux.primero.id+" ruta: "+aux.primero.nombre+" ChoferClave: "+aux.primero.ClaveChofer+" HoraIni: "+aux.primero.horarioIni+" HoraFin: "+aux.primero.horarioFin+" Fecha: "+aux.primero.fecha+"\"];\n");
+                            pw.write("node"+c2+"[label=\" id: "+aux.primero.next.id+" ruta: "+aux.primero.next.nombre+" ChoferClave: "+aux.primero.next.ClaveChofer+" HoraIni: "+aux.primero.next.horarioIni+" HoraFin: "+aux.primero.next.horarioFin+" Fecha: "+aux.primero.next.fecha+" \"];\n");
                             pw.write("node"+c+"->node"+c2+";\n");
                             pw.write("node"+c2+"->node"+c+";\n");
                             aux.primero = aux.primero.next;
@@ -102,7 +105,7 @@ public void generarAsignacion(listasdobles lista,String ruta){
                         }
                     }
                     else{
-                            pw.write("node"+c+"[label=\" id: "+aux.primero.b.id+" ruta: "+aux.primero.b.nombre+" ChoferClave: "+aux.primero.b.ClaveChofer+" HoraIni: "+aux.primero.b.horarioFin+" HoraFin: "+aux.primero.b.horarioFin+" Fecha: "+aux.primero.b.fecha+" \"];\n");
+                            pw.write("node"+c+"[label=\" id: "+aux.primero.id+" ruta: "+aux.primero.nombre+" ChoferClave: "+aux.primero.ClaveChofer+" HoraIni: "+aux.primero.horarioIni+" HoraFin: "+aux.primero.horarioFin+" Fecha: "+aux.primero.fecha+" \"];\n");
                     }
                 
             }
@@ -113,7 +116,10 @@ public void generarAsignacion(listasdobles lista,String ruta){
 	    pw.write("}\n");
 	    pw.close();
 	    bw.close();
-	    }
+	    aux.primero = auxprimero;
+            aux.ultimo = auxultimo;
+	    
+            }
 	    catch(IOException e){System.out.println("Error: "+e.getMessage());
             
             }       
@@ -125,6 +131,8 @@ public void generarListaDoble2(listasdobles lista,String ruta){
 	    File f;
             int contar = 0;
             int contar2= 1;
+            nodo auxprimero = lista.primero;
+            nodo auxultimo = lista.ultimo;
             FileWriter escribir;
 	    try{
 	    f = new File(ruta);
@@ -135,12 +143,12 @@ public void generarListaDoble2(listasdobles lista,String ruta){
             pw.write("label= \"LISTA DOBLE  BUSES\"");
             pw.write("node [shape=record];\n");
 	    pw.write("subgraph g { \n "); 
-            if(lista.primero!=null){
+            if(aux.primero!=null){
                 
                     if(aux.primero.next!=null){
                         while(aux.primero.next!=null){
-                            pw.write("node"+contar+"[label=\" id: "+aux.primero.b.id+" horario ini: "+aux.primero.b.horarioIni+" horario fin: "+aux.primero.b.horarioFin+" fecha: "+aux.primero.b.fecha+"\"];\n");
-                            pw.write("node"+contar2+"[label=\" id: "+aux.primero.next.b.id+" horario ini: "+aux.primero.next.b.horarioIni+" horario fin: "+aux.primero.next.b.horarioFin+" fecha: "+aux.primero.next.b.fecha+" \"];\n");
+                            pw.write("node"+contar+"[label=\" id: "+aux.primero.id+" horario ini: "+aux.primero.horarioIni+" horario fin: "+aux.primero.horarioFin+" fecha: "+aux.primero.fecha+"\"];\n");
+                            pw.write("node"+contar2+"[label=\" id: "+aux.primero.next.id+" horario ini: "+aux.primero.next.horarioIni+" horario fin: "+aux.primero.next.horarioFin+" fecha: "+aux.primero.next.fecha+" \"];\n");
                             pw.write("node"+contar+"->node"+contar2+";\n");
                             pw.write("node"+contar2+"->node"+contar+";\n");
                             aux.primero = aux.primero.next;
@@ -149,7 +157,7 @@ public void generarListaDoble2(listasdobles lista,String ruta){
                         }
                     }
                     else{
-                            pw.write("node"+contar+"[label=\" id: "+aux.primero.b.id+" horario ini: "+aux.primero.b.horarioIni+" horario fin: "+aux.primero.b.horarioFin+" fecha: "+aux.primero.b.fecha+"\"];\n");
+                            pw.write("node"+contar+"[label=\" id: "+aux.primero.id+" horario ini: "+aux.primero.horarioIni+" horario fin: "+aux.primero.horarioFin+" fecha: "+aux.primero.fecha+"\"];\n");
                         }
                 
             }
@@ -160,7 +168,10 @@ public void generarListaDoble2(listasdobles lista,String ruta){
 	    pw.write("}\n");
 	    pw.close();
 	    bw.close();
-	    }
+	    aux.primero = auxprimero;
+            aux.ultimo = auxultimo;
+	    
+            }
 	    catch(IOException e){System.out.println("Error: "+e.getMessage());
             
             }       
@@ -224,7 +235,8 @@ public void generarFecha(listad lista,String ruta,String nombre){
     int contador1=1;
             listad aux = lista;
 	    File f;
-            
+            nodod auxprimero = lista.primero;
+            nodod auxultimo = lista.ultimo;
 	    FileWriter escribir;
 	    try{
 	    f = new File(ruta);
@@ -235,7 +247,7 @@ public void generarFecha(listad lista,String ruta,String nombre){
             pw.write("label= \" " +nombre+"\"");
             pw.write("node [shape=record];\n");
 	    pw.write("subgraph g { \n "); 
-            if(lista.primero!=null){
+            if(aux.primero!=null){
                 
          
                     if(aux.primero.next!=null){
@@ -266,6 +278,8 @@ public void generarFecha(listad lista,String ruta,String nombre){
 	    pw.write("}\n");
 	    pw.close();
 	    bw.close();
+            aux.primero = auxprimero;
+            aux.ultimo = auxultimo;    
 	    }
 	    catch(IOException e){System.out.println("Error: "+e.getMessage());
             
@@ -278,10 +292,12 @@ public String generarListaDia(listah lista,String cluster,String nombre){
             int conta1 = 1;
             listah aux = lista;
 	    File f;
+            nodoh auxprimero = lista.primero;
+            nodoh auxultimo = lista.ultimo;
             try{
 	    auxiliar = auxiliar+"	subgraph cluster"+cluster+" { \n";
             auxiliar = auxiliar+"label= \" " +nombre+"\"";
-            if(lista.primero!=null){
+            if(aux.primero!=null){
                 
          
                     if(aux.primero.next!=null){
@@ -304,7 +320,8 @@ public String generarListaDia(listah lista,String cluster,String nombre){
                     System.out.println("    lista vacia xd ");
             }
             auxiliar=auxiliar+"}\n";
-	    
+	    aux.primero = auxprimero;
+            aux.ultimo = auxultimo;
 	    }
 	    catch(Exception e){System.out.println("Error: "+e.getMessage());
             
@@ -318,7 +335,9 @@ public void generarListaRuta(listae lista,String ruta,String nombre){
 	    File f;
             int contador=0;
             int contador1=1;
-	    FileWriter escribir;
+	    nodoe auxprimero = lista.primero;
+            nodoe auxultimo = lista.ultimo;
+            FileWriter escribir;
 	    try{
 	    f = new File(ruta);
 	    escribir = new FileWriter(f);
@@ -354,6 +373,9 @@ public void generarListaRuta(listae lista,String ruta,String nombre){
 	    pw.write("}\n");
 	    pw.close();
 	    bw.close();
+            aux.primero = auxprimero;
+            aux.ultimo = auxultimo;
+	    
 	    }
 	    catch(IOException e){System.out.println("Error: "+e.getMessage());
             
@@ -432,8 +454,8 @@ public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol,
         //JFileChooser buscador = new JFileChooser();
 	//buscador.showOpenDialog(buscador);
         //String direc = buscador.getSelectedFile().getAbsolutePath();
-        String direc = path;
-        CsvReader usuarios_import = new CsvReader(direc);
+         
+        CsvReader usuarios_import = new CsvReader(path);
        // usuarios_import.readHeaders();
          
         while (usuarios_import.readRecord())
@@ -445,15 +467,13 @@ public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol,
             String HorarioFin = usuarios_import.get(4);
             String fecha = usuarios_import.get(5);
             int aux = Integer.parseInt(ClaveChofer);
-            Bus ob = new Bus(id,ruta,aux,HorarioIni,HorarioFin,fecha);
-            asignar.alta(ob);
+            asignar.alta(id,ruta,aux,HorarioIni,HorarioFin,fecha);
             if(lista.existe(id)==true){
-                System.out.println("Existe "+id); 
+                //System.out.println("Existe "+id); 
                 //lista.ordenamiento(lista);
             }else{
-                System.out.println("No existe "+id);
-                Bus dat = new Bus(id,ruta,aux,HorarioIni,HorarioFin,fecha);
-                lista.alta(dat);
+                //System.out.println("No existe "+id);
+                lista.alta(id,ruta,aux,HorarioIni,HorarioFin,fecha);
                 //lista.ordenamiento(lista);
             }
             if(arbol.existe(arbol.root, aux)==true){

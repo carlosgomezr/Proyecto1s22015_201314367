@@ -10,14 +10,24 @@ package servicio;
  * @author Carlos Gomez
  */
 public class nodo {
-    Bus b;
+    String id;
+    String nombre;
+    int ClaveChofer;
+    String horarioIni;
+    String horarioFin;
+    String fecha;
     nodo next;
     nodo ant;
-    nodo(Bus b)
+    nodo(String id, String nombre,int ClaveChofer,String horarioIni,String horarioFin,String fecha)
     {
-        this.b = b;
+        this.id = id;
+        this.nombre = nombre;
+        this.ClaveChofer = ClaveChofer;
+        this.horarioIni = horarioIni;
+        this.horarioFin = horarioFin;
+        this.fecha = fecha;
         this.next=null;
         this.ant=null;
     }
-    
+  
 }
