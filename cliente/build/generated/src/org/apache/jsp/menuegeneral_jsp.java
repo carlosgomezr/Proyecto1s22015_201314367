@@ -7,6 +7,7 @@ import javax.servlet.jsp.*;
 public final class menuegeneral_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+ int c=0; 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
@@ -49,7 +50,8 @@ public final class menuegeneral_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Menú Estacion General</title>\n");
-      out.write("    </head>\n");
+      out.write("    </head>");
+      out.write("\n");
       out.write("    <body background=\"BACK2.jpg\">\n");
       out.write("        <br> </br>\n");
       out.write("        <DIV ALIGN=right>\n");
@@ -59,20 +61,58 @@ public final class menuegeneral_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("       </DIV>\n");
       out.write("       <br> </br>\n");
       out.write("    <center>\n");
-      out.write("        <h1>Menú Estacion General</h1>\n");
+      out.write("         <font color=\"white\">\n");
       out.write("        ");
-for (int i=0; i<=10;i++){
+      out.write("<hr/>\n");
+      out.write("    ");
+
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	int result = port.operation();
+	out.println("Result = "+result);
+        c = result;
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
+      out.write("\n");
+      out.write("    ");
+      out.write("<hr/>\n");
+      out.write("    \n");
+      out.write("    ");
+
+        for (int i=0; i<=c;i++){
         
       out.write("     \n");
+      out.write("        <h3>Estacion ");
+      out.print( i);
+      out.write("</h3>\n");
+      out.write("        <br> </br>\n");
+      out.write("        Lista de buses\n");
+      out.write("        <select name=\"list");
+      out.print(i);
+      out.write("\">\n");
+      out.write("            <option>BUS 1</option>\n");
+      out.write("            <option>BUS 2</option>\n");
+      out.write("            <option>BUS 3</option>\n");
+      out.write("        </select>\n");
+      out.write("        <br>    </br>\n");
       out.write("        <input type=\"text\" name=\"texto");
       out.print(i);
       out.write("\" value=\"\" size=\"10\" />\n");
+      out.write("        <br>    </br>\n");
+      out.write("        <input type=\"button\" value=\"NEXT >\" name=\"boton");
+      out.print(i);
+      out.write("\" />\n");
       out.write("        <br>    </br>\n");
       out.write("        ");
 
         }
         
       out.write("    \n");
+      out.write("        </font>\n");
       out.write("    </center>\n");
       out.write("    </body>\n");
       out.write("</html>\n");

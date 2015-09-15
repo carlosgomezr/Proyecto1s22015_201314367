@@ -20,6 +20,7 @@
        </DIV>
        <br> </br>
     <center>
+         <font color="white">
         <%-- start web service invocation --%><hr/>
     <%
     try {
@@ -38,11 +39,23 @@
     <%
         for (int i=0; i<=c;i++){
         %>     
+        <h3>Estacion <%= i%></h3>
+        <br> </br>
+        Lista de buses
+        <select name="list<%=i%>">
+            <option>BUS 1</option>
+            <option>BUS 2</option>
+            <option>BUS 3</option>
+        </select>
+        <br>    </br>
         <input type="text" name="texto<%=i%>" value="" size="10" />
+        <br>    </br>
+        <input type="button" value="NEXT >" name="boton<%=i%>" />
         <br>    </br>
         <%
         }
         %>    
+        </font>
     </center>
     </body>
 </html>
