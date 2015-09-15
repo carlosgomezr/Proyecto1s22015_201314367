@@ -132,6 +132,10 @@
 
 <xs:element name="mostrarAdminResponse" type="tns:mostrarAdminResponse"/>
 
+<xs:element name="operation" type="tns:operation"/>
+
+<xs:element name="operationResponse" type="tns:operationResponse"/>
+
 <xs:element name="resumenBusEspecifico" type="tns:resumenBusEspecifico"/>
 
 <xs:element name="resumenBusEspecificoResponse" type="tns:resumenBusEspecificoResponse"/>
@@ -162,18 +166,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="graphAsignacion">
-<xs:sequence>
-<xs:element name="parameter" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="graphAsignacionResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="resumenBusEspecifico">
 <xs:sequence>
 <xs:element name="idbus" type="xs:string" minOccurs="0"/>
@@ -181,6 +173,18 @@
 </xs:complexType>
 
 <xs:complexType name="resumenBusEspecificoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graphAsignacion">
+<xs:sequence>
+<xs:element name="parameter" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graphAsignacionResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -224,16 +228,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="imprimirAdmin">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="imprimirAdminResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="insertarEstacionGeneral">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -243,6 +237,16 @@
 </xs:complexType>
 
 <xs:complexType name="insertarEstacionGeneralResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="imprimirAdmin">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="imprimirAdminResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -306,6 +310,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="resumenChoferEspecifico">
+<xs:sequence>
+<xs:element name="idchofer" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="resumenChoferEspecificoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="modificarBus">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -314,18 +330,6 @@
 </xs:complexType>
 
 <xs:complexType name="modificarBusResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="resumenChoferEspecifico">
-<xs:sequence>
-<xs:element name="idchofer" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="resumenChoferEspecificoResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -357,18 +361,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="insertarBus">
-<xs:sequence>
-<xs:element name="id" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="insertarBusResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="insertarAsignacion">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -386,15 +378,25 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="cargarCSV">
+<xs:complexType name="insertarBus">
 <xs:sequence>
-<xs:element name="path" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="cargarCSVResponse">
+<xs:complexType name="insertarBusResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="operation">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="operationResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -408,6 +410,18 @@
 </xs:complexType>
 
 <xs:complexType name="modificarEstacionGeneralResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cargarCSV">
+<xs:sequence>
+<xs:element name="path" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cargarCSVResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -437,18 +451,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="mostrarAdmin">
-<xs:sequence>
-<xs:element name="parametro" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="mostrarAdminResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="modificarEstacionClave">
 <xs:sequence>
 <xs:element name="id" type="xs:string" minOccurs="0"/>
@@ -459,6 +461,18 @@
 </xs:complexType>
 
 <xs:complexType name="modificarEstacionClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarAdmin">
+<xs:sequence>
+<xs:element name="parametro" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarAdminResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Bus</title>
-    </head><%! String id=""; %>
+    </head>
     <body background="BACK2.jpg">
         <center>
         <br></br>
@@ -46,14 +46,14 @@
 	java.lang.String id = request.getParameter("texto1");
 	// TODO process result here
 	java.lang.String result = port.insertarBus(id);
-	out.println("Result = "+result);
+	out.println(" Este es el id: "+id+" res"+result);
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
     %>
     <%-- end web service invocation --%><hr/>
 
-    <%-- start web service invocation --%><hr/>
+        <%-- start web service invocation --%><hr/>
     <%
     try {
 	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
@@ -67,7 +67,6 @@
     %>
     <%-- end web service invocation --%><hr/>
 
-    
                     <td> <input type="submit" value="ADD" name="boton1" /> </td>
                 </tr>
             </tbody>
@@ -96,7 +95,7 @@
 	java.lang.String id = request.getParameter("texto2");
 	// TODO process result here
 	java.lang.String result = port.eliminarBus(id);
-	out.println("Result = "+result);
+	out.println("Result = "+result+" Este es el id: "+id);
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }

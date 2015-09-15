@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menú Estacion General</title>
-    </head>
+    </head><%! int c=0; %>
     <body background="BACK2.jpg">
         <br> </br>
         <DIV ALIGN=right>
@@ -20,7 +20,29 @@
        </DIV>
        <br> </br>
     <center>
-        <h1>Menú Estacion General</h1>
+        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	int result = port.operation();
+	out.println("Result = "+result);
+        c = result;
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+    
+    <%
+        for (int i=0; i<=c;i++){
+        %>     
+        <input type="text" name="texto<%=i%>" value="" size="10" />
+        <br>    </br>
+        <%
+        }
+        %>    
     </center>
     </body>
 </html>

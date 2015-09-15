@@ -1,5 +1,5 @@
 digraph grafica { 
-label= "LISTA DOBLE  ASIGNACION"node [shape=record];
+label= "LISTA DOBLE  BUSES ;B"node [shape=record];
 subgraph g { 
  }
 }

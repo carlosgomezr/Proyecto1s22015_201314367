@@ -55,7 +55,11 @@ public final class ruta_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body background=\"BACK2.jpg\">\n");
       out.write("        <center>\n");
       out.write("        <br></br>\n");
-      out.write("        <br></br>\n");
+      out.write("        <DIV ALIGN=right>\n");
+      out.write("           <form name=\"pasarmenu\" action=\"menu.jsp\" method=\"POST\">\n");
+      out.write("                <input type=\"submit\" value=\"Menu Admin\" name=\"Menu Admin\" />\n");
+      out.write("           </form>\n");
+      out.write("        </DIV>\n");
       out.write("        <br></br>\n");
       out.write("        <h1>Ruta</h1>\n");
       out.write("        <br></br>\n");
@@ -84,6 +88,47 @@ public final class ruta_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <tr>\n");
       out.write("                    <td></td>\n");
       out.write("                    <td></td>\n");
+      out.write("        ");
+      out.write("<hr/>\n");
+      out.write("    ");
+
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String nombre = request.getParameter("texto1");
+	java.lang.String estacion = request.getParameter("texto2");
+	// TODO process result here
+	java.lang.String result = port.insertarRuta(nombre, estacion);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
+      out.write("\n");
+      out.write("    ");
+      out.write("<hr/>\n");
+      out.write("       ");
+      out.write("<hr/>\n");
+      out.write("    ");
+
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String parameter = "";
+	// TODO process result here
+	java.lang.String result = port.graphRuta(parameter);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
+      out.write("\n");
+      out.write("    ");
+      out.write("<hr/>\n");
+      out.write("             \n");
+      out.write("                    \n");
       out.write("                    <td> <input type=\"submit\" value=\"ADD\" name=\"boton1\" /> </td>\n");
       out.write("                </tr>\n");
       out.write("            </tbody>\n");
@@ -106,6 +151,27 @@ public final class ruta_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <tr>\n");
       out.write("                    <td></td>\n");
       out.write("                    <td></td>\n");
+      out.write("                    \n");
+      out.write("        ");
+      out.write("<hr/>\n");
+      out.write("    ");
+
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String nombre = request.getParameter("texto3");
+	// TODO process result here
+	java.lang.String result = port.eliminarRuta(nombre);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
+      out.write("\n");
+      out.write("    ");
+      out.write("<hr/>\n");
+      out.write("                \n");
       out.write("                    <td> <input type=\"submit\" value=\"REMOVE\" name=\"boton2\" /> </td>\n");
       out.write("                </tr>\n");
       out.write("            </tbody>\n");
@@ -135,6 +201,8 @@ public final class ruta_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <tr>\n");
       out.write("                    <td></td>\n");
       out.write("                    <td></td>\n");
+      out.write("                    \n");
+      out.write("                    \n");
       out.write("                    <td> <input type=\"submit\" value=\"EDIT\" name=\"boton3\" /> </td>\n");
       out.write("                </tr>\n");
       out.write("            </tbody>\n");

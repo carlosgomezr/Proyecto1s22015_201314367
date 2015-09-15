@@ -54,6 +54,11 @@
         <input type="submit" value="       Resumen      " name="boton8" />
         </form>
         <br> </br>
+        <form name="pasarreporte" action="reporte.jsp" method="POST">
+        <input type="submit" value="       Reporte       " name="boton8" />
+        </form>
+
+        <br> </br>
         <form name="pasarcargaCSV" action="cargar.jsp" method="POST">
         <input type="submit" value="      CargarCSV       " name="boton9" />
         </form>

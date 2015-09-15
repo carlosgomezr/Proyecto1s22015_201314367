@@ -89,10 +89,6 @@ public final class cargar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("    ");
       out.write("<hr/>\n");
-      out.write("        \n");
-      out.write("                ");
-      out.write("<hr/>\n");
-      out.write("    \n");
       out.write("    ");
       out.write("<hr/>\n");
       out.write("    ");
@@ -113,7 +109,7 @@ public final class cargar_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    ");
       out.write("<hr/>\n");
       out.write("\n");
-      out.write("            <input type=\"submit\" value=\"CARGAR! xD\" name=\"boton1\" />   \n");
+      out.write("        <input type=\"submit\" value=\"CARGAR! xD\" name=\"boton1\" />   \n");
       out.write("        </center>\n");
       out.write("        </form>\n");
       out.write("    </font>\n");

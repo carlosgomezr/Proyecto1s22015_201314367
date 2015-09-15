@@ -44,9 +44,6 @@
     }
     %>
     <%-- end web service invocation --%><hr/>
-        
-                <%-- start web service invocation --%><hr/>
-    
     <%-- start web service invocation --%><hr/>
     <%
     try {
@@ -63,7 +60,7 @@
     %>
     <%-- end web service invocation --%><hr/>
 
-            <input type="submit" value="CARGAR! xD" name="boton1" />   
+        <input type="submit" value="CARGAR! xD" name="boton1" />   
         </center>
         </form>
     </font>

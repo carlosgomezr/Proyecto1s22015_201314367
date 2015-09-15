@@ -43,11 +43,13 @@ public class ObjectFactory {
     private final static QName _ModificarAdminResponse_QNAME = new QName("http://servicio/", "modificarAdminResponse");
     private final static QName _ResumenBusEspecificoResponse_QNAME = new QName("http://servicio/", "resumenBusEspecificoResponse");
     private final static QName _ModificarBusResponse_QNAME = new QName("http://servicio/", "modificarBusResponse");
+    private final static QName _Operation_QNAME = new QName("http://servicio/", "operation");
     private final static QName _InsertarAsignacion_QNAME = new QName("http://servicio/", "insertarAsignacion");
     private final static QName _ModificarEstacionGeneralResponse_QNAME = new QName("http://servicio/", "modificarEstacionGeneralResponse");
     private final static QName _ModificarChofer_QNAME = new QName("http://servicio/", "modificarChofer");
     private final static QName _ResumenChoferEspecifico_QNAME = new QName("http://servicio/", "resumenChoferEspecifico");
     private final static QName _GraphEstacionClaveResponse_QNAME = new QName("http://servicio/", "graphEstacionClaveResponse");
+    private final static QName _OperationResponse_QNAME = new QName("http://servicio/", "operationResponse");
     private final static QName _GrahpBusxChofer_QNAME = new QName("http://servicio/", "grahpBusxChofer");
     private final static QName _ModificarEstacionClaveResponse_QNAME = new QName("http://servicio/", "modificarEstacionClaveResponse");
     private final static QName _EliminarBus_QNAME = new QName("http://servicio/", "eliminarBus");
@@ -56,8 +58,12 @@ public class ObjectFactory {
     private final static QName _InsertarEstacionGeneral_QNAME = new QName("http://servicio/", "insertarEstacionGeneral");
     private final static QName _GraphEstacionGeneralResponse_QNAME = new QName("http://servicio/", "graphEstacionGeneralResponse");
     private final static QName _GraphAdminResponse_QNAME = new QName("http://servicio/", "graphAdminResponse");
+    private final static QName _GraphRuta_QNAME = new QName("http://servicio/", "graphRuta");
+    private final static QName _GraphAsignacion_QNAME = new QName("http://servicio/", "graphAsignacion");
+    private final static QName _GraphRutaResponse_QNAME = new QName("http://servicio/", "graphRutaResponse");
     private final static QName _CargarCSVResponse_QNAME = new QName("http://servicio/", "cargarCSVResponse");
     private final static QName _LoginResponse_QNAME = new QName("http://servicio/", "LoginResponse");
+    private final static QName _GraphAsignacionResponse_QNAME = new QName("http://servicio/", "graphAsignacionResponse");
     private final static QName _GraphHorarioxBusxChoferResponse_QNAME = new QName("http://servicio/", "graphHorarioxBusxChoferResponse");
     private final static QName _EliminarRuta_QNAME = new QName("http://servicio/", "eliminarRuta");
     private final static QName _Login_QNAME = new QName("http://servicio/", "Login");
@@ -283,6 +289,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraphAsignacionResponse }
+     * 
+     */
+    public GraphAsignacionResponse createGraphAsignacionResponse() {
+        return new GraphAsignacionResponse();
+    }
+
+    /**
      * Create an instance of {@link GraphHorarioxBusxChoferResponse }
      * 
      */
@@ -411,6 +425,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link OperationResponse }
+     * 
+     */
+    public OperationResponse createOperationResponse() {
+        return new OperationResponse();
+    }
+
+    /**
      * Create an instance of {@link EliminarBus }
      * 
      */
@@ -472,6 +494,30 @@ public class ObjectFactory {
      */
     public GraphAdminResponse createGraphAdminResponse() {
         return new GraphAdminResponse();
+    }
+
+    /**
+     * Create an instance of {@link GraphRuta }
+     * 
+     */
+    public GraphRuta createGraphRuta() {
+        return new GraphRuta();
+    }
+
+    /**
+     * Create an instance of {@link GraphRutaResponse }
+     * 
+     */
+    public GraphRutaResponse createGraphRutaResponse() {
+        return new GraphRutaResponse();
+    }
+
+    /**
+     * Create an instance of {@link GraphAsignacion }
+     * 
+     */
+    public GraphAsignacion createGraphAsignacion() {
+        return new GraphAsignacion();
     }
 
     /**
@@ -616,6 +662,14 @@ public class ObjectFactory {
      */
     public ModificarBusResponse createModificarBusResponse() {
         return new ModificarBusResponse();
+    }
+
+    /**
+     * Create an instance of {@link Operation }
+     * 
+     */
+    public Operation createOperation() {
+        return new Operation();
     }
 
     /**
@@ -798,6 +852,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Operation }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "operation")
+    public JAXBElement<Operation> createOperation(Operation value) {
+        return new JAXBElement<Operation>(_Operation_QNAME, Operation.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link InsertarAsignacion }{@code >}}
      * 
      */
@@ -840,6 +903,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio/", name = "graphEstacionClaveResponse")
     public JAXBElement<GraphEstacionClaveResponse> createGraphEstacionClaveResponse(GraphEstacionClaveResponse value) {
         return new JAXBElement<GraphEstacionClaveResponse>(_GraphEstacionClaveResponse_QNAME, GraphEstacionClaveResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link OperationResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "operationResponse")
+    public JAXBElement<OperationResponse> createOperationResponse(OperationResponse value) {
+        return new JAXBElement<OperationResponse>(_OperationResponse_QNAME, OperationResponse.class, null, value);
     }
 
     /**
@@ -915,6 +987,33 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraphRuta }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "graphRuta")
+    public JAXBElement<GraphRuta> createGraphRuta(GraphRuta value) {
+        return new JAXBElement<GraphRuta>(_GraphRuta_QNAME, GraphRuta.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraphAsignacion }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "graphAsignacion")
+    public JAXBElement<GraphAsignacion> createGraphAsignacion(GraphAsignacion value) {
+        return new JAXBElement<GraphAsignacion>(_GraphAsignacion_QNAME, GraphAsignacion.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraphRutaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "graphRutaResponse")
+    public JAXBElement<GraphRutaResponse> createGraphRutaResponse(GraphRutaResponse value) {
+        return new JAXBElement<GraphRutaResponse>(_GraphRutaResponse_QNAME, GraphRutaResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CargarCSVResponse }{@code >}}
      * 
      */
@@ -930,6 +1029,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio/", name = "LoginResponse")
     public JAXBElement<LoginResponse> createLoginResponse(LoginResponse value) {
         return new JAXBElement<LoginResponse>(_LoginResponse_QNAME, LoginResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraphAsignacionResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "graphAsignacionResponse")
+    public JAXBElement<GraphAsignacionResponse> createGraphAsignacionResponse(GraphAsignacionResponse value) {
+        return new JAXBElement<GraphAsignacionResponse>(_GraphAsignacionResponse_QNAME, GraphAsignacionResponse.class, null, value);
     }
 
     /**

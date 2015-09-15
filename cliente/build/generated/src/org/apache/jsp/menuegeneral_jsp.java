@@ -60,6 +60,19 @@ public final class menuegeneral_jsp extends org.apache.jasper.runtime.HttpJspBas
       out.write("       <br> </br>\n");
       out.write("    <center>\n");
       out.write("        <h1>Menú Estacion General</h1>\n");
+      out.write("        ");
+for (int i=0; i<=10;i++){
+        
+      out.write("     \n");
+      out.write("        <input type=\"text\" name=\"texto");
+      out.print(i);
+      out.write("\" value=\"\" size=\"10\" />\n");
+      out.write("        <br>    </br>\n");
+      out.write("        ");
+
+        }
+        
+      out.write("    \n");
       out.write("    </center>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
