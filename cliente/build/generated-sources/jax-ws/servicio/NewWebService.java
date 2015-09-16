@@ -26,18 +26,6 @@ public interface NewWebService {
 
     /**
      * 
-     * @return
-     *     returns int
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "operation", targetNamespace = "http://servicio/", className = "servicio.Operation")
-    @ResponseWrapper(localName = "operationResponse", targetNamespace = "http://servicio/", className = "servicio.OperationResponse")
-    @Action(input = "http://servicio/NewWebService/operationRequest", output = "http://servicio/NewWebService/operationResponse")
-    public int operation();
-
-    /**
-     * 
      * @param password
      * @param nuevaclave
      * @param id
@@ -62,24 +50,33 @@ public interface NewWebService {
 
     /**
      * 
-     * @param password
-     * @param id
-     * @param nombre
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "insertarEstacionGeneral", targetNamespace = "http://servicio/", className = "servicio.InsertarEstacionGeneral")
-    @ResponseWrapper(localName = "insertarEstacionGeneralResponse", targetNamespace = "http://servicio/", className = "servicio.InsertarEstacionGeneralResponse")
-    @Action(input = "http://servicio/NewWebService/insertarEstacionGeneralRequest", output = "http://servicio/NewWebService/insertarEstacionGeneralResponse")
-    public String insertarEstacionGeneral(
-        @WebParam(name = "id", targetNamespace = "")
-        String id,
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "password", targetNamespace = "")
-        String password);
+    @RequestWrapper(localName = "graphEstacionGeneral", targetNamespace = "http://servicio/", className = "servicio.GraphEstacionGeneral")
+    @ResponseWrapper(localName = "graphEstacionGeneralResponse", targetNamespace = "http://servicio/", className = "servicio.GraphEstacionGeneralResponse")
+    @Action(input = "http://servicio/NewWebService/graphEstacionGeneralRequest", output = "http://servicio/NewWebService/graphEstacionGeneralResponse")
+    public String graphEstacionGeneral();
+
+    /**
+     * 
+     * @param idbus
+     * @param idchofer
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "graphHorarioxBusxChofer", targetNamespace = "http://servicio/", className = "servicio.GraphHorarioxBusxChofer")
+    @ResponseWrapper(localName = "graphHorarioxBusxChoferResponse", targetNamespace = "http://servicio/", className = "servicio.GraphHorarioxBusxChoferResponse")
+    @Action(input = "http://servicio/NewWebService/graphHorarioxBusxChoferRequest", output = "http://servicio/NewWebService/graphHorarioxBusxChoferResponse")
+    public String graphHorarioxBusxChofer(
+        @WebParam(name = "idbus", targetNamespace = "")
+        String idbus,
+        @WebParam(name = "idchofer", targetNamespace = "")
+        String idchofer);
 
     /**
      * 
@@ -104,18 +101,48 @@ public interface NewWebService {
 
     /**
      * 
+     * @param idbus
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "resumenBusEspecifico", targetNamespace = "http://servicio/", className = "servicio.ResumenBusEspecifico")
+    @ResponseWrapper(localName = "resumenBusEspecificoResponse", targetNamespace = "http://servicio/", className = "servicio.ResumenBusEspecificoResponse")
+    @Action(input = "http://servicio/NewWebService/resumenBusEspecificoRequest", output = "http://servicio/NewWebService/resumenBusEspecificoResponse")
+    public String resumenBusEspecifico(
+        @WebParam(name = "idbus", targetNamespace = "")
+        String idbus);
+
+    /**
+     * 
      * @param id
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarEstacionGeneral", targetNamespace = "http://servicio/", className = "servicio.EliminarEstacionGeneral")
-    @ResponseWrapper(localName = "eliminarEstacionGeneralResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarEstacionGeneralResponse")
-    @Action(input = "http://servicio/NewWebService/eliminarEstacionGeneralRequest", output = "http://servicio/NewWebService/eliminarEstacionGeneralResponse")
-    public String eliminarEstacionGeneral(
+    @RequestWrapper(localName = "eliminarEstacionClave", targetNamespace = "http://servicio/", className = "servicio.EliminarEstacionClave")
+    @ResponseWrapper(localName = "eliminarEstacionClaveResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarEstacionClaveResponse")
+    @Action(input = "http://servicio/NewWebService/eliminarEstacionClaveRequest", output = "http://servicio/NewWebService/eliminarEstacionClaveResponse")
+    public String eliminarEstacionClave(
         @WebParam(name = "id", targetNamespace = "")
         String id);
+
+    /**
+     * 
+     * @param idchofer
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "graphHorarioChofer", targetNamespace = "http://servicio/", className = "servicio.GraphHorarioChofer")
+    @ResponseWrapper(localName = "graphHorarioChoferResponse", targetNamespace = "http://servicio/", className = "servicio.GraphHorarioChoferResponse")
+    @Action(input = "http://servicio/NewWebService/graphHorarioChoferRequest", output = "http://servicio/NewWebService/graphHorarioChoferResponse")
+    public String graphHorarioChofer(
+        @WebParam(name = "idchofer", targetNamespace = "")
+        String idchofer);
 
     /**
      * 
@@ -149,19 +176,79 @@ public interface NewWebService {
 
     /**
      * 
-     * @param idbus
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "graphEstacionClave", targetNamespace = "http://servicio/", className = "servicio.GraphEstacionClave")
+    @ResponseWrapper(localName = "graphEstacionClaveResponse", targetNamespace = "http://servicio/", className = "servicio.GraphEstacionClaveResponse")
+    @Action(input = "http://servicio/NewWebService/graphEstacionClaveRequest", output = "http://servicio/NewWebService/graphEstacionClaveResponse")
+    public String graphEstacionClave();
+
+    /**
+     * 
+     * @param password
+     * @param id
+     * @param nombre
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "insertarEstacionGeneral", targetNamespace = "http://servicio/", className = "servicio.InsertarEstacionGeneral")
+    @ResponseWrapper(localName = "insertarEstacionGeneralResponse", targetNamespace = "http://servicio/", className = "servicio.InsertarEstacionGeneralResponse")
+    @Action(input = "http://servicio/NewWebService/insertarEstacionGeneralRequest", output = "http://servicio/NewWebService/insertarEstacionGeneralResponse")
+    public String insertarEstacionGeneral(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "password", targetNamespace = "")
+        String password);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "eliminarEstacionGeneral", targetNamespace = "http://servicio/", className = "servicio.EliminarEstacionGeneral")
+    @ResponseWrapper(localName = "eliminarEstacionGeneralResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarEstacionGeneralResponse")
+    @Action(input = "http://servicio/NewWebService/eliminarEstacionGeneralRequest", output = "http://servicio/NewWebService/eliminarEstacionGeneralResponse")
+    public String eliminarEstacionGeneral(
+        @WebParam(name = "id", targetNamespace = "")
+        String id);
+
+    /**
+     * 
      * @param idchofer
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "graphHorarioxBusxChofer", targetNamespace = "http://servicio/", className = "servicio.GraphHorarioxBusxChofer")
-    @ResponseWrapper(localName = "graphHorarioxBusxChoferResponse", targetNamespace = "http://servicio/", className = "servicio.GraphHorarioxBusxChoferResponse")
-    @Action(input = "http://servicio/NewWebService/graphHorarioxBusxChoferRequest", output = "http://servicio/NewWebService/graphHorarioxBusxChoferResponse")
-    public String graphHorarioxBusxChofer(
-        @WebParam(name = "idbus", targetNamespace = "")
-        String idbus,
+    @RequestWrapper(localName = "resumenChoferEspecifico", targetNamespace = "http://servicio/", className = "servicio.ResumenChoferEspecifico")
+    @ResponseWrapper(localName = "resumenChoferEspecificoResponse", targetNamespace = "http://servicio/", className = "servicio.ResumenChoferEspecificoResponse")
+    @Action(input = "http://servicio/NewWebService/resumenChoferEspecificoRequest", output = "http://servicio/NewWebService/resumenChoferEspecificoResponse")
+    public String resumenChoferEspecifico(
+        @WebParam(name = "idchofer", targetNamespace = "")
+        String idchofer);
+
+    /**
+     * 
+     * @param idchofer
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "mostrarHorarioChofer", targetNamespace = "http://servicio/", className = "servicio.MostrarHorarioChofer")
+    @ResponseWrapper(localName = "mostrarHorarioChoferResponse", targetNamespace = "http://servicio/", className = "servicio.MostrarHorarioChoferResponse")
+    @Action(input = "http://servicio/NewWebService/mostrarHorarioChoferRequest", output = "http://servicio/NewWebService/mostrarHorarioChoferResponse")
+    public String mostrarHorarioChofer(
         @WebParam(name = "idchofer", targetNamespace = "")
         String idchofer);
 
@@ -191,48 +278,150 @@ public interface NewWebService {
 
     /**
      * 
+     * @return
+     *     returns int
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "operation", targetNamespace = "http://servicio/", className = "servicio.Operation")
+    @ResponseWrapper(localName = "operationResponse", targetNamespace = "http://servicio/", className = "servicio.OperationResponse")
+    @Action(input = "http://servicio/NewWebService/operationRequest", output = "http://servicio/NewWebService/operationResponse")
+    public int operation();
+
+    /**
+     * 
+     * @param name
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "hello", targetNamespace = "http://servicio/", className = "servicio.Hello")
+    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://servicio/", className = "servicio.HelloResponse")
+    @Action(input = "http://servicio/NewWebService/helloRequest", output = "http://servicio/NewWebService/helloResponse")
+    public String hello(
+        @WebParam(name = "name", targetNamespace = "")
+        String name);
+
+    /**
+     * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "graphAdmin", targetNamespace = "http://servicio/", className = "servicio.GraphAdmin")
+    @ResponseWrapper(localName = "graphAdminResponse", targetNamespace = "http://servicio/", className = "servicio.GraphAdminResponse")
+    @Action(input = "http://servicio/NewWebService/graphAdminRequest", output = "http://servicio/NewWebService/graphAdminResponse")
+    public String graphAdmin();
+
+    /**
+     * 
+     * @param correo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "eliminarAdmin", targetNamespace = "http://servicio/", className = "servicio.EliminarAdmin")
+    @ResponseWrapper(localName = "eliminarAdminResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarAdminResponse")
+    @Action(input = "http://servicio/NewWebService/eliminarAdminRequest", output = "http://servicio/NewWebService/eliminarAdminResponse")
+    public String eliminarAdmin(
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo);
+
+    /**
+     * 
      * @param id
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarEstacionClave", targetNamespace = "http://servicio/", className = "servicio.EliminarEstacionClave")
-    @ResponseWrapper(localName = "eliminarEstacionClaveResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarEstacionClaveResponse")
-    @Action(input = "http://servicio/NewWebService/eliminarEstacionClaveRequest", output = "http://servicio/NewWebService/eliminarEstacionClaveResponse")
-    public String eliminarEstacionClave(
+    @RequestWrapper(localName = "insertarBus", targetNamespace = "http://servicio/", className = "servicio.InsertarBus")
+    @ResponseWrapper(localName = "insertarBusResponse", targetNamespace = "http://servicio/", className = "servicio.InsertarBusResponse")
+    @Action(input = "http://servicio/NewWebService/insertarBusRequest", output = "http://servicio/NewWebService/insertarBusResponse")
+    public String insertarBus(
         @WebParam(name = "id", targetNamespace = "")
         String id);
 
     /**
      * 
-     * @param idchofer
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "resumenChoferEspecifico", targetNamespace = "http://servicio/", className = "servicio.ResumenChoferEspecifico")
-    @ResponseWrapper(localName = "resumenChoferEspecificoResponse", targetNamespace = "http://servicio/", className = "servicio.ResumenChoferEspecificoResponse")
-    @Action(input = "http://servicio/NewWebService/resumenChoferEspecificoRequest", output = "http://servicio/NewWebService/resumenChoferEspecificoResponse")
-    public String resumenChoferEspecifico(
-        @WebParam(name = "idchofer", targetNamespace = "")
-        String idchofer);
+    @RequestWrapper(localName = "graphChofer", targetNamespace = "http://servicio/", className = "servicio.GraphChofer")
+    @ResponseWrapper(localName = "graphChoferResponse", targetNamespace = "http://servicio/", className = "servicio.GraphChoferResponse")
+    @Action(input = "http://servicio/NewWebService/graphChoferRequest", output = "http://servicio/NewWebService/graphChoferResponse")
+    public String graphChofer();
 
     /**
      * 
-     * @param idbus
+     * @param parameter
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "resumenBusEspecifico", targetNamespace = "http://servicio/", className = "servicio.ResumenBusEspecifico")
-    @ResponseWrapper(localName = "resumenBusEspecificoResponse", targetNamespace = "http://servicio/", className = "servicio.ResumenBusEspecificoResponse")
-    @Action(input = "http://servicio/NewWebService/resumenBusEspecificoRequest", output = "http://servicio/NewWebService/resumenBusEspecificoResponse")
-    public String resumenBusEspecifico(
-        @WebParam(name = "idbus", targetNamespace = "")
-        String idbus);
+    @RequestWrapper(localName = "agregarAdmin", targetNamespace = "http://servicio/", className = "servicio.AgregarAdmin")
+    @ResponseWrapper(localName = "agregarAdminResponse", targetNamespace = "http://servicio/", className = "servicio.AgregarAdminResponse")
+    @Action(input = "http://servicio/NewWebService/agregarAdminRequest", output = "http://servicio/NewWebService/agregarAdminResponse")
+    public String agregarAdmin(
+        @WebParam(name = "parameter", targetNamespace = "")
+        String parameter);
+
+    /**
+     * 
+     * @param estacion
+     * @param nombre
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "insertarRuta", targetNamespace = "http://servicio/", className = "servicio.InsertarRuta")
+    @ResponseWrapper(localName = "insertarRutaResponse", targetNamespace = "http://servicio/", className = "servicio.InsertarRutaResponse")
+    @Action(input = "http://servicio/NewWebService/insertarRutaRequest", output = "http://servicio/NewWebService/insertarRutaResponse")
+    public String insertarRuta(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "estacion", targetNamespace = "")
+        String estacion);
+
+    /**
+     * 
+     * @param nuevoid
+     * @param id
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "modificarBus", targetNamespace = "http://servicio/", className = "servicio.ModificarBus")
+    @ResponseWrapper(localName = "modificarBusResponse", targetNamespace = "http://servicio/", className = "servicio.ModificarBusResponse")
+    @Action(input = "http://servicio/NewWebService/modificarBusRequest", output = "http://servicio/NewWebService/modificarBusResponse")
+    public String modificarBus(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "nuevoid", targetNamespace = "")
+        String nuevoid);
+
+    /**
+     * 
+     * @param parameter
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "graphRuta", targetNamespace = "http://servicio/", className = "servicio.GraphRuta")
+    @ResponseWrapper(localName = "graphRutaResponse", targetNamespace = "http://servicio/", className = "servicio.GraphRutaResponse")
+    @Action(input = "http://servicio/NewWebService/graphRutaRequest", output = "http://servicio/NewWebService/graphRutaResponse")
+    public String graphRuta(
+        @WebParam(name = "parameter", targetNamespace = "")
+        String parameter);
 
     /**
      * 
@@ -241,22 +430,10 @@ public interface NewWebService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "graphEstacionGeneral", targetNamespace = "http://servicio/", className = "servicio.GraphEstacionGeneral")
-    @ResponseWrapper(localName = "graphEstacionGeneralResponse", targetNamespace = "http://servicio/", className = "servicio.GraphEstacionGeneralResponse")
-    @Action(input = "http://servicio/NewWebService/graphEstacionGeneralRequest", output = "http://servicio/NewWebService/graphEstacionGeneralResponse")
-    public String graphEstacionGeneral();
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "graphEstacionClave", targetNamespace = "http://servicio/", className = "servicio.GraphEstacionClave")
-    @ResponseWrapper(localName = "graphEstacionClaveResponse", targetNamespace = "http://servicio/", className = "servicio.GraphEstacionClaveResponse")
-    @Action(input = "http://servicio/NewWebService/graphEstacionClaveRequest", output = "http://servicio/NewWebService/graphEstacionClaveResponse")
-    public String graphEstacionClave();
+    @RequestWrapper(localName = "graphBus", targetNamespace = "http://servicio/", className = "servicio.GraphBus")
+    @ResponseWrapper(localName = "graphBusResponse", targetNamespace = "http://servicio/", className = "servicio.GraphBusResponse")
+    @Action(input = "http://servicio/NewWebService/graphBusRequest", output = "http://servicio/NewWebService/graphBusResponse")
+    public String graphBus();
 
     /**
      * 
@@ -311,48 +488,6 @@ public interface NewWebService {
 
     /**
      * 
-     * @param id
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarChofer", targetNamespace = "http://servicio/", className = "servicio.EliminarChofer")
-    @ResponseWrapper(localName = "eliminarChoferResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarChoferResponse")
-    @Action(input = "http://servicio/NewWebService/eliminarChoferRequest", output = "http://servicio/NewWebService/eliminarChoferResponse")
-    public String eliminarChofer(
-        @WebParam(name = "id", targetNamespace = "")
-        String id);
-
-    /**
-     * 
-     * @param parametro
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "mostrarAdmin", targetNamespace = "http://servicio/", className = "servicio.MostrarAdmin")
-    @ResponseWrapper(localName = "mostrarAdminResponse", targetNamespace = "http://servicio/", className = "servicio.MostrarAdminResponse")
-    @Action(input = "http://servicio/NewWebService/mostrarAdminRequest", output = "http://servicio/NewWebService/mostrarAdminResponse")
-    public String mostrarAdmin(
-        @WebParam(name = "parametro", targetNamespace = "")
-        String parametro);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "graphChofer", targetNamespace = "http://servicio/", className = "servicio.GraphChofer")
-    @ResponseWrapper(localName = "graphChoferResponse", targetNamespace = "http://servicio/", className = "servicio.GraphChoferResponse")
-    @Action(input = "http://servicio/NewWebService/graphChoferRequest", output = "http://servicio/NewWebService/graphChoferResponse")
-    public String graphChofer();
-
-    /**
-     * 
      * @param nombre
      * @return
      *     returns java.lang.String
@@ -368,31 +503,16 @@ public interface NewWebService {
 
     /**
      * 
-     * @param parameter
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "graphAsignacion", targetNamespace = "http://servicio/", className = "servicio.GraphAsignacion")
-    @ResponseWrapper(localName = "graphAsignacionResponse", targetNamespace = "http://servicio/", className = "servicio.GraphAsignacionResponse")
-    @Action(input = "http://servicio/NewWebService/graphAsignacionRequest", output = "http://servicio/NewWebService/graphAsignacionResponse")
-    public String graphAsignacion(
-        @WebParam(name = "parameter", targetNamespace = "")
-        String parameter);
-
-    /**
-     * 
      * @param id
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "insertarBus", targetNamespace = "http://servicio/", className = "servicio.InsertarBus")
-    @ResponseWrapper(localName = "insertarBusResponse", targetNamespace = "http://servicio/", className = "servicio.InsertarBusResponse")
-    @Action(input = "http://servicio/NewWebService/insertarBusRequest", output = "http://servicio/NewWebService/insertarBusResponse")
-    public String insertarBus(
+    @RequestWrapper(localName = "eliminarChofer", targetNamespace = "http://servicio/", className = "servicio.EliminarChofer")
+    @ResponseWrapper(localName = "eliminarChoferResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarChoferResponse")
+    @Action(input = "http://servicio/NewWebService/eliminarChoferRequest", output = "http://servicio/NewWebService/eliminarChoferResponse")
+    public String eliminarChofer(
         @WebParam(name = "id", targetNamespace = "")
         String id);
 
@@ -425,21 +545,18 @@ public interface NewWebService {
 
     /**
      * 
-     * @param nuevoid
      * @param id
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "modificarBus", targetNamespace = "http://servicio/", className = "servicio.ModificarBus")
-    @ResponseWrapper(localName = "modificarBusResponse", targetNamespace = "http://servicio/", className = "servicio.ModificarBusResponse")
-    @Action(input = "http://servicio/NewWebService/modificarBusRequest", output = "http://servicio/NewWebService/modificarBusResponse")
-    public String modificarBus(
+    @RequestWrapper(localName = "grahpBusxChofer", targetNamespace = "http://servicio/", className = "servicio.GrahpBusxChofer")
+    @ResponseWrapper(localName = "grahpBusxChoferResponse", targetNamespace = "http://servicio/", className = "servicio.GrahpBusxChoferResponse")
+    @Action(input = "http://servicio/NewWebService/grahpBusxChoferRequest", output = "http://servicio/NewWebService/grahpBusxChoferResponse")
+    public String grahpBusxChofer(
         @WebParam(name = "id", targetNamespace = "")
-        String id,
-        @WebParam(name = "nuevoid", targetNamespace = "")
-        String nuevoid);
+        String id);
 
     /**
      * 
@@ -455,6 +572,60 @@ public interface NewWebService {
     public String cargarCSV(
         @WebParam(name = "path", targetNamespace = "")
         String path);
+
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "eliminarBus", targetNamespace = "http://servicio/", className = "servicio.EliminarBus")
+    @ResponseWrapper(localName = "eliminarBusResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarBusResponse")
+    @Action(input = "http://servicio/NewWebService/eliminarBusRequest", output = "http://servicio/NewWebService/eliminarBusResponse")
+    public String eliminarBus(
+        @WebParam(name = "id", targetNamespace = "")
+        String id);
+
+    /**
+     * 
+     * @param password
+     * @param apellido
+     * @param id
+     * @param nombre
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "insertarChofer", targetNamespace = "http://servicio/", className = "servicio.InsertarChofer")
+    @ResponseWrapper(localName = "insertarChoferResponse", targetNamespace = "http://servicio/", className = "servicio.InsertarChoferResponse")
+    @Action(input = "http://servicio/NewWebService/insertarChoferRequest", output = "http://servicio/NewWebService/insertarChoferResponse")
+    public String insertarChofer(
+        @WebParam(name = "id", targetNamespace = "")
+        String id,
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre,
+        @WebParam(name = "apellido", targetNamespace = "")
+        String apellido,
+        @WebParam(name = "password", targetNamespace = "")
+        String password);
+
+    /**
+     * 
+     * @param parametro
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "mostrarAdmin", targetNamespace = "http://servicio/", className = "servicio.MostrarAdmin")
+    @ResponseWrapper(localName = "mostrarAdminResponse", targetNamespace = "http://servicio/", className = "servicio.MostrarAdminResponse")
+    @Action(input = "http://servicio/NewWebService/mostrarAdminRequest", output = "http://servicio/NewWebService/mostrarAdminResponse")
+    public String mostrarAdmin(
+        @WebParam(name = "parametro", targetNamespace = "")
+        String parametro);
 
     /**
      * 
@@ -485,152 +656,23 @@ public interface NewWebService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "graphRuta", targetNamespace = "http://servicio/", className = "servicio.GraphRuta")
-    @ResponseWrapper(localName = "graphRutaResponse", targetNamespace = "http://servicio/", className = "servicio.GraphRutaResponse")
-    @Action(input = "http://servicio/NewWebService/graphRutaRequest", output = "http://servicio/NewWebService/graphRutaResponse")
-    public String graphRuta(
+    @RequestWrapper(localName = "graphAsignacion", targetNamespace = "http://servicio/", className = "servicio.GraphAsignacion")
+    @ResponseWrapper(localName = "graphAsignacionResponse", targetNamespace = "http://servicio/", className = "servicio.GraphAsignacionResponse")
+    @Action(input = "http://servicio/NewWebService/graphAsignacionRequest", output = "http://servicio/NewWebService/graphAsignacionResponse")
+    public String graphAsignacion(
         @WebParam(name = "parameter", targetNamespace = "")
         String parameter);
 
     /**
      * 
-     * @param password
-     * @param apellido
-     * @param id
-     * @param nombre
      * @return
-     *     returns java.lang.String
+     *     returns int
      */
-    @WebMethod
+    @WebMethod(operationName = "DarUser")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "insertarChofer", targetNamespace = "http://servicio/", className = "servicio.InsertarChofer")
-    @ResponseWrapper(localName = "insertarChoferResponse", targetNamespace = "http://servicio/", className = "servicio.InsertarChoferResponse")
-    @Action(input = "http://servicio/NewWebService/insertarChoferRequest", output = "http://servicio/NewWebService/insertarChoferResponse")
-    public String insertarChofer(
-        @WebParam(name = "id", targetNamespace = "")
-        String id,
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "apellido", targetNamespace = "")
-        String apellido,
-        @WebParam(name = "password", targetNamespace = "")
-        String password);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "grahpBusxChofer", targetNamespace = "http://servicio/", className = "servicio.GrahpBusxChofer")
-    @ResponseWrapper(localName = "grahpBusxChoferResponse", targetNamespace = "http://servicio/", className = "servicio.GrahpBusxChoferResponse")
-    @Action(input = "http://servicio/NewWebService/grahpBusxChoferRequest", output = "http://servicio/NewWebService/grahpBusxChoferResponse")
-    public String grahpBusxChofer(
-        @WebParam(name = "id", targetNamespace = "")
-        String id);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "graphBus", targetNamespace = "http://servicio/", className = "servicio.GraphBus")
-    @ResponseWrapper(localName = "graphBusResponse", targetNamespace = "http://servicio/", className = "servicio.GraphBusResponse")
-    @Action(input = "http://servicio/NewWebService/graphBusRequest", output = "http://servicio/NewWebService/graphBusResponse")
-    public String graphBus();
-
-    /**
-     * 
-     * @param correo
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarAdmin", targetNamespace = "http://servicio/", className = "servicio.EliminarAdmin")
-    @ResponseWrapper(localName = "eliminarAdminResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarAdminResponse")
-    @Action(input = "http://servicio/NewWebService/eliminarAdminRequest", output = "http://servicio/NewWebService/eliminarAdminResponse")
-    public String eliminarAdmin(
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo);
-
-    /**
-     * 
-     * @param id
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "eliminarBus", targetNamespace = "http://servicio/", className = "servicio.EliminarBus")
-    @ResponseWrapper(localName = "eliminarBusResponse", targetNamespace = "http://servicio/", className = "servicio.EliminarBusResponse")
-    @Action(input = "http://servicio/NewWebService/eliminarBusRequest", output = "http://servicio/NewWebService/eliminarBusResponse")
-    public String eliminarBus(
-        @WebParam(name = "id", targetNamespace = "")
-        String id);
-
-    /**
-     * 
-     * @param estacion
-     * @param nombre
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "insertarRuta", targetNamespace = "http://servicio/", className = "servicio.InsertarRuta")
-    @ResponseWrapper(localName = "insertarRutaResponse", targetNamespace = "http://servicio/", className = "servicio.InsertarRutaResponse")
-    @Action(input = "http://servicio/NewWebService/insertarRutaRequest", output = "http://servicio/NewWebService/insertarRutaResponse")
-    public String insertarRuta(
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre,
-        @WebParam(name = "estacion", targetNamespace = "")
-        String estacion);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "graphAdmin", targetNamespace = "http://servicio/", className = "servicio.GraphAdmin")
-    @ResponseWrapper(localName = "graphAdminResponse", targetNamespace = "http://servicio/", className = "servicio.GraphAdminResponse")
-    @Action(input = "http://servicio/NewWebService/graphAdminRequest", output = "http://servicio/NewWebService/graphAdminResponse")
-    public String graphAdmin();
-
-    /**
-     * 
-     * @param parameter
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "agregarAdmin", targetNamespace = "http://servicio/", className = "servicio.AgregarAdmin")
-    @ResponseWrapper(localName = "agregarAdminResponse", targetNamespace = "http://servicio/", className = "servicio.AgregarAdminResponse")
-    @Action(input = "http://servicio/NewWebService/agregarAdminRequest", output = "http://servicio/NewWebService/agregarAdminResponse")
-    public String agregarAdmin(
-        @WebParam(name = "parameter", targetNamespace = "")
-        String parameter);
-
-    /**
-     * 
-     * @param name
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "hello", targetNamespace = "http://servicio/", className = "servicio.Hello")
-    @ResponseWrapper(localName = "helloResponse", targetNamespace = "http://servicio/", className = "servicio.HelloResponse")
-    @Action(input = "http://servicio/NewWebService/helloRequest", output = "http://servicio/NewWebService/helloResponse")
-    public String hello(
-        @WebParam(name = "name", targetNamespace = "")
-        String name);
+    @RequestWrapper(localName = "DarUser", targetNamespace = "http://servicio/", className = "servicio.DarUser")
+    @ResponseWrapper(localName = "DarUserResponse", targetNamespace = "http://servicio/", className = "servicio.DarUserResponse")
+    @Action(input = "http://servicio/NewWebService/DarUserRequest", output = "http://servicio/NewWebService/DarUserResponse")
+    public int darUser();
 
 }

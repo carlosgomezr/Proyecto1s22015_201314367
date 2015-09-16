@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                     <td> APELLIDO: </td>
-                    <td><input type="text" name="texto3" value="" size="20" readonly="readonly" /></td>
+                    <td><input type="text" name="texto3" value="" size="20"  /></td>
                     <td></td>
                 </tr>
                 <tr>

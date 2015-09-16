@@ -1,5 +1,78 @@
 digraph grafica { 
 label= " AVL CHOFER"node [shape=record];
 subgraph g {
+nodea2[label=" clave: 2
+ 
+ NOMBRE: Chofer2
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea1[label=" clave: 1
+ 
+ NOMBRE: Chofer
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea2->nodea1[label="izq"];
+nodea1[label=" clave: 1
+ 
+ NOMBRE: Chofer
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE: Chofer
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE: Chofer
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea2->nodea4[label="der"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE: Chofer4
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea3[label=" clave: 3
+ 
+ NOMBRE: Chofer
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea4->nodea3[label="izq"];
+nodea3[label=" clave: 3
+ 
+ NOMBRE: Chofer
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea4[label=" clave: 4
+ 
+ NOMBRE: Chofer
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
+nodea2[label=" clave: 2
+ 
+ NOMBRE: Chofer
+ 
+ APELLIDO: chofer 
+ 
+ PASSWORD: chofer"];
 }
 }

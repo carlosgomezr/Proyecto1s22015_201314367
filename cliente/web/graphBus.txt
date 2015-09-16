@@ -1,13 +1,6 @@
 digraph grafica { 
 label= "LISTA DOBLE  BUSES ;B"node [shape=record];
 subgraph g { 
- node0[label=" id: XYZ"];
-node1[label=" id: OPQ "];
-node0->node1;
-node1->node0;
-node1[label=" id: OPQ"];
-node2[label=" id: PITBULL "];
-node1->node2;
-node2->node1;
+ node0[label=" id: D "];
 }
 }

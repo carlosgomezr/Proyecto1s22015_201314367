@@ -55,7 +55,6 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
         </form>
         <br></br>
         <form name="pasar1" action="reporte.jsp" method="POST">   
-        <% titulo="GRAFICAR AVL ESTACION CLAVE"; %>
         
         <%-- start web service invocation --%><hr/>
     <%
@@ -77,7 +76,6 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
         </form>
         <br></br>
         <form name="pasar1" action="reporte.jsp" method="POST">      
-        <% titulo="GRAFICAR AVL ESTACION GENERAL"; %>
         
         <%-- start web service invocation --%><hr/>
     <%
@@ -101,8 +99,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
         <br></br>
         <form name="pasar1" action="reporte.jsp" method="POST">      
         CHOFER: <input type="text" name="texto0" value="" size="10" />
-        <% titulo="GRAFICAR BUS POR CHOFER"; bus=request.getParameter("texto0"); %>
-    <%-- start web service invocation --%><hr/>
+       <%-- start web service invocation --%><hr/>
     <%
     try {
 	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
@@ -117,7 +114,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphEC.png">        
+    <img src="graphChoferxBus.txtgraphChoferxBus.png">        
         
         <input type="submit" value="     GRAFICAR BUS POR CHOFER     " name="boton4" />
         
@@ -126,8 +123,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
         <form name="pasar1" action="reporte.jsp" method="POST">      
         BUS: <input type="text" name="texto1" value="" size="10" />
         CHOFER: <input type="text" name="texto2" value="" size="10" />
-        <% titulo="GRAFICAR HORARIO POR CHOFER Y BUS"; bus=request.getParameter("texto1"); chofer=request.getParameter("texto2"); %>
-
+      
     <%-- start web service invocation --%><hr/>
     <%
     try {
@@ -144,7 +140,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphEC.png">        
+    <img src="graphHoraxChofer.txtgraphHoraxChofer.png">        
         
         <input type="submit" value="GRAFICAR HORARIO POR CHOFER Y BUS" name="bton5"/>
         
@@ -165,7 +161,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphEC.png">
+    <img src="graphChofer.txtgraphChofer.png">
   
     
 

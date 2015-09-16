@@ -1,0 +1,6 @@
+digraph grafica { 
+label= "LISTA DOBLE  BUSES"node [shape=record];
+subgraph g { 
+ node0[label=" id: A horario ini: 13:00 horario fin: 15:00 fecha: 15 SEPTIEMBRE 2015"];
+}
+}

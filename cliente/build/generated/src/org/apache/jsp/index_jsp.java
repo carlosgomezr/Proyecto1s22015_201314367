@@ -61,6 +61,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                 PASSWORD:\n");
       out.write("                 <input type=\"password\" name=\"password\" value=\"\" size=\"15\" />\n");
       out.write("                 <select name=\"tipo\">\n");
+      out.write("                     <font color=\"white\">\n");
+      out.write("                     <option>------------</option>\n");
       out.write("                     <option>Administrador</option>\n");
       out.write("                     <option>EstacionClave</option>\n");
       out.write("                     <option>EstacionGeneral</option>\n");

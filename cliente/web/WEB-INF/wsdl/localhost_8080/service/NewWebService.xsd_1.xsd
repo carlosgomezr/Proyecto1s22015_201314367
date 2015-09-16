@@ -1,5 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicio/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicio/">
 
+<xs:element name="DarUser" type="tns:DarUser"/>
+
+<xs:element name="DarUserResponse" type="tns:DarUserResponse"/>
+
 <xs:element name="Login" type="tns:Login"/>
 
 <xs:element name="LoginResponse" type="tns:LoginResponse"/>
@@ -63,6 +67,10 @@
 <xs:element name="graphEstacionGeneral" type="tns:graphEstacionGeneral"/>
 
 <xs:element name="graphEstacionGeneralResponse" type="tns:graphEstacionGeneralResponse"/>
+
+<xs:element name="graphHorarioChofer" type="tns:graphHorarioChofer"/>
+
+<xs:element name="graphHorarioChoferResponse" type="tns:graphHorarioChoferResponse"/>
 
 <xs:element name="graphHorarioxBusxChofer" type="tns:graphHorarioxBusxChofer"/>
 
@@ -131,6 +139,10 @@
 <xs:element name="mostrarAdmin" type="tns:mostrarAdmin"/>
 
 <xs:element name="mostrarAdminResponse" type="tns:mostrarAdminResponse"/>
+
+<xs:element name="mostrarHorarioChofer" type="tns:mostrarHorarioChofer"/>
+
+<xs:element name="mostrarHorarioChoferResponse" type="tns:mostrarHorarioChoferResponse"/>
 
 <xs:element name="operation" type="tns:operation"/>
 
@@ -202,6 +214,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="mostrarHorarioChofer">
+<xs:sequence>
+<xs:element name="idchofer" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="mostrarHorarioChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="insertarAdmin">
 <xs:sequence>
 <xs:element name="correo" type="xs:string" minOccurs="0"/>
@@ -210,6 +234,18 @@
 </xs:complexType>
 
 <xs:complexType name="insertarAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graphHorarioChofer">
+<xs:sequence>
+<xs:element name="idchofer" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graphHorarioChoferResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -424,6 +460,16 @@
 <xs:complexType name="cargarCSVResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DarUser">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="DarUserResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 

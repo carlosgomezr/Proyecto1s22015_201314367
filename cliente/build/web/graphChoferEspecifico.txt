@@ -1,0 +1,37 @@
+digraph grafica { 
+label= " Chofer 4"node [shape=record];
+subgraph g { 
+ nodefecha0[label=" id: 28 AGOSTO 2015 "];
+nodefecha1[label=" id: 31 SEPTIEMBRE 2015 "];
+nodefecha0->nodefecha1;
+nodefecha1->nodefecha0;
+	subgraph cluster0 { 
+label= " 28 AGOSTO 2015"nodehora0c0[label=" bus: A ruta: RUTA1 hora i: 15:00 hora f: 16:00 "];
+nodehora0c1[label=" bus: D ruta: RUTA1 hora i: 15:00 hora f: 16:00 "];
+nodehora0c0->nodehora0c1;
+nodehora0c1->nodehora0c0;
+}
+	subgraph cluster1 { 
+label= " 31 SEPTIEMBRE 2015"nodehora1c0[label=" bus: E ruta: RUTA1 hora i: 21:00 hora f: 22:00 "];
+nodehora1c1[label=" bus: B ruta: RUTA1 hora i: 21:00 hora f: 22:00 "];
+nodehora1c0->nodehora1c1;
+nodehora1c1->nodehora1c0;
+}
+nodefecha1[label=" id: 31 SEPTIEMBRE 2015 "];
+nodefecha2[label=" id: 29 AGOSTO 2015 "];
+nodefecha1->nodefecha2;
+nodefecha2->nodefecha1;
+	subgraph cluster1 { 
+label= " 31 SEPTIEMBRE 2015"nodehora1c0[label=" bus: E ruta: RUTA1 hora i: 21:00 hora f: 22:00 "];
+nodehora1c1[label=" bus: B ruta: RUTA1 hora i: 21:00 hora f: 22:00 "];
+nodehora1c0->nodehora1c1;
+nodehora1c1->nodehora1c0;
+}
+	subgraph cluster2 { 
+label= " 29 AGOSTO 2015"nodehora2c0[label=" bus: A ruta: RUTA3 hora i: 16:00 hora f: 17:00 "];
+nodehora2c1[label=" bus: A ruta: RUTA3 hora i: 16:00 hora f: 17:00 "];
+nodehora2c0->nodehora2c1;
+nodehora2c1->nodehora2c0;
+}
+}
+}

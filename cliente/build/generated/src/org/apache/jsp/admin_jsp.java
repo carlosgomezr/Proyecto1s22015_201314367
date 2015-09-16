@@ -55,7 +55,11 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body  background=\"BACK2.jpg\">\n");
       out.write("    <center>\n");
       out.write("        <br></br>\n");
-      out.write("        <br></br>\n");
+      out.write("        <DIV ALIGN=right>\n");
+      out.write("           <form name=\"pasarmenu\" action=\"menu.jsp\" method=\"POST\">\n");
+      out.write("                <input type=\"submit\" value=\"Menu Admin\" name=\"Menu Admin\" />\n");
+      out.write("           </form>\n");
+      out.write("        </DIV>\n");
       out.write("        <br></br>\n");
       out.write("        <h1>Administrador</h1>\n");
       out.write("        <br></br>\n");
@@ -100,28 +104,6 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<hr/>\n");
       out.write("                \n");
       out.write("               \n");
-      out.write("                    \n");
-      out.write("        ");
-      out.write("<hr/>\n");
-      out.write("    ");
-
-    try {
-	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
-	servicio.NewWebService port = service.getNewWebServicePort();
-        correo1 = request.getParameter("texto1");
-	 // TODO initialize WS operation arguments here
-	java.lang.String name = correo1;
-	// TODO process result here
-	java.lang.String result = port.hello(name);
-	out.println("Result = "+result);
-    } catch (Exception ex) {
-	// TODO handle custom exceptions here
-    }
-    
-      out.write("\n");
-      out.write("    ");
-      out.write("<hr/>\n");
-      out.write("\n");
       out.write("    \n");
       out.write("    ");
       out.write("<hr/>\n");
@@ -224,10 +206,54 @@ public final class admin_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <td>  <input type=\"password\" name=\"texto5\" value=\"\" size=\"20\" /> </td>\n");
       out.write("                    <td></td>\n");
       out.write("                </tr>\n");
+      out.write("                 <tr>\n");
+      out.write("                    <td> NUEVO CORREO: </td>\n");
+      out.write("                    <td>  <input type=\"text\" name=\"texto6\" value=\"\" size=\"20\" /> </td>\n");
+      out.write("                    <td></td>\n");
+      out.write("                </tr>\n");
       out.write("                <tr>\n");
-      out.write("               \n");
       out.write("                    <td> </td>\n");
       out.write("                    <td> </td>\n");
+      out.write("                   ");
+      out.write("<hr/>\n");
+      out.write("    ");
+
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String correo = request.getParameter("texto4");
+	java.lang.String password = request.getParameter("texto5");
+	java.lang.String nuevocorreo = request.getParameter("texto6");
+	// TODO process result here
+	java.lang.String result = port.modificarAdmin(correo, password, nuevocorreo);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
+      out.write("\n");
+      out.write("    ");
+      out.write("<hr/>\n");
+      out.write("\n");
+      out.write("        ");
+      out.write("<hr/>\n");
+      out.write("    ");
+
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	java.lang.String result = port.graphAdmin();
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    
+      out.write("\n");
+      out.write("    ");
+      out.write("<hr/>\n");
+      out.write("\n");
       out.write("                    <td> <input type=\"submit\" value=\"EDIT\" name=\"boton3\" /> </td>\n");
       out.write("                </tr>\n");
       out.write("            </tbody>\n");

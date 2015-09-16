@@ -20,7 +20,24 @@
        </DIV>
        <br> </br>
     <center>
+        <%! int user=0; %>
         <h1>Menú Chofer</h1>
+            <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	int result = port.darUser();
+        user = result;
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+    <h2><%= user %></h2>
     </center>
+    
     </body>
 </html>

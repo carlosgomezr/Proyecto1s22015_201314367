@@ -39,6 +39,7 @@ public class ObjectFactory {
     private final static QName _MostrarAdmin_QNAME = new QName("http://servicio/", "mostrarAdmin");
     private final static QName _EliminarEstacionClaveResponse_QNAME = new QName("http://servicio/", "eliminarEstacionClaveResponse");
     private final static QName _EliminarChoferResponse_QNAME = new QName("http://servicio/", "eliminarChoferResponse");
+    private final static QName _DarUser_QNAME = new QName("http://servicio/", "DarUser");
     private final static QName _CargarCSV_QNAME = new QName("http://servicio/", "cargarCSV");
     private final static QName _ModificarAdminResponse_QNAME = new QName("http://servicio/", "modificarAdminResponse");
     private final static QName _ResumenBusEspecificoResponse_QNAME = new QName("http://servicio/", "resumenBusEspecificoResponse");
@@ -57,6 +58,8 @@ public class ObjectFactory {
     private final static QName _ImprimirAdmin_QNAME = new QName("http://servicio/", "imprimirAdmin");
     private final static QName _InsertarEstacionGeneral_QNAME = new QName("http://servicio/", "insertarEstacionGeneral");
     private final static QName _GraphEstacionGeneralResponse_QNAME = new QName("http://servicio/", "graphEstacionGeneralResponse");
+    private final static QName _GraphHorarioChofer_QNAME = new QName("http://servicio/", "graphHorarioChofer");
+    private final static QName _MostrarHorarioChofer_QNAME = new QName("http://servicio/", "mostrarHorarioChofer");
     private final static QName _GraphAdminResponse_QNAME = new QName("http://servicio/", "graphAdminResponse");
     private final static QName _GraphRuta_QNAME = new QName("http://servicio/", "graphRuta");
     private final static QName _GraphAsignacion_QNAME = new QName("http://servicio/", "graphAsignacion");
@@ -66,6 +69,8 @@ public class ObjectFactory {
     private final static QName _GraphAsignacionResponse_QNAME = new QName("http://servicio/", "graphAsignacionResponse");
     private final static QName _GraphHorarioxBusxChoferResponse_QNAME = new QName("http://servicio/", "graphHorarioxBusxChoferResponse");
     private final static QName _EliminarRuta_QNAME = new QName("http://servicio/", "eliminarRuta");
+    private final static QName _DarUserResponse_QNAME = new QName("http://servicio/", "DarUserResponse");
+    private final static QName _GraphHorarioChoferResponse_QNAME = new QName("http://servicio/", "graphHorarioChoferResponse");
     private final static QName _Login_QNAME = new QName("http://servicio/", "Login");
     private final static QName _GraphHorarioxBusxChofer_QNAME = new QName("http://servicio/", "graphHorarioxBusxChofer");
     private final static QName _ImprimirAdminResponse_QNAME = new QName("http://servicio/", "imprimirAdminResponse");
@@ -73,6 +78,7 @@ public class ObjectFactory {
     private final static QName _HelloResponse_QNAME = new QName("http://servicio/", "helloResponse");
     private final static QName _ModificarEstacionClave_QNAME = new QName("http://servicio/", "modificarEstacionClave");
     private final static QName _Hello_QNAME = new QName("http://servicio/", "hello");
+    private final static QName _MostrarHorarioChoferResponse_QNAME = new QName("http://servicio/", "mostrarHorarioChoferResponse");
     private final static QName _EliminarAdmin_QNAME = new QName("http://servicio/", "eliminarAdmin");
     private final static QName _GraphChoferResponse_QNAME = new QName("http://servicio/", "graphChoferResponse");
     private final static QName _ModificarEstacionGeneral_QNAME = new QName("http://servicio/", "modificarEstacionGeneral");
@@ -305,6 +311,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link DarUserResponse }
+     * 
+     */
+    public DarUserResponse createDarUserResponse() {
+        return new DarUserResponse();
+    }
+
+    /**
+     * Create an instance of {@link GraphHorarioChoferResponse }
+     * 
+     */
+    public GraphHorarioChoferResponse createGraphHorarioChoferResponse() {
+        return new GraphHorarioChoferResponse();
+    }
+
+    /**
      * Create an instance of {@link Login }
      * 
      */
@@ -358,6 +380,14 @@ public class ObjectFactory {
      */
     public Hello createHello() {
         return new Hello();
+    }
+
+    /**
+     * Create an instance of {@link MostrarHorarioChoferResponse }
+     * 
+     */
+    public MostrarHorarioChoferResponse createMostrarHorarioChoferResponse() {
+        return new MostrarHorarioChoferResponse();
     }
 
     /**
@@ -505,6 +535,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraphHorarioChofer }
+     * 
+     */
+    public GraphHorarioChofer createGraphHorarioChofer() {
+        return new GraphHorarioChofer();
+    }
+
+    /**
+     * Create an instance of {@link MostrarHorarioChofer }
+     * 
+     */
+    public MostrarHorarioChofer createMostrarHorarioChofer() {
+        return new MostrarHorarioChofer();
+    }
+
+    /**
      * Create an instance of {@link GraphRutaResponse }
      * 
      */
@@ -630,6 +676,14 @@ public class ObjectFactory {
      */
     public EliminarEstacionClaveResponse createEliminarEstacionClaveResponse() {
         return new EliminarEstacionClaveResponse();
+    }
+
+    /**
+     * Create an instance of {@link DarUser }
+     * 
+     */
+    public DarUser createDarUser() {
+        return new DarUser();
     }
 
     /**
@@ -816,6 +870,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DarUser }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "DarUser")
+    public JAXBElement<DarUser> createDarUser(DarUser value) {
+        return new JAXBElement<DarUser>(_DarUser_QNAME, DarUser.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CargarCSV }{@code >}}
      * 
      */
@@ -978,6 +1041,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraphHorarioChofer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "graphHorarioChofer")
+    public JAXBElement<GraphHorarioChofer> createGraphHorarioChofer(GraphHorarioChofer value) {
+        return new JAXBElement<GraphHorarioChofer>(_GraphHorarioChofer_QNAME, GraphHorarioChofer.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MostrarHorarioChofer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "mostrarHorarioChofer")
+    public JAXBElement<MostrarHorarioChofer> createMostrarHorarioChofer(MostrarHorarioChofer value) {
+        return new JAXBElement<MostrarHorarioChofer>(_MostrarHorarioChofer_QNAME, MostrarHorarioChofer.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GraphAdminResponse }{@code >}}
      * 
      */
@@ -1059,6 +1140,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link DarUserResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "DarUserResponse")
+    public JAXBElement<DarUserResponse> createDarUserResponse(DarUserResponse value) {
+        return new JAXBElement<DarUserResponse>(_DarUserResponse_QNAME, DarUserResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraphHorarioChoferResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "graphHorarioChoferResponse")
+    public JAXBElement<GraphHorarioChoferResponse> createGraphHorarioChoferResponse(GraphHorarioChoferResponse value) {
+        return new JAXBElement<GraphHorarioChoferResponse>(_GraphHorarioChoferResponse_QNAME, GraphHorarioChoferResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Login }{@code >}}
      * 
      */
@@ -1119,6 +1218,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicio/", name = "hello")
     public JAXBElement<Hello> createHello(Hello value) {
         return new JAXBElement<Hello>(_Hello_QNAME, Hello.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link MostrarHorarioChoferResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicio/", name = "mostrarHorarioChoferResponse")
+    public JAXBElement<MostrarHorarioChoferResponse> createMostrarHorarioChoferResponse(MostrarHorarioChoferResponse value) {
+        return new JAXBElement<MostrarHorarioChoferResponse>(_MostrarHorarioChoferResponse_QNAME, MostrarHorarioChoferResponse.class, null, value);
     }
 
     /**

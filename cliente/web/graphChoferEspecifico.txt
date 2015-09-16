@@ -1,0 +1,21 @@
+digraph grafica { 
+label= " Chofer 3"node [shape=record];
+subgraph g { 
+ nodefecha0[label=" id: 27 AGOSTO 2015 "];
+nodefecha1[label=" id: 30 SEPTIEMBRE 2015 "];
+nodefecha0->nodefecha1;
+nodefecha1->nodefecha0;
+	subgraph cluster0 { 
+label= " 27 AGOSTO 2015"nodehora0c0[label=" bus: D ruta: RUTA4 hora i: 14:00 hora f: 20:00 "];
+nodehora0c1[label=" bus: A ruta: RUTA4 hora i: 14:00 hora f: 20:00 "];
+nodehora0c0->nodehora0c1;
+nodehora0c1->nodehora0c0;
+}
+	subgraph cluster1 { 
+label= " 30 SEPTIEMBRE 2015"nodehora1c0[label=" bus: B ruta: RUTA4 hora i: 10:00 hora f: 11:00 "];
+nodehora1c1[label=" bus: B ruta: RUTA4 hora i: 10:00 hora f: 11:00 "];
+nodehora1c0->nodehora1c1;
+nodehora1c1->nodehora1c0;
+}
+}
+}
