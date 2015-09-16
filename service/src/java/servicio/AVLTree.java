@@ -18,7 +18,7 @@ public class AVLTree {
 public AVLNode root;
 public AVLNode padre;
 public AVLNode r;
-
+public boolean flag=false;
     public void insert( int x,String nombre, String password ){
         root = insert( x, nombre,password,root );
     }
@@ -45,7 +45,7 @@ public AVLNode r;
     }
     
     public boolean existe(AVLNode nuevo,int x){
-    boolean flag=false;
+    flag=false;
     
     try{
         if(root==null){ flag=false;}
@@ -68,6 +68,24 @@ public AVLNode r;
     }
         return flag;
     }
+    
+     public void existemod(AVLNode nuevo,int x, String nombre,String password, int nuevaclave){
+
+        if ( x<nuevo.id){
+            if(nuevo.izquierdo!=null){
+                existemod(nuevo.izquierdo,x,nombre,password,nuevaclave);
+            }
+        }
+        if ( x>nuevo.id){
+            if(nuevo.derecho!=null){
+                existemod(nuevo.derecho,x,nombre,password,nuevaclave);
+            }
+        }        
+        if( x==nuevo.id){
+            modificarEliminar(nuevo,x,nombre,password,nuevaclave);
+        }
+     
+  }
     /*
      * x es una instancia de una clase que implementa Comparable
     */
@@ -461,7 +479,7 @@ public AVLNode eliminar_min(AVLNode t){
 
 
 public boolean log(AVLNode nodo,int x,String password){
-        boolean flag=false;
+       flag=false;
     try{   
         if (x<nodo.id){
                 log(nodo.izquierdo,x,password);
@@ -471,7 +489,7 @@ public boolean log(AVLNode nodo,int x,String password){
                 log(nodo.derecho,x,password);
               //  flag=false;
         }        
-        if( (x==nodo.id)&(password==nodo.password)){
+        if( (x==nodo.id)&(password.compareTo(nodo.password)==0)){
                 flag=true; 
                 System.out.println("LOG IN "+x+" "+password+" "+flag);
         }

@@ -18,7 +18,7 @@ import java.io.PrintWriter;
 public class listasdobles {
     public nodo primero;
     public nodo ultimo;
-    
+    public boolean flag=false;
     public boolean estavacio()
     {
         if(primero==null) return true;
@@ -133,7 +133,7 @@ public class listasdobles {
 	}
 	nodo actual = primero;
         nodo auxiliar = primero;
-        for(int i=1;i<=tam;i++){
+        for(int i=0;i<tam;i++){
             if(actual!=null){
                 aux = actual;
                 actual = actual.next;
@@ -158,9 +158,9 @@ public class listasdobles {
     }
     
     public boolean existe(String id){
-        boolean flag=false;
+        flag=false;
         nodo actual;
-        nodo aux=primero;
+        nodo aux = primero;
         actual = primero;
         
         while(actual!=null){
@@ -177,48 +177,74 @@ public class listasdobles {
     
      public void Modificar(listasdobles lista,nodo aj,nodo ajm){
         
-        nodo actual;
-        actual = ultimo;
-        nodo aux = ultimo;
-        while( actual != null)
-	{
+        nodo actual=new nodo("","",0,"","","");
+        //actual = ultimo;
+        //nodo aux = ultimo;
+        //while( actual != null)
+	//{
             //System.out.println("j :"+aj.ClaveChofer+" j+1 "+ajm.ClaveChofer);
             //if(actual.b.ClaveChofer==aj.ClaveChofer){
-            if(actual.id.compareTo(aj.id)==0){
-                aj.id = ajm.id;
-                aj.nombre = ajm.nombre;
-                aj.ClaveChofer = ajm.ClaveChofer;
-                aj.horarioIni = ajm.horarioIni;
-                aj.horarioFin = ajm.horarioFin;
-                aj.fecha = ajm.fecha;
+          //  if(actual.id.compareTo(aj.id)==0){
+        
                 actual.id = aj.id;
                 actual.nombre = aj.nombre;
                 actual.ClaveChofer = aj.ClaveChofer;
                 actual.horarioIni = aj.horarioIni;
                 actual.horarioFin = aj.horarioFin;
                 actual.fecha = aj.fecha;
-            }
-            actual = actual.ant;
-	}
-        ultimo = aux;
+                aj.id = ajm.id;
+                aj.nombre = ajm.nombre;
+                aj.ClaveChofer = ajm.ClaveChofer;
+                aj.horarioIni = ajm.horarioIni;
+                aj.horarioFin = ajm.horarioFin;
+                aj.fecha = ajm.fecha;
+                ajm.id = actual.id;
+                ajm.nombre = actual.nombre;
+                ajm.ClaveChofer = actual.ClaveChofer;
+                ajm.horarioIni = actual.horarioIni;
+                ajm.horarioFin = actual.horarioFin;
+                ajm.fecha = actual.fecha;
+            //}
+          //  actual = actual.ant;
+	//}
+        //ultimo = aux;
     }
    
      public void ordenamiento(listasdobles lista){
      int tam = 0;
-     nodo temp = null;
-     nodo aux = null;
-     nodo aux2 = null;
+     nodo temp = new nodo("","",0,"","","");
+     nodo aj = new nodo("","",0,"","","");
+     nodo ajm = new nodo("","",0,"","","");
      tam = lista.tamaño()+1;
      System.out.println("Tamaño ");
-         for(int i=1;i<=tam;i++){
-             for(int j=1;j<=tam;j++){
+         for(int i=1;i<tam;i++){
+             for(int j=1;j<tam;j++){
                 //if(lista.posicion(j).b.ClaveChofer>lista.posicion(j+1).b.ClaveChofer){ 
                 if(lista.posicion(j).id.compareTo(lista.posicion(i).id)>0){
                      System.out.println("entro a >");
-                     temp = lista.posicion(j);
-                     
-                     lista.Modificar(lista, lista.posicion(j),lista.posicion(j+1));
-                     lista.Modificar(lista, lista.posicion(j+1), temp);
+                     temp.id = lista.posicion(j).id;
+                     temp.nombre = lista.posicion(j).nombre;
+                     temp.ClaveChofer = lista.posicion(j).ClaveChofer;
+                     temp.horarioIni = lista.posicion(j).horarioIni;
+                     temp.horarioFin = lista.posicion(j).horarioFin;
+                     temp.fecha = lista.posicion(j).fecha;
+                     aj=lista.posicion(j);
+                     ajm=lista.posicion(j+1);
+                     aj.id = ajm.id;
+                     aj.nombre = ajm.nombre;
+                     aj.ClaveChofer = ajm.ClaveChofer;
+                     aj.horarioIni = ajm.horarioIni;
+                     aj.horarioFin = ajm.horarioFin;
+                     aj.fecha = ajm.fecha;
+                     ajm.id = temp.id;
+                     ajm.nombre = temp.nombre;
+                     ajm.ClaveChofer = temp.ClaveChofer;
+                     ajm.horarioIni = temp.horarioIni;
+                     ajm.horarioFin = temp.horarioFin;
+                     ajm.fecha = temp.fecha;
+
+                    // lista.Modificar(lista, lista.posicion(j),lista.posicion(j+1));
+                    // lista.Modificar(lista, lista.posicion(j+1), temp);
                 }
              }
          }

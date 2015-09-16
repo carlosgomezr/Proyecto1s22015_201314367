@@ -24,7 +24,7 @@ public class AVLTreeAdmin {
 public AVLNodeAdmin root;
 public AVLNodeAdmin padre;
 public AVLNodeAdmin r;    
-
+public boolean flag=false;
     public void insert( String correo, String password,int contador ){
         root = insert(correo,password,contador,root );
     }
@@ -34,9 +34,7 @@ public AVLNodeAdmin r;
     public void buscar(String x){
         buscar(root,x);
     }
-    public boolean existe(String x){
-        return existe(root,x);
-    }
+    
     public void padre(AVLNodeAdmin hijo){
         padre(root,hijo);
     }
@@ -48,9 +46,8 @@ public AVLNodeAdmin r;
         return log(root,x,password);
     }
     
-    public boolean existe(AVLNodeAdmin nuevo,String x){
-    boolean flag=false;
-    try{
+    public void existe(AVLNodeAdmin nuevo,String x){
+        flag=false;
         if(root==null){ flag=false;}
         if ( x.compareTo(nuevo.correo)<0){
             if(nuevo.izquierdo!=null){
@@ -63,13 +60,27 @@ public AVLNodeAdmin r;
             }
         }        
         if( x.compareTo(nuevo.correo)==0){
-              System.out.print("si existe clave");
               flag = true;
         }
-    }catch(Exception ex){
-    
-    }
-        return flag;
+        
+  }
+   
+    public void existemod(AVLNodeAdmin nuevo,String x,String password,int contador,String nuevocorreo){
+
+        if ( x.compareTo(nuevo.correo)<0){
+            if(nuevo.izquierdo!=null){
+                existemod(nuevo.izquierdo,x,password,contador,nuevocorreo);
+            }
+        }
+        if ( x.compareTo(nuevo.correo)>0){
+            if(nuevo.derecho!=null){
+                existemod(nuevo.derecho,x,password,contador,nuevocorreo);
+            }
+        }        
+        if( x.compareTo(nuevo.correo)==0){
+            modificarEliminar(nuevo,x,password,contador,nuevocorreo);
+        }
+     
   }
     
      private AVLNodeAdmin insert(String nombre, String password, int contador,AVLNodeAdmin t ){
@@ -124,12 +135,8 @@ public AVLNodeAdmin r;
     }
     
     public void modificarEliminar(AVLNodeAdmin nodo,String x, String password,int contador,String nuevaclave){
-        try{
             eliminar(nodo,x);
             insert(nuevaclave,password,contador);
-        }
-        catch(Exception ex){
-        }
     }
     
     
@@ -413,7 +420,7 @@ public AVLNodeAdmin eliminar_min(AVLNodeAdmin t){
 }
 
     public boolean log(AVLNodeAdmin nodo,String x,String password){
-        boolean flag=false;
+                flag = false;
     try{   
         if (x.compareTo(nodo.correo)<0){
                 log(nodo.izquierdo,x,password);

@@ -56,7 +56,7 @@ public void generarListaDoble(listasdobles lista,String ruta){
                         }
                     }
                     else{
-                            pw.write("node"+c+"[label=\" id: "+aux.primero.id+" \"];\n");
+                            pw.write("node"+c2+"[label=\" id: "+aux.primero.id+" \"];\n");
                     }
                 
             }
@@ -105,7 +105,7 @@ public void generarAsignacion(listasdobles lista,String ruta){
                         }
                     }
                     else{
-                            pw.write("node"+c+"[label=\" id: "+aux.primero.id+" ruta: "+aux.primero.nombre+" ChoferClave: "+aux.primero.ClaveChofer+" HoraIni: "+aux.primero.horarioIni+" HoraFin: "+aux.primero.horarioFin+" Fecha: "+aux.primero.fecha+" \"];\n");
+                            pw.write("node"+c2+"[label=\" id: "+aux.primero.id+" ruta: "+aux.primero.nombre+" ChoferClave: "+aux.primero.ClaveChofer+" HoraIni: "+aux.primero.horarioIni+" HoraFin: "+aux.primero.horarioFin+" Fecha: "+aux.primero.fecha+" \"];\n");
                     }
                 
             }
@@ -157,7 +157,7 @@ public void generarListaDoble2(listasdobles lista,String ruta){
                         }
                     }
                     else{
-                            pw.write("node"+contar+"[label=\" id: "+aux.primero.id+" horario ini: "+aux.primero.horarioIni+" horario fin: "+aux.primero.horarioFin+" fecha: "+aux.primero.fecha+"\"];\n");
+                            pw.write("node"+contar2+"[label=\" id: "+aux.primero.id+" horario ini: "+aux.primero.horarioIni+" horario fin: "+aux.primero.horarioFin+" fecha: "+aux.primero.fecha+"\"];\n");
                         }
                 
             }
@@ -179,7 +179,7 @@ public void generarListaDoble2(listasdobles lista,String ruta){
 
 
 public String ResumenChoferxDia(AVLNodeChofer nuevo,int x){
-    String cadena="";
+    String resumenChofer="";
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
@@ -193,7 +193,7 @@ public String ResumenChoferxDia(AVLNodeChofer nuevo,int x){
         }        
         if( x==nuevo.id){
               System.out.print("si existe clave "+nuevo);
-              cadena=nuevo.lista.imprimir();
+              resumenChofer=resumenChofer+"\n"+nuevo.lista.imprimir();
         }
         else{
                 System.out.println("clave no existe");
@@ -201,7 +201,7 @@ public String ResumenChoferxDia(AVLNodeChofer nuevo,int x){
     }catch(Exception ex){
     
     }
-        return cadena;
+        return resumenChofer;
     }
 
 public void ChoferxDia(AVLNodeChofer nuevo,int x,String ruta, String nombre){
@@ -265,8 +265,8 @@ public void generarFecha(listad lista,String ruta,String nombre){
                         }
                     }
                     else{
-                            pw.write("nodefecha"+contador+"[label=\" id: "+aux.primero.dia+" \"];\n");
-                            pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador),aux.primero.dia));
+                            pw.write("nodefecha"+contador1+"[label=\" id: "+aux.primero.dia+" \"];\n");
+                            pw.write(generarListaDia(aux.primero.hora,Integer.toString(contador1),aux.primero.dia));
                         
                     }
                 
@@ -312,7 +312,7 @@ public String generarListaDia(listah lista,String cluster,String nombre){
                         }
                     }
                     else{
-                          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
+                          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
                     }
                 
             }

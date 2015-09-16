@@ -20,6 +20,7 @@ public AVLNodeChofer root;
 public AVLNodeChofer padre;
 public AVLNodeChofer r;
 public String con="";
+public boolean flag=false;
     public void insert( int x,String nombre,String apellido, String password ){
         root = insert( x, nombre,apellido,password,root );
     }
@@ -149,7 +150,7 @@ public String con="";
     }
         
     public boolean existe(AVLNodeChofer nuevo,int x){
-    boolean flag=false;
+    flag=false;
     try{    
         if(root==null){ flag=false;}
         if ( x<nuevo.id){
@@ -195,7 +196,23 @@ public String con="";
         return con;
     }
     
-    
+    public void existemod(AVLNodeChofer nuevo,int x, String nombre, String apellido, String password, int nuevaclave){
+
+        if ( x<nuevo.id){
+            if(nuevo.izquierdo!=null){
+                existemod(nuevo.izquierdo,x,nombre,apellido,password,nuevaclave);
+            }
+        }
+        if ( x>nuevo.id){
+            if(nuevo.derecho!=null){
+                existemod(nuevo.derecho,x,nombre,apellido,password,nuevaclave);
+            }
+        }        
+        if( x==nuevo.id){
+            modificarEliminar(nuevo,x,nombre,apellido,password,nuevaclave);
+        }
+     
+  }
     
     public void modificarEliminar(AVLNodeChofer nodo,int x, String nombre,String apellido, String password,int nuevaclave){
         try{
@@ -492,7 +509,7 @@ public AVLNodeChofer eliminar_min(AVLNodeChofer t){
 }
 
 public boolean log(AVLNodeChofer nodo,int x,String password){
-        boolean flag=false;
+    flag=false;
     try{   
         if (x<nodo.id){
                 log(nodo.izquierdo,x,password);
@@ -502,7 +519,7 @@ public boolean log(AVLNodeChofer nodo,int x,String password){
                 log(nodo.derecho,x,password);
               //  flag=false;
         }        
-        if( (x==nodo.id)&(password==nodo.password)){
+        if( (x==nodo.id)&(password.compareTo(nodo.password)==0)){
                 flag=true; 
                 System.out.println("LOG IN "+x+" "+password+" "+flag);
         }

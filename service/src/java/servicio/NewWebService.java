@@ -62,10 +62,8 @@ int user=0;
      */
     @WebMethod(operationName = "modificarAdmin")
     public String modificarAdmin(@WebParam(name = "correo") String correo, @WebParam(name = "password") String password, @WebParam(name = "nuevocorreo") String nuevocorreo) {
-    if(admin.existe(correo)==true){
-        admin.modificarEliminar(admin.root, correo, password, contadoradmin, nuevocorreo);
-        contadoradmin=contadoradmin+1;
-    }
+        admin.existemod(admin.root, correo, password, contadoradmin, nuevocorreo);
+        contadoradmin = contadoradmin+1;
     return null;
     }
     
@@ -137,9 +135,7 @@ int user=0;
     public String modificarEstacionClave(@WebParam(name = "id") String id, @WebParam(name = "nombre") String nombre, @WebParam(name = "password") String password, @WebParam(name = "nuevaclave") String nuevaclave) {
         int auxid=Integer.parseInt(id);
         int auxclave=Integer.parseInt(nuevaclave);
-        if(eclave.existe(auxid)==true){
-            eclave.modificarEliminar(eclave.root, auxid, nombre, password, auxclave);
-        }
+        eclave.existemod(eclave.root, auxid, nombre, password, auxclave);
     return null;
     }
 
@@ -187,10 +183,8 @@ int user=0;
     public String modificarEstacionGeneral(@WebParam(name = "id") String id, @WebParam(name = "nombre") String nombre, @WebParam(name = "password") String password, @WebParam(name = "nuevaclave") String nuevaclave) {
     int auxid=Integer.parseInt(id);
     int auxclave=Integer.parseInt(nuevaclave);
-    if(egeneral.existe(auxid)==true){
-        egeneral.modificarEliminar(egeneral.root, auxid, nombre, password, auxclave);
-    }
-        return null;
+    egeneral.existemod(egeneral.root, auxid, nombre, password, auxclave);
+    return null;
     }
 
     /**
@@ -233,10 +227,8 @@ int user=0;
     public String modificarChofer(@WebParam(name = "id") String id, @WebParam(name = "nombre") String nombre, @WebParam(name = "apellido") String apellido, @WebParam(name = "password") String password, @WebParam(name = "nuevaclave") String nuevaclave) {
     int auxid=Integer.parseInt(id);
     int auxclave=Integer.parseInt(nuevaclave);
-        if(chofer.existe(auxid)==true){
-            chofer.modificarEliminar(chofer.root, auxid, nombre, apellido, password, auxclave);
-        }
-        return null;
+        chofer.existemod(chofer.root, auxid, nombre, apellido, password, auxclave);
+    return null;
     }
 
     /**
@@ -255,7 +247,9 @@ int user=0;
      */
     @WebMethod(operationName = "insertarRuta")
     public String insertarRuta(@WebParam(name = "nombre") String nombre, @WebParam(name = "estacion") String estacion) {
-    rutas.InsertarRuta(nombre, estacion);
+    if((nombre!=null) & (estacion!=null)){
+        rutas.InsertarRuta(nombre, estacion);
+    }
         return null;
     }
 
@@ -305,9 +299,11 @@ if((id!=null)){
      */
     @WebMethod(operationName = "modificarBus")
     public String modificarBus(@WebParam(name = "id") String id, @WebParam(name = "nuevoid") String nuevoid) {
-        buses.delete(id);
-        if(buses.existe(id)==true){
-        buses.alta(nuevoid,"",0,"","","");
+        buses.existe(id);
+        if(buses.flag==true){
+            buses.delete(id);
+            buses.alta(nuevoid,"",0,"","","");
+        
         }//buses.ordenamiento(buses);
         return null;
     }
@@ -318,7 +314,7 @@ if((id!=null)){
     @WebMethod(operationName = "graphBus")
     public String graphBus() {
     Funcion f = new Funcion();
-    //buses.ordenamiento(buses);
+    buses.ordenamiento(buses);
     f.generarListaDoble(buses,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphBus.txt");
     f.generarImagen("graphBus","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphBus.txt");
     return null;
@@ -332,7 +328,9 @@ if((id!=null)){
     public String insertarAsignacion(@WebParam(name = "id") String id, @WebParam(name = "ruta") String ruta, @WebParam(name = "claveChofer") String claveChofer, @WebParam(name = "horaini") String horaini, @WebParam(name = "horafin") String horafin, @WebParam(name = "fecha") String fecha) {
         int auxclave = Integer.parseInt(claveChofer);
         asignacion.alta(id,ruta,auxclave,horaini,horafin,fecha);
-        if(buses.existe(id)==true){
+        if((id!=null) & (ruta!=null) & (claveChofer!=null) &(horaini!=null) &(horafin!=null) & (fecha!=null)){
+        buses.existe(id);
+        if(buses.flag==true){
                 System.out.println("Existe "+id); 
                 //lista.ordenamiento(lista);
             }else{
@@ -340,8 +338,8 @@ if((id!=null)){
                 buses.alta(id,ruta,auxclave,horaini,horafin,fecha);
                 //lista.ordenamiento(lista);
             }
-        buses.ordenamiento(buses);
-        if(chofer.existe(chofer.root,auxclave)==true){
+        chofer.existe(chofer.root,auxclave);
+        if(chofer.flag==true){
              //   System.out.println("AVL Existe "+auxclave);
                 chofer.buscarInsertarHora(chofer.root, auxclave, fecha, id, ruta,horaini,horafin);
             }else{
@@ -349,6 +347,7 @@ if((id!=null)){
                 chofer.insert(auxclave, "Chofer","chofer", "chofer");
                 chofer.buscarInsertarHora(chofer.root, auxclave, fecha, id, ruta,horaini,horafin);
             }
+        }
         return null;
     }
 
@@ -358,11 +357,12 @@ if((id!=null)){
     @WebMethod(operationName = "grahpBusxChofer")
     public String grahpBusxChofer(@WebParam(name = "id") String id) {
     int auxid=Integer.parseInt(id);
-        if(chofer.existe(chofer.root, auxid)==true){
-           
+    chofer.existe(auxid);
+        if(chofer.flag==true){
+         asignacion.reporteChoferxBus(auxid);  
         }  
-         asignacion.reporteChoferxBus(auxid);
-        return " existe "+chofer.existe(chofer.root, auxid);
+         
+        return null;
     }
 
     /**
@@ -371,7 +371,8 @@ if((id!=null)){
     @WebMethod(operationName = "graphHorarioxBusxChofer")
     public String graphHorarioxBusxChofer(@WebParam(name = "idbus") String idbus, @WebParam(name = "idchofer") String idchofer) {
     int auxchofer = Integer.parseInt(idchofer);
-        if(chofer.existe(chofer.root, auxchofer)){
+    chofer.existe(auxchofer);
+        if(chofer.flag==true){
             asignacion.reporteHoraxChofer(auxchofer, idbus);
         }
         return null;
@@ -408,41 +409,45 @@ if((id!=null)){
         pagina="menu.jsp";
     }
     else if(tipo.compareTo("Administrador")==0){
-        if(admin.log(usuario, password)==true){
+        admin.log(admin.root, usuario, password);
+        if(admin.flag==true){
             pagina="menu.jsp";
         }
-        if(admin.log(usuario, password)==false){
+        if(admin.flag==false){
             pagina="index.jsp";
         }
         
     }
     if(tipo.compareTo("EstacionClave")==0){
         int auxiliar=Integer.parseInt(usuario);
-        if(eclave.log(auxiliar, password)==true){
+        eclave.log(eclave.root, auxiliar, password);
+        if(eclave.flag==true){
             user=auxiliar;
             pagina="menueclave.jsp";
         }
-        if(eclave.log(auxiliar, password)==false){
+        if(eclave.flag==false){
             pagina="index.jsp";
         }
     }
     if(tipo.compareTo("EstacionGeneral")==0){
         int auxiliar=Integer.parseInt(usuario);
-        if(egeneral.log(auxiliar, password)==true){
+        egeneral.log(egeneral.root, auxiliar, password);
+        if(egeneral.flag==true){
             user=auxiliar;
             pagina="menuegeneral.jsp";
         }
-        if(egeneral.log(auxiliar, password)==false){
+        if(egeneral.flag==false){
             pagina="index.jsp";
         }
     }
     if(tipo.compareTo("Chofer")==0){
         int auxiliar=Integer.parseInt(usuario);
-        if(chofer.log(auxiliar, password)==true){
+        chofer.log(chofer.root, auxiliar, password);
+        if(chofer.flag==true){
             user=auxiliar;
             pagina="menuchofer.jsp";
         }
-        if(chofer.log(auxiliar, password)==false){
+        if(chofer.flag==false){
             pagina="index.jsp";
         }
     }
