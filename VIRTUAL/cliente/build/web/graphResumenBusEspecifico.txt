@@ -1,0 +1,6 @@
+digraph grafica { 
+label= "LISTA DOBLE  ASIGNACION"node [shape=record];
+subgraph g { 
+ node1[label=" id: G ruta: RUTA1 ChoferClave: 4 HoraIni: 02:00 HoraFin: 04:00 Fecha: 19 SEPTIEMBRE 2015 "];
+}
+}
