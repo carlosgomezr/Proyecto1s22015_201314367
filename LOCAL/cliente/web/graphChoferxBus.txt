@@ -1,0 +1,21 @@
+digraph grafica { 
+label= "LISTA DOBLE  BUSES ;B"node [shape=record];
+subgraph g { 
+ node0[label=" id: A"];
+node1[label=" id: E "];
+node0->node1;
+node1->node0;
+node1[label=" id: E"];
+node2[label=" id: D "];
+node1->node2;
+node2->node1;
+node2[label=" id: D"];
+node3[label=" id: B "];
+node2->node3;
+node3->node2;
+node3[label=" id: B"];
+node4[label=" id: G "];
+node3->node4;
+node4->node3;
+}
+}

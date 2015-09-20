@@ -1,0 +1,66 @@
+digraph grafica { 
+label= " ESTACIONES X RUTA Y BUS" nodesep=.05;
+ rankdir=LR;
+ node [shape=record,width=.1,height=.1];subgraph g { 
+ nodefecha0[label=" id: 1 "];
+nodefecha1[label=" id: 2 "];
+nodefecha0->nodefecha1;
+nodefecha1->nodefecha0;
+	subgraph cluster0 { 
+label= " 1"nodehora0c0[label=" bus: A ruta: RUTA1 "];
+nodehora0c1[label=" bus: E ruta: RUTA1 "];
+nodehora0c1[label=" bus: E ruta: RUTA1 "];
+nodehora0c2[label=" bus: D ruta: RUTA1 "];
+nodehora0c2[label=" bus: D ruta: RUTA1 "];
+nodehora0c3[label=" bus: B ruta: RUTA1 "];
+}
+	subgraph cluster1 { 
+label= " 2"nodehora1c0[label=" bus: B ruta: RUTA2 "];
+nodehora1c1[label=" bus: F ruta: RUTA2 "];
+nodehora1c1[label=" bus: F ruta: RUTA2 "];
+nodehora1c2[label=" bus: E ruta: RUTA2 "];
+nodehora1c2[label=" bus: E ruta: RUTA2 "];
+nodehora1c3[label=" bus: C ruta: RUTA2 "];
+}
+nodefecha1[label=" id: 2 "];
+nodefecha2[label=" id: 3 "];
+nodefecha1->nodefecha2;
+nodefecha2->nodefecha1;
+	subgraph cluster1 { 
+label= " 2"nodehora1c0[label=" bus: B ruta: RUTA2 "];
+nodehora1c1[label=" bus: F ruta: RUTA2 "];
+nodehora1c1[label=" bus: F ruta: RUTA2 "];
+nodehora1c2[label=" bus: E ruta: RUTA2 "];
+nodehora1c2[label=" bus: E ruta: RUTA2 "];
+nodehora1c3[label=" bus: C ruta: RUTA2 "];
+}
+	subgraph cluster2 { 
+label= " 3"nodehora2c0[label=" bus: C ruta: RUTA3 "];
+nodehora2c1[label=" bus: A ruta: RUTA3 "];
+nodehora2c1[label=" bus: A ruta: RUTA3 "];
+nodehora2c2[label=" bus: F ruta: RUTA3 "];
+nodehora2c2[label=" bus: F ruta: RUTA3 "];
+nodehora2c3[label=" bus: A ruta: RUTA3 "];
+}
+nodefecha2[label=" id: 3 "];
+nodefecha3[label=" id: 4 "];
+nodefecha2->nodefecha3;
+nodefecha3->nodefecha2;
+	subgraph cluster2 { 
+label= " 3"nodehora2c0[label=" bus: C ruta: RUTA3 "];
+nodehora2c1[label=" bus: A ruta: RUTA3 "];
+nodehora2c1[label=" bus: A ruta: RUTA3 "];
+nodehora2c2[label=" bus: F ruta: RUTA3 "];
+nodehora2c2[label=" bus: F ruta: RUTA3 "];
+nodehora2c3[label=" bus: A ruta: RUTA3 "];
+}
+	subgraph cluster3 { 
+label= " 4"nodehora3c0[label=" bus: D ruta: RUTA4 "];
+nodehora3c1[label=" bus: B ruta: RUTA4 "];
+nodehora3c1[label=" bus: B ruta: RUTA4 "];
+nodehora3c2[label=" bus: A ruta: RUTA4 "];
+nodehora3c2[label=" bus: A ruta: RUTA4 "];
+nodehora3c3[label=" bus: B ruta: RUTA4 "];
+}
+}
+}
