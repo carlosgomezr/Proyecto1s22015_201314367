@@ -61,13 +61,5 @@ node14[label=" id: A ruta: RUTA3 ChoferClave: 4 HoraIni: 16:00 HoraFin: 17:00 Fe
 node15[label=" id: B ruta: RUTA4 ChoferClave: 3 HoraIni: 10:00 HoraFin: 11:00 Fecha: 30 SEPTIEMBRE 2015 "];
 node14->node15;
 node15->node14;
-node15[label=" id: B ruta: RUTA4 ChoferClave: 3 HoraIni: 10:00 HoraFin: 11:00 Fecha: 30 SEPTIEMBRE 2015"];
-node16[label=" id: A ruta: RUTA1 ChoferClave: 1 HoraIni: 13:00 HoraFin: 15:00 Fecha: 15 SEPTIEMBRE 2015 "];
-node15->node16;
-node16->node15;
-node16[label=" id: A ruta: RUTA1 ChoferClave: 1 HoraIni: 13:00 HoraFin: 15:00 Fecha: 15 SEPTIEMBRE 2015"];
-node17[label=" id: B ruta: RUTA2 ChoferClave: 2 HoraIni: 01:00 HoraFin: 03:00 Fecha: 16 SEPTIEMBRE 2015 "];
-node16->node17;
-node17->node16;
 }
 }

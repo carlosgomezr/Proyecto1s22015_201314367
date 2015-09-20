@@ -13,6 +13,7 @@
     </head><%! String idbus="";String ruta=""; String clavechofer="";String horarioini="";String horariofin="";String fecha="";%>
     <body background="BACK2.jpg">
     <center>
+        <font color="white">
         <br></br>
         <DIV ALIGN=right>
            <form name="pasarmenu" action="menu.jsp" method="POST">
@@ -23,7 +24,6 @@
         <h1>Asignar Bus</h1>
         <br></br>
         <br></br>
-        <font color="white">
         <h1>Agregar Asignacion de Bus</h1>
         <form name="pasarasignarbus" action="asignarbus.jsp" method="POST">
         <table border="0">

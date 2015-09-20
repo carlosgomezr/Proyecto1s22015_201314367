@@ -12,6 +12,7 @@
         <title>Resumen</title>
     </head>
     <body background="BACK2.jpg">
+    <font color="white">
     <center>
         <br></br>
         <DIV ALIGN=right>
@@ -41,6 +42,7 @@
     }
     %>
     <%-- end web service invocation --%><hr/>
+    <img src="C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/graphChoferEspecifico.txtgraph.png">
  
             
             <input type="submit" value="Horario Chofer Específico" name="boton1" />
@@ -59,16 +61,17 @@
 	java.lang.String idbus = request.getParameter("texto2");
 	// TODO process result here
 	java.lang.String result = port.resumenBusEspecifico(idbus);
-	out.println("Result = "+result);
+	out.println("Result = \n "+result);
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
     %>
     <%-- end web service invocation --%><hr/>
 
-        
+        <img src="C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/graphResumenBusEspecifico.txtgraphResumenBusEspecifico.png">
         <input type="submit" value="Bus Especifico" name="boton2" />
     </form>
     </center>
+    </font>
     </body>
 </html>

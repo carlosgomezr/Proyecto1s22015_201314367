@@ -8,11 +8,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <META HTTP-EQUIV="Expires" CONTENT="-1">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>REPORT</title>
     </head><%! String titulo=""; String bus=""; String chofer=""; %>
-    <body background="BACK2.jpg">
+    <body background="BACK2.jpg" onLoad="if ('Navigator' == navigator.appName)document.forms[0].reset();">
         <center>
+        <font color="white">
         <br></br>
         <DIV ALIGN=right>
            <form name="pasarmenu" action="menu.jsp" method="POST">
@@ -24,16 +27,7 @@
         <br></br>
         <br></br>  
         <br></br>
-        <font color ="white">
         <form name="pasar1" action="reporte.jsp" method="POST">     
-<SCRIPT>
-    function reloadIt()
-  {
-var img1= "graphChofer.txtgraphChofer.png"
-newimg = img1
-document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="absmiddle">')
-  }
-</SCRIPT>
         
         <%-- start web service invocation --%><hr/>
     <%
@@ -48,8 +42,20 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphadmin.txtgraphadmin.png">
-       
+    <img src="C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/graphadmin.txtgraphadmin.png">
+
+<SCRIPT language="JavaScript" type="text/javascript">
+var t = 2; // Interval in Seconds
+image = "graphBus.txtgraphBus.png"; //URL of the Image
+function Start() {
+tmp = new Date();
+tmp = "?"+tmp.getTime();
+document.images["refresh"].src = image+tmp;
+setTimeout("Start()", t*1000);
+}
+Start();
+</SCRIPT> 
+
         <input type="submit" value="        GRAFICAR ADMIN           " name="boton1" />
         
         </form>
@@ -69,7 +75,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphEC.txtgraphEC.png">
+    <img src="C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/graphEC.txtgraphEC.png">
         
         <input type="submit" value="     GRAFICAR ESTACION CLAVE     " name="boton2" />
        
@@ -90,7 +96,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphEG.txtgraphEG.png">
+    <img src="C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/graphEG.txtgraphEG.png">
         
         <input type="submit" value="    GRAFICAR ESTACION GENERAL    " name="boton3" />
      
@@ -114,7 +120,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphChoferxBus.txtgraphChoferxBus.png">        
+    <img src="C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/graphChoferxBus.txtgraphChoferxBus.png">        
         
         <input type="submit" value="     GRAFICAR BUS POR CHOFER     " name="boton4" />
         
@@ -140,7 +146,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphHoraxChofer.txtgraphHoraxChofer.png">        
+    <img src="C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/graphHoraxChofer.txtgraphHoraxChofer.png">        
         
         <input type="submit" value="GRAFICAR HORARIO POR CHOFER Y BUS" name="bton5"/>
         
@@ -161,7 +167,7 @@ document.write('<IMG SRC="'+newimg+'"width="50" height="50" border="0" align="ab
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <img src="graphChofer.txtgraphChofer.png">
+    <img src="C:/Users/estua_000/Documents/NetBeansProjects/cliente/web/graphChofer.txtgraphChofer.png">
   
     
 

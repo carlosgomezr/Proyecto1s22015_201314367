@@ -13,6 +13,7 @@
     </head><%! String nombre=""; String ruta="";%>
     <body background="BACK2.jpg">
         <center>
+        <font color="white">
         <br></br>
         <DIV ALIGN=right>
            <form name="pasarmenu" action="menu.jsp" method="POST">
@@ -23,7 +24,6 @@
         <h1>Ruta</h1>
         <br></br>
         <br></br>
-        <font color="white">
         <h1>Agregar Ruta</h1>
         <form name="pasarruta" action="ruta.jsp" method="POST">
         <table border="0" style="text-align:center;">

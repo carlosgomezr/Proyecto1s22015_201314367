@@ -12,6 +12,7 @@
         <title>Estación General</title>
     </head>
     <body background="BACK2.jpg">
+       <font color="white">
         <center>
         <br></br>
         <DIV ALIGN=right>
@@ -24,7 +25,6 @@
         <br></br>
         <br></br>
        
-        <font color="white">
         <h1>Agregar Estacion General</h1>
         <form name="pasarestaciong" action="estaciong.jsp" method="POST">
        

@@ -20,6 +20,7 @@
        </DIV>
         <br> </br>
     <center>
+        <font color="white">
         <h1>Menú Administrador</h1>
         <br> </br>
         <form name="pasaradmin" action="admin.jsp" method="POST">
@@ -62,6 +63,7 @@
         <form name="pasarcargaCSV" action="cargar.jsp" method="POST">
         <input type="submit" value="      CargarCSV       " name="boton9" />
         </form>
+        <font>
     </center>
     </body>
 </html>

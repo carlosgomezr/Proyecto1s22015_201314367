@@ -6,30 +6,30 @@ nodefecha1[label=" id: RUTA2 "];
 nodefecha0->nodefecha1;
 nodefecha1->nodefecha0;
 	subgraph cluster0 { 
-label= " RUTA1"nodehora0c0[label=" estacion: 1 "];
+label= " RUTA1"nodehora0c0[label=" estacion: 2 "];
 }
 	subgraph cluster1 { 
-label= " RUTA2"nodehora1c0[label=" estacion: 2 "];
+label= " RUTA2"nodehora1c0[label=" estacion: 3 "];
 }
 nodefecha1[label=" id: RUTA2 "];
-nodefecha2[label=" id: RUTA4 "];
+nodefecha2[label=" id: RUTA3 "];
 nodefecha1->nodefecha2;
 nodefecha2->nodefecha1;
 	subgraph cluster1 { 
-label= " RUTA2"nodehora1c0[label=" estacion: 2 "];
+label= " RUTA2"nodehora1c0[label=" estacion: 3 "];
 }
 	subgraph cluster2 { 
-label= " RUTA4"nodehora2c0[label=" estacion: 4 "];
+label= " RUTA3"nodehora2c0[label=" estacion: 4 "];
 }
-nodefecha2[label=" id: RUTA4 "];
-nodefecha3[label=" id: RUTA3 "];
+nodefecha2[label=" id: RUTA3 "];
+nodefecha3[label=" id: RUTA4 "];
 nodefecha2->nodefecha3;
 nodefecha3->nodefecha2;
 	subgraph cluster2 { 
-label= " RUTA4"nodehora2c0[label=" estacion: 4 "];
+label= " RUTA3"nodehora2c0[label=" estacion: 4 "];
 }
 	subgraph cluster3 { 
-label= " RUTA3"nodehora3c0[label=" estacion: 3 "];
+label= " RUTA4"nodehora3c0[label=" estacion: 1 "];
 }
 }
 }

@@ -13,6 +13,7 @@
     </head><%! String correo1=""; String password1="";%>
     <body  background="BACK2.jpg">
     <center>
+    <font color="white">
         <br></br>
         <DIV ALIGN=right>
            <form name="pasarmenu" action="menu.jsp" method="POST">
@@ -23,7 +24,6 @@
         <h1>Administrador</h1>
         <br></br>
         <br></br>
-        <font color="white">
         <h1>Agregar Aministrador</h1>
         <form name="pasaradmin" action="admin.jsp" method="POST">
         <table border="0" style="text-align:center;">

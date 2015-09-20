@@ -59,6 +59,21 @@
     }
     %>
     <%-- end web service invocation --%><hr/>
+    
+        <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.NewWebService_Service service = new servicio.NewWebService_Service();
+	servicio.NewWebService port = service.getNewWebServicePort();
+	// TODO process result here
+	java.lang.String result = port.rutaPrimero();
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
 
         <input type="submit" value="CARGAR! xD" name="boton1" />   
         </center>

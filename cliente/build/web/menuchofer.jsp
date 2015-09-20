@@ -20,6 +20,7 @@
        </DIV>
        <br> </br>
     <center>
+        <font color="white">
         <%! int user=0; %>
         <h1>Menú Chofer</h1>
             <%-- start web service invocation --%><hr/>
@@ -30,13 +31,13 @@
 	// TODO process result here
 	int result = port.darUser();
         user = result;
-	out.println("Result = "+result);
+	out.println(""+result);
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
     %>
     <%-- end web service invocation --%><hr/>
-    <h2><%= user %></h2>
+    </font>
     </center>
     
     </body>

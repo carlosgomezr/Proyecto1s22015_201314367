@@ -1,5 +1,10 @@
 digraph grafica { 
 label= " AVL ESTACION GENERAL"node [shape=record];
 subgraph g {
+nodea5[label=" clave: 5
+ 
+ NOMBRE: anita 
+ 
+ PASSWORD: anita"];
 }
 }

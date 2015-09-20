@@ -13,6 +13,7 @@
     </head>
     <body background="BACK2.jpg">
         <center>
+           <font color="white">
         <br></br>
         <DIV ALIGN=right>
            <form name="pasarmenu" action="menu.jsp" method="POST">
@@ -20,7 +21,6 @@
            </form>
         </DIV>
         <br></br>
-        <font color="white">
         <h1>Bus</h1>
         <br></br>
         <br></br>
