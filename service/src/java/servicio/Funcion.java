@@ -25,6 +25,7 @@ import java.io.FileNotFoundException;
  * @author Carlos Gomez
  **/
 public class Funcion {
+String resumenChofer="";
 public void generarListaDoble(listasdobles lista,String ruta){
             listasdobles aux = lista;
             nodo auxprimero = lista.primero;
@@ -179,7 +180,7 @@ public void generarListaDoble2(listasdobles lista,String ruta){
 
 
 public String ResumenChoferxDia(AVLNodeChofer nuevo,int x){
-    String resumenChofer="";
+    resumenChofer="";
     try{    
         if ( x<nuevo.id){
             if(nuevo.izquierdo!=null){
@@ -193,7 +194,8 @@ public String ResumenChoferxDia(AVLNodeChofer nuevo,int x){
         }        
         if( x==nuevo.id){
               System.out.print("si existe clave "+nuevo);
-              resumenChofer=resumenChofer+"\n"+nuevo.lista.imprimir();
+              nuevo.lista.imprimir();
+              resumenChofer=resumenChofer+" "+nuevo.lista.imprimir;
         }
         else{
                 System.out.println("clave no existe");
@@ -203,6 +205,8 @@ public String ResumenChoferxDia(AVLNodeChofer nuevo,int x){
     }
         return resumenChofer;
     }
+
+
 
 public void ChoferxDia(AVLNodeChofer nuevo,int x,String ruta, String nombre){
     try{    
@@ -245,7 +249,9 @@ public void generarFecha(listad lista,String ruta,String nombre){
 	    PrintWriter pw = new PrintWriter(bw);
             pw.write("digraph grafica { \n");
             pw.write("label= \" " +nombre+"\"");
-            pw.write("node [shape=record];\n");
+            pw.write(" nodesep=.05;\n");
+            pw.write(" rankdir=LR;\n");
+            pw.write(" node [shape=record,width=.1,height=.1];");
 	    pw.write("subgraph g { \n "); 
             if(aux.primero!=null){
                 
@@ -304,8 +310,8 @@ public String generarListaDia(listah lista,String cluster,String nombre){
                         while(aux.primero.next!=null){
                             auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" hora i: "+aux.primero.hora+" hora f: "+aux.primero.horaf+" \"];\n";
                             auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"[label=\" bus: "+aux.primero.next.bus+" ruta: "+aux.primero.next.ruta+" hora i: "+aux.primero.next.hora+" hora f: "+aux.primero.next.horaf+" \"];\n";
-                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"->nodehora"+cluster+"c"+conta1+";\n";
-                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"->nodehora"+cluster+"c"+conta+";\n";
+                //          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"->nodehora"+cluster+"c"+conta1+";\n";
+                //          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"->nodehora"+cluster+"c"+conta+";\n";
                             aux.primero = aux.primero.next;
                             conta=conta+1;
                             conta1=conta+1;
@@ -448,7 +454,7 @@ public void generarImagen(String nombre,String ruta) {
         }
     }
 
-public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol,String path){
+public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol, listaestacion estaciones,listar rutas,String path){
   
         try {
         //JFileChooser buscador = new JFileChooser();
@@ -468,6 +474,7 @@ public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol,
             String fecha = usuarios_import.get(5);
             int aux = Integer.parseInt(ClaveChofer);
             asignar.alta(id,ruta,aux,HorarioIni,HorarioFin,fecha);
+            estaciones.buscaInserta(rutas.PrimeraEstacion(ruta), id,ruta);
             if(lista.existe(id)==true){
                 //System.out.println("Existe "+id); 
                 //lista.ordenamiento(lista);
@@ -497,5 +504,106 @@ public void leerCSV(listasdobles lista,listasdobles asignar,AVLTreeChofer arbol,
         }
     }
 
+public void graphEstaciones(listaestacion lista,String ruta,String nombre){
+    int contador=0;        
+    int contador1=1;
+            listaestacion aux = lista;
+	    File f;
+            nodoestacion auxprimero = lista.primero;
+            nodoestacion auxultimo = lista.ultimo;
+	    FileWriter escribir;
+	    try{
+	    f = new File(ruta);
+	    escribir = new FileWriter(f);
+	    BufferedWriter bw = new BufferedWriter(escribir);
+	    PrintWriter pw = new PrintWriter(bw);
+            pw.write("digraph grafica { \n");
+            pw.write("label= \" " +nombre+"\"");
+            pw.write(" nodesep=.05;\n");
+            pw.write(" rankdir=LR;\n");
+            pw.write(" node [shape=record,width=.1,height=.1];");
+	    pw.write("subgraph g { \n "); 
+            if(aux.primero!=null){
+                
+         
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){
+                            pw.write("nodefecha"+contador+"[label=\" id: "+aux.primero.estacion+" \"];\n");
+                            pw.write("nodefecha"+contador1+"[label=\" id: "+aux.primero.next.estacion+" \"];\n");
+                            pw.write("nodefecha"+contador+"->nodefecha"+contador1+";\n");
+                            pw.write("nodefecha"+contador1+"->nodefecha"+contador+";\n");
+                            pw.write(graphBusyRuta(aux.primero.lista,Integer.toString(contador),aux.primero.estacion));
+                            pw.write(graphBusyRuta(aux.primero.next.lista,Integer.toString(contador1),aux.primero.next.estacion));
+                            
+                            aux.primero = aux.primero.next;
+                            contador=contador+1;
+                            contador1=contador1+1;
+                        }
+                    }
+                    else{
+                            pw.write("nodefecha"+contador1+"[label=\" id: "+aux.primero.estacion+" \"];\n");
+                            pw.write(graphBusyRuta(aux.primero.next.lista,Integer.toString(contador1),aux.primero.next.estacion));
+                           
+                    }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            pw.write("}\n");
+	    pw.write("}\n");
+	    pw.close();
+	    bw.close();
+            aux.primero = auxprimero;
+            aux.ultimo = auxultimo;    
+	    }
+	    catch(IOException e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+}
+
+
+public String graphBusyRuta(listabus lista,String cluster,String nombre){
+            String auxiliar="";
+            int conta= 0;
+            int conta1 = 1;
+            listabus aux = lista;
+	    File f;
+            nodobus auxprimero = lista.primero;
+            nodobus auxultimo = lista.ultimo;
+            try{
+	    auxiliar = auxiliar+"	subgraph cluster"+cluster+" { \n";
+            auxiliar = auxiliar+"label= \" " +nombre+"\"";
+            if(aux.primero!=null){
+                
+         
+                    if(aux.primero.next!=null){
+                        while(aux.primero.next!=null){
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" \"];\n";
+                            auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"[label=\" bus: "+aux.primero.next.bus+" ruta: "+aux.primero.next.ruta+" \"];\n";
+                //          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta+"->nodehora"+cluster+"c"+conta1+";\n";
+                //          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"->nodehora"+cluster+"c"+conta+";\n";
+                            aux.primero = aux.primero.next;
+                            conta=conta+1;
+                            conta1=conta+1;
+                        }
+                    }
+                    else{
+                          auxiliar=auxiliar+"nodehora"+cluster+"c"+conta1+"[label=\" bus: "+aux.primero.bus+" ruta: "+aux.primero.ruta+" \"];\n";
+                    }
+                
+            }
+            else{
+                    System.out.println("    lista vacia xd ");
+            }
+            auxiliar=auxiliar+"}\n";
+	    aux.primero = auxprimero;
+            aux.ultimo = auxultimo;
+	    }
+	    catch(Exception e){System.out.println("Error: "+e.getMessage());
+            
+            }       
+            return auxiliar;
+}
 
 }

@@ -117,4 +117,22 @@ public class listae {
            
         return aux;  
     }
+      
+    public String BuscarEstacion(String estacion){
+    String estacionsiguiente="";
+    nodoe actual;
+    actual = primero;
+    nodoe aux = primero;    
+        while(actual!=null){
+                if(actual.estacion.compareTo(estacion)==0){
+                    if(actual.next!=null){
+                        estacionsiguiente=actual.next.estacion;
+                    }
+                }
+                actual = actual.next;
+        }
+    primero = aux;
+    return estacionsiguiente;
+    }
+      
 }

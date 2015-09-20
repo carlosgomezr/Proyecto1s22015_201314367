@@ -19,6 +19,7 @@ public class listasdobles {
     public nodo primero;
     public nodo ultimo;
     public boolean flag=false;
+    public String Busespecifico="";
     public boolean estavacio()
     {
         if(primero==null) return true;
@@ -217,8 +218,8 @@ public class listasdobles {
      nodo ajm = new nodo("","",0,"","","");
      tam = lista.tamaño()+1;
      System.out.println("Tamaño ");
-         for(int i=1;i<tam;i++){
-             for(int j=1;j<tam;j++){
+         for(int i=1;i<=tam;i++){
+             for(int j=1;j<=tam;j++){
                 //if(lista.posicion(j).b.ClaveChofer>lista.posicion(j+1).b.ClaveChofer){ 
                 if(lista.posicion(j).id.compareTo(lista.posicion(i).id)>0){
                      System.out.println("entro a >");
@@ -282,27 +283,51 @@ public class listasdobles {
            
                  
     }
-      
-       public String Busespecifico(String bus)
+     public void insertarBusEspecifico(String clave,listasdobles bus)
     {
-        String conca="";
+        nodo actual;
+        actual=primero;
+        nodo aux=primero;
+        while(actual!=null)
+        {
+            if(actual.id.compareTo(clave)==0){
+                bus.alta(actual.id, actual.nombre, actual.ClaveChofer, actual.horarioIni, actual.horarioFin,actual.fecha);
+            }
+            actual=actual.next;
+        }          
+        primero=aux;
+    }
+        
+        
+       public void Busespecifico(String bus)
+    {
+        listasdobles aux = new listasdobles();
+        insertarBusEspecifico(bus, aux);
+        Funcion f = new Funcion();
+        f.generarAsignacion(aux,"\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphResumenBusEspecifico.txt");
+        f.generarImagen("graphResumenBusEspecifico","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphResumenBusEspecifico.txt");
+    }
+     
+    public String BusespecificoString(String bus)
+    {
+        Busespecifico="";
         nodo actual;
         nodo aux=primero;
         actual=primero;
         while(actual!=null)
         {
             if(actual.id.compareTo(bus)==0){
-                conca = conca + " ruta: "+actual.nombre+" Horario Inicio: "+actual.horarioIni+" Horario Fin: "+actual.horarioFin+" Fecha: "+actual.fecha+" \n";
+                Busespecifico = "\n"+Busespecifico + " ruta: "+actual.nombre+" Horario Inicio: "+actual.horarioIni+" Horario Fin: "+actual.horarioFin+" Fecha: "+actual.fecha+" \n";
             }
             
             actual=actual.next;
         }
         primero=aux;
-           return conca;
+           return Busespecifico;
         
     }
-     
-       
+   
+           
     public void busxChofer(int clave,listasdobles Chofer)
     {
         nodo actual;
@@ -361,8 +386,8 @@ public class listasdobles {
         System.out.println("BUSXCHOFER----------"+chofer);
         aux.imprimir();
         Funcion f = new Funcion();
-        f.generarListaDoble(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferxBus.txt");
-        f.generarImagen("graphBusxChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferxBus.txt");
+        f.generarListaDoble(aux,"\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferxBus.txt");
+        f.generarImagen("graphBusxChofer","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferxBus.txt");
     }
     
     public void reporteHoraxChofer(int chofer,String id){
@@ -371,8 +396,8 @@ public class listasdobles {
         System.out.println("HORARIO-------- chofer "+chofer+" bus "+id);
         aux.imprimir2();
         Funcion f = new Funcion();
-        f.generarListaDoble2(aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHoraxChofer.txt");
-        f.generarImagen("graphHoraxChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHoraxChofer.txt");
+        f.generarListaDoble2(aux,"\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHoraxChofer.txt");
+        f.generarImagen("graphHoraxChofer","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHoraxChofer.txt");
     }
     
     public void generarListaDoble(listasdobles lista,String ruta){

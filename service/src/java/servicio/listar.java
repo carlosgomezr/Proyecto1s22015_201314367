@@ -18,6 +18,7 @@ import java.io.PrintWriter;
 public class listar {
     nodor primero;
     nodor ultimo;
+    String estacion="";
     listar()
     {
         primero=null;
@@ -128,7 +129,40 @@ public class listar {
          reemplazarInsertar(ruta,estacion);
      }
      
-    } 
+    }
+    public String PrimeraEstacion(String ruta){
+    estacion="";
+    nodor actual;
+    actual = primero;
+    nodor aux = primero;    
+        while(actual!=null){
+                if(actual.ruta.compareTo(ruta)==0){
+                    estacion=actual.estacion.primero.estacion;
+                }
+                else{
+                    
+                }
+                actual = actual.next;
+        }
+    primero = aux;
+    return estacion;
+    }
+    
+    public String SiguienteEstacion(String ruta,String estacionactual){
+    estacion="";
+    nodor actual;
+    actual = primero;
+    nodor aux = primero;    
+        while(actual!=null){
+                if(actual.ruta.compareTo(ruta)==0){
+                    estacion=actual.estacion.BuscarEstacion(estacionactual);
+                }
+                actual = actual.next;
+        }
+    primero = aux;
+    return estacion;
+    }
+    
     public boolean verificar(String ruta){
     boolean flag=false;
     nodor actual;
@@ -192,6 +226,7 @@ public class listar {
         primero = auxiliar;
         return aux;      
    }
+   
      
      public void graphRuta(listar lista,String ruta,String nombre){
     int contador=0;        

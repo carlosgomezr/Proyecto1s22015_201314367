@@ -23,10 +23,11 @@ public static AVLTreeChofer chofer = new AVLTreeChofer();
 public static listar rutas = new listar();
 public static listasdobles buses = new listasdobles();
 public listasdobles asignacion = new listasdobles();
+public listaestacion estaciones = new listaestacion();
 int contadoradmin=0;
 int contadoregeneral=5;
 int user=0;
-
+String useradmin="";
     /**
      * This is a sample web service operation
      */
@@ -82,8 +83,9 @@ int user=0;
     @WebMethod(operationName = "graphAdmin")
     public String graphAdmin() {
         Funcion f = new Funcion();
-        admin.GraphAVL(admin.root,"AVL ADMIN","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphadmin.txt");
-        f.generarImagen("graphadmin","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphadmin.txt");
+        admin.GraphAVL(admin.root,"AVL ADMIN","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphadmin.txt");
+        
+        f.generarImagen("graphadmin","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphadmin.txt");
         return null;
     }
 
@@ -146,8 +148,8 @@ int user=0;
     @WebMethod(operationName = "graphEstacionClave")
     public String graphEstacionClave() {
         Funcion f = new Funcion();
-        eclave.GraphAVL(eclave.root,"AVL ESTACION CLAVE","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEC.txt");
-        f.generarImagen("graphEC","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEC.txt");
+        eclave.GraphAVL(eclave.root,"AVL ESTACION CLAVE","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEC.txt");
+        f.generarImagen("graphEC","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEC.txt");
    
     return null;
     }
@@ -160,8 +162,9 @@ int user=0;
         if((nombre!=null)&(password!=null)&(id!=null)){
         int auxid = Integer.parseInt(id);
         egeneral.insert(auxid, nombre, password);
-        }
         contadoregeneral=contadoregeneral+1;
+        }
+        
         return id+" "+nombre+" "+password+"ingresado";
     }
 
@@ -193,8 +196,8 @@ int user=0;
     @WebMethod(operationName = "graphEstacionGeneral")
     public String graphEstacionGeneral() {
         Funcion f = new Funcion();
-        egeneral.GraphAVL(egeneral.root,"AVL ESTACION GENERAL","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEG.txt");
-        f.generarImagen("graphEG","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEG.txt");
+        egeneral.GraphAVL(egeneral.root,"AVL ESTACION GENERAL","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEG.txt");
+        f.generarImagen("graphEG","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEG.txt");
         return null;
     }
 
@@ -237,8 +240,8 @@ int user=0;
     @WebMethod(operationName = "graphChofer")
     public String graphChofer() {
     Funcion f = new Funcion();
-    chofer.GraphAVL(chofer.root,"AVL CHOFER","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChofer.txt");
-    f.generarImagen("graphChofer","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChofer.txt");
+    chofer.GraphAVL(chofer.root,"AVL CHOFER","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChofer.txt");
+    f.generarImagen("graphChofer","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChofer.txt");
         return null;
     }
 
@@ -248,9 +251,15 @@ int user=0;
     @WebMethod(operationName = "insertarRuta")
     public String insertarRuta(@WebParam(name = "nombre") String nombre, @WebParam(name = "estacion") String estacion) {
     if((nombre!=null) & (estacion!=null)){
-        rutas.InsertarRuta(nombre, estacion);
+        int auxid = Integer.parseInt(estacion);
+        eclave.existe(auxid);
+        egeneral.existe(auxid);
+     //   if((eclave.flag==true)|(egeneral.flag==true)){
+            rutas.InsertarRuta(nombre, estacion);
+     //  }
+        
     }
-        return null;
+        return " ec "+eclave.flag+" eg "+egeneral.flag+" PRIMERO "+rutas.primero+" ultimo "+rutas.ultimo;
     }
 
     /**
@@ -315,8 +324,8 @@ if((id!=null)){
     public String graphBus() {
     Funcion f = new Funcion();
     buses.ordenamiento(buses);
-    f.generarListaDoble(buses,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphBus.txt");
-    f.generarImagen("graphBus","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphBus.txt");
+    f.generarListaDoble(buses,"\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphBus.txt");
+    f.generarImagen("graphBus","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphBus.txt");
     return null;
     }
 
@@ -328,6 +337,8 @@ if((id!=null)){
     public String insertarAsignacion(@WebParam(name = "id") String id, @WebParam(name = "ruta") String ruta, @WebParam(name = "claveChofer") String claveChofer, @WebParam(name = "horaini") String horaini, @WebParam(name = "horafin") String horafin, @WebParam(name = "fecha") String fecha) {
         int auxclave = Integer.parseInt(claveChofer);
         asignacion.alta(id,ruta,auxclave,horaini,horafin,fecha);
+        rutas.PrimeraEstacion(ruta);
+        estaciones.buscaInserta(rutas.PrimeraEstacion(ruta), id,ruta);
         if((id!=null) & (ruta!=null) & (claveChofer!=null) &(horaini!=null) &(horafin!=null) & (fecha!=null)){
         buses.existe(id);
         if(buses.flag==true){
@@ -383,8 +394,8 @@ if((id!=null)){
      */
     @WebMethod(operationName = "resumenBusEspecifico")
     public String resumenBusEspecifico(@WebParam(name = "idbus") String idbus) {
-    
-        return buses.Busespecifico(idbus);
+    asignacion.Busespecifico(idbus);
+        return asignacion.BusespecificoString(idbus);
     }
 
     /**
@@ -394,8 +405,8 @@ if((id!=null)){
     public String resumenChoferEspecifico(@WebParam(name = "idchofer") String idchofer) {
     int auxid = Integer.parseInt(idchofer);
     Funcion f = new Funcion();
-    f.ChoferxDia(chofer.root,auxid,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferEspecifico.txt","Chofer "+idchofer);
-    f.generarImagen("graph", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferEspecifico.txt");
+    f.ChoferxDia(chofer.root,auxid,"\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferEspecifico.txt","Chofer "+idchofer);
+    f.generarImagen("graph", "\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphChoferEspecifico.txt");
         return null;
     }
 
@@ -407,11 +418,13 @@ if((id!=null)){
     String pagina="index.jsp";
     if((usuario.compareTo("admin")==0)&(password.compareTo("admin")==0)&(tipo.compareTo("Administrador")==0)){
         pagina="menu.jsp";
+        useradmin="ADMIN";
     }
     else if(tipo.compareTo("Administrador")==0){
         admin.log(admin.root, usuario, password);
         if(admin.flag==true){
             pagina="menu.jsp";
+            useradmin=usuario;
         }
         if(admin.flag==false){
             pagina="index.jsp";
@@ -460,8 +473,10 @@ if((id!=null)){
     @WebMethod(operationName = "graphAsignacion")
     public String graphAsignacion(@WebParam(name = "parameter") String parameter) {
         Funcion f = new Funcion();
-        f.generarAsignacion(asignacion,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphAsignacion.txt");
-        f.generarImagen("graphAsignacion","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphAsignacion.txt");
+        f.generarAsignacion(asignacion,"\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphAsignacion.txt");
+        f.generarImagen("graphAsignacion","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphAsignacion.txt");
+        f.graphEstaciones(estaciones, "\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEstaciones.txt","ESTACIONES X RUTA Y BUS");
+        f.generarImagen("graphEstaciones","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphEstaciones.txt");
         return null;
     }
 
@@ -471,7 +486,7 @@ if((id!=null)){
     @WebMethod(operationName = "cargarCSV")
     public String cargarCSV(@WebParam(name = "path") String path) {
     Funcion f = new Funcion();
-    f.leerCSV(buses, asignacion, chofer,path);
+    f.leerCSV(buses, asignacion, chofer, estaciones,rutas,path);
         return null;
     }
 
@@ -480,9 +495,9 @@ if((id!=null)){
      */
     @WebMethod(operationName = "graphRuta")
     public String graphRuta(@WebParam(name = "parameter") String parameter) {
-        rutas.graphRuta(rutas,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphRuta.txt", "RUTAS");
+        rutas.graphRuta(rutas,"\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphRuta.txt", "RUTAS");
         Funcion f = new Funcion();
-        f.generarImagen("graphRuta","C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphRuta.txt");
+        f.generarImagen("graphRuta","\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphRuta.txt");
         return null;
     }
 
@@ -509,8 +524,8 @@ if((id!=null)){
     public String graphHorarioChofer(@WebParam(name = "idchofer") String idchofer) {
         Funcion f=new Funcion();
         int aux = Integer.parseInt(idchofer);
-        f.ChoferxDia(chofer.root,aux,"C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHorario.txt","Horario chofer");
-        f.generarImagen("graphHorario", "C:\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHorario.txt");
+        f.ChoferxDia(chofer.root,aux,"\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHorario.txt","Horario chofer");
+        f.generarImagen("graphHorario", "\\\\CARLOS_GOMEZ\\Users\\estua_000\\Documents\\NetBeansProjects\\cliente\\web\\graphHorario.txt");
         
         return null;
     }
@@ -524,6 +539,55 @@ if((id!=null)){
         int aux = Integer.parseInt(idchofer);
         f.ResumenChoferxDia(chofer.root,aux);
         return null;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "darAdmin")
+    public String darAdmin() {
+        //TODO write your implementation code here:
+        return useradmin;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "rutaPrimero")
+    public String rutaPrimero() {
+        //TODO write your implementation code here:
+        return " primero "+rutas.primero+" ultimo "+rutas.ultimo;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "nombreEstacion")
+    public String nombreEstacion(@WebParam(name = "posicion") String posicion) {
+        int auxposicion=Integer.parseInt(posicion);
+        estaciones.nombreposicion(auxposicion);
+        return estaciones.nombreestacion;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "tama\u00f1oEstacion")
+    public int tamañoEstacion(@WebParam(name = "estacion") String estacion) {
+      estaciones.tamaño(estacion);
+        //TODO write your implementation code here:
+        return estaciones.tamaño(estacion);
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "nombreBus")
+    public String nombreBus(@WebParam(name = "estacion") String estacion, @WebParam(name = "posicion") String posicion) {
+        int auxposicion=Integer.parseInt(estacion);
+        int auxposicion2=Integer.parseInt(posicion);
+        estaciones.nombreposicionbus(auxposicion,auxposicion2);
+        return estaciones.nombreestacion;
     }
     
 }

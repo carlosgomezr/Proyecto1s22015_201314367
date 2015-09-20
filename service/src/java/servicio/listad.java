@@ -12,6 +12,7 @@ package servicio;
 public class listad {
     nodod primero;
     nodod ultimo;
+    String imprimir="";
     listad()
     {
         primero=null;
@@ -172,7 +173,7 @@ public class listad {
     {
         nodod actual;
         nodod aux= primero;
-        String c="";
+        imprimir="";
         actual=primero;
         //System.out.println("IMPRIMIR LISTA DOBLE");
         while(actual!=null)
@@ -181,11 +182,11 @@ public class listad {
            // System.out.println("valor de actual.hora "+actual.hora);
             
             actual.hora.imprimir();
-            c = c + " fecha: "+actual.dia+"\n       - "+actual.hora.imprimir();
+            imprimir = imprimir + " fecha: "+actual.dia+"       - "+actual.hora.imprimir();
             actual=actual.next; 
         }
         primero=aux;
-     return c;  
+     return imprimir;  
    }
      
 }
